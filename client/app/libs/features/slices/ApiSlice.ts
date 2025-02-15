@@ -17,7 +17,6 @@ const axiosInstance = axios.create({
   },
 });
 
-// Custom base query with re-authentication logic using axios
 const baseQuery: BaseQueryFn<
   string | FetchArgs,
   unknown,
@@ -25,48 +24,49 @@ const baseQuery: BaseQueryFn<
   {}
 > = async (args, api, extraOptions) => {
   try {
+    // Retrieve the current accessToken from the Redux state
     const token = (api.getState() as RootState).auth.accessToken;
-    console.log("token: ", token);
-
-    // If token is available, set it in headers
     if (token) {
+      // Attach the token to every request via the Authorization header
       axiosInstance.defaults.headers["Authorization"] = `Bearer ${token}`;
     }
 
-    // Make the API request
+    // Attempt the API request
     const response = await axiosInstance({
-      ...args, // Spread the provided args
+      ...args,
       data:
-        args.method === "POST" || args.method === "PUT" ? args.body : undefined, // Send body data for POST/PUT requests
+        args.method === "POST" || args.method === "PUT" ? args.body : undefined,
     });
-
     return { data: response.data };
   } catch (error: any) {
-    // Handle 401 Unauthorized error
+    // Check if the error is due to an expired/invalid accessToken
     if (error.response && error.response.status === 401) {
-      // Token might have expired, attempt to refresh it
-      const refreshResult = await axiosInstance.get("/refresh-token");
+      try {
+        // Attempt to silently renew the accessToken via the refresh endpoint.
+        // Note: The refresh token should be sent automatically as it's stored as an HttpOnly cookie.
+        const refreshResult = await axiosInstance.get("/refresh-token");
 
-      // If refresh token is successful
-      if (refreshResult.data) {
-        // Dispatch new credentials to update the state with fresh accessToken
-        api.dispatch(setCredentials({ data: refreshResult.data }));
+        if (refreshResult.data) {
+          // Update Redux state with new credentials
+          api.dispatch(setCredentials({ data: refreshResult.data }));
 
-        // Retry the original request with the new access token
-        axiosInstance.defaults.headers[
-          "Authorization"
-        ] = `Bearer ${refreshResult.data.accessToken}`;
-        const retryResponse = await axiosInstance(args);
+          // Set the new token on the axios instance
+          axiosInstance.defaults.headers[
+            "Authorization"
+          ] = `Bearer ${refreshResult.data.accessToken}`;
 
-        return { data: retryResponse.data };
-      } else {
-        // If refresh fails, clear authentication state
+          // Retry the original request with the new token
+          const retryResponse = await axiosInstance(args);
+          return { data: retryResponse.data };
+        }
+      } catch (refreshError) {
+        // If refreshing fails, clear the auth state
         api.dispatch(clearAuthState());
         return { error: { status: 401, message: "Unauthorized" } };
       }
     }
 
-    // Handle other errors
+    // For other errors, return a general error object
     return {
       error: {
         status: error.response?.status || 500,
@@ -79,7 +79,7 @@ const baseQuery: BaseQueryFn<
 export const apiSlice = createApi({
   reducerPath: "api",
   baseQuery,
-  endpoints: () => ({}), // Keep this empty, as you're not defining specific endpoints here
+  endpoints: () => ({}),
 });
 
 export default apiSlice;

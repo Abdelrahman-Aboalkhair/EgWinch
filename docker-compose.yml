@@ -9,7 +9,7 @@ services:
     depends_on:
       - model_service
     volumes:
-      - ./server:/app # Sync code between host and container
+      - ./server:/app # Sync code your local app folder to the container
     environment:
       - MODEL_API_URL=http://model_service:5001
     command: npm start # Run the server in development mode

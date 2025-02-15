@@ -6,8 +6,7 @@ import {
 } from "../libs/features/slices/AuthSlice";
 
 const axiosInstance: AxiosInstance = axios.create({
-  baseURL:
-    process.env.NEXT_PUBLIC_API_BASE_URL || "http://localhost:5000/api/v1",
+  baseURL: "http://localhost:5000/api/v1",
   headers: {
     "Content-Type": "application/json",
   },
@@ -17,10 +16,11 @@ const axiosInstance: AxiosInstance = axios.create({
 // Request Interceptor
 axiosInstance.interceptors.request.use(
   (config: AxiosRequestConfig): AxiosRequestConfig => {
-    const token = localStorage.getItem("accessToken"); // Use the correct localStorage key
+    const token = store.getState().auth.accessToken;
     if (token && config.headers) {
       config.headers.Authorization = `Bearer ${token}`;
     }
+    config.withCredentials = true;
     return config;
   },
   (error) => {
@@ -28,36 +28,53 @@ axiosInstance.interceptors.request.use(
   }
 );
 
-// Response Interceptor
+let isRefreshing = false;
+
 axiosInstance.interceptors.response.use(
   (response: AxiosResponse): AxiosResponse => response,
   async (error) => {
-    // If the error is due to unauthorized access (token expired or invalid)
-    if (error.response && error.response.status === 401) {
-      try {
-        // Attempt to refresh the token
-        const refreshResponse = await axiosInstance.get("/refresh-token"); // Adjust endpoint as needed
+    console.log("error: ", error);
 
-        // If refresh is successful, update the store with new credentials
+    const originalRequest = error.config;
+
+    if (
+      error.response &&
+      error.response.status === 401 &&
+      !originalRequest._retry
+    ) {
+      if (isRefreshing) {
+        return Promise.reject(error);
+      }
+
+      isRefreshing = true;
+      originalRequest._retry = true; // Custom flag
+
+      try {
+        const refreshResponse = await axios.get(
+          "http://localhost:5000/api/v1/auth/refresh-token",
+          {
+            withCredentials: true,
+          }
+        );
+        console.log("refreshResponse: ", refreshResponse);
+
         if (refreshResponse.data) {
           const { user, accessToken } = refreshResponse.data;
           store.dispatch(setCredentials({ data: { user, accessToken } }));
 
-          // Store new access token in localStorage (for retrying the request)
-          localStorage.setItem("accessToken", accessToken);
+          // Update the token for the original request
+          originalRequest.headers["Authorization"] = `Bearer ${accessToken}`;
 
-          // Retry the original request with the new token
-          error.config.headers["Authorization"] = `Bearer ${accessToken}`;
-          return axiosInstance(error.config); // Retry the request with new token
+          isRefreshing = false; // Reset the flag
+          return axiosInstance(originalRequest); // Retry the failed request
         }
       } catch (refreshError) {
-        // If token refresh fails, log out the user and clear the state
         store.dispatch(clearAuthState());
-        localStorage.removeItem("accessToken");
         console.error("Token refresh failed, user logged out.");
-        // Optionally, redirect to login page
+        isRefreshing = false; // Reset even if it fails
       }
     }
+
     return Promise.reject(error);
   }
 );

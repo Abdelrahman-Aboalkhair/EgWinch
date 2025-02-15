@@ -1,6 +1,6 @@
 exports.cookieOptions = {
-  secure: process.env.NODE_ENV === "production",
-  sameSite: "none",
+  secure: false,
+  sameSite: "lax",
   httpOnly: true,
   maxAge: 24 * 60 * 60 * 1000,
 };
