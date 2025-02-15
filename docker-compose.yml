@@ -6,10 +6,12 @@ services:
       context: ./server
     ports:
       - "5000:5000" # Map host port 5000 to container port 5000
+    depends_on:
+      - model_service
     volumes:
       - ./server:/app # Sync code between host and container
     environment:
-      - NODE_ENV=development
+      - MODEL_API_URL=http://model_service:5001
     command: npm start # Run the server in development mode
 
   client:

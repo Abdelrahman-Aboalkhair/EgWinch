@@ -99,7 +99,7 @@ exports.predictMovePrice = async (req, res) => {
   try {
     // Send request to FastAPI server
     const response = await axios.post(
-      "http://localhost:8000/predict_move_price",
+      "http://model_service:5001/predict_move_price",
       {
         distance_km,
         items_count,
