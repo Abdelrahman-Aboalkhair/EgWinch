@@ -14,12 +14,11 @@ export default function StoreProvider({
 }) {
   useEffect(() => {
     const user = localStorage.getItem("user");
-    const accessToken = localStorage.getItem("accessToken");
 
     try {
-      if (user && accessToken) {
+      if (user) {
         store.dispatch(
-          setCredentials({ data: { user: JSON.parse(user), accessToken } })
+          setCredentials({ data: { user: JSON.parse(user), accessToken: "" } })
         );
       } else {
         store.dispatch(clearAuthState());

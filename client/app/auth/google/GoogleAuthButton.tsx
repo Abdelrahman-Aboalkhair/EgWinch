@@ -23,8 +23,6 @@ const CustomGoogleAuthButton = () => {
 
         dispatch(setCredentials(res));
 
-        localStorage.setItem("accessToken", res.data.accessToken);
-        localStorage.setItem("refreshToken", res.data.refreshToken);
         router.push("/");
       } catch (error) {
         console.error("Google auth failed", error);

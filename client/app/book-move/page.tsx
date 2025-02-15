@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import Input from "../components/custom/Input";
 import Map from "../components/home/Map";
@@ -7,8 +7,33 @@ import { MapPinPlus, Navigation } from "lucide-react";
 import { motion } from "framer-motion";
 import DatePicker from "../components/custom/DatePicker";
 import Dropdown from "../components/custom/Dropdown";
+import { useAppDispatch, useAppSelector } from "../libs/hooks";
+import axiosInstance from "../helpers/axiosInstance";
+import { setCredentials } from "../libs/features/slices/AuthSlice";
 
 const BookMove = () => {
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    const refreshToken = async () => {
+      try {
+        const response = await axiosInstance.get("/auth/refresh-token", {
+          withCredentials: true, // Ensure this is set
+        });
+        if (response.data) {
+          dispatch(setCredentials({ data: response.data }));
+        }
+      } catch (error) {
+        console.error("Error refreshing token:", error);
+      }
+    };
+
+    refreshToken();
+  }, [dispatch]);
+
+  const { accessToken } = useAppSelector((state) => state.auth);
+  console.log("accessToken in Home: ", accessToken);
+
   const { register, handleSubmit, control } = useForm();
   const [additionalServicesOptions, setAdditionalServicesOptions] = useState<
     string[]

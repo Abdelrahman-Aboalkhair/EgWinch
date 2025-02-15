@@ -14,20 +14,14 @@ const app = express();
 
 app.use(
   cors({
-    origin: process.env.CLIENT_URL,
-    credentials: true,
+    origin: "http://localhost:3000", // Your client URL
+    credentials: true, // Ensure this is set
   })
 );
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(morgan("dev"));
-app.use(
-  cookieParser({
-    secret: process.env.COOKIE_SECRET,
-    sameSite: "strict",
-    secure: process.env.NODE_ENV === "production",
-  })
-);
+app.use(cookieParser());
 
 app.use("/api/v1/auth", authRoutes);
 app.use("/api/v1/users", userRoutes);

@@ -97,7 +97,7 @@ userSchema.methods.generateAccessToken = function () {
     { userId: this._id, role: this.role },
     process.env.ACCESS_TOKEN_SECRET,
     {
-      expiresIn: "1h",
+      expiresIn: "15s",
     }
   );
 };

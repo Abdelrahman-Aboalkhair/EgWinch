@@ -35,9 +35,7 @@ const authSlice = createSlice({
       state.accessToken = accessToken;
       state.isLoggedIn = true;
 
-      // Store user and accessToken in localStorage
       localStorage.setItem("user", JSON.stringify(user));
-      localStorage.setItem("accessToken", accessToken || ""); // Store accessToken
     },
 
     clearAuthState: (state) => {
@@ -45,9 +43,7 @@ const authSlice = createSlice({
       state.accessToken = null;
       state.isLoggedIn = false;
 
-      // Remove user and accessToken from localStorage
       localStorage.removeItem("user");
-      localStorage.removeItem("accessToken");
     },
   },
 });

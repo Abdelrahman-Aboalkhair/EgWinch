@@ -1,11 +1,8 @@
-const bcrypt = require("bcryptjs");
 const sendEmail = require("../utils/sendEmail");
-const sendSMS = require("../utils/sendSMS");
 const cookieOptions = require("../constants/cookieOptions");
 const User = require("../models/user.model");
-const { OAuth2Client } = require("google-auth-library");
-const client = new OAuth2Client(process.env.GOOGLE_CLIENT_ID);
 const axios = require("axios");
+const jwt = require("jsonwebtoken");
 
 exports.signup = async (req, res) => {
   try {
@@ -69,6 +66,8 @@ exports.signup = async (req, res) => {
 
     res.cookie("refreshToken", refreshToken, cookieOptions);
     newUser.refreshToken.push(refreshToken);
+
+    await newUser.save();
 
     res.status(201).json({
       success: true,
@@ -156,9 +155,6 @@ exports.signin = async (req, res) => {
     }
 
     const isPasswordValid = await user.comparePassword(password);
-    console.log("Entered password:", password);
-    console.log("Hashed password:", user.password);
-    console.log("Is password valid?", isPasswordValid);
 
     if (!isPasswordValid) {
       return res.status(400).json({
@@ -172,6 +168,7 @@ exports.signin = async (req, res) => {
 
     res.cookie("refreshToken", refreshToken, cookieOptions);
     user.refreshToken.push(refreshToken);
+    await user.save();
 
     res.status(200).json({
       success: true,
@@ -213,10 +210,13 @@ exports.signout = async (req, res) => {
 
 exports.refreshToken = async (req, res) => {
   try {
-    const { refreshToken } = req.body;
+    const { refreshToken } = req?.cookies;
+    console.log("refreshToken: ", refreshToken);
+
     if (!refreshToken) {
       return res.status(401).json({ message: "Refresh token is required" });
     }
+    ("");
 
     jwt.verify(
       refreshToken,
@@ -234,6 +234,7 @@ exports.refreshToken = async (req, res) => {
         }
 
         if (!user.refreshToken.includes(refreshToken)) {
+          console.log("user.refreshToken: ", user.refreshToken);
           return res
             .status(403)
             .json({ message: "Refresh token is invalid or has been used" });
@@ -246,12 +247,12 @@ exports.refreshToken = async (req, res) => {
         const newRefreshToken = user.generateRefreshToken();
         const newAccessToken = user.generateAccessToken();
 
+        res.cookie("refreshToken", newRefreshToken, cookieOptions);
         user.refreshToken.push(newRefreshToken);
         await user.save();
 
         res.json({
           accessToken: newAccessToken,
-          refreshToken: newRefreshToken,
         });
       }
     );

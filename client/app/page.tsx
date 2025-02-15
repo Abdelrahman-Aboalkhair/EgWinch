@@ -1,6 +1,6 @@
+"use client";
 import JoinUsSection from "./components/home/JoinUsSection";
 import MainSection from "./components/home/MainSection";
-import Chat from "./components/layout/Chat";
 import { NotificationProvider } from "./context/NotificationContext";
 
 const Home = () => {
