@@ -1,123 +1,101 @@
 "use client";
-import { useState, useEffect } from "react";
-import { ArrowLeft, MessageCircleCodeIcon } from "lucide-react";
-import { motion } from "framer-motion";
-import Link from "next/link";
-import { useForm } from "react-hook-form";
-import Input from "../../components/custom/Input";
-import { useAppSelector } from "@/app/libs/hooks";
-import { useParams } from "next/navigation";
+import { useEffect, useRef, useState } from "react";
+import {
+  useGetMessagesQuery,
+  useSendMessageMutation,
+} from "../../libs/features/apis/MessageApi";
 import { io } from "socket.io-client";
-import { useGetConverstationsQuery } from "@/app/libs/features/apis/ChatApi";
+import { useParams } from "next/navigation";
+import { useAppSelector } from "@/app/libs/hooks";
+import { useForm } from "react-hook-form";
+
+interface Message {
+  _id: string;
+  senderId: string;
+  receiverId: string;
+  text: string;
+  image?: string;
+  createdAt: string;
+}
 
 const Chat = () => {
-  const {
-    data: conversations,
-    isLoading,
-    error,
-  } = useGetConverstationsQuery({});
-  const socket = io("http://localhost:5000");
-  const { user } = useAppSelector((state) => state.auth);
-  const userId = user?.id;
   const { id: driverId } = useParams();
-
-  const { register, handleSubmit, setValue, watch } = useForm();
-  const [messages, setMessages] = useState<
-    { sender: string; message: string }[]
-  >([]);
+  const { user } = useAppSelector((state) => state.auth);
+  const { data: messages } = useGetMessagesQuery(driverId);
+  const [sendMessage] = useSendMessageMutation();
+  const [chatMessages, setChatMessages] = useState<Message[]>([]);
+  const socket = useRef<any>(null);
 
   useEffect(() => {
-    if (userId && driverId) {
-      socket.emit("joinRoom", { userId, driverId });
+    socket.current = io("http://localhost:5000", {
+      query: { userId: user?.id },
+    });
 
-      socket.on("recievedMessage", (data) => {
-        setMessages((prev) => [...prev, data]);
-      });
+    socket.current.on("newMessage", (message: Message) => {
+      setChatMessages((prev) => [...prev, message]);
+    });
 
-      return () => {
-        socket.disconnect();
-      };
-    }
-  }, [driverId, userId]);
+    return () => {
+      socket.current.disconnect();
+    };
+  }, [user?.id]);
 
-  const sendMessage = (data: { message: string }) => {
-    if (userId && driverId) {
-      console.log("Sending message:", data.message);
+  useEffect(() => {
+    if (messages) setChatMessages(messages);
+  }, [messages]);
 
-      socket.emit("sendMessage", {
-        sender: userId,
-        message: data.message,
-        driverId,
-      });
+  // React Hook Form setup
+  const { register, handleSubmit, reset } = useForm();
 
-      setValue("message", "");
+  const handleSendMessage = async (data: { message: string }) => {
+    try {
+      const newMessage = await sendMessage({
+        text: data.message,
+        receiverId: driverId,
+      }).unwrap();
+
+      setChatMessages((prev) => [...prev, newMessage]);
+      reset(); // Reset input field after message is sent
+    } catch (error) {
+      console.error("Failed to send message:", error);
     }
   };
 
   return (
-    <div className="fixed bottom-4 right-4 w-full max-w-[460px]">
-      <h1 className="text-3xl font-bold text-primary text-center">Chat app</h1>
-      <div className="flex items-center justify-between p-4 bg-primary text-white rounded-t-lg cursor-pointer">
-        <span className="font-semibold">Chat with Driver</span>
-        <Link href="/chat">
-          <ArrowLeft className="w-6 h-6 text-white cursor-pointer" />
-        </Link>
-      </div>
-
-      <motion.div
-        initial={{ height: 0, opacity: 0 }}
-        animate={{ height: "400px", opacity: 1 }}
-        transition={{ duration: 0.3, ease: "easeInOut" }}
-        className="overflow-hidden bg-white border border-gray-200 shadow-lg rounded-b-lg"
-      >
-        <div className="flex items-center p-4 border-b border-gray-300 bg-white">
-          <h2 className="flex-1 text-lg font-semibold text-primary text-center">
-            Chat with Driver
-          </h2>
-        </div>
-
-        <div className="flex-1 p-4 overflow-y-auto bg-gray-100 h-[250px]">
-          {messages.map((msg, index) => (
-            <div
-              key={index}
-              className={`flex ${
-                msg.sender === userId ? "justify-end" : "justify-start"
-              } mb-2`}
-            >
-              <div
-                className={`p-3 rounded-lg shadow-md ${
-                  msg.sender === userId
-                    ? "bg-primary text-white"
-                    : "bg-white text-gray-900"
-                }`}
-              >
-                {msg.message}
-              </div>
-            </div>
-          ))}
-        </div>
-
-        <div className="flex items-center p-4 border-t border-gray-300 bg-white">
-          <form
-            onSubmit={handleSubmit(sendMessage)}
-            className="w-full flex items-center"
+    <div className="flex flex-col h-full bg-gray-100 p-4">
+      <div className="flex-1 overflow-y-auto">
+        {chatMessages.map((msg) => (
+          <div
+            key={msg._id}
+            className={`p-2 ${
+              msg.senderId === user?.id ? "text-right" : "text-left"
+            }`}
           >
-            <Input
-              name="message"
-              placeholder="Enter your message"
-              register={register}
-              className="py-[15px] text-[16px] truncate"
-              icon={MessageCircleCodeIcon}
-            />
-            <button
-              type="submit"
-              className="ml-2 p-2 bg-primary text-white rounded-full hover:opacity-90"
-            >
-              Send
-            </button>
-          </form>
-        </div>
-      </motion.div>
+            <p className="bg-blue-500 text-white inline-block rounded-lg p-2">
+              {msg.text}
+            </p>
+          </div>
+        ))}
+      </div>
+      <div className="mt-4 flex">
+        <form
+          onSubmit={handleSubmit(handleSendMessage)}
+          className="flex w-full"
+        >
+          <input
+            type="text"
+            placeholder="Type a message..."
+            className="flex-1 border p-2 rounded-lg"
+            {...register("message", { required: true })}
+          />
+          <button
+            type="submit"
+            className="ml-2 bg-blue-500 text-white px-4 py-2 rounded-lg"
+          >
+            Send
+          </button>
+        </form>
+      </div>
     </div>
   );
 };

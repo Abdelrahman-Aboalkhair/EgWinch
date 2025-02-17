@@ -1,8 +1,4 @@
-import {
-  createApi,
-  fetchBaseQuery,
-  BaseQueryFn,
-} from "@reduxjs/toolkit/query/react";
+import { createApi, BaseQueryFn } from "@reduxjs/toolkit/query/react";
 import axios from "axios";
 import { RootState } from "../../store";
 import { setCredentials, clearAuthState } from "./AuthSlice";
@@ -79,7 +75,7 @@ const baseQuery: BaseQueryFn<
 export const apiSlice = createApi({
   reducerPath: "api",
   baseQuery,
-  tagTypes: ["Drivers"],
+  tagTypes: ["Drivers", "Conversations", "Messages"],
   endpoints: () => ({}),
 });
 
