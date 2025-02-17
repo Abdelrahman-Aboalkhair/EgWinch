@@ -7,6 +7,7 @@ const authRoutes = require("./routes/auth.routes.js");
 const userRoutes = require("./routes/user.routes.js");
 const bookingRoutes = require("./routes/booking.routes.js");
 const reviewRoutes = require("./routes/review.routes.js");
+const messageRoutes = require("./routes/message.routes.js");
 
 dotenv.config();
 
@@ -27,5 +28,6 @@ app.use("/api/v1/auth", authRoutes);
 app.use("/api/v1/users", userRoutes);
 app.use("/api/v1/bookings", bookingRoutes);
 app.use("/api/v1/reviews", reviewRoutes);
+app.use("/api/v1/messages", messageRoutes);
 
 module.exports = app;

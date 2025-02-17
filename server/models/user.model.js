@@ -1,7 +1,6 @@
 const mongoose = require("mongoose");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
-const conversationSchema = require("./conversation.model");
 
 const roleEnum = {
   CUSTOMER: "customer",
@@ -74,8 +73,6 @@ const userSchema = new mongoose.Schema(
       enum: availabilityEnum,
       default: "available",
     },
-
-    conversations: [conversationSchema],
   },
   { timestamps: true }
 );
@@ -99,7 +96,7 @@ userSchema.methods.generateAccessToken = function () {
     { userId: this._id, role: this.role },
     process.env.ACCESS_TOKEN_SECRET,
     {
-      expiresIn: "15s",
+      expiresIn: "15m",
     }
   );
 };

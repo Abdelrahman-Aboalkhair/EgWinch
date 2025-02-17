@@ -37,8 +37,12 @@ const DriverSignUp = () => {
 
   const onSubmit = async (formData: InputForm) => {
     console.log("formData", formData);
+    const data = {
+      ...formData,
+      role: "driver",
+    };
     try {
-      const result = await signUp(formData);
+      const result = await signUp(data);
       dispatch(setCredentials(result));
 
       if (result.data?.success) {
