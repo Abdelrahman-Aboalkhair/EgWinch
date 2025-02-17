@@ -1,53 +1,58 @@
 "use client";
-
-import { useState, useEffect } from "react";
-import { Send, ArrowLeft, ChevronDown } from "lucide-react";
+import { useEffect, useState } from "react";
+import {
+  Send,
+  ArrowLeft,
+  ChevronDown,
+  MessageCircleCodeIcon,
+} from "lucide-react";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { initSocket } from "../../SocketClient";
+import { useForm } from "react-hook-form";
+import Input from "../custom/Input";
+import { io } from "socket.io-client";
+import { useAppSelector } from "@/app/libs/hooks";
+
+const socket = io("http://localhost:5000");
 
 const ChatComponent = ({
+  driverId,
   userId,
-  receiverId,
 }: {
+  driverId: string;
   userId: string;
-  receiverId: string;
 }) => {
+  const { register, setValue, watch } = useForm();
   const [isOpen, setIsOpen] = useState(false);
-  const [message, setMessage] = useState("");
   const [messages, setMessages] = useState<
-    { senderId: string; message: string }[]
+    { sender: string; message: string }[]
   >([]);
-  const [socket, setSocket] = useState<any>(null);
 
-  // useEffect(() => {
-  //   const socketInstance = initSocket(userId);
-  //   setSocket(socketInstance);
+  useEffect(() => {
+    const roomId = [userId, driverId].sort().join("_");
+    console.log("roomId: ", roomId);
+    socket.emit("joinRoom", { userId, driverId });
 
-  //   // Listen for incoming messages
-  //   socketInstance.on("newMessage", (newMessage) => {
-  //     console.log("Received new message:", newMessage);
-  //     setMessages((prevMessages) => [...prevMessages, newMessage]);
-  //   });
+    socket.on("receiveMessage", (message) => {
+      setMessages((prev) => [...prev, message]);
+    });
 
-  //   return () => {
-  //     socketInstance.off("newMessage");
-  //   };
-  // }, [userId]);
+    return () => {
+      socket.disconnect();
+    };
+  }, [userId, driverId]);
 
-  // const sendMessage = async () => {
-  //   if (!message.trim()) return;
-
-  //   const newMessage = { senderId: userId, receiverId, message };
-
-  //   // Emit the message via Socket.io
-  //   socket.emit("sendMessage", newMessage);
-
-  //   // Optimistically update UI
-  //   setMessages((prevMessages) => [...prevMessages, newMessage]);
-
-  //   setMessage("");
-  // };
+  const messageInput = watch("message");
+  const sendMessage = () => {
+    const roomId = [userId, driverId].sort().join("_");
+    socket.emit("sendMessage", {
+      roomId,
+      sender: userId,
+      message: messageInput,
+    });
+    setMessages((prev) => [...prev, { sender: userId, message: messageInput }]);
+    setValue("message", "");
+  };
 
   return (
     <div className="fixed bottom-4 right-4 w-full max-w-[460px]">
@@ -100,17 +105,19 @@ const ChatComponent = ({
           ))}
         </div>
 
-        {/* Chat Input */}
         <div className="flex items-center p-4 border-t border-gray-300 bg-white">
-          <input
-            type="text"
-            placeholder="Type a message..."
-            value={message}
-            onChange={(e) => setMessage(e.target.value)}
-            className="flex-1 p-2 border rounded-lg focus:outline-none focus:ring-[1.5px] focus:ring-primary"
+          <Input
+            name="message"
+            placeholder="Enter your message"
+            register={register}
+            className="py-[15px] text-[16px] truncate"
+            icon={MessageCircleCodeIcon}
           />
-          <button className="ml-2 p-2 bg-primary text-white rounded-full hover:opacity-90">
-            <Send className="w-5 h-5" />
+          <button
+            onClick={sendMessage}
+            className="ml-2 p-2 bg-primary text-white rounded-full hover:opacity-90"
+          >
+            Send
           </button>
         </div>
       </motion.div>

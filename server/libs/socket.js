@@ -1,6 +1,7 @@
 const { Server } = require("socket.io");
 const User = require("../models/user.model");
 const Booking = require("../models/booking.model");
+const Conversation = require("../models//conversation.model");
 
 let io;
 
@@ -12,19 +13,31 @@ const initializeSocket = (server) => {
     },
   });
 
-  const userSocketMap = {};
-
   io.on("connection", (socket) => {
     console.log("user connected", socket.id);
 
-    const userId = socket.handshake.query.userId;
+    socket.on("joinRoom", ({ userId, driverId }) => {
+      const roomId = [userId, driverId].sort().join("_");
+      console.log("roomId: ", roomId);
+      socket.join(roomId);
+    });
 
-    // Register the user with their socket ID
-    if (userId && userId !== "undefined") {
-      userSocketMap[userId] = socket.id;
-    }
+    socket.on("sendMessage", async ({ roomId, sender, message }) => {
+      const conversation = await Conversation.findOneAndUpdate(
+        { participants: { $all: roomId.split("_") } },
+        { $push: { messages: { sender, message } } },
+        { new: true, upsert: true }
+      );
 
-    // Handle location updates from the driver
+      if (!conversation) {
+        return console.log("conversation not found");
+      }
+
+      await conversation.save();
+
+      io.to(roomId).emit("receiveMessage", { sender, message });
+    });
+
     socket.on("updateLocation", async ({ driverId, latitude, longitude }) => {
       await User.findByIdAndUpdate(driverId, {
         location: {
@@ -45,38 +58,8 @@ const initializeSocket = (server) => {
       }
     });
 
-    // Handle phone call offers (initiating a call)
-    socket.on("offer", (data) => {
-      const { userId, offer } = data;
-      const receiverSocketId = userSocketMap[userId]; // get the receiver's socket ID from the map
-      if (receiverSocketId) {
-        io.to(receiverSocketId).emit("offer", offer); // Send the offer to the receiver
-      }
-    });
-
-    // Handle phone call answers (responding to a call)
-    socket.on("answer", (data) => {
-      const { userId, answer } = data;
-      const receiverSocketId = userSocketMap[userId];
-      if (receiverSocketId) {
-        io.to(receiverSocketId).emit("answer", answer); // Send the answer back to the caller
-      }
-    });
-
-    // Handle ICE candidates (exchange of network information)
-    socket.on("candidate", (data) => {
-      const { userId, candidate } = data;
-      const receiverSocketId = userSocketMap[userId];
-      if (receiverSocketId) {
-        io.to(receiverSocketId).emit("candidate", candidate); // Send the ICE candidate to the receiver
-      }
-    });
-
-    // Clean up when the user disconnects
     socket.on("disconnect", () => {
       console.log("user disconnected", socket.id);
-      delete userSocketMap[userId]; // Remove user from the map
-      io.emit("getOnlineUsers", Object.keys(userSocketMap)); // Emit the updated list of online users
     });
   });
 };
