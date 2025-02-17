@@ -99,6 +99,13 @@ const Navbar = () => {
                   Profile
                 </Link>
                 <Link
+                  href="/drivers"
+                  className="block px-4 py-2 hover:bg-gray-200"
+                  onClick={closeMenu}
+                >
+                  Avaliable drivers
+                </Link>
+                <Link
                   href="/bookings"
                   className="block px-4 py-2 hover:bg-gray-200"
                   onClick={closeMenu}

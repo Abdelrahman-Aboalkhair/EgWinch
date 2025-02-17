@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const messageSchema = require("./message.model");
 
 const conversationSchema = new mongoose.Schema(
   {
@@ -8,27 +9,9 @@ const conversationSchema = new mongoose.Schema(
         ref: "User",
       },
     ],
-    messages: [
-      {
-        sender: {
-          type: mongoose.Schema.Types.ObjectId,
-          ref: "User",
-          required: true,
-        },
-        message: {
-          type: String,
-          required: true,
-        },
-        createdAt: {
-          type: Date,
-          default: Date.now,
-        },
-      },
-    ],
+    messages: [messageSchema],
   },
   { timestamps: true }
 );
 
-const Conversation = mongoose.model("Conversation", conversationSchema);
-
-module.exports = Conversation;
+module.exports = conversationSchema;

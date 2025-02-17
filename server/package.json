@@ -24,6 +24,7 @@
     "eslint": "^9.19.0",
     "express": "^4.21.2",
     "google-auth-library": "^9.15.1",
+    "http": "^0.0.1-security",
     "jest": "^29.7.0",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.9.7",
