@@ -2,7 +2,8 @@
   "scripts": {
     "start": "nodemon server.js",
     "lint": "eslint .",
-    "test": "jest --forceExit"
+    "test": "jest --forceExit",
+    "seed": "node scripts/seed.js"
   },
   "jest": {
     "testEnvironment": "node",
@@ -26,6 +27,7 @@
     "jest": "^29.7.0",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.9.7",
+    "mongoose-seed": "^0.6.0",
     "morgan": "^1.10.0",
     "multer": "^1.4.5-lts.1",
     "nodemailer": "^6.10.0",
