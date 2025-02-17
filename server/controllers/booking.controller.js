@@ -1,6 +1,5 @@
 const Booking = require("../models/booking.model");
 const User = require("../models/user.model");
-const { getSocketInstance } = require("../libs/socket");
 const axios = require("axios");
 
 exports.createBooking = async (req, res) => {
@@ -63,14 +62,6 @@ exports.createBooking = async (req, res) => {
     ]);
 
     console.log("nearbyDrivers: ", nearbyDrivers);
-
-    const io = getSocketInstance();
-
-    if (nearbyDrivers.length > 0) {
-      nearbyDrivers.forEach((driver) => {
-        io.to(driver._id.toString()).emit("newBookingRequest", { booking });
-      });
-    }
 
     res.status(201).json({
       success: true,
@@ -149,14 +140,6 @@ exports.createOffer = async (req, res) => {
     booking.offers.push(offer);
     await booking.save();
 
-    const io = getSocketInstance();
-
-    // Notify the client about the new offer
-    io.to(booking.customer.toString()).emit("newOffer", {
-      message: "You have a new offer",
-      offer,
-    });
-
     res.status(200).json({
       success: true,
       message: "Offer sent successfully",
@@ -176,7 +159,6 @@ exports.updateBooking = async (req, res) => {
     const { id: bookingId } = req.params;
     const { status, totalPrice, driver, paymentStatus, driverId, action } =
       req.body;
-    const io = getSocketInstance();
 
     let booking = await Booking.findById(bookingId);
 
@@ -229,22 +211,11 @@ exports.updateBooking = async (req, res) => {
         booking.totalPrice = selectedOffer.price;
         booking.paymentStatus = "pending";
         booking.status = "in-progress";
-
-        // Notify the driver
-        io.to(driverId.toString()).emit("offerAccepted", {
-          message: "Your offer was accepted!",
-          booking,
-        });
       } else {
         selectedOffer.status = "declined";
       }
 
       await booking.save();
-
-      io.to(driverId.toString()).emit(
-        action === "accept" ? "offerAccepted" : "offerDeclined",
-        { message: `Your offer was ${action}ed!`, booking }
-      );
 
       return res.status(200).json({
         success: true,

@@ -79,6 +79,7 @@ const baseQuery: BaseQueryFn<
 export const apiSlice = createApi({
   reducerPath: "api",
   baseQuery,
+  tagTypes: ["Drivers"],
   endpoints: () => ({}),
 });
 

@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
+const conversationSchema = require("./conversation.model");
 
 const roleEnum = {
   CUSTOMER: "customer",
@@ -12,7 +13,6 @@ const availabilityEnum = ["available", "unavailable"];
 
 const userSchema = new mongoose.Schema(
   {
-    /*** Basic User Information ***/
     name: {
       type: String,
       required: true,
@@ -74,6 +74,8 @@ const userSchema = new mongoose.Schema(
       enum: availabilityEnum,
       default: "available",
     },
+
+    conversations: [conversationSchema],
   },
   { timestamps: true }
 );

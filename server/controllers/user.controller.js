@@ -1,15 +1,17 @@
 const User = require("../models/user.model");
 
 exports.getAllUsers = async (req, res) => {
-  const { page = 1, limit = 10 } = req.query;
+  const { page = 1, limit = 10, role } = req.query;
 
   try {
     const pageNum = parseInt(page) || 1;
     const limitNum = parseInt(limit) || 10;
     const skip = (pageNum - 1) * limitNum;
-    const users = await User.find().skip(skip).limit(limitNum);
+    const filter = role ? { role } : {};
 
-    const totalUsers = await User.countDocuments();
+    const users = await User.find(filter).skip(skip).limit(limitNum);
+
+    const totalUsers = await User.countDocuments(filter);
 
     res.status(200).json({
       success: true,
