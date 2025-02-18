@@ -1,16 +1,8 @@
 const express = require("express");
 const router = express.Router();
-
+const { getMessages } = require("../controllers/message.controller.");
 const { isLoggedIn } = require("../middlewares/auth.middleware");
-const {
-  getUsersForSidebar,
-  getMessages,
-  sendMessage,
-} = require("../controllers/message.controller.");
 
-router.get("/users", isLoggedIn, getUsersForSidebar);
-router.get("/:id", isLoggedIn, getMessages);
-
-router.post("/send/:id", isLoggedIn, sendMessage);
+router.get("/:conversationId", isLoggedIn, getMessages);
 
 module.exports = router;

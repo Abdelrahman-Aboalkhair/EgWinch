@@ -103,7 +103,7 @@ const Navbar = () => {
                   className="block px-4 py-2 hover:bg-gray-200"
                   onClick={closeMenu}
                 >
-                  Avaliable drivers
+                  Avaliable {user?.role === "driver" ? "Customers" : "Drivers"}
                 </Link>
                 <Link
                   href="/bookings"
