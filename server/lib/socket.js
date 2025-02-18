@@ -20,11 +20,6 @@ const createSocketServer = (server) => {
     socket.on(
       "send_message",
       async ({ conversationId, senderId, receiverId, content }, callback) => {
-        console.log("content: ", content);
-        console.log("senderId: ", senderId);
-        console.log("receiverId: ", receiverId);
-        console.log("conversationId: ", conversationId);
-
         try {
           let conversation;
 
@@ -55,6 +50,11 @@ const createSocketServer = (server) => {
             updatedAt: Date.now(),
           });
 
+          // Update unread count for the receiver (not sender)
+          const unreadCount = conversation.unreadCount.get(receiverId) || 0;
+          conversation.unreadCount.set(receiverId, unreadCount + 1);
+          await conversation.save();
+
           // Join the socket to the conversation room if it's new
           if (!conversationId) {
             socket.join(conversationId);
@@ -75,6 +75,38 @@ const createSocketServer = (server) => {
         }
       }
     );
+
+    socket.on("mark_as_read", async (conversationId, userId) => {
+      try {
+        // Find all unread messages for the conversation
+        const unreadMessages = await Message.find({
+          conversation: conversationId,
+          isRead: false,
+        });
+
+        // Update all unread messages to be read
+        await Message.updateMany(
+          { _id: { $in: unreadMessages.map((msg) => msg._id) } }, // $in operator to match multiple IDs
+          { $set: { isRead: true } }
+        );
+
+        // Update the unreadCount in the conversation
+        const conversation = await Conversation.findById(conversationId);
+        const unreadCount = conversation.unreadCount.get(userId) || 0;
+        if (unreadCount > 0) {
+          conversation.unreadCount.set(userId, 0); // Reset unread count to 0 for the user
+          await conversation.save();
+        }
+
+        // Emit an event to update the UI (optional)
+        io.to(conversationId).emit("update_unread_count", {
+          userId,
+          unreadCount: 0,
+        });
+      } catch (error) {
+        console.log("Error in mark_as_read:", error);
+      }
+    });
 
     socket.on("disconnect", () => {
       console.log("A user disconnected", socket.id);
