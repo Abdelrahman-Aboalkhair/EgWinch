@@ -112,13 +112,7 @@ const Navbar = () => {
                 >
                   Bookings
                 </Link>
-                <Link
-                  href="/conversations"
-                  className="block px-4 py-2 hover:bg-gray-200"
-                  onClick={closeMenu}
-                >
-                  Conversations
-                </Link>
+
                 <button
                   onClick={() => {
                     handleSignOut();
