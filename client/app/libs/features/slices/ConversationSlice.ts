@@ -6,7 +6,6 @@ interface Message {
   sender: string;
   content: string;
   isRead: boolean;
-  timestamp: string;
 }
 
 interface Conversation {
@@ -14,17 +13,17 @@ interface Conversation {
   participants: string[];
   messages: Message[];
   lastMessage?: Message;
-  unreadCount: Record<string, number>;
+  unreadCount: Record<string, number>; // { userId: count }
 }
 
 interface ConversationState {
   conversations: Conversation[];
-  activeConversationId: string | null; // Track active conversation
+  activeConversation: Conversation | null;
 }
 
 const initialState: ConversationState = {
   conversations: [],
-  activeConversationId: null,
+  activeConversation: null,
 };
 
 const conversationSlice = createSlice({
@@ -35,24 +34,31 @@ const conversationSlice = createSlice({
       state.conversations = action.payload;
     },
 
-    addMessageToConversation: (
+    sendMessage: (
       state,
-      action: PayloadAction<{ conversationId: string; message: Message }>
+      action: PayloadAction<{
+        conversationId: string;
+        content: string;
+        receiverId: string;
+        senderId: string;
+      }>
     ) => {
-      const { conversationId, message } = action.payload;
-      const conversation = state.conversations.find(
-        (conv) => conv._id === conversationId
-      );
+      const { conversationId, content, receiverId, senderId } = action.payload;
+      const messageData = {
+        conversationId,
+        content,
+        sender: senderId,
+        receiver: receiverId,
+      };
+      if (state.activeConversation) {
+        state.activeConversation.messages.push(messageData);
+        state.activeConversation.lastMessage = messageData;
 
-      if (conversation) {
-        conversation.messages.push(message);
-        conversation.lastMessage = message;
-
-        // Increment unread count for all participants except sender
-        conversation.participants.forEach((userId) => {
-          if (userId !== message.sender) {
-            conversation.unreadCount[userId] =
-              (conversation.unreadCount[userId] || 0) + 1;
+        // Increment unread count for other participants
+        state.activeConversation.participants.forEach((userId) => {
+          if (userId !== senderId) {
+            state.activeConversation.unreadCount[userId] =
+              (state.activeConversation.unreadCount[userId] || 0) + 1;
           }
         });
       }
@@ -67,12 +73,11 @@ const conversationSlice = createSlice({
       }>
     ) => {
       const { conversationId, userId, count } = action.payload;
-      const conversation = state.conversations.find(
-        (conv) => conv._id === conversationId
-      );
-
-      if (conversation) {
-        conversation.unreadCount[userId] = count;
+      if (
+        state.activeConversation &&
+        state.activeConversation._id === conversationId
+      ) {
+        state.activeConversation.unreadCount[userId] = count;
       }
     },
 
@@ -97,16 +102,15 @@ const conversationSlice = createSlice({
       }
     },
 
-    // ✅ New action to set the active conversation
     setActiveConversation: (state, action: PayloadAction<string | null>) => {
-      state.activeConversationId = action.payload;
+      state.activeConversation = action.payload;
     },
   },
 });
 
 export const {
   setConversations,
-  addMessageToConversation,
+  sendMessage,
   updateUnreadCount,
   markMessagesAsRead,
   setActiveConversation,
