@@ -60,11 +60,13 @@ const Conversations = () => {
     };
   }, [activeConversation, dispatch]);
 
+  const receiver = activeConversation?.participants.find((p) => p !== userId);
+
   const handleSendMessage = async (data) => {
     if (data.message.trim() && user && activeConversation) {
       const messageData = {
         senderId: userId,
-        receiverId: activeConversation.participants.find((p) => p !== userId),
+        receiverId: receiver._id,
         conversationId: activeConversation._id,
         content: data.message,
       };
@@ -116,7 +118,10 @@ const Conversations = () => {
         )}
       </AnimatePresence>
       {activeConversation && (
-        <div className="fixed bottom-16 right-6 w-[400px] bg-white rounded-lg shadow-lg overflow-hidden border border-gray-200 flex flex-col max-h-[500px]">
+        <div
+          key={activeConversation._id}
+          className="fixed bottom-16 right-6 w-[400px] bg-white rounded-lg shadow-lg overflow-hidden border border-gray-200 flex flex-col max-h-[500px]"
+        >
           {/* Chat Header */}
           <div className="flex items-center justify-between p-3 border-b border-gray-200 bg-white">
             <div className="flex items-center gap-2">
