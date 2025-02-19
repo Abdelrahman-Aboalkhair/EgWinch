@@ -6,6 +6,7 @@ interface Message {
   sender: string;
   content: string;
   isRead: boolean;
+  createdAt: string;
 }
 
 interface Conversation {
