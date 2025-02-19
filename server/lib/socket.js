@@ -20,6 +20,12 @@ const createSocketServer = (server) => {
     socket.on(
       "send_message",
       async ({ conversationId, senderId, receiverId, content }, callback) => {
+        console.log("send_message: ", {
+          conversationId,
+          senderId,
+          receiverId,
+          content,
+        });
         try {
           let conversation;
 
@@ -76,38 +82,52 @@ const createSocketServer = (server) => {
       }
     );
 
-    socket.on("mark_as_read", async (conversationId, userId) => {
+    socket.on("mark_as_read", async (conversationId, userId, callback) => {
       try {
-        // Find all unread messages for the conversation
+        if (!conversationId || !userId) {
+          throw new Error("Missing required parameters");
+        }
+
+        const conversation = await Conversation.findById(conversationId);
+        if (!conversation) {
+          throw new Error("Conversation not found");
+        }
+
+        if (!conversation.participants.includes(userId)) {
+          throw new Error("User is not a participant in this conversation");
+        }
+
         const unreadMessages = await Message.find({
           conversation: conversationId,
+          sender: { $ne: userId },
           isRead: false,
         });
 
-        // Update all unread messages to be read
-        await Message.updateMany(
-          { _id: { $in: unreadMessages.map((msg) => msg._id) } }, // $in operator to match multiple IDs
-          { $set: { isRead: true } }
-        );
+        if (unreadMessages.length > 0) {
+          await Message.updateMany(
+            { _id: { $in: unreadMessages.map((msg) => msg._id) } },
+            { $set: { isRead: true } }
+          );
 
-        // Update the unreadCount in the conversation
-        const conversation = await Conversation.findById(conversationId);
-        const unreadCount = conversation.unreadCount.get(userId) || 0;
-        if (unreadCount > 0) {
-          conversation.unreadCount.set(userId, 0); // Reset unread count to 0 for the user
+          conversation.unreadCount.set(userId, 0);
           await conversation.save();
+
+          io.to(conversationId).emit("update_unread_count", {
+            userId,
+            unreadCount: 0,
+          });
         }
 
-        // Emit an event to update the UI (optional)
-        io.to(conversationId).emit("update_unread_count", {
-          userId,
-          unreadCount: 0,
-        });
+        if (callback) {
+          callback({ status: "ok" });
+        }
       } catch (error) {
-        console.log("Error in mark_as_read:", error);
+        console.error("Error in mark_as_read:", error);
+        if (callback) {
+          callback({ status: "error", error: error.message });
+        }
       }
     });
-
     socket.on("disconnect", () => {
       console.log("A user disconnected", socket.id);
     });

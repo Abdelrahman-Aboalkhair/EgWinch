@@ -21,7 +21,7 @@ const CustomGoogleAuthButton = () => {
         });
         console.log("User authenticated:", res.data);
 
-        dispatch(setCredentials(res));
+        dispatch(setCredentials(res.data));
 
         router.push("/");
       } catch (error) {
