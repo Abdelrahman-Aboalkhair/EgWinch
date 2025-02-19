@@ -6,7 +6,7 @@ import conversationReducer from "./features/slices/ConversationSlice";
 export const store = configureStore({
   reducer: {
     auth: authReducer,
-    conversation: conversationReducer,
+    conversations: conversationReducer,
     [authApi.reducerPath]: authApi.reducer,
   },
   middleware: (getDefaultMiddleware) =>
