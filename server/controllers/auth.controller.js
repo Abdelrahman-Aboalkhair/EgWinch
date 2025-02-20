@@ -210,56 +210,74 @@ exports.signout = async (req, res) => {
 
 exports.refreshToken = async (req, res) => {
   try {
-    const { refreshToken } = req?.cookies;
+    const refreshToken = req?.cookies?.refreshToken;
     console.log("refreshToken: ", refreshToken);
 
     if (!refreshToken) {
-      return res.status(401).json({ message: "Refresh token is required" });
+      return res.status(401).json({
+        success: false,
+        message: "Refresh token is required",
+      });
     }
-    ("");
 
     jwt.verify(
       refreshToken,
       process.env.REFRESH_TOKEN_SECRET,
       async (err, decoded) => {
         if (err) {
-          return res
-            .status(403)
-            .json({ message: "Invalid or expired refresh token" });
+          return res.status(403).json({
+            success: false,
+            message: "Invalid or expired refresh token",
+          });
         }
 
         const user = await User.findById(decoded.userId);
         if (!user) {
-          return res.status(404).json({ message: "User not found" });
+          return res.status(404).json({
+            success: false,
+            message: "User not found",
+          });
         }
 
         if (!user.refreshToken.includes(refreshToken)) {
-          console.log("user.refreshToken: ", user.refreshToken);
-          return res
-            .status(403)
-            .json({ message: "Refresh token is invalid or has been used" });
+          return res.status(403).json({
+            success: false,
+            message: "Refresh token is invalid or has been used",
+          });
         }
 
+        // Remove the old refresh token
         user.refreshToken = user.refreshToken.filter(
           (token) => token !== refreshToken
         );
 
-        const newRefreshToken = user.generateRefreshToken();
-        const newAccessToken = user.generateAccessToken();
+        const newRefreshToken = await user.generateRefreshToken();
+        const newAccessToken = await user.generateAccessToken();
 
         res.cookie("refreshToken", newRefreshToken, cookieOptions);
         user.refreshToken.push(newRefreshToken);
         await user.save();
 
-        res.json({
+        res.status(200).json({
+          success: true,
           accessToken: newAccessToken,
+          user: {
+            _id: user._id,
+            name: user.name,
+            email: user.email,
+            role: user.role,
+            isEmailVerified: user.isEmailVerified,
+            profilePicture: user.profilePicture,
+          },
         });
       }
     );
   } catch (error) {
-    res
-      .status(500)
-      .json({ message: "Internal server error", error: error.message });
+    res.status(500).json({
+      success: false,
+      message: "Internal server error",
+      error: error.message,
+    });
   }
 };
 
@@ -293,8 +311,9 @@ exports.googleAuth = async (req, res) => {
       await user.save();
     }
 
-    const accessToken = user.generateAccessToken();
-    const refreshToken = user.generateRefreshToken();
+    const accessToken = await user.generateAccessToken();
+    const refreshToken = await user.generateRefreshToken();
+    res.cookie("refreshToken", refreshToken, cookieOptions);
 
     user.refreshToken.push(refreshToken);
     await user.save();

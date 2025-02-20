@@ -1,5 +1,5 @@
 import { apiSlice } from "../slices/ApiSlice";
-import { User } from "../slices/AuthSlice";
+import { clearAuthState, setCredentials, User } from "../slices/AuthSlice";
 
 export const authApi = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
@@ -30,6 +30,23 @@ export const authApi = apiSlice.injectEndpoints({
       }),
     }),
 
+    validateSession: builder.query<{ user: User; accessToken: string }, void>({
+      query: () => ({
+        url: "/auth/refresh-token",
+        method: "GET",
+      }),
+      async onQueryStarted(arg, { dispatch, queryFulfilled }) {
+        try {
+          const { data } = await queryFulfilled;
+          console.log("data from validate session: ", data);
+          dispatch(setCredentials(data));
+        } catch (error) {
+          console.error("Session validation failed:", error);
+          dispatch(clearAuthState());
+        }
+      },
+    }),
+
     verifyEmail: builder.mutation<void, { emailVerificationToken: string }>({
       query: ({ emailVerificationToken }) => {
         return {
@@ -50,4 +67,5 @@ export const {
   useSignUpMutation,
   useSignOutMutation,
   useVerifyEmailMutation,
+  useValidateSessionQuery,
 } = authApi;
