@@ -5,16 +5,8 @@ import {
   useGetBookingsQuery,
 } from "@/app/libs/features/apis/BookingApi";
 import { useState } from "react";
-import {
-  Loader2,
-  Eye,
-  XCircle,
-  Search,
-  DollarSign,
-  Check,
-  BadgeCent,
-} from "lucide-react";
-import { motion } from "framer-motion";
+import { Loader2, XCircle, Search, Check, ChevronDown } from "lucide-react";
+import { AnimatePresence, motion } from "framer-motion";
 import { useAppSelector } from "@/app/libs/hooks";
 
 const ManageBookings = () => {
@@ -102,13 +94,16 @@ const ManageBookings = () => {
                         <td className="td">
                           {new Date(booking.moveDate).toLocaleDateString()}
                         </td>
-                        <td
-                          className={`td font-bold ${getStatusColor(
-                            booking.status
-                          )}`}
-                        >
-                          {booking.status}
+                        <td className="td">
+                          <span
+                            className={`px-[10px] py-[6px] rounded-md text-white ${getStatusColor(
+                              booking.status
+                            )}`}
+                          >
+                            {booking.status}
+                          </span>
                         </td>
+
                         <td className="td">
                           {booking.totalPrice
                             ? `$${booking.totalPrice}`
@@ -159,7 +154,7 @@ const ManageBookings = () => {
                               </button>
                             ))}
                           <button
-                            className="text-blue-500 hover:text-blue-700"
+                            className="flex items-center gap-2"
                             onClick={() =>
                               setExpandedBookingId(
                                 expandedBookingId === booking._id
@@ -168,19 +163,28 @@ const ManageBookings = () => {
                               )
                             }
                           >
-                            <BadgeCent size={18} />
+                            Offers
+                            <motion.div
+                              animate={{
+                                rotate:
+                                  expandedBookingId === booking._id ? 180 : 0,
+                              }}
+                              transition={{ duration: 0.2, ease: "easeInOut" }}
+                            >
+                              <ChevronDown size={18} />
+                            </motion.div>
                           </button>
                         </td>
                       </tr>
-                      {expandedBookingId === booking._id && (
-                        <>
-                          {console.log(
-                            "Expanded booking ID:",
-                            expandedBookingId,
-                            "Offers:",
-                            booking.offers
-                          )}
-                          <tr>
+                      <AnimatePresence>
+                        {expandedBookingId === booking._id && (
+                          <motion.tr
+                            key={booking._id}
+                            initial={{ opacity: 0, y: -10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: -10 }}
+                            transition={{ duration: 0.2, ease: "easeInOut" }}
+                          >
                             <td colSpan={7} className="p-4 bg-gray-100">
                               <strong>Offers:</strong>
                               {booking.offers?.length > 0 ? (
@@ -190,8 +194,8 @@ const ManageBookings = () => {
                                       key={offer._id}
                                       className="text-gray-700 flex items-center gap-2 space-y-2"
                                     >
-                                      <span>${offer.price}</span> -
-                                      <span>{offer.driver}</span> -
+                                      <span>${offer.price}</span> -{" "}
+                                      <span>{offer.driver}</span> -{" "}
                                       <span
                                         className={`px-2 py-1 rounded text-xs font-semibold ${
                                           offer.status === "pending"
@@ -214,9 +218,9 @@ const ManageBookings = () => {
                                 </p>
                               )}
                             </td>
-                          </tr>
-                        </>
-                      )}
+                          </motion.tr>
+                        )}
+                      </AnimatePresence>
                     </>
                   ))
                 ) : (

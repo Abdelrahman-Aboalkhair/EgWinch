@@ -272,6 +272,7 @@ exports.getBookings = async (req, res) => {
     if (id) {
       filter = { $or: [{ customer: userId }, { driver: userId }] };
     }
+
     const totalBookings = await Booking.countDocuments(filter);
     const bookings = await Booking.find(filter)
       .populate("customer driver", "name")
@@ -279,10 +280,16 @@ exports.getBookings = async (req, res) => {
       .skip((page - 1) * limit)
       .limit(limit);
 
+    const totalOffers = bookings.reduce(
+      (sum, booking) => sum + (booking.offers?.length || 0),
+      0
+    );
+
     res.status(200).json({
       success: true,
       message: "Bookings retrieved successfully",
       totalBookings,
+      totalOffers,
       currentPage: page,
       totalPages: Math.ceil(totalBookings / limit),
       bookings,

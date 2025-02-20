@@ -19,11 +19,20 @@ export const userApi = apiSlice.injectEndpoints({
         url: "/users/me",
       }),
     }),
+
+    createAdmin: builder.mutation({
+      query: (data) => ({
+        url: "/users",
+        method: "POST",
+        body: data,
+      }),
+    }),
   }),
 });
 
 export const {
   useGetAllDriversQuery,
+  useCreateAdminMutation,
   useGetProfileQuery,
   useGetAllUsersQuery,
 } = userApi;
