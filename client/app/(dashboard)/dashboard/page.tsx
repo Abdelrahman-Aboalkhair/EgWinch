@@ -1,5 +1,4 @@
-import React from "react";
-
+"use client";
 const Dashboard = () => {
   return <div>Dashboard</div>;
 };

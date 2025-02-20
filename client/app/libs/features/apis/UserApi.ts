@@ -8,7 +8,22 @@ export const userApi = apiSlice.injectEndpoints({
       }),
       providesTags: ["Drivers"],
     }),
+
+    getAllUsers: builder.query({
+      query: () => ({
+        url: "/users",
+      }),
+    }),
+    getProfile: builder.query({
+      query: () => ({
+        url: "/users/me",
+      }),
+    }),
   }),
 });
 
-export const { useGetAllDriversQuery } = userApi;
+export const {
+  useGetAllDriversQuery,
+  useGetProfileQuery,
+  useGetAllUsersQuery,
+} = userApi;

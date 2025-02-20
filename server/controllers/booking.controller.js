@@ -107,6 +107,14 @@ exports.predictMovePrice = async (req, res) => {
 exports.createOffer = async (req, res) => {
   try {
     const { price } = req.body;
+    console.log("price: ", price);
+    console.log("req.body: ", req.body);
+    if (!price) {
+      return res.status(400).json({
+        success: false,
+        message: "Price is required",
+      });
+    }
     const { bookingId } = req.params;
 
     const booking = await Booking.findById(bookingId);
@@ -278,46 +286,6 @@ exports.getBookings = async (req, res) => {
       currentPage: page,
       totalPages: Math.ceil(totalBookings / limit),
       bookings,
-    });
-  } catch (error) {
-    res.status(500).json({
-      success: false,
-      message: "An error occurred",
-      error: error.message,
-    });
-  }
-};
-exports.getOffers = async (req, res) => {
-  try {
-    const userId = req.user.userId;
-    const userRole = req.user.role;
-
-    let filter = {};
-
-    if (userRole === "customer") {
-      filter = { customer: userId, offers: { $exists: true, $ne: [] } };
-    } else if (userRole === "driver") {
-      filter = { "offers.driver": userId };
-    } else {
-      return res.status(403).json({
-        success: false,
-        message: "Unauthorized: Invalid user role",
-      });
-    }
-
-    const bookings = await Booking.find(filter)
-      .populate("driver", "name")
-      .exec();
-
-    const formattedBookings = bookings.map((booking) => ({
-      ...booking.toObject(),
-      offers: booking.offers,
-    }));
-
-    res.status(200).json({
-      success: true,
-      message: "Offers retrieved successfully",
-      bookings: formattedBookings,
     });
   } catch (error) {
     res.status(500).json({

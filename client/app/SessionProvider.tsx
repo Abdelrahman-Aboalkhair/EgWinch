@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { useAppDispatch } from "./libs/hooks";
 import { useValidateSessionQuery } from "./libs/features/apis/AuthApi";
 import { setCredentials } from "./libs/features/slices/AuthSlice";
+import { Loader2 } from "lucide-react";
 
 export const SessionProvider = ({
   children,
@@ -11,7 +12,6 @@ export const SessionProvider = ({
 }) => {
   const dispatch = useAppDispatch();
   const { data, isLoading, isError } = useValidateSessionQuery();
-  console.log("data: ", data);
 
   useEffect(() => {
     if (data?.user && data?.accessToken) {
@@ -20,7 +20,12 @@ export const SessionProvider = ({
   }, [data, dispatch]);
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return (
+      <main className="min-h-screen flex items-center justify-center gap-3">
+        <h1 className="text-lg font-medium">Loading please wait</h1>
+        <Loader2 className="animate-spin text-primary" size={32} />
+      </main>
+    );
   }
 
   return <>{children}</>;

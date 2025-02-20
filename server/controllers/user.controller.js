@@ -26,7 +26,7 @@ exports.getAllUsers = async (req, res) => {
 
 exports.getUserProfile = async (req, res) => {
   try {
-    const user = await User.findById(req.user._id);
+    const user = await User.findById(req.user.userId);
     res.status(200).json({ success: true, user });
   } catch (error) {
     console.log("Error fetching user profile, ", error);

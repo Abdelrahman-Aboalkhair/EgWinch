@@ -2,7 +2,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import {
-  Menu,
   Users,
   Briefcase,
   LayoutDashboard,
@@ -16,7 +15,6 @@ const sidebarLinks = [
   { name: "Dashboard", href: "/dashboard", icon: LayoutDashboard },
   { name: "Manage Bookings", href: "/manage-bookings", icon: Briefcase },
   { name: "Manage Users", href: "/manage-users", icon: Users },
-  { name: "Manage Offers", href: "/manage-offers", icon: BadgeCent },
 ];
 
 export default function DashboardLayout({
@@ -27,35 +25,37 @@ export default function DashboardLayout({
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(true);
 
-  const linkClass = (path: string) =>
-    `text-lg flex items-center gap-3 px-4 py-[12px] rounded-lg font-medium transition-all ${
-      pathname === path ? "bg-primary text-white" : "text-black"
-    }`;
-
   return (
     <div className="flex h-screen">
       {/* Sidebar */}
       <motion.aside
-        initial={{ width: 70 }}
+        initial={{ width: 80 }}
         animate={{
-          width: isOpen ? 250 : 70,
-          transition: { duration: 0.2, ease: "easeInOut" },
+          width: isOpen ? 260 : 80,
+          transition: { duration: 0.3, ease: "easeInOut" },
         }}
-        exit={{ width: 70 }}
-        className="bg-white shadow-lg text-black h-full flex flex-col p-4"
+        className="bg-white shadow-lg text-black h-full flex flex-col p-4 border-r"
       >
         {/* Sidebar Toggle */}
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="mb-4 flex items-center"
+          className="mb-6 flex items-center"
         >
           <PanelsRightBottom size={28} className="text-black cursor-pointer" />
         </button>
 
         {/* Sidebar Links */}
-        <nav className="flex flex-col space-y-2">
+        <nav className="flex flex-col space-y-3">
           {sidebarLinks.map(({ name, href, icon: Icon }) => (
-            <Link key={name} href={href} className={linkClass(href)}>
+            <Link
+              key={name}
+              href={href}
+              className={`relative flex items-center gap-3 px-4 py-3 rounded-lg font-medium transition-all duration-300 ${
+                pathname === href
+                  ? "bg-primary text-white"
+                  : "text-gray-700 hover:bg-green-100"
+              }`}
+            >
               <div className="w-6 flex justify-center">
                 <Icon className="h-6 w-6" />
               </div>
