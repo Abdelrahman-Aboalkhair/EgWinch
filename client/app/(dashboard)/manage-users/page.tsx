@@ -97,7 +97,7 @@ const ManageUsers = () => {
 
       {/* Create Admin Modal */}
       {isModalOpen && (
-        <div onClick={() => setIsModalOpen(false)}>
+        <div key={isModalOpen} onClick={() => setIsModalOpen(false)}>
           <div className="space-y-4">
             <input
               type="text"

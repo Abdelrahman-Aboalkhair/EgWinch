@@ -30,7 +30,7 @@ const MainSection = () => {
             Book Now
           </Link>
           <Link
-            href={"/auth/driver-sign-up"}
+            href={"/driver-sign-up"}
             className="bg-secondary text-black px-12 py-3 rounded-md font-medium"
           >
             Join us

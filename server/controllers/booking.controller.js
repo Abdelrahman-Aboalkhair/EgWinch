@@ -1,6 +1,7 @@
 const Booking = require("../models/booking.model");
 const User = require("../models/user.model");
 const axios = require("axios");
+const Notification = require("../models/notification.model");
 
 exports.createBooking = async (req, res) => {
   try {
@@ -50,14 +51,26 @@ exports.createBooking = async (req, res) => {
             coordinates: pickupLocation.coordinates,
           },
           distanceField: "distance",
-          maxDistance: 5000,
+          maxDistance: 15000, // 15km
           spherical: true,
-          query: { role: "driver", availabilityStatus: "available" },
+          query: {
+            role: "driver",
+            availabilityStatus: "available",
+          },
         },
       },
     ]);
 
-    console.log("nearbyDrivers: ", nearbyDrivers);
+    console.log("found nearby drivers: ", nearbyDrivers);
+
+    // Send notification to nearby drivers
+    for (const driver of nearbyDrivers) {
+      const notification = new Notification({
+        user: driver._id,
+        message: `New booking request from ${req.user.name}`,
+      });
+      await notification.save();
+    }
 
     res.status(201).json({
       success: true,
@@ -107,25 +120,32 @@ exports.predictMovePrice = async (req, res) => {
 exports.createOffer = async (req, res) => {
   try {
     const { price } = req.body;
-    console.log("price: ", price);
-    console.log("req.body: ", req.body);
-    if (!price) {
-      return res.status(400).json({
-        success: false,
-        message: "Price is required",
-      });
-    }
     const { bookingId } = req.params;
+    const driverId = req.user.userId;
 
+    // Validate price input
+    if (!price) {
+      return res
+        .status(400)
+        .json({ success: false, message: "Price is required" });
+    }
+
+    // Find booking
     const booking = await Booking.findById(bookingId);
-
     if (!booking) {
       return res
         .status(404)
         .json({ success: false, message: "Booking not found" });
     }
 
-    // Check if any of the booking offers is accepted
+    // Prevent offers on non-pending bookings
+    if (booking.status !== "pending") {
+      return res
+        .status(400)
+        .json({ success: false, message: "Booking is no longer available" });
+    }
+
+    // Check if an offer has already been accepted
     if (booking.offers.some((offer) => offer.status === "accepted")) {
       return res.status(400).json({
         success: false,
@@ -133,26 +153,42 @@ exports.createOffer = async (req, res) => {
       });
     }
 
-    if (booking.status !== "pending") {
-      return res
-        .status(400)
-        .json({ success: false, message: "Booking is no longer available" });
+    // Prevent duplicate active offers from the same driver
+    const hasActiveOffer = booking.offers.some(
+      (offer) =>
+        offer.driver.toString() === driverId &&
+        ["pending", "negotiating"].includes(offer.status)
+    );
+
+    if (hasActiveOffer) {
+      return res.status(400).json({
+        success: false,
+        message:
+          "You already have an active offer for this booking. Wait for the customer's response.",
+      });
     }
 
-    // Add offer to booking
-    const offer = { driver: req.user.userId, price, status: "negotiating" };
+    // Create and add the new offer
+    const offer = { driver: driverId, price, status: "negotiating" };
     booking.offers.push(offer);
     await booking.save();
 
-    res.status(200).json({
+    // Send notification to the customer
+    await Notification.create({
+      user: booking.customer,
+      message: `New offer from a driver (ID: ${driverId})`,
+    });
+
+    res.status(201).json({
       success: true,
       message: "Offer sent successfully",
       offer,
     });
   } catch (error) {
+    console.error("Error creating offer:", error);
     res.status(500).json({
       success: false,
-      message: "An error occurred",
+      message: "An internal server error occurred",
       error: error.message,
     });
   }
@@ -161,8 +197,8 @@ exports.createOffer = async (req, res) => {
 exports.updateBooking = async (req, res) => {
   try {
     const { id: bookingId } = req.params;
-    const { status, totalPrice, driver, paymentStatus, driverId, action } =
-      req.body;
+    const { status, totalPrice, driverId, paymentStatus, action } = req.body;
+    console.log("req.body: ", req.body);
 
     let booking = await Booking.findById(bookingId);
 
@@ -217,6 +253,11 @@ exports.updateBooking = async (req, res) => {
         booking.status = "in-progress";
       } else {
         selectedOffer.status = "declined";
+        const notification = new Notification({
+          user: selectedOffer.driver,
+          message: `Your offer for booking ${booking._id} was rejected`,
+        });
+        await notification.save();
       }
 
       await booking.save();
@@ -239,7 +280,7 @@ exports.updateBooking = async (req, res) => {
 
       booking.status = status || booking.status;
       booking.totalPrice = totalPrice || booking.totalPrice;
-      booking.driver = driver || booking.driver;
+      booking.driver = driverId || booking.driver;
       booking.paymentStatus = paymentStatus || booking.paymentStatus;
 
       await booking.save();
