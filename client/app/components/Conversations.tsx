@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { ChevronDown, Send, X } from "lucide-react";
 import { useGetConversationsQuery } from "../libs/features/apis/ConversationApi";
@@ -13,9 +13,8 @@ import {
   sendMessage,
   setActiveConversation,
   markMessagesAsRead,
+  updateUnreadCount,
 } from "../libs/features/slices/ConversationSlice";
-
-const socket = io("http://localhost:5000");
 
 const Conversations = () => {
   const { handleSubmit, reset, register } = useForm();
@@ -24,12 +23,31 @@ const Conversations = () => {
   const { conversations, activeConversation } = useAppSelector(
     (state) => state.conversations
   );
+  console.log("conversations: ", conversations);
+  console.log("activeConversation: ", activeConversation);
 
   const userId = user?.id || user?._id;
   const { data, isLoading, error } = useGetConversationsQuery({});
-  dispatch(setConversations(data));
 
   const [isOpen, setIsOpen] = useState(false);
+  const lastMarkedConversationRef = useRef(null);
+
+  const socketRef = useRef(null);
+
+  useEffect(() => {
+    if (userId) {
+      socketRef.current = io("http://localhost:5000", {
+        reconnection: true,
+        reconnectionDelay: 1000,
+      });
+
+      socketRef.current.emit("join", userId);
+
+      return () => {
+        socketRef.current.disconnect();
+      };
+    }
+  }, [userId]);
 
   useEffect(() => {
     if (data) {
@@ -38,46 +56,119 @@ const Conversations = () => {
   }, [data, dispatch]);
 
   useEffect(() => {
-    if (activeConversation) {
-      socket.emit("mark_as_read", activeConversation._id, userId);
+    if (!activeConversation) {
+      lastMarkedConversationRef.current = null;
+    }
+  }, [activeConversation]);
+
+  // Separate socket listeners into one useEffect
+  useEffect(() => {
+    // Message receiving
+    const handleReceiveMessage = (message) => {
+      console.log("Received message:", message);
+
+      if (!message || !message.conversation) return;
+
+      dispatch(sendMessage(message));
+
+      // If the message belongs to the active conversation, update it
+      if (
+        activeConversation &&
+        activeConversation._id === message.conversation
+      ) {
+        dispatch(
+          setActiveConversation({
+            ...activeConversation,
+            messages: [...activeConversation.messages, message],
+          })
+        );
+      }
+    };
+
+    // Unread count updates
+    const handleUnreadCount = ({ conversationId, userId, unreadCount }) => {
+      console.log("Unread count update:", {
+        conversationId,
+        userId,
+        unreadCount,
+      });
       dispatch(
-        markMessagesAsRead({
-          conversationId: activeConversation._id,
+        updateUnreadCount({
+          conversationId,
           userId,
+          count: unreadCount,
         })
       );
-    }
-  }, [activeConversation, dispatch, userId]);
-
-  useEffect(() => {
-    socket.on("receive_message", (message) => {
-      if (activeConversation?._id === message.conversation) {
-        dispatch(sendMessage(message));
-      }
-    });
-    return () => {
-      socket.off("receive_message");
     };
-  }, [activeConversation, dispatch]);
+
+    socketRef.current.on("receive_message", handleReceiveMessage);
+    socketRef.current.on("update_unread_count", handleUnreadCount);
+
+    return () => {
+      socketRef.current.off("receive_message", handleReceiveMessage);
+      socketRef.current.off("update_unread_count", handleUnreadCount);
+    };
+  }, [dispatch, userId]);
+
+  // Handle marking messages as read when opening a conversation
+  useEffect(() => {
+    if (
+      activeConversation &&
+      userId &&
+      activeConversation.unreadCount?.[userId] > 0
+    ) {
+      console.log("Marking messages as read:", {
+        conversationId: activeConversation._id,
+        userId,
+      });
+
+      socketRef.current.emit(
+        "mark_as_read",
+        activeConversation._id,
+        userId,
+        (response) => {
+          if (response?.status === "ok") {
+            dispatch(
+              markMessagesAsRead({
+                conversationId: activeConversation._id,
+                userId,
+              })
+            );
+          }
+        }
+      );
+    }
+  }, [activeConversation?._id, userId]);
 
   const receiver = activeConversation?.participants.find((p) => p !== userId);
 
   const handleSendMessage = async (data) => {
-    if (data.message.trim() && user && activeConversation) {
-      const messageData = {
-        senderId: userId,
-        receiverId: receiver._id,
-        conversationId: activeConversation._id,
-        content: data.message,
-      };
+    if (!data.message.trim() || !userId || !activeConversation) return;
 
-      socket.emit("send_message", messageData, (response) => {
-        if (response.status === "ok") {
-          dispatch(sendMessage(response.message));
-        }
-      });
-      reset();
-    }
+    const receiverId =
+      activeConversation.participants.find((p) => p !== userId)?._id ||
+      activeConversation.participants.find((p) => p !== userId)?.id; // Handle both cases
+
+    if (!receiverId) return;
+
+    const messageData = {
+      senderId: userId,
+      receiverId,
+      conversationId: activeConversation._id,
+      content: data.message,
+    };
+
+    console.log("Sending message:", messageData);
+
+    socketRef.current.emit("send_message", messageData, (response) => {
+      if (response.status === "ok") {
+        console.log("Message sent successfully:", response.message);
+        dispatch(sendMessage({ ...response.message, sender: userId }));
+        reset();
+      } else {
+        console.error("Failed to send message:", response.error);
+      }
+    });
   };
 
   return (
@@ -97,22 +188,37 @@ const Conversations = () => {
             ) : error ? (
               <p>Error loading conversations</p>
             ) : (
-              conversations.map((conversation) => (
-                <div
-                  key={conversation._id}
-                  onClick={() => dispatch(setActiveConversation(conversation))}
-                  className={`flex items-center gap-3 p-3 cursor-pointer hover:bg-gray-100 transition ${
-                    activeConversation?._id === conversation._id
-                      ? "bg-green-100"
-                      : ""
-                  }`}
-                >
-                  <Image src={UserImage} alt="User" width={40} height={40} />
-                  <p>
-                    {conversation.lastMessage?.content || "No messages yet"}
-                  </p>
-                </div>
-              ))
+              conversations.map((conversation) => {
+                const unreadCount = conversation.unreadCount?.[userId] || 0;
+                console.log("unread count: ", unreadCount);
+                return (
+                  <div
+                    key={conversation._id}
+                    onClick={() =>
+                      dispatch(setActiveConversation(conversation))
+                    }
+                    className={`flex items-center gap-3 p-3 cursor-pointer hover:bg-gray-100 transition relative ${
+                      activeConversation?._id === conversation._id
+                        ? "bg-green-100"
+                        : ""
+                    } ${unreadCount > 0 ? "font-bold" : "font-normal"}`}
+                  >
+                    <Image src={UserImage} alt="User" width={40} height={40} />
+                    <p>
+                      {conversation.lastMessage?.content || "No messages yet"}
+                    </p>
+
+                    {unreadCount > 0 && (
+                      <span
+                        key={conversation._id}
+                        className="absolute right-3 top-1 bg-primary text-white text-xs font-bold px-[12px] py-[6px] rounded-full"
+                      >
+                        {unreadCount}
+                      </span>
+                    )}
+                  </div>
+                );
+              })
             )}
           </motion.div>
         )}
@@ -151,11 +257,10 @@ const Conversations = () => {
             </button>
           </div>
 
-          {/* Messages Container */}
           <div className="flex-1 overflow-y-auto p-4 space-y-4 bg-gray-50">
-            {activeConversation.messages.map((msg) => (
+            {activeConversation.messages.map((msg, index) => (
               <div
-                key={msg._id}
+                key={msg._id || `msg-${index}`}
                 className={`flex ${
                   msg.sender === userId ? "justify-end" : "justify-start"
                 }`}
@@ -179,7 +284,6 @@ const Conversations = () => {
             ))}
           </div>
 
-          {/* Message Input Form */}
           <form
             className="p-3 bg-white border-t border-gray-200"
             onSubmit={handleSubmit(handleSendMessage)}

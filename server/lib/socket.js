@@ -99,7 +99,7 @@ const createSocketServer = (server) => {
 
         const unreadMessages = await Message.find({
           conversation: conversationId,
-          sender: { $ne: userId },
+          sender: { $ne: userId }, // Exclude messages sent by the user
           isRead: false,
         });
 
