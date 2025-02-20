@@ -35,7 +35,7 @@ const SignIn = () => {
 
     try {
       const result = await signIn(formData);
-      dispatch(setCredentials(result));
+      dispatch(setCredentials(result.data));
 
       router.push("/");
     } catch (error: any) {

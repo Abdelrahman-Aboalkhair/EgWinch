@@ -14,7 +14,7 @@ interface Conversation {
   participants: string[];
   messages: Message[];
   lastMessage?: Message;
-  unreadCount: Record<string, number>; // { userId: count }
+  unreadCount: { [userId: string]: number };
 }
 
 interface ConversationState {
@@ -38,30 +38,33 @@ const conversationSlice = createSlice({
     sendMessage: (
       state,
       action: PayloadAction<{
-        conversationId: string;
+        conversation: string;
         content: string;
-        receiverId: string;
-        senderId: string;
+        sender: string;
+        createdAt: string;
       }>
     ) => {
-      const { conversationId, content, receiverId, senderId } = action.payload;
-      const messageData = {
-        conversationId,
-        content,
-        sender: senderId,
-        receiver: receiverId,
-      };
-      if (state.activeConversation) {
-        state.activeConversation.messages.push(messageData);
-        state.activeConversation.lastMessage = messageData;
+      const message = action.payload;
 
-        // Increment unread count for other participants
-        state.activeConversation.participants.forEach((userId) => {
-          if (userId !== senderId) {
-            state.activeConversation.unreadCount[userId] =
-              (state.activeConversation.unreadCount[userId] || 0) + 1;
-          }
+      // Update active conversation if it matches
+      if (state.activeConversation?._id === message.conversation) {
+        state.activeConversation.messages.push({
+          ...message,
+          isRead: false,
         });
+        state.activeConversation.lastMessage = message;
+      }
+
+      // Always update the conversation in the list
+      const conversation = state.conversations.find(
+        (conv) => conv._id === message.conversation
+      );
+      if (conversation) {
+        conversation.messages.push({
+          ...message,
+          isRead: false,
+        });
+        conversation.lastMessage = message;
       }
     },
 
@@ -74,11 +77,18 @@ const conversationSlice = createSlice({
       }>
     ) => {
       const { conversationId, userId, count } = action.payload;
-      if (
-        state.activeConversation &&
-        state.activeConversation._id === conversationId
-      ) {
+
+      // First check active conversation
+      if (state.activeConversation?._id === conversationId) {
         state.activeConversation.unreadCount[userId] = count;
+      } else {
+        // If not active, find in conversations array
+        const conversation = state.conversations.find(
+          (conv) => conv._id === conversationId
+        );
+        if (conversation) {
+          conversation.unreadCount[userId] = count;
+        }
       }
     },
 
@@ -87,18 +97,24 @@ const conversationSlice = createSlice({
       action: PayloadAction<{ conversationId: string; userId: string }>
     ) => {
       const { conversationId, userId } = action.payload;
+
+      // Update active conversation
+      if (state.activeConversation?._id === conversationId) {
+        state.activeConversation.messages =
+          state.activeConversation.messages.map((msg) =>
+            msg.sender !== userId ? { ...msg, isRead: true } : msg
+          );
+        state.activeConversation.unreadCount[userId] = 0;
+      }
+
+      // Update conversation in list
       const conversation = state.conversations.find(
         (conv) => conv._id === conversationId
       );
-
       if (conversation) {
-        conversation.messages.forEach((msg) => {
-          if (msg.sender !== userId) {
-            msg.isRead = true;
-          }
-        });
-
-        // Reset unread count for this user
+        conversation.messages = conversation.messages.map((msg) =>
+          msg.sender !== userId ? { ...msg, isRead: true } : msg
+        );
         conversation.unreadCount[userId] = 0;
       }
     },
