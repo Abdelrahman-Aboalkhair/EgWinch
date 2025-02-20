@@ -1,17 +1,21 @@
 "use client";
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
+import { useAppSelector } from "./libs/hooks";
 
 export const RedirectHandler = () => {
   const router = useRouter();
+  const { isLoggedIn } = useAppSelector((state) => state.auth);
 
   useEffect(() => {
-    const redirectPath = localStorage.getItem("redirectAfterLogin");
-    if (redirectPath) {
-      localStorage.removeItem("redirectAfterLogin");
-      router.push(redirectPath);
+    if (isLoggedIn) {
+      const redirectPath = localStorage.getItem("redirectAfterLogin");
+      if (redirectPath) {
+        localStorage.removeItem("redirectAfterLogin");
+        router.push(redirectPath);
+      }
     }
-  }, [router]);
+  }, [isLoggedIn, router]);
 
   return null;
 };

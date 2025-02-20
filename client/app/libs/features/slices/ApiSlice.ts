@@ -19,12 +19,22 @@ const baseQuery = fetchBaseQuery({
   },
 });
 
+let isRedirecting = false;
+
 const baseQueryWithReauth: BaseQueryFn<
   string | FetchArgs,
   unknown,
   FetchBaseQueryError
 > = async (args, api, extraOptions) => {
   let result = await baseQuery(args, api, extraOptions);
+
+  // Check if we're on the sign-in page or already redirecting
+  if (typeof window !== "undefined") {
+    const currentPath = window.location.pathname;
+    if (currentPath === "/auth/sign-in" || isRedirecting) {
+      return result;
+    }
+  }
 
   if (result.error && result.error.status === 401) {
     // try to get a new token
@@ -36,20 +46,24 @@ const baseQueryWithReauth: BaseQueryFn<
 
     if (refreshResult.data) {
       // store the new token
-      api.dispatch(setCredentials(refreshResult?.data));
+      api.dispatch(setCredentials(refreshResult.data));
       // retry the original query with new access token
       result = await baseQuery(args, api, extraOptions);
     } else {
       // if refresh token fails, clear the auth state
       api.dispatch(clearAuthState());
 
-      if (typeof window !== "undefined") {
-        // Store the current URL to redirect back after login
+      if (typeof window !== "undefined" && !isRedirecting) {
+        isRedirecting = true;
         const currentPath = window.location.pathname;
         if (currentPath !== "/auth/sign-in") {
           localStorage.setItem("redirectAfterLogin", currentPath);
-          window.location.href = "/sign-in";
+          window.location.href = "/auth/sign-in";
         }
+        // Reset the flag after a short delay
+        setTimeout(() => {
+          isRedirecting = false;
+        }, 1000);
       }
     }
   }

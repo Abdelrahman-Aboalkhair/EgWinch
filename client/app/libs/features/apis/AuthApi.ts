@@ -41,7 +41,7 @@ export const authApi = apiSlice.injectEndpoints({
           console.log("data from validate session: ", data);
           dispatch(setCredentials(data));
         } catch (error) {
-          console.error("Session validation failed:", error);
+          console.log("error: ", error);
           dispatch(clearAuthState());
         }
       },
