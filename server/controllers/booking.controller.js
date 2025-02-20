@@ -4,12 +4,9 @@ const axios = require("axios");
 
 exports.createBooking = async (req, res) => {
   try {
-    const { pickupLocation, dropoffLocation, date, items, additionalServices } =
-      req.body;
+    const { pickupLocation, dropoffLocation, moveDate, items } = req.body;
+    console.log("req.body: ", req.body);
 
-    console.log("userId: ", req.user.userId);
-
-    // Validate GeoJSON format for locations
     if (
       !pickupLocation ||
       !pickupLocation.coordinates ||
@@ -39,9 +36,8 @@ exports.createBooking = async (req, res) => {
       customer: req.user.userId,
       pickupLocation,
       dropoffLocation,
-      date,
+      moveDate,
       items,
-      additionalServices,
       status: "pending",
     });
 

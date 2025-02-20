@@ -18,7 +18,7 @@ const bookingSchema = new mongoose.Schema(
         required: true,
       },
       coordinates: {
-        type: [Number], // [longitude, latitude]
+        type: [Number],
         required: true,
       },
       address: {
@@ -34,7 +34,7 @@ const bookingSchema = new mongoose.Schema(
         required: true,
       },
       coordinates: {
-        type: [Number], // [longitude, latitude]
+        type: [Number],
         required: true,
       },
       address: {
@@ -43,7 +43,7 @@ const bookingSchema = new mongoose.Schema(
         trim: true,
       },
     },
-    date: {
+    moveDate: {
       type: Date,
       required: true,
     },
@@ -64,6 +64,7 @@ const bookingSchema = new mongoose.Schema(
           quantity: Number,
           isFragile: Boolean,
           specialInstructions: String,
+          additionalServices: [String],
         },
       ],
       required: true,
