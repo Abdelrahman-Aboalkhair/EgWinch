@@ -4,33 +4,60 @@ import { useForm } from "react-hook-form";
 import Input from "../components/custom/Input";
 import Map from "../components/home/Map";
 import { MapPinPlus, Navigation } from "lucide-react";
-import { motion } from "framer-motion";
 import DatePicker from "../components/custom/DatePicker";
-import Dropdown from "../components/custom/Dropdown";
+import ItemsList from "../components/booking/ItemsList";
+import { useCreateBookingMutation } from "../libs/features/apis/BookingApi";
+import { useRouter } from "next/navigation";
+
+interface GeoJSONPoint {
+  type: "Point";
+  coordinates: [number, number];
+  address: string;
+}
 
 const BookMove = () => {
   const { register, handleSubmit, control } = useForm();
-  const [additionalServicesOptions, setAdditionalServicesOptions] = useState<
-    string[]
-  >(["Option 1", "Option 2", "Option 3"]);
-  const [pickup, setPickup] = useState("");
-  const [dropoff, setDropoff] = useState("");
+  const [items, setItems] = useState([]);
+
+  const [pickupAddress, setPickupAddress] = useState("");
+  const [dropoffAddress, setDropoffAddress] = useState("");
+  const [pickup, setPickup] = useState<GeoJSONPoint | null>(null);
+  const [dropoff, setDropoff] = useState<GeoJSONPoint | null>(null);
   const [showPickupTooltip, setShowPickupTooltip] = useState(false);
   const [showDropoffTooltip, setShowDropoffTooltip] = useState(false);
   const [routeDistance, setRouteDistance] = useState(null);
   const [routeDuration, setRouteDuration] = useState(null);
+  const [createBooking, { isLoading, error }] = useCreateBookingMutation();
+  const router = useRouter();
 
-  const onSubmit = (data) => {
-    setPickup(data.pickup);
-    setDropoff(data.dropoff);
+  const onSubmit = async (data) => {
+    data.pickupLocation = pickup;
+    data.dropoffLocation = dropoff;
+    data.items = items;
+    console.log("submitted data: ", data);
+    try {
+      await createBooking(data).unwrap();
+      console.log("booking created");
+      router.push("/manage-bookings");
+    } catch (error) {
+      console.log("error: ", error);
+    }
   };
 
-  const onSetPickup = (pickupPosition) => {
-    setPickup(`${pickupPosition.lat}, ${pickupPosition.lng}`);
+  const onSetPickup = (pickupPosition: LatLng) => {
+    setPickup({
+      type: "Point",
+      coordinates: [pickupPosition.lng, pickupPosition.lat],
+      address: pickupAddress,
+    });
   };
 
-  const onSetDropoff = (dropoffPosition) => {
-    setDropoff(`${dropoffPosition.lat}, ${dropoffPosition.lng}`);
+  const onSetDropoff = (dropoffPosition: LatLng) => {
+    setDropoff({
+      type: "Point",
+      coordinates: [dropoffPosition.lng, dropoffPosition.lat],
+      address: dropoffAddress,
+    });
   };
 
   return (
@@ -58,15 +85,15 @@ const BookMove = () => {
               </li>
             )}
             <Input
-              name="pickup"
+              name="pickupLocation"
               placeholder="Enter Pickup Location"
               register={register}
               className="py-[15px] text-[16px] truncate"
               icon={MapPinPlus}
-              value={pickup}
-              onChange={setPickup}
+              value={pickupAddress || ""}
+              onChange={() => {}}
             />
-            {showPickupTooltip && pickup && (
+            {/* {showPickupTooltip && pickup && (
               <motion.span
                 initial={{ opacity: 0, y: 5 }}
                 animate={{ opacity: 1, y: -125 }}
@@ -76,7 +103,7 @@ const BookMove = () => {
               >
                 Your Pickup is at {pickup}
               </motion.span>
-            )}
+            )} */}
           </div>
 
           <div
@@ -85,15 +112,15 @@ const BookMove = () => {
             onMouseLeave={() => setShowDropoffTooltip(false)}
           >
             <Input
-              name="dropoff"
+              name="dropoffLocation"
               placeholder="Enter Dropoff Location"
               register={register}
               className="py-[15px] text-[16px] truncate"
               icon={Navigation}
-              value={dropoff}
-              onChange={setDropoff}
+              value={dropoffAddress || ""}
+              onChange={() => {}}
             />
-            {showDropoffTooltip && dropoff && (
+            {/* {showDropoffTooltip && dropoff && (
               <motion.span
                 initial={{ opacity: 0, y: 5 }}
                 animate={{ opacity: 1, y: -195 }}
@@ -103,24 +130,33 @@ const BookMove = () => {
               >
                 Your Dropoff is at {dropoff}
               </motion.span>
-            )}
+            )} */}
           </div>
           <DatePicker name="moveDate" control={control} label="Move In Date" />
 
-          <Dropdown
-            className="w-full"
-            key={"bedroomsNumber"}
-            options={["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]}
-            label="Additional Services"
-            onClear={() => setAdditionalServicesOptions([])}
-            onSelect={setAdditionalServicesOptions}
-          />
+          <div className="col-span-2">
+            <ItemsList
+              items={items}
+              setItems={setItems}
+              register={register}
+              control={control}
+            />
+          </div>
+
+          <button
+            type="submit"
+            className="bg-primary text-white py-[12px] w-full "
+          >
+            Submit Booking
+          </button>
         </form>
       </div>
 
       <Map
         pickup={pickup}
         dropoff={dropoff}
+        setPickupAddress={setPickupAddress}
+        setDropoffAddress={setDropoffAddress}
         onSetPickup={onSetPickup}
         onSetDropoff={onSetDropoff}
         setPickup={setPickup}

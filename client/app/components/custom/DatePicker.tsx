@@ -77,7 +77,7 @@ const DatePicker = ({
   return (
     <div className="relative w-full" ref={pickerRef}>
       <div
-        className="flex justify-between items-center active:scale-95 bg-white p-3 py-[15px] rounded-md border cursor-pointer"
+        className="flex justify-between items-center active:scale-95 bg-white p-[14px] rounded-md border cursor-pointer"
         onClick={() => setIsOpen(!isOpen)}
       >
         <span className="text-base font-medium">

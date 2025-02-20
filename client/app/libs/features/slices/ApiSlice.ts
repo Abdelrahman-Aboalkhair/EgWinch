@@ -31,7 +31,7 @@ const baseQueryWithReauth: BaseQueryFn<
   // Check if we're on the sign-in page or already redirecting
   if (typeof window !== "undefined") {
     const currentPath = window.location.pathname;
-    if (currentPath === "/auth/sign-in" || isRedirecting) {
+    if (currentPath === "/sign-in" || isRedirecting) {
       return result;
     }
   }
@@ -56,9 +56,9 @@ const baseQueryWithReauth: BaseQueryFn<
       if (typeof window !== "undefined" && !isRedirecting) {
         isRedirecting = true;
         const currentPath = window.location.pathname;
-        if (currentPath !== "/auth/sign-in") {
+        if (currentPath !== "/sign-in") {
           localStorage.setItem("redirectAfterLogin", currentPath);
-          window.location.href = "/auth/sign-in";
+          window.location.href = "/sign-in";
         }
         // Reset the flag after a short delay
         setTimeout(() => {
@@ -74,5 +74,6 @@ const baseQueryWithReauth: BaseQueryFn<
 export const apiSlice = createApi({
   reducerPath: "api",
   baseQuery: baseQueryWithReauth,
+  tagTypes: ["Drivers", "Messages", "Conversations"],
   endpoints: () => ({}),
 });

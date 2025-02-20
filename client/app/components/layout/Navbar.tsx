@@ -21,7 +21,7 @@ const Navbar = () => {
     try {
       await signOut();
       dispatch(clearAuthState());
-      router.push("/auth/sign-in");
+      router.push("/sign-in");
     } catch (error) {
       console.error("Error occurred while signing out", error);
     }
@@ -54,10 +54,7 @@ const Navbar = () => {
         <Link href="/book-move" className={linkClass("/book-move")}>
           Book a Move
         </Link>
-        <Link
-          href="/auth/driver-sign-up"
-          className={linkClass("/auth/driver-sign-up")}
-        >
+        <Link href="/driver-sign-up" className={linkClass("/driver-sign-up")}>
           Own a Winch?
         </Link>
       </div>
@@ -85,6 +82,13 @@ const Navbar = () => {
                 className="absolute right-0 mt-2 w-48 bg-gray-100 shadow-md rounded-md z-[2200]"
               >
                 <Link
+                  href="/dashboard"
+                  className="block px-4 py-2 hover:bg-gray-200"
+                  onClick={closeMenu}
+                >
+                  Dashboard
+                </Link>
+                <Link
                   href="/"
                   className="block px-4 py-2 hover:bg-gray-200"
                   onClick={closeMenu}
@@ -105,13 +109,6 @@ const Navbar = () => {
                 >
                   Avaliable {user?.role === "driver" ? "Customers" : "Drivers"}
                 </Link>
-                <Link
-                  href="/bookings"
-                  className="block px-4 py-2 hover:bg-gray-200"
-                  onClick={closeMenu}
-                >
-                  Bookings
-                </Link>
 
                 <button
                   onClick={() => {
@@ -126,7 +123,7 @@ const Navbar = () => {
             )}
           </div>
         ) : (
-          <Link href="/auth/sign-in" className="text-lg">
+          <Link href="/sign-in" className="text-lg">
             Sign in
           </Link>
         )}

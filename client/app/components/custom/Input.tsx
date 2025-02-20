@@ -82,7 +82,7 @@ const Input: React.FC<InputProps> = ({
             onChange={handleChange}
             type={type}
             placeholder={placeholder}
-            className={`p-2 pl-3 pr-10 w-full border text-gray-800 placeholder:text-gray-800 rounded-md focus:outline-none focus:ring-[1.4px] focus:ring-primary ${className}`}
+            className={`p-[14px] pl-3 pr-10 w-full border text-gray-800 placeholder:text-gray-800 rounded-md focus:outline-none focus:ring-[1.4px] focus:ring-primary ${className}`}
           />
         )}
 
