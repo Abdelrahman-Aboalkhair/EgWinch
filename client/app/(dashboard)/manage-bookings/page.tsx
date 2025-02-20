@@ -1,22 +1,28 @@
 "use client";
+
 import { getStatusColor } from "@/app/helpers/getStatusColor";
 import {
   useCreateOfferMutation,
   useGetBookingsQuery,
+  useUpdateBookingMutation,
 } from "@/app/libs/features/apis/BookingApi";
-import { useState } from "react";
+import React, { useState } from "react";
 import { Loader2, XCircle, Search, Check, ChevronDown } from "lucide-react";
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import { useAppSelector } from "@/app/libs/hooks";
 
 const ManageBookings = () => {
-  const { data, isLoading, error } = useGetBookingsQuery({});
+  const { data, isLoading, error, refetch } = useGetBookingsQuery({});
   const [createOffer, { isLoading: createOfferLoading }] =
     useCreateOfferMutation();
+  const [updateBooking, { isLoading: updateBookingLoading }] =
+    useUpdateBookingMutation();
+
   const [search, setSearch] = useState("");
   const [selectedBookingId, setSelectedBookingId] = useState(null);
   const [offerPrice, setOfferPrice] = useState("");
   const [expandedBookingId, setExpandedBookingId] = useState(null);
+  const [updatingOfferId, setUpdatingOfferId] = useState(null); // Track updating offer
 
   const user = useAppSelector((state) => state.auth.user);
 
@@ -29,11 +35,29 @@ const ManageBookings = () => {
 
     try {
       await createOffer({ price: offerPrice, bookingId }).unwrap();
-
       setSelectedBookingId(null);
       setOfferPrice("");
+      refetch(); // Refresh the bookings
     } catch (error) {
       console.error("Error creating offer:", error);
+    }
+  };
+
+  const handleUpdateBooking = async (
+    bookingId,
+    action,
+    driverId,
+    totalPrice
+  ) => {
+    setUpdatingOfferId(driverId); // Show loader for this offer
+
+    try {
+      await updateBooking({ bookingId, action, driverId, totalPrice }).unwrap();
+      refetch(); // Refresh the bookings after update
+    } catch (error) {
+      console.error("Error updating booking: ", error);
+    } finally {
+      setUpdatingOfferId(null); // Remove loader
     }
   };
 
@@ -80,8 +104,8 @@ const ManageBookings = () => {
               <tbody>
                 {filteredBookings?.length ? (
                   filteredBookings.map((booking: any) => (
-                    <>
-                      <tr key={booking._id} className="hover:bg-gray-50">
+                    <React.Fragment key={booking._id}>
+                      <tr className="hover:bg-gray-50">
                         <td className="td">
                           {booking.customer?.name || "N/A"}
                         </td>
@@ -103,7 +127,6 @@ const ManageBookings = () => {
                             {booking.status}
                           </span>
                         </td>
-
                         <td className="td">
                           {booking.totalPrice
                             ? `$${booking.totalPrice}`
@@ -176,52 +199,66 @@ const ManageBookings = () => {
                           </button>
                         </td>
                       </tr>
-                      <AnimatePresence>
-                        {expandedBookingId === booking._id && (
-                          <motion.tr
-                            key={booking._id}
-                            initial={{ opacity: 0, y: -10 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            exit={{ opacity: 0, y: -10 }}
-                            transition={{ duration: 0.2, ease: "easeInOut" }}
-                          >
-                            <td colSpan={7} className="p-4 bg-gray-100">
-                              <strong>Offers:</strong>
+
+                      {/* Offers Section */}
+                      {expandedBookingId === booking._id && (
+                        <tr>
+                          <td colSpan={7} className="p-4 bg-gray-100">
+                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                               {booking.offers?.length > 0 ? (
-                                <ul className="mt-2">
-                                  {booking.offers.map((offer: any) => (
-                                    <li
-                                      key={offer._id}
-                                      className="text-gray-700 flex items-center gap-2 space-y-2"
-                                    >
-                                      <span>${offer.price}</span> -{" "}
-                                      <span>{offer.driver}</span> -{" "}
+                                booking.offers.map((offer: any) => (
+                                  <div
+                                    key={offer._id}
+                                    className="bg-white p-4 rounded-lg shadow-md border"
+                                  >
+                                    <div className="flex justify-between items-center">
+                                      <span className="text-lg font-semibold">
+                                        ${offer.price}
+                                      </span>
                                       <span
-                                        className={`px-2 py-1 rounded text-xs font-semibold ${
-                                          offer.status === "pending"
-                                            ? "bg-yellow-200 text-yellow-800"
-                                            : offer.status === "negotiating"
-                                            ? "bg-blue-200 text-blue-800"
-                                            : offer.status === "accepted"
-                                            ? "bg-green-200 text-green-800"
-                                            : "bg-red-200 text-red-800"
-                                        }`}
+                                        className={`px-2 py-1 rounded text-xs font-semibold ${getStatusColor(
+                                          offer.status
+                                        )}`}
                                       >
                                         {offer.status}
                                       </span>
-                                    </li>
-                                  ))}
-                                </ul>
+                                    </div>
+                                    <p className="text-gray-700 mt-2">
+                                      Driver: {offer.driver}
+                                    </p>
+                                    <button
+                                      className="mt-2 bg-primary text-white px-4 py-2 rounded"
+                                      onClick={() =>
+                                        handleUpdateBooking(
+                                          booking._id,
+                                          "accept",
+                                          offer.driver,
+                                          offer.price
+                                        )
+                                      }
+                                      disabled={
+                                        updatingOfferId === offer.driver
+                                      }
+                                    >
+                                      {updatingOfferId === offer.driver ? (
+                                        <Loader2
+                                          className="animate-spin"
+                                          size={18}
+                                        />
+                                      ) : (
+                                        "Accept"
+                                      )}
+                                    </button>
+                                  </div>
+                                ))
                               ) : (
-                                <p className="text-gray-500 mt-2">
-                                  No offers yet.
-                                </p>
+                                <p className="text-gray-500">No offers yet.</p>
                               )}
-                            </td>
-                          </motion.tr>
-                        )}
-                      </AnimatePresence>
-                    </>
+                            </div>
+                          </td>
+                        </tr>
+                      )}
+                    </React.Fragment>
                   ))
                 ) : (
                   <tr>

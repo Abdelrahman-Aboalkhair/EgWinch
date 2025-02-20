@@ -1,15 +1,15 @@
 "use client";
-import { useState } from "react";
+
 import { motion } from "framer-motion";
 import {
   Users,
   Briefcase,
   LayoutDashboard,
-  BadgeCent,
   PanelsRightBottom,
 } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import useStorage from "../hooks/useStorage";
 
 const sidebarLinks = [
   { name: "Dashboard", href: "/dashboard", icon: LayoutDashboard },
@@ -23,7 +23,7 @@ export default function DashboardLayout({
   children: React.ReactNode;
 }) {
   const pathname = usePathname();
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useStorage<boolean>("sidebarOpen", true, "local");
 
   return (
     <div className="flex h-screen">
@@ -46,22 +46,30 @@ export default function DashboardLayout({
 
         {/* Sidebar Links */}
         <nav className="flex flex-col space-y-3">
-          {sidebarLinks.map(({ name, href, icon: Icon }) => (
-            <Link
-              key={name}
-              href={href}
-              className={`relative flex items-center gap-3 px-4 py-3 rounded-lg font-medium transition-all duration-300 ${
-                pathname === href
-                  ? "bg-primary text-white"
-                  : "text-gray-700 hover:bg-green-100"
-              }`}
-            >
-              <div className="w-6 flex justify-center">
-                <Icon className="h-6 w-6" />
-              </div>
-              {isOpen && <span className="text-[15px]">{name}</span>}
-            </Link>
-          ))}
+          {sidebarLinks.map(({ name, href, icon: Icon }) => {
+            const isActive = pathname === href;
+
+            return (
+              <Link
+                key={name}
+                href={href}
+                className={`relative flex items-center gap-3 px-4 py-3 rounded-lg font-medium transition-all duration-300 ${
+                  isActive && isOpen
+                    ? "bg-primary text-white"
+                    : "text-gray-700 hover:bg-gray-100"
+                }`}
+              >
+                <div
+                  className={`w-6 flex justify-center ${
+                    isActive && !isOpen ? "text-green-700" : ""
+                  }`}
+                >
+                  <Icon className="h-6 w-6" />
+                </div>
+                {isOpen && <span className="text-[15px]">{name}</span>}
+              </Link>
+            );
+          })}
         </nav>
       </motion.aside>
 

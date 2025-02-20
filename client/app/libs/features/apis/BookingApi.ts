@@ -34,10 +34,17 @@ export const bookingApi = apiSlice.injectEndpoints({
     }),
 
     updateBooking: builder.mutation({
-      query: ({ id, data }) => ({
-        url: `/bookings/${id}`,
+      query: ({
+        bookingId,
+        action,
+        driverId,
+        totalPrice,
+        status = "pending",
+        paymentStatus = "pending",
+      }) => ({
+        url: `/bookings/${bookingId}`,
         method: "PUT",
-        body: data,
+        body: { action, driverId, totalPrice, status, paymentStatus },
       }),
     }),
 
