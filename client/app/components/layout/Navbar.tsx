@@ -2,30 +2,15 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useAppDispatch, useAppSelector } from "@/app/libs/hooks";
-import { clearAuthState } from "@/app/libs/features/slices/AuthSlice";
-import { useRouter } from "next/navigation";
-import { useSignOutMutation } from "@/app/libs/features/apis/AuthApi";
+import { useAppSelector } from "@/app/libs/hooks";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import UserMenu from "./UserMenu";
+import UserIcon from "../../assets/user.png";
 
 const Navbar = () => {
   const { isLoggedIn, user } = useAppSelector((state) => state.auth);
-  const [signOut] = useSignOutMutation();
-  const router = useRouter();
-  const dispatch = useAppDispatch();
   const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
-
-  const handleSignOut = async () => {
-    try {
-      await signOut();
-      dispatch(clearAuthState());
-      router.push("/sign-in");
-    } catch (error) {
-      console.error("Error occurred while signing out", error);
-    }
-  };
 
   const linkClass = (path) =>
     `text-lg ${pathname === path ? "opacity-100" : "opacity-50"}`;
@@ -60,67 +45,32 @@ const Navbar = () => {
       </div>
 
       <div className="flex items-center gap-6 px-[10rem]">
-        <Link href="/help" className="text-lg">
-          Help
+        <Link href="/support" className="text-lg">
+          Support
         </Link>
         {isLoggedIn ? (
           <div className="relative profile-menu">
-            <Image
-              src={user?.profilePicture?.secure_url}
-              alt="User Profile"
-              className="rounded-full cursor-pointer"
-              width={38}
-              height={38}
-              onClick={() => setMenuOpen(!menuOpen)}
-            />
-
-            {menuOpen && (
-              <motion.div
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -10 }}
-                className="absolute right-0 mt-2 w-48 bg-gray-100 shadow-md rounded-md z-[2200]"
-              >
-                <Link
-                  href="/dashboard"
-                  className="block px-4 py-2 hover:bg-gray-200"
-                  onClick={closeMenu}
-                >
-                  Dashboard
-                </Link>
-                <Link
-                  href="/"
-                  className="block px-4 py-2 hover:bg-gray-200"
-                  onClick={closeMenu}
-                >
-                  Home
-                </Link>
-                <Link
-                  href="/profile"
-                  className="block px-4 py-2 hover:bg-gray-200"
-                  onClick={closeMenu}
-                >
-                  Profile
-                </Link>
-                <Link
-                  href="/drivers"
-                  className="block px-4 py-2 hover:bg-gray-200"
-                  onClick={closeMenu}
-                >
-                  Avaliable {user?.role === "driver" ? "Customers" : "Drivers"}
-                </Link>
-
-                <button
-                  onClick={() => {
-                    handleSignOut();
-                    closeMenu();
-                  }}
-                  className="block text-left w-full px-4 py-2 hover:bg-gray-200"
-                >
-                  Sign out
-                </button>
-              </motion.div>
+            {user?.profilePicture?.secure_url !== (null || undefined) ? (
+              <Image
+                src={user?.profilePicture?.secure_url}
+                alt="User Profile"
+                className="rounded-full cursor-pointer"
+                width={38}
+                height={38}
+                onClick={() => setMenuOpen(!menuOpen)}
+              />
+            ) : (
+              <Image
+                src={UserIcon}
+                alt="User Profile"
+                className="rounded-full cursor-pointer"
+                width={38}
+                height={38}
+                onClick={() => setMenuOpen(!menuOpen)}
+              />
             )}
+
+            {menuOpen && <UserMenu menuOpen={menuOpen} closeMenu={closeMenu} />}
           </div>
         ) : (
           <Link href="/sign-in" className="text-lg">

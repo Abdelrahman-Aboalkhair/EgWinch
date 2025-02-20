@@ -25,18 +25,11 @@ export const bookingApi = apiSlice.injectEndpoints({
       }),
     }),
 
-    getOffers: builder.query({
-      query: () => ({
-        url: "/bookings/offers",
-        method: "GET",
-      }),
-    }),
-
     createOffer: builder.mutation({
-      query: ({ bookingId, data }) => ({
+      query: ({ price, bookingId }) => ({
         url: `/bookings/create-offer/${bookingId}`,
         method: "PUT",
-        body: data,
+        body: { price },
       }),
     }),
 
@@ -61,7 +54,6 @@ export const {
   usePredictMovePriceMutation,
   useGetBookingsQuery,
   useCreateBookingMutation,
-  useGetOffersQuery,
   useCreateOfferMutation,
   useUpdateBookingMutation,
   useDeleteBookingMutation,
