@@ -32,3 +32,11 @@ exports.getUserProfile = async (req, res) => {
     console.log("Error fetching user profile, ", error);
   }
 };
+
+exports.createAdmin = async (req, res) => {
+  const { data } = req.body;
+  try {
+    const user = await User.create(data);
+    res.status(200).json({ success: true, user });
+  } catch (error) {}
+};

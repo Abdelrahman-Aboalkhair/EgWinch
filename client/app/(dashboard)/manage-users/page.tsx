@@ -1,12 +1,29 @@
 "use client";
-import { useGetAllUsersQuery } from "@/app/libs/features/apis/UserApi";
 import { useState } from "react";
-import { Loader2, Trash2, Pencil, Search } from "lucide-react";
+import {
+  useCreateAdminMutation,
+  useGetAllUsersQuery,
+} from "@/app/libs/features/apis/UserApi";
+import { Loader2, Search, PlusCircle } from "lucide-react";
 import { motion } from "framer-motion";
 
 const ManageUsers = () => {
+  const [createAdmin, { isLoading: createAdminLoading }] =
+    useCreateAdminMutation();
   const { data: users, isLoading } = useGetAllUsersQuery({});
   const [search, setSearch] = useState("");
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [adminData, setAdminData] = useState({
+    name: "",
+    email: "",
+    phoneNumber: "",
+    password: "",
+  });
+
+  const handleCreateAdmin = async () => {
+    await createAdmin(adminData);
+    setIsModalOpen(false);
+  };
 
   const filteredUsers = users?.users?.filter((user) =>
     user.name.toLowerCase().includes(search.toLowerCase())
@@ -27,6 +44,15 @@ const ManageUsers = () => {
             onChange={(e) => setSearch(e.target.value)}
           />
         </div>
+        {/* Show Create Admin button only for admins */}
+        {users?.currentUser?.role === "admin" && (
+          <button
+            onClick={() => setIsModalOpen(true)}
+            className="flex items-center gap-2"
+          >
+            <PlusCircle size={18} /> Create Admin
+          </button>
+        )}
       </div>
 
       {/* Loading State */}
@@ -38,34 +64,22 @@ const ManageUsers = () => {
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
           <div className="overflow-x-auto">
             <table className="w-full border-collapse border border-gray-200">
-              {/* Table Head */}
               <thead className="bg-gray-100">
                 <tr>
                   <th className="th">ID</th>
                   <th className="th">Name</th>
                   <th className="th">Email</th>
                   <th className="th">Role</th>
-                  <th className="th">Actions</th>
                 </tr>
               </thead>
-
-              {/* Table Body */}
               <tbody>
                 {filteredUsers?.length ? (
                   filteredUsers.map((user) => (
-                    <tr key={user.id} className="hover:bg-gray-50">
+                    <tr key={user.id || user._id} className="hover:bg-gray-50">
                       <td className="td">{user._id}</td>
                       <td className="td">{user.name}</td>
                       <td className="td">{user.email}</td>
                       <td className="td">{user.role}</td>
-                      <td className="td text-center flex justify-center gap-3">
-                        <button className="text-blue-500 hover:text-blue-700">
-                          <Pencil size={18} />
-                        </button>
-                        <button className="text-red-500 hover:text-red-700">
-                          <Trash2 size={18} />
-                        </button>
-                      </td>
                     </tr>
                   ))
                 ) : (
@@ -79,6 +93,53 @@ const ManageUsers = () => {
             </table>
           </div>
         </motion.div>
+      )}
+
+      {/* Create Admin Modal */}
+      {isModalOpen && (
+        <div onClick={() => setIsModalOpen(false)}>
+          <div className="space-y-4">
+            <input
+              type="text"
+              placeholder="Name"
+              className="input"
+              value={adminData.name}
+              onChange={(e) =>
+                setAdminData({ ...adminData, name: e.target.value })
+              }
+            />
+            <input
+              type="email"
+              placeholder="Email"
+              className="input"
+              value={adminData.email}
+              onChange={(e) =>
+                setAdminData({ ...adminData, email: e.target.value })
+              }
+            />
+            <input
+              type="text"
+              placeholder="Phone Number"
+              className="input"
+              value={adminData.phoneNumber}
+              onChange={(e) =>
+                setAdminData({ ...adminData, phoneNumber: e.target.value })
+              }
+            />
+            <input
+              type="password"
+              placeholder="Password"
+              className="input"
+              value={adminData.password}
+              onChange={(e) =>
+                setAdminData({ ...adminData, password: e.target.value })
+              }
+            />
+            <button onClick={handleCreateAdmin} disabled={createAdminLoading}>
+              {createAdminLoading ? "Creating..." : "Create Admin"}
+            </button>
+          </div>
+        </div>
       )}
     </div>
   );
