@@ -6,6 +6,7 @@ const {
   refreshToken,
   verfiyEmail,
 } = require("../controllers/auth.controller.js");
+const { verifyRefreshToken } = require("../middlewares/auth.middleware.js");
 
 const express = require("express");
 

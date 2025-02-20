@@ -1,163 +1,174 @@
 "use client";
 import { useAppSelector } from "@/app/libs/hooks";
 import { useParams, useSearchParams } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { io } from "socket.io-client";
 import { useForm } from "react-hook-form";
 import {
   useCreateConversationMutation,
   useGetConversationsQuery,
 } from "@/app/libs/features/apis/ConversationApi";
+import { Send } from "lucide-react"; // Import Send icon
 
+// Create socket instance outside component to prevent recreation
 const socket = io("http://localhost:5000");
 
 const ChatPage = () => {
   const { user } = useAppSelector((state) => state.auth);
   const userId = user?.id || user?._id;
-  console.log("user: ", user);
   const { receiverId } = useParams();
-  const searchParams = useSearchParams();
-  const conversationId = searchParams.get("conversationId");
-  console.log("conversationId: ", conversationId);
+  const conversationId = useSearchParams().get("conversationId");
   const { register, handleSubmit, reset } = useForm();
 
   const [createConversation] = useCreateConversationMutation();
   const { data: conversations } = useGetConversationsQuery({}, { skip: !user });
 
-  const [messages, setMessages] = useState<any>([]);
-  const [activeConversation, setActiveConversation] = useState<any>(null);
-  console.log("activeConversation: ", activeConversation);
+  const [messages, setMessages] = useState([]);
+  const [activeConversation, setActiveConversation] = useState(null);
 
-  // Find the active conversation based on the conversationId
+  // Find or set active conversation
   useEffect(() => {
-    if (conversationId) {
-      const foundConversation = conversations?.find(
-        (conversation) => conversation._id === conversationId
-      );
-      setActiveConversation(foundConversation);
-    } else {
-      // If no conversationId, try finding the conversation based on receiverId
-      const foundConversation = conversations?.find(
-        (conversation) =>
-          conversation.participants.some(
-            (participant) => participant._id === receiverId
-          ) &&
-          conversation.participants.some(
-            (participant) => participant._id === userId
-          )
-      );
-      setActiveConversation(foundConversation);
+    if (!conversations) return;
+
+    const conversation = conversationId
+      ? conversations.find((conv) => conv._id === conversationId)
+      : conversations.find(
+          (conv) =>
+            conv.participants.some((p) => p._id === receiverId) &&
+            conv.participants.some((p) => p._id === userId)
+        );
+
+    setActiveConversation(conversation);
+    if (conversation) {
+      setMessages(conversation.messages);
     }
   }, [conversations, conversationId, receiverId, userId]);
 
-  // Load messages from active conversation
+  // Handle real-time messages
   useEffect(() => {
-    if (activeConversation) {
-      setMessages(activeConversation.messages);
-    }
-  }, [activeConversation]);
-
-  // Handle incoming messages from socket
-  useEffect(() => {
-    socket.on("receive_message", (message) => {
+    const handleReceiveMessage = (message) => {
       if (activeConversation?._id === message.conversationId) {
         setMessages((prev) => [...prev, message]);
       }
-    });
-
-    return () => {
-      socket.off("receive_message");
     };
+
+    socket.on("receive_message", handleReceiveMessage);
+    return () => socket.off("receive_message", handleReceiveMessage);
   }, [activeConversation]);
 
-  const sendMessage = async (data) => {
-    try {
-      if (data.message.trim() && user) {
+  // Handle sending messages
+  const handleSendMessage = useCallback(
+    async (data) => {
+      if (!data.message.trim() || !user) return;
+
+      try {
         if (activeConversation) {
-          // If active conversation exists, just send the message
+          // Send message in existing conversation
           const messageData = {
             senderId: userId,
-            conversationId: activeConversation._id || conversationId,
+            conversationId: activeConversation._id,
+            receiverId,
             content: data.message,
           };
-          socket.emit("send_message", messageData, (response) => {
-            if (response.status === "ok") {
-              setMessages((prev) => [...prev, response.message]);
-            } else {
-              console.error("Error sending message:", response.error);
-            }
-          });
+          await sendMessageToSocket(messageData);
         } else {
-          // If no active conversation, create a new one and send the message
-          const createdConversation = await createConversation({
+          // Create new conversation and send message
+          const newConversation = await createConversation({
             senderId: userId,
             receiverId,
           }).unwrap();
 
-          if (createdConversation) {
-            setActiveConversation(createdConversation);
-            setMessages(createdConversation.messages);
-            const messageData = {
-              senderId: userId,
-              conversationId: createdConversation._id,
-              content: data.message,
-            };
-            socket.emit("send_message", messageData, (response) => {
-              if (response.status === "ok") {
-                setMessages((prev) => [...prev, response.message]);
-              } else {
-                console.error("Error sending message:", response.error);
-              }
-            });
-          }
+          setActiveConversation(newConversation);
+          setMessages(newConversation.messages);
+
+          const messageData = {
+            senderId: userId,
+            conversationId: newConversation._id,
+            receiverId,
+            content: data.message,
+          };
+          await sendMessageToSocket(messageData);
         }
         reset();
+      } catch (error) {
+        console.error("Error sending message:", error);
       }
-    } catch (error) {
-      console.error("Error sending message:", error);
-    }
+    },
+    [activeConversation, userId, receiverId, createConversation, reset]
+  );
+
+  // Helper function to send message via socket
+  const sendMessageToSocket = (messageData) => {
+    return new Promise((resolve, reject) => {
+      socket.emit("send_message", messageData, (response) => {
+        if (response.status === "ok") {
+          setMessages((prev) => [...prev, response.message]);
+          resolve(response);
+        } else {
+          reject(new Error(response.error));
+        }
+      });
+    });
   };
 
+  if (!user) {
+    return <div>Please login to chat</div>;
+  }
+
   return (
-    <div className="flex flex-col h-[60vh] w-1/2 mx-auto bg-gray-100 p-4">
-      {/* Header */}
-      <div className="flex items-center justify-between mb-4 py-2 px-4 bg-primary text-white rounded-md shadow-md">
-        <span className="text-xl font-semibold">Chat</span>
+    <div className="flex flex-col h-[calc(100vh-4rem)] max-w-3xl mx-auto bg-gray-50 rounded-lg shadow-lg overflow-hidden">
+      {/* Chat Header */}
+      <div className="flex items-center justify-between p-4 bg-primary text-white">
+        <span className="text-xl font-semibold">
+          Chat with{" "}
+          {activeConversation?.participants.find((p) => p._id === receiverId)
+            ?.name || "Driver"}
+        </span>
       </div>
 
-      {/* Chat Messages */}
-      <div className="flex-1 overflow-y-auto bg-white rounded-lg shadow-md p-4 space-y-4">
-        {messages?.map((msg, index) => (
+      {/* Messages Container */}
+      <div className="flex-1 overflow-y-auto p-4 space-y-4">
+        {messages.map((msg, index) => (
           <div
-            key={index}
-            className={`rounded-lg max-w-fit p-4 ${
-              msg.sender === userId
-                ? "bg-primary text-white ml-auto"
-                : "bg-gray-100 text-black"
+            key={msg._id || index}
+            className={`flex ${
+              msg.sender === userId ? "justify-end" : "justify-start"
             }`}
           >
-            {msg.content}
+            <div
+              className={`max-w-[70%] p-3 rounded-lg ${
+                msg.sender === userId
+                  ? "bg-primary text-white rounded-br-none"
+                  : "bg-white text-gray-800 shadow-md rounded-bl-none"
+              }`}
+            >
+              <p className="break-words">{msg.content}</p>
+              <span className="text-xs opacity-75 mt-1 block">
+                {new Date(msg.createdAt).toLocaleTimeString()}
+              </span>
+            </div>
           </div>
         ))}
       </div>
 
       {/* Message Input */}
       <form
-        onSubmit={handleSubmit(sendMessage)}
-        className="flex items-center gap-2 mt-4 bg-white shadow-md rounded-md px-4 py-2"
+        onSubmit={handleSubmit(handleSendMessage)}
+        className="p-4 bg-white border-t border-gray-200"
       >
-        <input
-          {...register("message")}
-          type="text"
-          placeholder="Type a message..."
-          className="border-2 border-gray-300 rounded-lg p-2 flex-1 text-lg focus:border-none focus:outline-none focus:ring-[1.5px] focus:ring-primary"
-        />
-        <button
-          type="submit"
-          className="bg-primary text-white px-4 py-2 rounded-md hover:opacity-90 active:scale-95 transition"
-        >
-          Send
-        </button>
+        <div className="flex gap-2">
+          <input
+            {...register("message")}
+            placeholder="Type a message..."
+            className="flex-1 px-4 py-2 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+          />
+          <button
+            type="submit"
+            className="bg-primary text-white p-2 rounded-full hover:bg-primary/90 active:scale-95 transition-all duration-200"
+          >
+            <Send size={20} />
+          </button>
+        </div>
       </form>
     </div>
   );

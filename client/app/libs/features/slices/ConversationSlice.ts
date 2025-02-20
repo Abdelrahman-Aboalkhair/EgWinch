@@ -38,20 +38,22 @@ const conversationSlice = createSlice({
     sendMessage: (
       state,
       action: PayloadAction<{
+        _id: string;
         conversation: string;
         content: string;
         sender: string;
         createdAt: string;
+        isRead: boolean;
       }>
     ) => {
       const message = action.payload;
 
       // Update active conversation if it matches
       if (state.activeConversation?._id === message.conversation) {
-        state.activeConversation.messages.push({
-          ...message,
-          isRead: false,
-        });
+        if (!state.activeConversation.messages) {
+          state.activeConversation.messages = [];
+        }
+        state.activeConversation.messages.push(message);
         state.activeConversation.lastMessage = message;
       }
 
@@ -59,12 +61,24 @@ const conversationSlice = createSlice({
       const conversation = state.conversations.find(
         (conv) => conv._id === message.conversation
       );
+
       if (conversation) {
-        conversation.messages.push({
-          ...message,
-          isRead: false,
-        });
+        if (!conversation.messages) {
+          conversation.messages = [];
+        }
+        conversation.messages.push(message);
         conversation.lastMessage = message;
+
+        // Update unread count for receiver
+        if (message.sender !== conversation._id) {
+          const receiverId = conversation.participants.find(
+            (id) => id !== message.sender
+          );
+          if (receiverId) {
+            conversation.unreadCount[receiverId] =
+              (conversation.unreadCount[receiverId] || 0) + 1;
+          }
+        }
       }
     },
 
@@ -120,7 +134,14 @@ const conversationSlice = createSlice({
     },
 
     setActiveConversation: (state, action: PayloadAction<string | null>) => {
-      state.activeConversation = action.payload;
+      if (!action.payload) {
+        state.activeConversation = null;
+      } else {
+        const conversation = state.conversations.find(
+          (conv) => conv._id === action.payload
+        );
+        state.activeConversation = conversation || null;
+      }
     },
   },
 });

@@ -70,19 +70,6 @@ const Conversations = () => {
       if (!message || !message.conversation) return;
 
       dispatch(sendMessage(message));
-
-      // If the message belongs to the active conversation, update it
-      if (
-        activeConversation &&
-        activeConversation._id === message.conversation
-      ) {
-        dispatch(
-          setActiveConversation({
-            ...activeConversation,
-            messages: [...activeConversation.messages, message],
-          })
-        );
-      }
     };
 
     // Unread count updates
@@ -145,16 +132,10 @@ const Conversations = () => {
   const handleSendMessage = async (data) => {
     if (!data.message.trim() || !userId || !activeConversation) return;
 
-    const receiverId =
-      activeConversation.participants.find((p) => p !== userId)?._id ||
-      activeConversation.participants.find((p) => p !== userId)?.id; // Handle both cases
-
-    if (!receiverId) return;
-
     const messageData = {
-      senderId: userId,
-      receiverId,
       conversationId: activeConversation._id,
+      senderId: userId,
+      receiverId: receiver?._id,
       content: data.message,
     };
 
@@ -195,7 +176,7 @@ const Conversations = () => {
                   <div
                     key={conversation._id}
                     onClick={() =>
-                      dispatch(setActiveConversation(conversation))
+                      dispatch(setActiveConversation(conversation._id))
                     }
                     className={`flex items-center gap-3 p-3 cursor-pointer hover:bg-gray-100 transition relative ${
                       activeConversation?._id === conversation._id

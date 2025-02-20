@@ -1,82 +1,64 @@
-import { createApi, BaseQueryFn } from "@reduxjs/toolkit/query/react";
-import axios from "axios";
-import { RootState } from "../../store";
+import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { setCredentials, clearAuthState } from "./AuthSlice";
-import { FetchArgs, FetchBaseQueryError } from "@reduxjs/toolkit/query";
+import type { RootState } from "../../store";
+import type {
+  BaseQueryFn,
+  FetchArgs,
+  FetchBaseQueryError,
+} from "@reduxjs/toolkit/query/react";
 
-// Create axios instance with base URL configuration
-const axiosInstance = axios.create({
-  baseURL:
-    process.env.NEXT_PUBLIC_API_BASE_URL || "http://localhost:5000/api/v1",
-  headers: {
-    "Content-Type": "application/json",
+const baseQuery = fetchBaseQuery({
+  baseUrl: "http://localhost:5000/api/v1",
+  credentials: "include",
+  prepareHeaders: (headers, { getState }) => {
+    const token = (getState() as RootState).auth.accessToken;
+    if (token) {
+      headers.set("authorization", `Bearer ${token}`);
+    }
+    return headers;
   },
 });
 
-const baseQuery: BaseQueryFn<
+const baseQueryWithReauth: BaseQueryFn<
   string | FetchArgs,
   unknown,
-  FetchBaseQueryError,
-  {}
+  FetchBaseQueryError
 > = async (args, api, extraOptions) => {
-  try {
-    // Retrieve the current accessToken from the Redux state
-    const token = (api.getState() as RootState).auth.accessToken;
-    if (token) {
-      // Attach the token to every request via the Authorization header
-      axiosInstance.defaults.headers["Authorization"] = `Bearer ${token}`;
-    }
+  let result = await baseQuery(args, api, extraOptions);
 
-    // Attempt the API request
-    const response = await axiosInstance({
-      ...args,
-      data:
-        args.method === "POST" || args.method === "PUT" ? args.body : undefined,
-    });
-    return { data: response.data };
-  } catch (error: any) {
-    // Check if the error is due to an expired/invalid accessToken
-    if (error.response && error.response.status === 401) {
-      try {
-        // Attempt to silently renew the accessToken via the refresh endpoint.
-        // Note: The refresh token should be sent automatically as it's stored as an HttpOnly cookie.
-        const refreshResult = await axiosInstance.get("/refresh-token");
+  if (result.error && result.error.status === 401) {
+    // try to get a new token
+    const refreshResult = await baseQuery(
+      { url: "/auth/refresh-token", method: "GET" },
+      api,
+      extraOptions
+    );
 
-        if (refreshResult.data) {
-          // Update Redux state with new credentials
-          api.dispatch(setCredentials({ data: refreshResult.data }));
+    if (refreshResult.data) {
+      // store the new token
+      api.dispatch(setCredentials(refreshResult?.data));
+      // retry the original query with new access token
+      result = await baseQuery(args, api, extraOptions);
+    } else {
+      // if refresh token fails, clear the auth state
+      api.dispatch(clearAuthState());
 
-          // Set the new token on the axios instance
-          axiosInstance.defaults.headers[
-            "Authorization"
-          ] = `Bearer ${refreshResult.data.accessToken}`;
-
-          // Retry the original request with the new token
-          const retryResponse = await axiosInstance(args);
-          return { data: retryResponse.data };
+      if (typeof window !== "undefined") {
+        // Store the current URL to redirect back after login
+        const currentPath = window.location.pathname;
+        if (currentPath !== "/auth/sign-in") {
+          localStorage.setItem("redirectAfterLogin", currentPath);
+          window.location.href = "/sign-in";
         }
-      } catch (refreshError) {
-        // If refreshing fails, clear the auth state
-        api.dispatch(clearAuthState());
-        return { error: { status: 401, message: "Unauthorized" } };
       }
     }
-
-    // For other errors, return a general error object
-    return {
-      error: {
-        status: error.response?.status || 500,
-        message: error.response?.data.message || "Unknown error",
-      },
-    };
   }
+
+  return result;
 };
 
 export const apiSlice = createApi({
   reducerPath: "api",
-  baseQuery,
-  tagTypes: ["Drivers", "Conversations", "Messages"],
+  baseQuery: baseQueryWithReauth,
   endpoints: () => ({}),
 });
-
-export default apiSlice;

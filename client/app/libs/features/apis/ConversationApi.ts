@@ -1,4 +1,4 @@
-import apiSlice from "../slices/ApiSlice";
+import { apiSlice } from "../slices/ApiSlice";
 
 interface Message {
   _id: string;

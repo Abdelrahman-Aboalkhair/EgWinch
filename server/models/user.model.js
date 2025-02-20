@@ -96,7 +96,7 @@ userSchema.methods.generateAccessToken = function () {
     { userId: this._id, role: this.role },
     process.env.ACCESS_TOKEN_SECRET,
     {
-      expiresIn: "15m",
+      expiresIn: "5s",
     }
   );
 };
@@ -106,7 +106,7 @@ userSchema.methods.generateRefreshToken = function () {
     { userId: this._id, role: this.role },
     process.env.REFRESH_TOKEN_SECRET,
     {
-      expiresIn: "1d",
+      expiresIn: "15s",
     }
   );
 };
