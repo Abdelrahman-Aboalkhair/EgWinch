@@ -1,25 +1,23 @@
 import React, { useState } from "react";
-import { UseFormRegister } from "react-hook-form";
+import { UseFormRegister, UseFormSetValue } from "react-hook-form";
 import { Images, LucideIcon } from "lucide-react";
 
 interface InputProps {
   label?: string;
   name: string;
   type?: string;
-  value?: string;
   placeholder?: string;
   register: UseFormRegister<any>;
   validation?: object;
   icon?: LucideIcon;
   className?: string;
   error?: string;
-  onChange?: (value: string) => void;
+  setValue?: UseFormSetValue<any>;
 }
 
 const Input: React.FC<InputProps> = ({
   label,
   name,
-  value,
   type = "text",
   placeholder,
   register,
@@ -27,7 +25,7 @@ const Input: React.FC<InputProps> = ({
   icon: Icon,
   className = "",
   error,
-  onChange,
+  setValue,
 }) => {
   const fileInputRef = React.useRef<HTMLInputElement | null>(null);
   const [selectedFile, setSelectedFile] = useState<string | null>(null);
@@ -40,10 +38,13 @@ const Input: React.FC<InputProps> = ({
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (type === "file" && e.target.files) {
-      setSelectedFile(e.target.files[0].name);
-    }
-    if (onChange) {
-      onChange(e.target.value);
+      const file = e.target.files[0];
+      if (file) {
+        setSelectedFile(file.name);
+        if (setValue) {
+          setValue(name, file);
+        }
+      }
     }
   };
 
@@ -78,8 +79,6 @@ const Input: React.FC<InputProps> = ({
         ) : (
           <input
             {...register(name, validation)}
-            defaultValue={value || ""}
-            onChange={handleChange}
             type={type}
             placeholder={placeholder}
             className={`p-[14px] pl-3 pr-10 w-full border text-gray-800 placeholder:text-gray-800 rounded-md focus:outline-none focus:ring-[1.4px] focus:ring-primary ${className}`}

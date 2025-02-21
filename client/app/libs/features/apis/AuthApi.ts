@@ -13,12 +13,34 @@ export const authApi = apiSlice.injectEndpoints({
         body: credentials,
       }),
     }),
-    signUp: builder.mutation<
+    registerCustomer: builder.mutation<
       { user: User; accessToken: string },
-      { email: string; password: string; name: string; phoneNumber: string }
+      FormData
+    >({
+      query: (formData) => ({
+        url: "/auth/register-customer",
+        method: "POST",
+        body: formData,
+      }),
+    }),
+    registerDriver: builder.mutation<
+      { user: User; accessToken: string },
+      {
+        email: string;
+        password: string;
+        name: string;
+        phoneNumber: string;
+        address: string;
+        licenseNumber: string;
+        licenseExpiry: string;
+        licenseImage: string;
+        vehicleType: string;
+        experienceYears: number;
+        profilePicture: string;
+      }
     >({
       query: (data) => ({
-        url: "/auth/sign-up",
+        url: "/auth/register-driver",
         method: "POST",
         body: data,
       }),
@@ -63,7 +85,8 @@ export const authApi = apiSlice.injectEndpoints({
 
 export const {
   useSignInMutation,
-  useSignUpMutation,
+  useRegisterCustomerMutation,
+  useRegisterDriverMutation,
   useSignOutMutation,
   useVerifyEmailMutation,
   useValidateSessionQuery,

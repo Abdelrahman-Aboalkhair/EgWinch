@@ -5,6 +5,8 @@ const Customer = require("../models/customer.model");
 const Driver = require("../models/driver.model");
 const axios = require("axios");
 const jwt = require("jsonwebtoken");
+const { uploadImage } = require("../utils/uploadImage");
+const fs = require("fs");
 
 exports.registerDriver = async (req, res) => {
   try {
@@ -13,15 +15,13 @@ exports.registerDriver = async (req, res) => {
       email,
       phoneNumber,
       address,
-      password,
       licenseNumber,
       licenseExpiry,
-      licenseImage,
       vehicleType,
       experienceYears,
+      password,
     } = req.body;
 
-    // Check if the user already exists
     const existingUser = await User.findOne({
       $or: [{ email }, { phoneNumber }],
     });
@@ -37,6 +37,12 @@ exports.registerDriver = async (req, res) => {
     const emailVerificationToken = Math.random().toString().slice(-4);
     const emailTokenExpiry = new Date(Date.now() + 10 * 60 * 1000); // 10 minutes
 
+    const profilePicture = req.files["profilePicture"][0];
+    const licenseImage = req.files["licenseImage"][0];
+
+    const profilePictureResult = await uploadImage(profilePicture.path);
+    const licenseImageResult = await uploadImage(licenseImage.path);
+
     // Create new driver
     const newDriver = await Driver.create({
       name,
@@ -47,12 +53,30 @@ exports.registerDriver = async (req, res) => {
       licenseNumber,
       role: "driver",
       licenseExpiry,
-      licenseImage,
+      licenseImage: {
+        public_id: licenseImageResult.public_id,
+        secure_url: licenseImageResult.secure_url,
+      },
       vehicleType,
       experienceYears,
       emailVerificationToken,
       emailTokenExpiry,
+      profilePicture: {
+        public_id: profilePictureResult.public_id,
+        secure_url: profilePictureResult.secure_url,
+      },
     });
+
+    if (req.file) {
+      const uploadResult = await uploadImage(req.file.path);
+      if (uploadResult) {
+        newDriver.profilePicture.public_id = uploadResult.public_id;
+        newDriver.profilePicture.secure_url = uploadResult.secure_url;
+
+        // Remove the uploaded file from the server
+        fs.rmSync(`uploads/${req.file.filename}`);
+      }
+    }
 
     await sendEmail({
       to: email,
@@ -96,6 +120,7 @@ exports.registerDriver = async (req, res) => {
 exports.registerCustomer = async (req, res) => {
   try {
     const { name, email, address, phoneNumber, password } = req.body;
+    console.log("req.body: ", req.body);
 
     // Check if the user already exists
     const existingUser = await User.findOne({
@@ -123,7 +148,24 @@ exports.registerCustomer = async (req, res) => {
       role: "customer",
       emailVerificationToken,
       emailTokenExpiry,
+      profilePicture: {
+        public_id: "",
+        secure_url: "",
+      },
     });
+
+    if (req.file) {
+      console.log("req.file: ", req.file);
+      const uploadResult = await uploadImage(req.file.path);
+      console.log("uploadResult: ", uploadResult);
+      if (uploadResult) {
+        newCustomer.profilePicture.public_id = uploadResult.public_id;
+        newCustomer.profilePicture.secure_url = uploadResult.secure_url;
+
+        // Remove the uploaded file from the server
+        fs.rmSync(`uploads/${req.file.filename}`);
+      }
+    }
 
     // Send email verification
     await sendEmail({
@@ -252,7 +294,10 @@ exports.signin = async (req, res) => {
         phoneNumber: user.phoneNumber,
         role: user.role,
         isEmailVerified: user.isEmailVerified,
-        isPhoneNumberVerified: user.isPhoneNumberVerified,
+        profilePicture: {
+          public_id: user.profilePicture.public_id,
+          secure_url: user.profilePicture.secure_url,
+        },
       },
       accessToken,
     });
