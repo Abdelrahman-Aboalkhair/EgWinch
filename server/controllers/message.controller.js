@@ -1,4 +1,5 @@
 const Message = require("../models/message.model");
+const redis = require("../lib/redis");
 
 exports.getMessages = async (req, res) => {
   const { conversationId } = req.params;
