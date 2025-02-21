@@ -1,30 +1,30 @@
 "use client";
 import { useForm } from "react-hook-form";
 import Input from "@/app/components/custom/Input";
-import { useSignUpMutation } from "@/app/libs/features/apis/AuthApi";
 import { setCredentials } from "@/app/libs/features/slices/AuthSlice";
 import { useAppDispatch, useAppSelector } from "@/app/libs/hooks";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import DatePicker from "@/app/components/custom/DatePicker";
+import { useRegisterDriverMutation } from "@/app/libs/features/apis/AuthApi";
+import Dropdown from "@/app/components/custom/Dropdown";
 
 interface InputForm {
   name: string;
   phoneNumber: string;
   email: string;
-  driverLicenseNumber: string;
-  driverLicenseImage: string;
-  driverLicenseExpiry: string;
-  registrationNumber: string;
-  registrationImage: string;
-  registrationExpiryDate: string;
-  capacity: string;
+  profilePicture: string;
+  address: string;
+  licenseNumber: string;
+  licenseImage: string;
+  licenseExpiry: string;
+  experienceYears: number;
+  vehicleType: string;
   password: string;
 }
 
 const DriverSignUp = () => {
-  const { isLoggedIn, accessToken } = useAppSelector((state) => state.auth);
-  const [signUp, { error, isLoading }] = useSignUpMutation();
+  const [registerDriver, { error, isLoading }] = useRegisterDriverMutation();
   const dispatch = useAppDispatch();
   const router = useRouter();
 
@@ -33,22 +33,39 @@ const DriverSignUp = () => {
     handleSubmit,
     formState: { errors },
     control,
+    setValue,
   } = useForm<InputForm>();
 
-  const onSubmit = async (formData: InputForm) => {
-    console.log("formData", formData);
-    const data = {
-      ...formData,
-      role: "driver",
-    };
-    try {
-      const result = await signUp(data);
-      dispatch(setCredentials(result));
+  const onSubmit = async (data: InputForm) => {
+    const formData = new FormData();
+    formData.append("name", data.name);
+    formData.append("email", data.email);
+    formData.append("address", data.address);
+    formData.append("phoneNumber", data.phoneNumber);
+    formData.append("licenseNumber", data.licenseNumber);
+    formData.append("licenseImage", data.licenseImage);
+    formData.append("licenseExpiry", data.licenseExpiry);
+    formData.append("experienceYears", data.experienceYears.toString());
+    formData.append("vehicleType", data.vehicleType);
+    formData.append("password", data.password);
 
+    if (data.profilePicture) {
+      formData.append("profilePicture", data.profilePicture);
+    }
+
+    console.log("FormData entries: ");
+    for (let pair of formData.entries()) {
+      console.log(pair[0], pair[1]);
+    }
+
+    try {
+      const result = await registerDriver(formData);
+      console.log("result: ", result);
+      dispatch(setCredentials(result));
       if (result.data?.success) {
-        router.push("/auth/verify-email");
+        router.push("/verify-email");
       }
-    } catch (error: any) {
+    } catch (error) {
       console.error("Error occurred while signing up", error);
     }
   };
@@ -101,68 +118,68 @@ const DriverSignUp = () => {
               className="py-[15px]"
             />
             <Input
-              name="driverLicenseNumber"
+              name="address"
+              type="text"
+              placeholder="Address"
+              register={register}
+              validation={{ required: "Address is required" }}
+              error={errors.address?.message}
+              className="py-[18px]"
+            />
+
+            <Input
+              name="experienceYears"
+              type="number"
+              placeholder="Experience Years"
+              register={register}
+              validation={{ required: "Experience Years is required" }}
+              error={errors.experienceYears?.message}
+              className="py-[18px]"
+            />
+
+            <Dropdown
+              options={["small truck", "medium truck", "large truck", "winch"]}
+              label="Vehicle Type"
+              onSelect={(value) => setValue("vehicleType", value)}
+              onClear={() => setValue("vehicleType", "")}
+            />
+
+            <Input
+              name="licenseNumber"
               type="text"
               placeholder="License Number"
               register={register}
               validation={{ required: "License Number is required" }}
-              error={errors.driverLicenseNumber?.message}
+              error={errors.licenseNumber?.message}
               className="py-[15px]"
             />
             <Input
-              name="driverLicenseImage"
+              name="licenseImage"
               type="file"
               placeholder="License Image"
+              setValue={setValue}
               register={register}
-              // validation={{ required: "License Image is required" }}
-              error={errors.driverLicenseImage?.message}
+              validation={{ required: "License Image is required" }}
+              error={errors.licenseImage?.message}
               className="py-[15px]"
             />
             <DatePicker
-              name="driverLicenseExpiry"
+              name="licenseExpiry"
               control={control}
               label="License Expiry Date"
             />
+
             <Input
-              name="registrationNumber"
-              type="text"
-              placeholder="Registration Number"
-              register={register}
-              validation={{ required: "Registration Number is required" }}
-              error={errors.registrationNumber?.message}
-              className="py-[15px]"
-            />
-            <DatePicker
-              name="registrationExpiryDate"
-              control={control}
-              label="Registration Expiry Date"
-            />
-            <Input
-              name="registrationImage"
+              name="profilePicture"
               type="file"
-              placeholder="Registration Image"
+              placeholder="Profile picture"
               register={register}
-              // validation={{ required: "Registration Image is required" }}
-              error={errors.registrationImage?.message}
-              className="py-[15px]"
-            />
-            <Input
-              name="capacity"
-              type="number"
-              placeholder="Capacity (in KG)"
-              register={register}
-              validation={{ required: "Capacity is required" }}
-              error={errors.capacity?.message}
-              className="py-[15px]"
-            />
-            <Input
-              name="proilePicture"
-              type="file"
-              placeholder="Profile Picture"
-              register={register}
-              // validation={{ required: "Profile Picture is required" }}
-              error={errors.registrationImage?.message}
-              className="py-[15px]"
+              setValue={setValue}
+              validation={{
+                required: "Profile picture is required",
+              }}
+              error={errors.profilePicture?.message}
+              className="py-[18px]"
             />
             <Input
               name="password"

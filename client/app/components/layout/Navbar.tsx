@@ -63,14 +63,16 @@ const Navbar = () => {
         </Link>
       </div>
 
-      <div className="flex gap-6">
-        <Link href="/book-move" className={linkClass("/book-move")}>
-          Book a Move
-        </Link>
-        <Link href="/driver-sign-up" className={linkClass("/driver-sign-up")}>
-          Own a Winch?
-        </Link>
-      </div>
+      {user?.role !== "driver" && (
+        <div className="flex gap-6">
+          <Link href="/book-move" className={linkClass("/book-move")}>
+            Book a Move
+          </Link>
+          <Link href="/driver-sign-up" className={linkClass("/driver-sign-up")}>
+            Own a Winch?
+          </Link>
+        </div>
+      )}
 
       <div className="flex items-center gap-6 px-[10rem]">
         <div className="relative" ref={notificationRef}>
@@ -126,25 +128,14 @@ const Navbar = () => {
 
         {isLoggedIn ? (
           <div key={user?.id} className="relative profile-menu">
-            {user?.profilePicture?.secure_url ? (
-              <Image
-                src={user.profilePicture.secure_url}
-                alt="User Profile"
-                className="rounded-full cursor-pointer"
-                width={38}
-                height={38}
-                onClick={() => setMenuOpen(!menuOpen)}
-              />
-            ) : (
-              <Image
-                src={UserIcon}
-                alt="User Profile"
-                className="rounded-full cursor-pointer"
-                width={38}
-                height={38}
-                onClick={() => setMenuOpen(!menuOpen)}
-              />
-            )}
+            <Image
+              src={user?.profilePicture?.secure_url}
+              alt="User Profile"
+              className="rounded-full cursor-pointer"
+              width={40}
+              height={40}
+              onClick={() => setMenuOpen(!menuOpen)}
+            />
 
             {menuOpen && <UserMenu menuOpen={menuOpen} closeMenu={closeMenu} />}
           </div>
