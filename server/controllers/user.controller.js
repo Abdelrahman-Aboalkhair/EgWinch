@@ -1,4 +1,5 @@
 const User = require("../models/baseUser.model");
+const redis = require("../lib/redis");
 
 exports.getAllUsers = async (req, res) => {
   const { page = 1, limit = 10, role } = req.query;
@@ -41,12 +42,21 @@ exports.getProfile = async (req, res) => {
 
 exports.me = async (req, res) => {
   try {
+    const cacheKey = `user:${req.user.userId}`;
+    const cachedUser = await redis.get(cacheKey);
+    if (cachedUser) {
+      return res
+        .status(200)
+        .json({ success: true, user: JSON.parse(cachedUser) });
+    }
     const user = await User.findById(req.user.userId);
     if (!user) {
       return res
         .status(404)
         .json({ success: false, message: "User not found" });
     }
+
+    await redis.setex(cacheKey, 3600, JSON.stringify(user));
     res.status(200).json({ success: true, user });
   } catch (error) {
     console.log("Error fetching user profile, ", error);

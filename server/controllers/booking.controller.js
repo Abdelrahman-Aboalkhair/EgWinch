@@ -2,6 +2,7 @@ const Booking = require("../models/booking.model");
 const User = require("../models/baseUser.model");
 const axios = require("axios");
 const Notification = require("../models/notification.model");
+const redis = require("../lib/redis");
 
 exports.createBooking = async (req, res) => {
   try {
@@ -41,6 +42,9 @@ exports.createBooking = async (req, res) => {
       items,
       status: "pending",
     });
+
+    // Invaldiate the cache
+    await redisClient.del(`bookings:${req.user.userId}`);
 
     // Send the booking to nearby drivers
     const nearbyDrivers = await User.aggregate([
@@ -179,6 +183,10 @@ exports.createOffer = async (req, res) => {
       message: `New offer from a driver (ID: ${driverId})`,
     });
 
+    // **Invalidate cache for customer and driver**
+    await redisClient.del(`bookings:${booking.customer}`);
+    await redisClient.del(`bookings:${booking.driver}`);
+
     res.status(201).json({
       success: true,
       message: "Offer sent successfully",
@@ -262,6 +270,10 @@ exports.updateBooking = async (req, res) => {
 
       await booking.save();
 
+      // **Invalidate cache for customer and driver**
+      await redisClient.del(`bookings:${updatedBooking.customer}`);
+      await redisClient.del(`bookings:${updatedBooking.driver}`);
+
       return res.status(200).json({
         success: true,
         message: `Offer ${action}ed successfully`,
@@ -303,6 +315,7 @@ exports.updateBooking = async (req, res) => {
 exports.getBookings = async (req, res) => {
   try {
     const { userId } = req.user;
+    const cacheKey = `bookings:${userId}`;
     let { id, page = 1, limit = 10 } = req.query;
 
     page = parseInt(page);
@@ -314,6 +327,18 @@ exports.getBookings = async (req, res) => {
       filter = { $or: [{ customer: userId }, { driver: userId }] };
     }
 
+    // **Check if bookings are cached**
+    const cachedBookings = await redis.get(cacheKey);
+    if (cachedBookings) {
+      return res.status(200).json({
+        success: true,
+        message: "Bookings retrieved successfully (from cache)",
+        ...JSON.parse(cachedBookings),
+        fromCache: true,
+      });
+    }
+
+    // **Fetch from MongoDB if not in cache**
     const totalBookings = await Booking.countDocuments(filter);
     const bookings = await Booking.find(filter)
       .populate("customer driver", "name")
@@ -327,14 +352,22 @@ exports.getBookings = async (req, res) => {
       0
     );
 
-    res.status(200).json({
-      success: true,
-      message: "Bookings retrieved successfully",
+    const response = {
       totalBookings,
       totalOffers,
       currentPage: page,
       totalPages: Math.ceil(totalBookings / limit),
       bookings,
+    };
+
+    // **Store the result in Redis for 1 hour**
+    await redis.setex(cacheKey, 3600, JSON.stringify(response));
+
+    res.status(200).json({
+      success: true,
+      message: "Bookings retrieved successfully",
+      ...response,
+      fromCache: false,
     });
   } catch (error) {
     res.status(500).json({
@@ -359,6 +392,10 @@ exports.deleteBooking = async (req, res) => {
     }
 
     await booking.deleteOne();
+
+    // **Invalidate cache for customer and driver**
+    await redisClient.del(`bookings:${booking.customer}`);
+    await redisClient.del(`bookings:${booking.driver}`);
 
     res
       .status(200)
