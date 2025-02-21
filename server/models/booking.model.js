@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const redis = require("../lib/redis");
 
 const bookingSchema = new mongoose.Schema(
   {
@@ -91,6 +92,22 @@ const bookingSchema = new mongoose.Schema(
   },
   { timestamps: true }
 );
+
+// Function to clear cache when data changes
+const clearCache = async (userId) => {
+  await redis.del(`bookingStats:${userId}`);
+};
+
+// Call this function when booking changes
+bookingSchema.post("save", async function () {
+  await clearCache(this.customer.toString());
+  await clearCache(this?.driver?.toString());
+});
+
+bookingSchema.post("remove", async function () {
+  await clearCache(this.customer.toString());
+  await clearCache(this?.driver?.toString());
+});
 
 // Create a geospatial index for pickup and dropoff locations
 bookingSchema.index({ "pickupLocation.coordinates": "2dsphere" });

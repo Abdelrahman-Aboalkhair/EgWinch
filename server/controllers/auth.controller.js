@@ -1,7 +1,6 @@
 const sendEmail = require("../utils/sendEmail");
 const cookieOptions = require("../constants/cookieOptions");
 const User = require("../models/baseUser.model");
-const Customer = require("../models/customer.model");
 const Driver = require("../models/driver.model");
 const axios = require("axios");
 const jwt = require("jsonwebtoken");
@@ -139,7 +138,7 @@ exports.registerCustomer = async (req, res) => {
     const emailTokenExpiry = new Date(Date.now() + 10 * 60 * 1000); // 10 minutes
 
     // Create new customer
-    const newCustomer = await Customer.create({
+    const newCustomer = await User.create({
       name,
       email,
       address,
