@@ -5,6 +5,7 @@ import Navbar from "./components/layout/Navbar";
 import Footer from "./components/layout/Footer";
 import StoreProvider from "./StoreProvider";
 import { SessionProvider } from "./SessionProvider";
+import Toast from "./components/custom/Toast";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -48,6 +49,7 @@ export default function RootLayout({
             <Navbar />
             {children}
             <Footer />
+            <Toast />
           </SessionProvider>
         </StoreProvider>
       </body>

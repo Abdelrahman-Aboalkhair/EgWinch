@@ -8,6 +8,8 @@ import DatePicker from "../components/custom/DatePicker";
 import ItemsList from "../components/booking/ItemsList";
 import { useCreateBookingMutation } from "../libs/features/apis/BookingApi";
 import { useRouter } from "next/navigation";
+import { useAppDispatch } from "../libs/hooks";
+import { addToast } from "../libs/features/slices/ToastSlice";
 
 interface GeoJSONPoint {
   type: "Point";
@@ -29,6 +31,7 @@ const BookMove = () => {
   const [routeDuration, setRouteDuration] = useState(null);
   const [createBooking, { isLoading, error }] = useCreateBookingMutation();
   const router = useRouter();
+  const dispatch = useAppDispatch();
 
   const onSubmit = async (data) => {
     data.pickupLocation = pickup;
@@ -36,8 +39,11 @@ const BookMove = () => {
     data.items = items;
     console.log("submitted data: ", data);
     try {
-      await createBooking(data).unwrap();
-      console.log("booking created");
+      const res = await createBooking(data).unwrap();
+      console.log("res: ", res);
+      dispatch(
+        addToast({ message: "Booking created successfully", type: "success" })
+      );
       router.push("/manage-bookings");
     } catch (error) {
       console.log("error: ", error);
