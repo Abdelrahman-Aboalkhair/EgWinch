@@ -7,115 +7,6 @@ const jwt = require("jsonwebtoken");
 const { uploadImage } = require("../utils/uploadImage");
 const fs = require("fs");
 
-exports.registerDriver = async (req, res) => {
-  try {
-    const {
-      name,
-      email,
-      phoneNumber,
-      address,
-      licenseNumber,
-      licenseExpiry,
-      vehicleType,
-      experienceYears,
-      password,
-    } = req.body;
-
-    const existingUser = await User.findOne({
-      $or: [{ email }, { phoneNumber }],
-    });
-
-    if (existingUser) {
-      return res.status(400).json({
-        success: false,
-        message: "Email or phone number already in use.",
-      });
-    }
-
-    // Generate email verification token
-    const emailVerificationToken = Math.random().toString().slice(-4);
-    const emailTokenExpiry = new Date(Date.now() + 10 * 60 * 1000); // 10 minutes
-
-    const profilePicture = req.files["profilePicture"][0];
-    const licenseImage = req.files["licenseImage"][0];
-
-    const profilePictureResult = await uploadImage(profilePicture.path);
-    const licenseImageResult = await uploadImage(licenseImage.path);
-
-    // Create new driver
-    const newDriver = await Driver.create({
-      name,
-      email,
-      phoneNumber,
-      address,
-      password,
-      licenseNumber,
-      role: "driver",
-      licenseExpiry,
-      licenseImage: {
-        public_id: licenseImageResult.public_id,
-        secure_url: licenseImageResult.secure_url,
-      },
-      vehicleType,
-      experienceYears,
-      emailVerificationToken,
-      emailTokenExpiry,
-      profilePicture: {
-        public_id: profilePictureResult.public_id,
-        secure_url: profilePictureResult.secure_url,
-      },
-    });
-
-    if (req.file) {
-      const uploadResult = await uploadImage(req.file.path);
-      if (uploadResult) {
-        newDriver.profilePicture.public_id = uploadResult.public_id;
-        newDriver.profilePicture.secure_url = uploadResult.secure_url;
-
-        // Remove the uploaded file from the server
-        fs.rmSync(`uploads/${req.file.filename}`);
-      }
-    }
-
-    await sendEmail({
-      to: email,
-      subject: "Verify Your Email",
-      text: `Your verification code is: ${emailVerificationToken}`,
-      html: `<p>Your verification code is: <strong>${emailVerificationToken}</strong></p>`,
-    });
-
-    // Generate tokens
-    const accessToken = await newDriver.generateAccessToken();
-    const refreshToken = await newDriver.generateRefreshToken();
-
-    // Store refresh token
-    res.cookie("refreshToken", refreshToken, cookieOptions);
-    newDriver.refreshToken.push(refreshToken);
-    await newDriver.save();
-
-    res.status(201).json({
-      success: true,
-      message: "Driver registered successfully. Please verify your email.",
-      user: {
-        id: newDriver._id,
-        name: newDriver.name,
-        email: newDriver.email,
-        role: newDriver.role,
-        isEmailVerified: newDriver.isEmailVerified,
-        profilePicture: newDriver.profilePicture || "",
-      },
-      accessToken,
-    });
-  } catch (error) {
-    console.error("Driver Signup Error:", error);
-    res.status(500).json({
-      success: false,
-      message: "An error occurred during signup.",
-      error: error.message,
-    });
-  }
-};
-
 exports.registerCustomer = async (req, res) => {
   try {
     const { name, email, address, phoneNumber, password } = req.body;
@@ -324,6 +215,157 @@ exports.signout = async (req, res) => {
   }
 };
 
+exports.googleSignup = async (req, res) => {
+  try {
+    const { access_token, role } = req.body;
+
+    if (!access_token) {
+      return res
+        .status(400)
+        .json({ message: "Google access token is required" });
+    }
+
+    // Fetch user info from Google API
+    const googleResponse = await axios.get(
+      `https://www.googleapis.com/oauth2/v1/userinfo?alt=json&access_token=${access_token}`
+    );
+    const { email, name, picture, id: googleId } = googleResponse.data;
+
+    // Check if user already exists
+    let existingUser = await User.findOne({ email });
+    if (existingUser) {
+      return res
+        .status(400)
+        .json({ message: "User already exists, please log in" });
+    }
+
+    if (!role || !["customer", "driver", "admin"].includes(role)) {
+      return res.status(400).json({
+        message:
+          "Role is required and must be either 'customer', 'driver', or 'admin'",
+      });
+    }
+
+    let driverFields = {};
+    if (role === "driver") {
+      const {
+        licenseNumber,
+        licenseExpiry,
+        licenseImage,
+        vehicleType,
+        experienceYears,
+      } = req.body;
+
+      if (!licenseNumber || !vehicleType) {
+        return res.status(400).json({
+          message: "Driver registration requires license and vehicle info",
+        });
+      }
+
+      driverFields = {
+        licenseNumber,
+        licenseExpiry,
+        licenseImage,
+        vehicleType,
+        experienceYears,
+      };
+    }
+
+    // Create new user
+    const user = new User({
+      name,
+      email,
+      googleId,
+      profilePicture: { secure_url: picture },
+      isEmailVerified: true,
+      role,
+      ...driverFields,
+    });
+
+    await user.save();
+
+    // Generate tokens
+    const accessToken = await user.generateAccessToken();
+    const refreshToken = await user.generateRefreshToken();
+
+    res.cookie("refreshToken", refreshToken, cookieOptions);
+    user.refreshToken.push(refreshToken);
+    await user.save();
+
+    res.status(201).json({
+      message: "Sign-up successful",
+      accessToken,
+      refreshToken,
+      user: {
+        id: user._id,
+        name: user.name,
+        email: user.email,
+        role: user.role,
+        isEmailVerified: user.isEmailVerified,
+        profilePicture: user.profilePicture || "",
+      },
+    });
+  } catch (error) {
+    console.error("Google Sign-Up Error:", error);
+    res
+      .status(500)
+      .json({ message: "Google sign-up failed", error: error.message });
+  }
+};
+
+exports.googleSignin = async (req, res) => {
+  try {
+    const { access_token } = req.body;
+
+    if (!access_token) {
+      return res
+        .status(400)
+        .json({ message: "Google access token is required" });
+    }
+
+    // Fetch user info from Google API
+    const googleResponse = await axios.get(
+      `https://www.googleapis.com/oauth2/v1/userinfo?alt=json&access_token=${access_token}`
+    );
+    const { email } = googleResponse.data;
+
+    // Check if user exists
+    let user = await User.findOne({ email });
+    if (!user) {
+      return res
+        .status(404)
+        .json({ message: "User not found, please sign up first" });
+    }
+
+    // Generate tokens
+    const accessToken = await user.generateAccessToken();
+    const refreshToken = await user.generateRefreshToken();
+
+    res.cookie("refreshToken", refreshToken, cookieOptions);
+    user.refreshToken.push(refreshToken);
+    await user.save();
+
+    res.json({
+      message: "Login successful",
+      accessToken,
+      refreshToken,
+      user: {
+        id: user._id,
+        name: user.name,
+        email: user.email,
+        role: user.role,
+        isEmailVerified: user.isEmailVerified,
+        profilePicture: user.profilePicture || "",
+      },
+    });
+  } catch (error) {
+    console.error("Google Login Error:", error);
+    res
+      .status(500)
+      .json({ message: "Google login failed", error: error.message });
+  }
+};
+
 exports.refreshToken = async (req, res) => {
   try {
     const refreshToken = req?.cookies?.refreshToken;
@@ -394,99 +436,5 @@ exports.refreshToken = async (req, res) => {
       message: "Internal server error",
       error: error.message,
     });
-  }
-};
-
-exports.googleAuth = async (req, res) => {
-  try {
-    const { access_token, role } = req.body;
-
-    if (!access_token) {
-      return res
-        .status(400)
-        .json({ message: "Google access token is required" });
-    }
-
-    // Fetch user info from Google API using the access token
-    const googleResponse = await axios.get(
-      `https://www.googleapis.com/oauth2/v1/userinfo?alt=json&access_token=${access_token}`
-    );
-
-    const { email, name, picture, id: googleId } = googleResponse.data;
-
-    let user = await User.findOne({ email });
-
-    if (!user) {
-      if (!role || !["customer", "driver", "admin"].includes(role)) {
-        return res.status(400).json({
-          message:
-            "Role is required and must be either 'customer' or 'driver' or 'admin'",
-        });
-      }
-
-      let driverFields = {};
-      if (role === "driver") {
-        const {
-          licenseNumber,
-          licenseExpiry,
-          licenseImage,
-          vehicleType,
-          experienceYears,
-        } = req.body;
-
-        if (!driverLicenseNumber || !registrationNumber || !capacity) {
-          return res.status(400).json({
-            message: "Driver registration requires license and vehicle info",
-          });
-        }
-
-        driverFields = {
-          licenseNumber,
-          licenseExpiry,
-          licenseImage,
-          vehicleType,
-          experienceYears,
-        };
-      }
-
-      user = new User({
-        name,
-        email,
-        googleId,
-        profilePicture: { secure_url: picture },
-        isEmailVerified: true,
-        role,
-        ...driverFields,
-      });
-
-      await user.save();
-    }
-
-    // Generate tokens
-    const accessToken = await user.generateAccessToken();
-    const refreshToken = await user.generateRefreshToken();
-
-    // Store refresh token in cookies
-    res.cookie("refreshToken", refreshToken, cookieOptions);
-    user.refreshToken.push(refreshToken);
-    await user.save();
-
-    res.json({
-      accessToken,
-      refreshToken,
-      user: {
-        id: user._id,
-        name: user.name,
-        email: user.email,
-        role: user.role,
-        isEmailVerified: user.isEmailVerified,
-        profilePicture: user.profilePicture || "",
-      },
-    });
-  } catch (error) {
-    console.error("Google Auth Error:", error);
-    res
-      .status(500)
-      .json({ message: "Google authentication failed", error: error.message });
   }
 };

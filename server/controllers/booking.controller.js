@@ -44,7 +44,7 @@ exports.createBooking = async (req, res) => {
     });
 
     // Invaldiate the cache
-    await redisClient.del(`bookings:${req.user.userId}`);
+    await redis.del(`bookings:${req.user.userId}`);
 
     // Send the booking to nearby drivers
     const nearbyDrivers = await User.aggregate([
@@ -184,8 +184,8 @@ exports.createOffer = async (req, res) => {
     });
 
     // **Invalidate cache for customer and driver**
-    await redisClient.del(`bookings:${booking.customer}`);
-    await redisClient.del(`bookings:${booking.driver}`);
+    await redis.del(`bookings:${booking.customer}`);
+    await redis.del(`bookings:${booking.driver}`);
 
     res.status(201).json({
       success: true,
@@ -271,8 +271,8 @@ exports.updateBooking = async (req, res) => {
       await booking.save();
 
       // **Invalidate cache for customer and driver**
-      await redisClient.del(`bookings:${updatedBooking.customer}`);
-      await redisClient.del(`bookings:${updatedBooking.driver}`);
+      await redis.del(`bookings:${updatedBooking.customer}`);
+      await redis.del(`bookings:${updatedBooking.driver}`);
 
       return res.status(200).json({
         success: true,
@@ -394,8 +394,8 @@ exports.deleteBooking = async (req, res) => {
     await booking.deleteOne();
 
     // **Invalidate cache for customer and driver**
-    await redisClient.del(`bookings:${booking.customer}`);
-    await redisClient.del(`bookings:${booking.driver}`);
+    await redis.del(`bookings:${booking.customer}`);
+    await redis.del(`bookings:${booking.driver}`);
 
     res
       .status(200)

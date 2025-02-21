@@ -7,8 +7,8 @@ import { useAppDispatch } from "@/app/libs/hooks";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { GoogleOAuthProvider } from "@react-oauth/google";
-import GoogleAuthButton from "../google/GoogleAuthButton";
 import { Loader2 } from "lucide-react";
+import GoogleSignup from "../google/GoogleSignup";
 
 interface InputForm {
   name: string;
@@ -168,7 +168,7 @@ const RegisterCustomer = () => {
 
         <div className="w-[60%] mx-auto">
           <GoogleOAuthProvider clientId="948178712281-5755ujm8o5sv36nvsqnj2uce7lc933cb.apps.googleusercontent.com">
-            <GoogleAuthButton />
+            <GoogleSignup />
           </GoogleOAuthProvider>
         </div>
       </div>

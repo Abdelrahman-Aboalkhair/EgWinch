@@ -7,8 +7,8 @@ import { useAppDispatch, useAppSelector } from "@/app/libs/hooks";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { GoogleOAuthProvider } from "@react-oauth/google";
-import CustomGoogleAuthButton from "../google/GoogleAuthButton";
 import { RedirectHandler } from "@/app/RedirectHandler";
+import GoogleSignin from "../google/GoogleSignin";
 
 interface InputForm {
   name: string;
@@ -104,7 +104,7 @@ const SignIn = () => {
           </p>
 
           <GoogleOAuthProvider clientId="948178712281-5755ujm8o5sv36nvsqnj2uce7lc933cb.apps.googleusercontent.com">
-            <CustomGoogleAuthButton />
+            <GoogleSignin />
           </GoogleOAuthProvider>
         </div>
       </main>
