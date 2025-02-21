@@ -53,6 +53,24 @@ exports.me = async (req, res) => {
   }
 };
 
+exports.getUserBookingStats = async (req, res) => {
+  try {
+    const userId = req.params.id;
+    const stats = await User.getBookingStats(userId);
+
+    res.status(200).json({
+      success: true,
+      stats,
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: "An error occurred while fetching booking stats",
+      error: error.message,
+    });
+  }
+};
+
 exports.createAdmin = async (req, res) => {
   const { data } = req.body;
   try {
