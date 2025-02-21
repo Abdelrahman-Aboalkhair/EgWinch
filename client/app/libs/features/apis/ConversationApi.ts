@@ -27,7 +27,7 @@ export const conversationApi = apiSlice.injectEndpoints({
         url: "/conversations",
         method: "GET",
       }),
-      providesTags: ["Conversations"],
+      providesTags: ["Conversation"],
     }),
 
     createConversation: builder.mutation<
@@ -39,6 +39,7 @@ export const conversationApi = apiSlice.injectEndpoints({
         method: "POST",
         body: { senderId, receiverId },
       }),
+      invalidatesTags: ["Conversation"],
     }),
   }),
 });

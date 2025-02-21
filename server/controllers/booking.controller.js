@@ -1,5 +1,5 @@
 const Booking = require("../models/booking.model");
-const User = require("../models/user.model");
+const User = require("../models/baseUser.model");
 const axios = require("axios");
 const Notification = require("../models/notification.model");
 
@@ -317,6 +317,7 @@ exports.getBookings = async (req, res) => {
     const totalBookings = await Booking.countDocuments(filter);
     const bookings = await Booking.find(filter)
       .populate("customer driver", "name")
+      .populate("offers.driver", "name")
       .sort({ createdAt: -1 })
       .skip((page - 1) * limit)
       .limit(limit);

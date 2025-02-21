@@ -9,6 +9,7 @@ import {
   useGetConversationsQuery,
 } from "@/app/libs/features/apis/ConversationApi";
 import { Send } from "lucide-react"; // Import Send icon
+import Link from "next/link";
 
 // Create socket instance outside component to prevent recreation
 const socket = io("http://localhost:5000");
@@ -116,7 +117,12 @@ const ChatPage = () => {
   }
 
   return (
-    <div className="flex flex-col h-[calc(100vh-4rem)] max-w-3xl mx-auto bg-gray-50 rounded-lg shadow-lg overflow-hidden">
+    <main className="flex flex-col max-h-[80vh] py-10 max-w-5xl mx-auto bg-gray-50 rounded-lg shadow-lg overflow-hidden">
+      <Link href={"/dashboard"}>
+        <button className="bg-primary text-white py-2 px-4 rounded-lg shadow-md">
+          Back
+        </button>
+      </Link>
       {/* Chat Header */}
       <div className="flex items-center justify-between p-4 bg-primary text-white">
         <span className="text-xl font-semibold">
@@ -170,7 +176,7 @@ const ChatPage = () => {
           </button>
         </div>
       </form>
-    </div>
+    </main>
   );
 };
 

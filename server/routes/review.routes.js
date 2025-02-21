@@ -7,7 +7,7 @@ const {
 const express = require("express");
 const router = express.Router();
 
-router.get("/user/:id", getUserReviews);
+router.get("/:id", getUserReviews);
 router.post("/", createReview);
 router.delete("/", deleteReview);
 

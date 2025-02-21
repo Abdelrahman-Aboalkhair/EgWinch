@@ -1,21 +1,21 @@
 const Review = require("../models/review.model");
-const User = require("../models/user.model");
+const User = require("../models/baseUser.model");
+const Booking = require("../models/booking.model");
 
 exports.getUserReviews = async (req, res) => {
   try {
-    const { id: winchOwnerId } = req.params;
+    const { userId } = req.params;
 
-    const winchOwner = await User.findById(winchOwnerId);
-    if (!winchOwner) {
+    const user = await User.findById(userId);
+    if (!user) {
       return res
         .status(404)
-        .json({ success: false, message: "Winch owner not found" });
+        .json({ success: false, message: "User not found" });
     }
 
-    const reviews = await Review.find({ winchOwner: winchOwnerId }).populate(
-      "reviewer",
-      "name email"
-    );
+    const reviews = await Review.find({ reviewedUser: userId })
+      .populate("reviewer", "name email profilePicture role")
+      .populate("booking", "pickupLocation dropoffLocation date");
 
     res.status(200).json({ success: true, count: reviews.length, reviews });
   } catch (error) {
@@ -29,39 +29,66 @@ exports.getUserReviews = async (req, res) => {
 
 exports.createReview = async (req, res) => {
   try {
-    const { winchOwnerId } = req.params;
-    const { rating, reviewText } = req.body;
+    const { reviewedUserId, bookingId } = req.params;
+    const { rating, text } = req.body;
     const reviewerId = req.user._id;
 
-    if (reviewerId.toString() === winchOwnerId) {
+    if (reviewerId.toString() === reviewedUserId) {
       return res
         .status(400)
         .json({ success: false, message: "You cannot review yourself" });
     }
 
-    const winchOwner = await User.findById(winchOwnerId);
-    if (!winchOwner) {
+    const booking = await Booking.findById(bookingId);
+    if (!booking) {
       return res
         .status(404)
-        .json({ success: false, message: "Winch owner not found" });
+        .json({ success: false, message: "Booking not found" });
     }
 
+    const reviewer = await User.findById(reviewerId);
+    const reviewedUser = await User.findById(reviewedUserId);
+    if (!reviewer || !reviewedUser) {
+      return res
+        .status(404)
+        .json({ success: false, message: "User not found" });
+    }
+
+    // Validate that reviewer and reviewedUser belong to the booking
+    if (
+      !(
+        (booking.customer.toString() === reviewerId.toString() &&
+          booking.driver.toString() === reviewedUserId.toString()) ||
+        (booking.driver.toString() === reviewerId.toString() &&
+          booking.customer.toString() === reviewedUserId.toString())
+      )
+    ) {
+      return res.status(403).json({
+        success: false,
+        message: "You can only review users from your bookings",
+      });
+    }
+
+    // Ensure only one review per user per booking
     const existingReview = await Review.findOne({
       reviewer: reviewerId,
-      winchOwner: winchOwnerId,
+      reviewedUser: reviewedUserId,
+      booking: bookingId,
     });
+
     if (existingReview) {
       return res.status(400).json({
         success: false,
-        message: "You have already reviewed this winch owner",
+        message: "You have already reviewed this user for this booking",
       });
     }
 
     const review = await Review.create({
       reviewer: reviewerId,
-      winchOwner: winchOwnerId,
+      reviewedUser: reviewedUserId,
+      booking: bookingId,
       rating,
-      reviewText,
+      text,
     });
 
     res
