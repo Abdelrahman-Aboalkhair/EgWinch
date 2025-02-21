@@ -15,6 +15,7 @@ export const bookingApi = apiSlice.injectEndpoints({
         url: "/bookings",
         method: "GET",
       }),
+      providesTags: ["Booking"],
     }),
 
     createBooking: builder.mutation({
@@ -23,6 +24,7 @@ export const bookingApi = apiSlice.injectEndpoints({
         method: "POST",
         body: data,
       }),
+      invalidatesTags: ["Booking"],
     }),
 
     createOffer: builder.mutation({
@@ -31,6 +33,7 @@ export const bookingApi = apiSlice.injectEndpoints({
         method: "PUT",
         body: { price },
       }),
+      invalidatesTags: ["Booking"],
     }),
 
     updateBooking: builder.mutation({
@@ -46,6 +49,7 @@ export const bookingApi = apiSlice.injectEndpoints({
         method: "PUT",
         body: { action, driverId, totalPrice, status, paymentStatus },
       }),
+      invalidatesTags: ["Booking"],
     }),
 
     deleteBooking: builder.mutation({
@@ -53,6 +57,7 @@ export const bookingApi = apiSlice.injectEndpoints({
         url: `/bookings/${id}`,
         method: "DELETE",
       }),
+      invalidatesTags: ["Booking"],
     }),
   }),
 });

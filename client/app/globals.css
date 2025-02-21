@@ -41,9 +41,9 @@ body {
   }
 }
 .th {
-  @apply p-3 text-left font-semibold text-[16px];
+  @apply p-3 text-left font-semibold text-[16px] capitalize;
 }
 
 .td {
-  @apply p-3 text-[13.5px] font-medium;
+  @apply p-3 text-[13.5px] font-medium capitalize;
 }

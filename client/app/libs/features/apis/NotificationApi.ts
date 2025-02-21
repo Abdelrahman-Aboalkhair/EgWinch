@@ -4,7 +4,7 @@ export const notificationApi = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
     getNotifications: builder.query({
       query: () => `/notifications`,
-      providesTags: ["Notifications"],
+      providesTags: ["Notification"],
     }),
 
     markAsRead: builder.mutation({
@@ -12,7 +12,7 @@ export const notificationApi = apiSlice.injectEndpoints({
         url: `/notifications/read`,
         method: "PUT",
       }),
-      invalidatesTags: ["Notifications"],
+      invalidatesTags: ["Notification"],
     }),
 
     // Clear all notifications
@@ -21,7 +21,7 @@ export const notificationApi = apiSlice.injectEndpoints({
         url: `/notifications`,
         method: "DELETE",
       }),
-      invalidatesTags: ["Notifications"],
+      invalidatesTags: ["Notification"],
     }),
 
     // Delete a single notification
@@ -30,7 +30,7 @@ export const notificationApi = apiSlice.injectEndpoints({
         url: `/notifications/${id}`,
         method: "DELETE",
       }),
-      invalidatesTags: ["Notifications"],
+      invalidatesTags: ["Notification"],
     }),
   }),
 });

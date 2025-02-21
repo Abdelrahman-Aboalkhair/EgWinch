@@ -1,4 +1,4 @@
-const User = require("../models/user.model");
+const User = require("../models/baseUser.model");
 
 exports.getAllUsers = async (req, res) => {
   const { page = 1, limit = 10, role } = req.query;
@@ -24,9 +24,29 @@ exports.getAllUsers = async (req, res) => {
   }
 };
 
-exports.getUserProfile = async (req, res) => {
+exports.getProfile = async (req, res) => {
+  const { id } = req.params;
+  try {
+    const user = await User.findById(id);
+    if (!user) {
+      return res
+        .status(404)
+        .json({ success: false, message: "User not found" });
+    }
+    res.status(200).json({ success: true, user });
+  } catch (error) {
+    console.log("Error fetching user profile, ", error);
+  }
+};
+
+exports.me = async (req, res) => {
   try {
     const user = await User.findById(req.user.userId);
+    if (!user) {
+      return res
+        .status(404)
+        .json({ success: false, message: "User not found" });
+    }
     res.status(200).json({ success: true, user });
   } catch (error) {
     console.log("Error fetching user profile, ", error);
@@ -37,6 +57,7 @@ exports.createAdmin = async (req, res) => {
   const { data } = req.body;
   try {
     const user = await User.create(data);
+
     res.status(200).json({ success: true, user });
   } catch (error) {}
 };

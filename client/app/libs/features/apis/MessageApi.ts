@@ -1,4 +1,4 @@
-import apiSlice from "../slices/ApiSlice";
+import { apiSlice } from "../slices/ApiSlice";
 
 export const messageApi = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
@@ -6,7 +6,7 @@ export const messageApi = apiSlice.injectEndpoints({
       query: (conversationId) => ({
         url: `/messages/${conversationId}`,
       }),
-      providesTags: ["Messages"],
+      providesTags: ["Message"],
     }),
   }),
 });

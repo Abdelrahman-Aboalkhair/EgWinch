@@ -1,57 +1,57 @@
 const sendEmail = require("../utils/sendEmail");
 const cookieOptions = require("../constants/cookieOptions");
-const User = require("../models/user.model");
+const User = require("../models/baseUser.model");
+const Customer = require("../models/customer.model");
+const Driver = require("../models/driver.model");
 const axios = require("axios");
 const jwt = require("jsonwebtoken");
 
-exports.signup = async (req, res) => {
+exports.registerDriver = async (req, res) => {
   try {
     const {
       name,
       email,
       phoneNumber,
+      address,
       password,
-      role,
-      registrationNumber,
-      registrationExpiry,
-      registrationImage,
-      capacity,
-      driverLicenseNumber,
-      driverLicenseExpiry,
-      driverLicenseImage,
+      licenseNumber,
+      licenseExpiry,
+      licenseImage,
+      vehicleType,
+      experienceYears,
     } = req.body;
 
+    // Check if the user already exists
     const existingUser = await User.findOne({
       $or: [{ email }, { phoneNumber }],
     });
 
     if (existingUser) {
-      res.status(400).json({
+      return res.status(400).json({
         success: false,
         message: "Email or phone number already in use.",
       });
-      return;
     }
 
+    // Generate email verification token
     const emailVerificationToken = Math.random().toString().slice(-4);
-
     const emailTokenExpiry = new Date(Date.now() + 10 * 60 * 1000); // 10 minutes
 
-    const newUser = await User.create({
+    // Create new driver
+    const newDriver = await Driver.create({
       name,
       email,
       phoneNumber,
+      address,
       password,
-      role,
+      licenseNumber,
+      role: "driver",
+      licenseExpiry,
+      licenseImage,
+      vehicleType,
+      experienceYears,
       emailVerificationToken,
       emailTokenExpiry,
-      driverLicenseNumber,
-      driverLicenseExpiry,
-      driverLicenseImage,
-      registrationNumber,
-      registrationExpiry,
-      registrationImage,
-      capacity,
     });
 
     await sendEmail({
@@ -61,30 +61,102 @@ exports.signup = async (req, res) => {
       html: `<p>Your verification code is: <strong>${emailVerificationToken}</strong></p>`,
     });
 
-    const accessToken = await newUser.generateAccessToken();
-    const refreshToken = await newUser.generateRefreshToken();
+    // Generate tokens
+    const accessToken = await newDriver.generateAccessToken();
+    const refreshToken = await newDriver.generateRefreshToken();
 
+    // Store refresh token
     res.cookie("refreshToken", refreshToken, cookieOptions);
-    newUser.refreshToken.push(refreshToken);
-
-    await newUser.save();
+    newDriver.refreshToken.push(refreshToken);
+    await newDriver.save();
 
     res.status(201).json({
       success: true,
-      message:
-        "User registered successfully. Please verify your email and phone number.",
+      message: "Driver registered successfully. Please verify your email.",
       user: {
-        id: newUser._id,
-        name: newUser.name,
-        email: newUser.email,
-        role: newUser.role,
-        isEmailVerified: newUser.isEmailVerified,
-        profilePicture: newUser.profilePicture || "",
+        id: newDriver._id,
+        name: newDriver.name,
+        email: newDriver.email,
+        role: newDriver.role,
+        isEmailVerified: newDriver.isEmailVerified,
+        profilePicture: newDriver.profilePicture || "",
       },
       accessToken,
     });
   } catch (error) {
-    console.error("Signup Error:", error);
+    console.error("Driver Signup Error:", error);
+    res.status(500).json({
+      success: false,
+      message: "An error occurred during signup.",
+      error: error.message,
+    });
+  }
+};
+
+exports.registerCustomer = async (req, res) => {
+  try {
+    const { name, email, address, phoneNumber, password } = req.body;
+
+    // Check if the user already exists
+    const existingUser = await User.findOne({
+      $or: [{ email }, { phoneNumber }],
+    });
+
+    if (existingUser) {
+      return res.status(400).json({
+        success: false,
+        message: "Email or phone number already in use.",
+      });
+    }
+
+    // Generate email verification token
+    const emailVerificationToken = Math.random().toString().slice(-4);
+    const emailTokenExpiry = new Date(Date.now() + 10 * 60 * 1000); // 10 minutes
+
+    // Create new customer
+    const newCustomer = await Customer.create({
+      name,
+      email,
+      address,
+      phoneNumber,
+      password,
+      role: "customer",
+      emailVerificationToken,
+      emailTokenExpiry,
+    });
+
+    // Send email verification
+    await sendEmail({
+      to: email,
+      subject: "Verify Your Email",
+      text: `Your verification code is: ${emailVerificationToken}`,
+      html: `<p>Your verification code is: <strong>${emailVerificationToken}</strong></p>`,
+    });
+
+    // Generate tokens
+    const accessToken = await newCustomer.generateAccessToken();
+    const refreshToken = await newCustomer.generateRefreshToken();
+
+    // Store refresh token
+    res.cookie("refreshToken", refreshToken, cookieOptions);
+    newCustomer.refreshToken.push(refreshToken);
+    await newCustomer.save();
+
+    res.status(201).json({
+      success: true,
+      message: "Customer registered successfully. Please verify your email.",
+      user: {
+        id: newCustomer._id,
+        name: newCustomer.name,
+        email: newCustomer.email,
+        role: newCustomer.role,
+        isEmailVerified: newCustomer.isEmailVerified,
+        profilePicture: newCustomer.profilePicture || "",
+      },
+      accessToken,
+    });
+  } catch (error) {
+    console.error("Customer Signup Error:", error);
     res.status(500).json({
       success: false,
       message: "An error occurred during signup.",
@@ -283,7 +355,7 @@ exports.refreshToken = async (req, res) => {
 
 exports.googleAuth = async (req, res) => {
   try {
-    const { access_token } = req.body;
+    const { access_token, role } = req.body;
 
     if (!access_token) {
       return res
@@ -298,23 +370,60 @@ exports.googleAuth = async (req, res) => {
 
     const { email, name, picture, id: googleId } = googleResponse.data;
 
-    let user = await User.findOne({ googleId });
+    let user = await User.findOne({ email });
 
     if (!user) {
+      if (!role || !["customer", "driver", "admin"].includes(role)) {
+        return res.status(400).json({
+          message:
+            "Role is required and must be either 'customer' or 'driver' or 'admin'",
+        });
+      }
+
+      let driverFields = {};
+      if (role === "driver") {
+        const {
+          licenseNumber,
+          licenseExpiry,
+          licenseImage,
+          vehicleType,
+          experienceYears,
+        } = req.body;
+
+        if (!driverLicenseNumber || !registrationNumber || !capacity) {
+          return res.status(400).json({
+            message: "Driver registration requires license and vehicle info",
+          });
+        }
+
+        driverFields = {
+          licenseNumber,
+          licenseExpiry,
+          licenseImage,
+          vehicleType,
+          experienceYears,
+        };
+      }
+
       user = new User({
         name,
         email,
         googleId,
         profilePicture: { secure_url: picture },
         isEmailVerified: true,
+        role,
+        ...driverFields,
       });
+
       await user.save();
     }
 
+    // Generate tokens
     const accessToken = await user.generateAccessToken();
     const refreshToken = await user.generateRefreshToken();
-    res.cookie("refreshToken", refreshToken, cookieOptions);
 
+    // Store refresh token in cookies
+    res.cookie("refreshToken", refreshToken, cookieOptions);
     user.refreshToken.push(refreshToken);
     await user.save();
 

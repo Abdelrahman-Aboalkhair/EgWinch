@@ -7,10 +7,14 @@ const reviewSchema = new mongoose.Schema(
       ref: "User",
       required: true,
     },
-    winchOwner: {
+    reviewedUser: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "User",
       required: true,
+    },
+    booking: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Booking",
     },
     rating: {
       type: Number,
@@ -18,17 +22,15 @@ const reviewSchema = new mongoose.Schema(
       min: 1,
       max: 5,
     },
-    reviewText: {
+    text: {
       type: String,
       required: true,
       trim: true,
+      minlength: 5,
     },
   },
-  {
-    timestamps: true,
-  }
+  { timestamps: true }
 );
 
 const Review = mongoose.model("Review", reviewSchema);
-
 module.exports = Review;
