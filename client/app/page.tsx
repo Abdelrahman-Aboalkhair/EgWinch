@@ -1,16 +1,14 @@
 "use client";
+import BookMove from "./components/booking/BookMove";
 import Conversations from "./components/Conversations";
-import JoinUsSection from "./components/home/JoinUsSection";
-import MainSection from "./components/home/MainSection";
 import { useAppSelector } from "./libs/hooks";
 
 const Home = () => {
   const { isLoggedIn } = useAppSelector((state) => state.auth);
   return (
     <>
-      <MainSection />
+      <BookMove />
       {isLoggedIn && <Conversations />}
-      <JoinUsSection />
     </>
   );
 };

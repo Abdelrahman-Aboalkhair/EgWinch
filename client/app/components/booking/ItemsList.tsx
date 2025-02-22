@@ -3,6 +3,24 @@ import { PlusCircle, Trash2 } from "lucide-react";
 import Input from "../custom/Input";
 import Dropdown from "../custom/Dropdown";
 
+const Dialog = ({ isOpen, onClose, children }) => {
+  if (!isOpen) return null;
+
+  return (
+    <div className="fixed inset-0 z-[3000] bg-black bg-opacity-50 flex items-center justify-center">
+      <div className="bg-white p-6 rounded shadow-lg w-1/3">
+        {children}
+        <button
+          onClick={onClose}
+          className="mt-4 bg-red-500 text-white px-4 py-2 rounded"
+        >
+          Close
+        </button>
+      </div>
+    </div>
+  );
+};
+
 const ItemsList = ({
   items,
   setItems,
@@ -20,6 +38,8 @@ const ItemsList = ({
     specialInstructions: "",
     additionalServices: [],
   });
+
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
 
   const availableServices = [
     "Carpentry",
@@ -42,35 +62,31 @@ const ItemsList = ({
       specialInstructions: "",
       additionalServices: [],
     });
+    setIsDialogOpen(false);
   };
 
   const handleRemoveItem = (index: number) => {
     setItems(items.filter((_, i) => i !== index));
   };
 
-  const toggleService = (service: string) => {
-    setNewItem((prev) => {
-      const updatedServices = prev.additionalServices.includes(service)
-        ? prev.additionalServices.filter((s) => s !== service)
-        : [...prev.additionalServices, service];
-      return { ...prev, additionalServices: updatedServices };
-    });
-  };
-
   return (
     <div className="flex flex-col gap-4">
-      <h3 className="text-lg font-semibold">Items</h3>
-
-      {/* Input Fields for New Item */}
-      <div className="flex flex-col gap-2 items-center border p-4 rounded shadow-sm">
-        <div className="flex items-center justify-start gap-2 w-full">
+      <button
+        onClick={() => setIsDialogOpen(true)}
+        className="text-primary flex items-center gap-2"
+      >
+        Add Item
+        <PlusCircle size={20} />
+      </button>
+      <Dialog isOpen={isDialogOpen} onClose={() => setIsDialogOpen(false)}>
+        <h3 className="text-lg font-semibold mb-4">Add New Item</h3>
+        <div className="flex flex-col gap-2">
           <Input
             name="newItem.name"
             placeholder="Item Name"
             register={register}
             value={newItem.name}
             onChange={(value) => setNewItem({ ...newItem, name: value })}
-            className="w-full"
           />
           <Input
             name="newItem.quantity"
@@ -80,17 +96,6 @@ const ItemsList = ({
             value={newItem.quantity}
             onChange={(value) =>
               setNewItem({ ...newItem, quantity: Number(value) })
-            }
-          />
-        </div>
-        <div className="flex items-center justify-start gap-2 w-full">
-          <Input
-            name="newItem.specialInstructions"
-            placeholder="Special Instructions"
-            register={register}
-            value={newItem.specialInstructions}
-            onChange={(value) =>
-              setNewItem({ ...newItem, specialInstructions: value })
             }
           />
           <Dropdown
@@ -103,38 +108,16 @@ const ItemsList = ({
             onClear={() => setNewItem({ ...newItem, isFragile: false })}
           />
         </div>
-
-        {/* Additional Services */}
-        <div className="w-full flex flex-wrap gap-2 mt-2">
-          {availableServices.map((service) => (
-            <button
-              key={service}
-              type="button"
-              onClick={() => toggleService(service)}
-              className={`px-[12px] py-[8px] font-medium rounded-md text-sm border ${
-                newItem.additionalServices.includes(service)
-                  ? "bg-primary text-white"
-                  : "bg-white text-black border-gray-300"
-              }`}
-            >
-              {service}
-            </button>
-          ))}
-        </div>
-
         <button
-          type="button"
           onClick={handleAddItem}
-          className="text-primary gap-2 flex items-center mt-2"
+          className="mt-4 bg-blue-500 text-white px-4 py-2 rounded"
         >
-          Add
-          <PlusCircle size={20} />
+          Add Item
         </button>
-      </div>
-
+      </Dialog>
       {items.length > 0 && (
         <div className="mt-4 border rounded-md">
-          <table className="w-full ">
+          <table className="w-full">
             <thead>
               <tr className="bg-green-400/20 text-left">
                 <th className="p-2 font-semibold">Item</th>

@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { useAppDispatch } from "./libs/hooks";
 import { useValidateSessionQuery } from "./libs/features/apis/AuthApi";
 import { setCredentials } from "./libs/features/slices/AuthSlice";
-import { Loader2 } from "lucide-react";
+import TruckLoader from "./components/custom/TruckLoader";
 
 export const SessionProvider = ({
   children,
@@ -22,8 +22,7 @@ export const SessionProvider = ({
   if (isLoading) {
     return (
       <main className="min-h-screen flex items-center justify-center gap-3">
-        <h1 className="text-lg font-medium">Loading please wait</h1>
-        <Loader2 className="animate-spin text-primary" size={32} />
+        <TruckLoader />
       </main>
     );
   }

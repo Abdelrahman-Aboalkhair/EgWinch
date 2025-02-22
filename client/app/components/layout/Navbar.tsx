@@ -63,17 +63,6 @@ const Navbar = () => {
         </Link>
       </div>
 
-      {user?.role !== "driver" && (
-        <div className="flex gap-6">
-          <Link href="/book-move" className={linkClass("/book-move")}>
-            Book a Move
-          </Link>
-          <Link href="/driver-sign-up" className={linkClass("/driver-sign-up")}>
-            Own a Winch?
-          </Link>
-        </div>
-      )}
-
       <div className="flex items-center gap-6 px-[10rem]">
         <div className="relative" ref={notificationRef}>
           <button className="relative mt-2" onClick={toggleNotifications}>
@@ -140,11 +129,14 @@ const Navbar = () => {
             {menuOpen && <UserMenu menuOpen={menuOpen} closeMenu={closeMenu} />}
           </div>
         ) : (
-          <Link href="/sign-in" className="text-lg">
+          <Link href="/sign-in" className="text-[17px]">
             Sign in
           </Link>
         )}
-        <Link href="/support" className="text-lg">
+        <Link href="/driver-sign-up" className={"text-[17px]"}>
+          Become a Driver
+        </Link>
+        <Link href="/support" className="text-[17px]">
           Support
         </Link>
       </div>
