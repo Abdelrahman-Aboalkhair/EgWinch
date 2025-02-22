@@ -3,7 +3,7 @@ const redis = require("../lib/redis");
 
 const bookingSchema = new mongoose.Schema(
   {
-    customer: {
+    user: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "User",
       required: true,
@@ -100,12 +100,12 @@ const clearCache = async (userId) => {
 
 // Call this function when booking changes
 bookingSchema.post("save", async function () {
-  await clearCache(this.customer.toString());
+  await clearCache(this.user.toString());
   await clearCache(this?.driver?.toString());
 });
 
 bookingSchema.post("remove", async function () {
-  await clearCache(this.customer.toString());
+  await clearCache(this.user.toString());
   await clearCache(this?.driver?.toString());
 });
 

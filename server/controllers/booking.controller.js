@@ -1,5 +1,5 @@
 const Booking = require("../models/booking.model");
-const User = require("../models/baseUser.model");
+const User = require("../models/user.model");
 const axios = require("axios");
 const Notification = require("../models/notification.model");
 const redis = require("../lib/redis");
@@ -35,7 +35,7 @@ exports.createBooking = async (req, res) => {
 
     // Create new booking
     const booking = await Booking.create({
-      customer: req.user.userId,
+      user: req.user.userId,
       pickupLocation,
       dropoffLocation,
       moveDate,
@@ -168,7 +168,7 @@ exports.createOffer = async (req, res) => {
       return res.status(400).json({
         success: false,
         message:
-          "You already have an active offer for this booking. Wait for the customer's response.",
+          "You already have an active offer for this booking. Wait for the user's response.",
       });
     }
 
@@ -177,14 +177,14 @@ exports.createOffer = async (req, res) => {
     booking.offers.push(offer);
     await booking.save();
 
-    // Send notification to the customer
+    // Send notification to the user
     await Notification.create({
-      user: booking.customer,
+      user: booking.user,
       message: `New offer from a driver (ID: ${driverId})`,
     });
 
-    // **Invalidate cache for customer and driver**
-    await redis.del(`bookings:${booking.customer}`);
+    // **Invalidate cache for user and driver**
+    await redis.del(`bookings:${booking.user}`);
     await redis.del(`bookings:${booking.driver}`);
 
     res.status(201).json({
@@ -225,7 +225,7 @@ exports.updateBooking = async (req, res) => {
         });
       }
 
-      if (req.user.userId.toString() !== booking.customer.toString()) {
+      if (req.user.userId.toString() !== booking.user.toString()) {
         return res.status(403).json({
           success: false,
           message: "Unauthorized: Only the client can update an offer",
@@ -270,8 +270,8 @@ exports.updateBooking = async (req, res) => {
 
       await booking.save();
 
-      // **Invalidate cache for customer and driver**
-      await redis.del(`bookings:${updatedBooking.customer}`);
+      // **Invalidate cache for user and driver**
+      await redis.del(`bookings:${updatedBooking.user}`);
       await redis.del(`bookings:${updatedBooking.driver}`);
 
       return res.status(200).json({
@@ -281,7 +281,7 @@ exports.updateBooking = async (req, res) => {
       });
     } else {
       if (
-        req.user._id.toString() !== booking.customer.toString() &&
+        req.user._id.toString() !== booking.user.toString() &&
         req.user.role !== "admin"
       ) {
         return res.status(403).json({
@@ -324,7 +324,7 @@ exports.getBookings = async (req, res) => {
     let filter = {};
 
     if (id) {
-      filter = { $or: [{ customer: userId }, { driver: userId }] };
+      filter = { $or: [{ user: userId }, { driver: userId }] };
     }
 
     // **Check if bookings are cached**
@@ -341,7 +341,7 @@ exports.getBookings = async (req, res) => {
     // **Fetch from MongoDB if not in cache**
     const totalBookings = await Booking.countDocuments(filter);
     const bookings = await Booking.find(filter)
-      .populate("customer driver", "name")
+      .populate("user driver", "name")
       .populate("offers.driver", "name")
       .sort({ createdAt: -1 })
       .skip((page - 1) * limit)
@@ -393,8 +393,8 @@ exports.deleteBooking = async (req, res) => {
 
     await booking.deleteOne();
 
-    // **Invalidate cache for customer and driver**
-    await redis.del(`bookings:${booking.customer}`);
+    // **Invalidate cache for user and driver**
+    await redis.del(`bookings:${booking.user}`);
     await redis.del(`bookings:${booking.driver}`);
 
     res

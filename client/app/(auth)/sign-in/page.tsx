@@ -98,7 +98,7 @@ const SignIn = () => {
 
           <p className="text-center text-gray-500 py-4">
             Don't have an account?{" "}
-            <Link href="/user-sign-up" className="text-primary hover:underline">
+            <Link href="/sign-up" className="text-primary hover:underline">
               Sign up
             </Link>
           </p>

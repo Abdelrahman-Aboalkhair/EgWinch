@@ -1,26 +1,25 @@
 const path = require("path");
 const multer = require("multer");
 
+const uploadDir = path.resolve(__dirname, "../uploads");
+
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, uploadDir); // Use absolute path
+  },
+  filename: (_req, file, cb) => {
+    const uniqueSuffix = Date.now() + "-" + Math.round(Math.random() * 1e9);
+    cb(null, uniqueSuffix + path.extname(file.originalname));
+  },
+});
+
 const upload = multer({
-  dest: "uploads/",
+  storage,
   limits: { fileSize: 500 * 1024 * 1024 },
-  storage: multer.diskStorage({
-    destination: "uploads/",
-    filename: (_req, file, cb) => {
-      cb(null, file.originalname);
-    },
-  }),
   fileFilter: (_req, file, cb) => {
-    let ext = path.extname(file.originalname);
-    if (
-      ext !== ".jpg" &&
-      ext !== ".jpeg" &&
-      ext !== ".webp" &&
-      ext !== ".png" &&
-      ext !== ".mp4"
-    ) {
-      cb(new Error(`Unsupported file type! ${ext}`), false);
-      return;
+    let ext = path.extname(file.originalname).toLowerCase();
+    if (![".jpg", ".jpeg", ".webp", ".png", ".mp4"].includes(ext)) {
+      return cb(new Error(`Unsupported file type: ${ext}`), false);
     }
     cb(null, true);
   },

@@ -3,14 +3,12 @@ import { authApi } from "./features/apis/AuthApi";
 import authReducer from "./features/slices/AuthSlice";
 import conversationReducer from "./features/slices/ConversationSlice";
 import toastReducer from "./features/slices/ToastSlice";
-import driverOnboardingReducer from "./features/slices/DriverOnboardingSlice";
 
 export const store = configureStore({
   reducer: {
     auth: authReducer,
     conversations: conversationReducer,
     toasts: toastReducer,
-    driverOnboarding: driverOnboardingReducer,
     [authApi.reducerPath]: authApi.reducer,
   },
   middleware: (getDefaultMiddleware) =>

@@ -5,7 +5,6 @@ import { usePathname } from "next/navigation";
 import { useAppSelector } from "@/app/libs/hooks";
 import Image from "next/image";
 import UserMenu from "./UserMenu";
-import UserIcon from "../../assets/user.png";
 import { Bell } from "lucide-react";
 import {
   useClearNotificationsMutation,
@@ -15,7 +14,8 @@ import {
 
 const Navbar = () => {
   const { isLoggedIn, user } = useAppSelector((state) => state.auth);
-  const { data: notifications, isLoading } = useGetNotificationsQuery({});
+  const { data, isLoading } = useGetNotificationsQuery({});
+  const notifications = data?.notifications || [];
   const [markAsRead] = useMarkAsReadMutation();
   const [clearAll] = useClearNotificationsMutation();
   const pathname = usePathname();
@@ -78,7 +78,7 @@ const Navbar = () => {
         <div className="relative" ref={notificationRef}>
           <button className="relative mt-2" onClick={toggleNotifications}>
             <Bell size={23} />
-            {notifications?.some((n: any) => !n.isRead) && (
+            {notifications && notifications.some((n: any) => !n.isRead) && (
               <div className="absolute top-0 right-0 w-[10px] h-[10px] bg-red-600 rounded-full" />
             )}
           </button>

@@ -1,21 +1,19 @@
 const sendEmail = require("../utils/sendEmail");
 const cookieOptions = require("../constants/cookieOptions");
-const User = require("../models/baseUser.model");
+const User = require("../models/user.model");
 const Driver = require("../models/driver.model");
 const axios = require("axios");
 const jwt = require("jsonwebtoken");
 const { uploadImage } = require("../utils/uploadImage");
 const fs = require("fs");
 
-exports.registerCustomer = async (req, res) => {
+exports.registerUser = async (req, res) => {
   try {
-    const { name, email, address, phoneNumber, password } = req.body;
+    const { name, email, password } = req.body;
     console.log("req.body: ", req.body);
 
     // Check if the user already exists
-    const existingUser = await User.findOne({
-      $or: [{ email }, { phoneNumber }],
-    });
+    const existingUser = await User.findOne({ email });
 
     if (existingUser) {
       return res.status(400).json({
@@ -28,14 +26,11 @@ exports.registerCustomer = async (req, res) => {
     const emailVerificationToken = Math.random().toString().slice(-4);
     const emailTokenExpiry = new Date(Date.now() + 10 * 60 * 1000); // 10 minutes
 
-    // Create new customer
-    const newCustomer = await User.create({
+    // Create new User
+    const newUser = await User.create({
       name,
       email,
-      address,
-      phoneNumber,
       password,
-      role: "customer",
       emailVerificationToken,
       emailTokenExpiry,
       profilePicture: {
@@ -49,8 +44,8 @@ exports.registerCustomer = async (req, res) => {
       const uploadResult = await uploadImage(req.file.path);
       console.log("uploadResult: ", uploadResult);
       if (uploadResult) {
-        newCustomer.profilePicture.public_id = uploadResult.public_id;
-        newCustomer.profilePicture.secure_url = uploadResult.secure_url;
+        newUser.profilePicture.public_id = uploadResult.public_id;
+        newUser.profilePicture.secure_url = uploadResult.secure_url;
 
         // Remove the uploaded file from the server
         fs.rmSync(`uploads/${req.file.filename}`);
@@ -66,29 +61,29 @@ exports.registerCustomer = async (req, res) => {
     });
 
     // Generate tokens
-    const accessToken = await newCustomer.generateAccessToken();
-    const refreshToken = await newCustomer.generateRefreshToken();
+    const accessToken = await newUser.generateAccessToken();
+    const refreshToken = await newUser.generateRefreshToken();
 
     // Store refresh token
     res.cookie("refreshToken", refreshToken, cookieOptions);
-    newCustomer.refreshToken.push(refreshToken);
-    await newCustomer.save();
+    newUser.refreshToken.push(refreshToken);
+    await newUser.save();
 
     res.status(201).json({
       success: true,
-      message: "Customer registered successfully. Please verify your email.",
+      message: "User registered successfully. Please verify your email.",
       user: {
-        id: newCustomer._id,
-        name: newCustomer.name,
-        email: newCustomer.email,
-        role: newCustomer.role,
-        isEmailVerified: newCustomer.isEmailVerified,
-        profilePicture: newCustomer.profilePicture || "",
+        id: newUser._id,
+        name: newUser.name,
+        email: newUser.email,
+        role: newUser.role,
+        isEmailVerified: newUser.isEmailVerified,
+        profilePicture: newUser.profilePicture || "",
       },
       accessToken,
     });
   } catch (error) {
-    console.error("Customer Signup Error:", error);
+    console.error("User Signup Error:", error);
     res.status(500).json({
       success: false,
       message: "An error occurred during signup.",
@@ -217,7 +212,7 @@ exports.signout = async (req, res) => {
 
 exports.googleSignup = async (req, res) => {
   try {
-    const { access_token, role } = req.body;
+    const { access_token } = req.body;
 
     if (!access_token) {
       return res
@@ -239,38 +234,6 @@ exports.googleSignup = async (req, res) => {
         .json({ message: "User already exists, please log in" });
     }
 
-    if (!role || !["customer", "driver", "admin"].includes(role)) {
-      return res.status(400).json({
-        message:
-          "Role is required and must be either 'customer', 'driver', or 'admin'",
-      });
-    }
-
-    let driverFields = {};
-    if (role === "driver") {
-      const {
-        licenseNumber,
-        licenseExpiry,
-        licenseImage,
-        vehicleType,
-        experienceYears,
-      } = req.body;
-
-      if (!licenseNumber || !vehicleType) {
-        return res.status(400).json({
-          message: "Driver registration requires license and vehicle info",
-        });
-      }
-
-      driverFields = {
-        licenseNumber,
-        licenseExpiry,
-        licenseImage,
-        vehicleType,
-        experienceYears,
-      };
-    }
-
     // Create new user
     const user = new User({
       name,
@@ -278,8 +241,6 @@ exports.googleSignup = async (req, res) => {
       googleId,
       profilePicture: { secure_url: picture },
       isEmailVerified: true,
-      role,
-      ...driverFields,
     });
 
     await user.save();
@@ -301,7 +262,6 @@ exports.googleSignup = async (req, res) => {
         name: user.name,
         email: user.email,
         role: user.role,
-        isEmailVerified: user.isEmailVerified,
         profilePicture: user.profilePicture || "",
       },
     });
