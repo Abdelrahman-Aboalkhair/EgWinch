@@ -1,4 +1,4 @@
-const User = require("../models/baseUser.model");
+const User = require("../models/user.model");
 const redis = require("../lib/redis");
 
 exports.getAllUsers = async (req, res) => {

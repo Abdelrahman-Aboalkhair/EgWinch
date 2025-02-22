@@ -4,22 +4,22 @@ const jwt = require("jsonwebtoken");
 const Booking = require("./booking.model");
 const redis = require("../lib/redis");
 
-const baseUserSchema = new mongoose.Schema(
+const userSchema = new mongoose.Schema(
   {
     name: { type: String, required: true, trim: true },
     email: { type: String, required: true, unique: true },
     profilePicture: { public_id: String, secure_url: String },
+    googleId: String,
     role: {
       type: String,
-      enum: ["customer", "driver", "admin"],
-      required: true,
+      enum: ["user", "driver", "admin"],
+      default: "user",
     },
     location: {
       type: { type: String, enum: ["Point"], default: "Point" },
       coordinates: { type: [Number], required: true, default: [0, 0] },
     },
     password: { type: String, select: false },
-
     refreshToken: [String],
   },
   { timestamps: true }
@@ -29,7 +29,7 @@ const baseUserSchema = new mongoose.Schema(
 // * [] → Used to pass multiple arguments (conditions, values, operators).
 
 // ? Booking statistics
-baseUserSchema.statics.getBookingStats = async function (userId) {
+userSchema.statics.getBookingStats = async function (userId) {
   // Caching statiscs with redis for faster load time
   const cacheKey = `bookingStats:${userId}`; // unique key for each user
 
@@ -42,10 +42,10 @@ baseUserSchema.statics.getBookingStats = async function (userId) {
   // If not cached, fetch from DB
   const stats = await Booking.aggregate([
     {
-      // 1st stage, match with customer or driver
+      // 1st stage, match with user or driver
       $match: {
         $or: [
-          { customer: new mongoose.Types.ObjectId(userId) },
+          { user: new mongoose.Types.ObjectId(userId) },
           { driver: new mongoose.Types.ObjectId(userId) },
         ],
       },
@@ -78,7 +78,7 @@ baseUserSchema.statics.getBookingStats = async function (userId) {
           },
         },
 
-        // Total spendings for customers
+        // Total spendings for users
         totalSpendings: {
           $sum: {
             $cond: [{ $eq: ["$status", "completed"] }, "$totalPrice", 0],
@@ -110,14 +110,14 @@ baseUserSchema.statics.getBookingStats = async function (userId) {
 };
 
 /*** Hash Password Before Saving ***/
-baseUserSchema.pre("save", async function (next) {
+userSchema.pre("save", async function (next) {
   if (!this.isModified("password")) return next();
   this.password = await bcrypt.hash(this.password, 10);
   next();
 });
 
 /*** Password Comparison ***/
-baseUserSchema.methods.comparePassword = async function (candidatePassword) {
+userSchema.methods.comparePassword = async function (candidatePassword) {
   if (!this.password) {
     console.error("Password is missing for user:", this._id);
     return false;
@@ -126,7 +126,7 @@ baseUserSchema.methods.comparePassword = async function (candidatePassword) {
 };
 
 /*** JWT Token Generation ***/
-baseUserSchema.methods.generateAccessToken = function () {
+userSchema.methods.generateAccessToken = function () {
   return jwt.sign(
     { userId: this._id, role: this.role },
     process.env.ACCESS_TOKEN_SECRET,
@@ -136,7 +136,7 @@ baseUserSchema.methods.generateAccessToken = function () {
   );
 };
 
-baseUserSchema.methods.generateRefreshToken = function () {
+userSchema.methods.generateRefreshToken = function () {
   return jwt.sign(
     { userId: this._id, role: this.role },
     process.env.REFRESH_TOKEN_SECRET,
@@ -147,8 +147,8 @@ baseUserSchema.methods.generateRefreshToken = function () {
 };
 
 /*** Enable GeoJSON Index for Location Queries ***/
-baseUserSchema.index({ location: "2dsphere" });
+userSchema.index({ location: "2dsphere" });
 
-const User = mongoose.model("User", baseUserSchema);
+const User = mongoose.model("User", userSchema);
 
 module.exports = User;

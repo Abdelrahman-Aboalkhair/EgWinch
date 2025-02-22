@@ -1,48 +1,73 @@
 const mongoose = require("mongoose");
-const BaseUser = require("./baseUser.model");
 
-const DriverSchema = new mongoose.Schema(
+const driverSchema = new mongoose.Schema(
   {
-    fullName: { type: String, required: true },
-    phoneNumber: { type: String, required: true },
-    dateOfBirth: { type: Date, required: true },
-    address: { type: String, required: true },
-
-    vehicle: {
-      vehicleModel: { type: String, required: true },
-      vehicleType: { type: String, required: true },
-      plateNumber: { type: String, required: true, unique: true },
+    user: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
+      required: true,
     },
-
-    documents: {
-      profilePicture: { type: String, required: true },
-      licenseImage: { type: String, required: true },
+    steps: {
+      personalInfo: {
+        completed: { type: Boolean, default: false },
+        data: {
+          phoneNumber: { type: String, required: false },
+          dateOfBirth: { type: Date, required: false },
+          address: { type: String, required: false },
+          gender: { type: String, enum: ["male", "female", "other"] },
+          experienceYears: { type: Number, required: false },
+        },
+      },
+      vehicleInfo: {
+        completed: { type: Boolean, default: false },
+        data: {
+          vehicleModel: { type: String, required: false },
+          vehicleType: { type: String, required: false },
+          plateNumber: { type: String, required: false },
+          licenseNumber: { type: String, required: false },
+          licenseExpiry: { type: Date, required: false },
+          vehicleColor: { type: String, required: false },
+        },
+      },
+      documents: {
+        completed: { type: Boolean, default: false },
+        data: {
+          profilePicture: {
+            public_id: String,
+            secure_url: String,
+          },
+          licenseImage: {
+            public_id: String,
+            secure_url: String,
+          },
+          vehicleImage: {
+            public_id: String,
+            secure_url: String,
+          },
+        },
+      },
     },
-
-    onboardingStatus: {
+    currentStep: {
       type: String,
       enum: [
-        "pending_personal_info",
-        "personal_info_submitted",
-        "vehicle_info_submitted",
-        "documents_uploaded",
-        "pending_approval",
-        "approved",
-        "rejected",
+        "personal_info",
+        "vehicle_info",
+        "documents",
+        "review",
+        "completed",
       ],
-      default: "pending_personal_info",
+      default: "personal_info",
     },
-
-    adminApprovalStatus: {
+    status: {
       type: String,
-      enum: ["pending", "approved", "rejected"],
+      enum: ["pending", "inProgress", "approved", "rejected"],
       default: "pending",
     },
-
-    adminApprovalComment: { type: String },
+    rejectionReason: { type: String, default: "" },
   },
   { timestamps: true }
 );
 
-const Driver = BaseUser.discriminator("Driver", DriverSchema);
+const Driver = mongoose.model("Driver", driverSchema);
+
 module.exports = Driver;

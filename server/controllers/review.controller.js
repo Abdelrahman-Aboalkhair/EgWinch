@@ -1,5 +1,5 @@
 const Review = require("../models/review.model");
-const User = require("../models/baseUser.model");
+const User = require("../models/user.model");
 const Booking = require("../models/booking.model");
 const redis = require("../lib/redis");
 
@@ -35,13 +35,11 @@ exports.getUserReviews = async (req, res) => {
 
     res.status(200).json(response);
   } catch (error) {
-    res
-      .status(500)
-      .json({
-        success: false,
-        message: "An error occurred",
-        error: error.message,
-      });
+    res.status(500).json({
+      success: false,
+      message: "An error occurred",
+      error: error.message,
+    });
   }
 };
 
@@ -75,18 +73,16 @@ exports.createReview = async (req, res) => {
     // Validate review eligibility
     if (
       !(
-        (booking.customer.toString() === reviewerId.toString() &&
+        (booking.user.toString() === reviewerId.toString() &&
           booking.driver.toString() === reviewedUserId.toString()) ||
         (booking.driver.toString() === reviewerId.toString() &&
-          booking.customer.toString() === reviewedUserId.toString())
+          booking.user.toString() === reviewedUserId.toString())
       )
     ) {
-      return res
-        .status(403)
-        .json({
-          success: false,
-          message: "You can only review users from your bookings",
-        });
+      return res.status(403).json({
+        success: false,
+        message: "You can only review users from your bookings",
+      });
     }
 
     // Ensure only one review per user per booking
@@ -96,12 +92,10 @@ exports.createReview = async (req, res) => {
       booking: bookingId,
     });
     if (existingReview) {
-      return res
-        .status(400)
-        .json({
-          success: false,
-          message: "You have already reviewed this user for this booking",
-        });
+      return res.status(400).json({
+        success: false,
+        message: "You have already reviewed this user for this booking",
+      });
     }
 
     const review = await Review.create({
@@ -119,13 +113,11 @@ exports.createReview = async (req, res) => {
       .status(201)
       .json({ success: true, message: "Review created successfully", review });
   } catch (error) {
-    res
-      .status(500)
-      .json({
-        success: false,
-        message: "An error occurred",
-        error: error.message,
-      });
+    res.status(500).json({
+      success: false,
+      message: "An error occurred",
+      error: error.message,
+    });
   }
 };
 
@@ -142,12 +134,10 @@ exports.deleteReview = async (req, res) => {
     }
 
     if (review.reviewer.toString() !== reviewerId.toString()) {
-      return res
-        .status(403)
-        .json({
-          success: false,
-          message: "Unauthorized: You can only delete your own review",
-        });
+      return res.status(403).json({
+        success: false,
+        message: "Unauthorized: You can only delete your own review",
+      });
     }
 
     await review.deleteOne();
@@ -159,12 +149,10 @@ exports.deleteReview = async (req, res) => {
       .status(200)
       .json({ success: true, message: "Review deleted successfully" });
   } catch (error) {
-    res
-      .status(500)
-      .json({
-        success: false,
-        message: "An error occurred",
-        error: error.message,
-      });
+    res.status(500).json({
+      success: false,
+      message: "An error occurred",
+      error: error.message,
+    });
   }
 };
