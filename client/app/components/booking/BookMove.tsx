@@ -1,15 +1,15 @@
 "use client";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-import Input from "../components/custom/Input";
-import Map from "../components/home/Map";
+import Input from "../custom/Input";
+import Map from "./Map";
 import { MapPinPlus, Navigation } from "lucide-react";
-import DatePicker from "../components/custom/DatePicker";
-import ItemsList from "../components/booking/ItemsList";
-import { useCreateBookingMutation } from "../libs/features/apis/BookingApi";
+import DatePicker from "../custom/DatePicker";
+import ItemsList from "./ItemsList";
+import { useCreateBookingMutation } from "../../libs/features/apis/BookingApi";
 import { useRouter } from "next/navigation";
-import { useAppDispatch } from "../libs/hooks";
-import { addToast } from "../libs/features/slices/ToastSlice";
+import { useAppDispatch } from "../../libs/hooks";
+import { addToast } from "../../libs/features/slices/ToastSlice";
 
 interface GeoJSONPoint {
   type: "Point";
@@ -25,8 +25,6 @@ const BookMove = () => {
   const [dropoffAddress, setDropoffAddress] = useState("");
   const [pickup, setPickup] = useState<GeoJSONPoint | null>(null);
   const [dropoff, setDropoff] = useState<GeoJSONPoint | null>(null);
-  const [showPickupTooltip, setShowPickupTooltip] = useState(false);
-  const [showDropoffTooltip, setShowDropoffTooltip] = useState(false);
   const [routeDistance, setRouteDistance] = useState(null);
   const [routeDuration, setRouteDuration] = useState(null);
   const [createBooking, { isLoading, error }] = useCreateBookingMutation();
@@ -73,11 +71,7 @@ const BookMove = () => {
           className="grid grid-cols-2 gap-4 w-full"
           onSubmit={handleSubmit(onSubmit)}
         >
-          <div
-            className="relative w-full col-span-2"
-            onMouseEnter={() => setShowPickupTooltip(true)}
-            onMouseLeave={() => setShowPickupTooltip(false)}
-          >
+          <div className="relative w-full col-span-2">
             {pickup && dropoff && (
               <li className="capitalize text-[15px] font-medium mb-2">
                 Your route is{" "}
@@ -99,24 +93,9 @@ const BookMove = () => {
               value={pickupAddress || ""}
               onChange={() => {}}
             />
-            {/* {showPickupTooltip && pickup && (
-              <motion.span
-                initial={{ opacity: 0, y: 5 }}
-                animate={{ opacity: 1, y: -125 }}
-                transition={{ duration: 0.2 }}
-                exit={{ opacity: 0, y: 5 }}
-                className="absolute left-0 -bottom-7 capitalize text-[15px] bg-gray-800 text-white px-4 py-[14px] rounded shadow-md"
-              >
-                Your Pickup is at {pickup}
-              </motion.span>
-            )} */}
           </div>
 
-          <div
-            className="relative w-full col-span-2"
-            onMouseEnter={() => setShowDropoffTooltip(true)}
-            onMouseLeave={() => setShowDropoffTooltip(false)}
-          >
+          <div className="relative w-full col-span-2">
             <Input
               name="dropoffLocation"
               placeholder="Enter Dropoff Location"
@@ -126,29 +105,15 @@ const BookMove = () => {
               value={dropoffAddress || ""}
               onChange={() => {}}
             />
-            {/* {showDropoffTooltip && dropoff && (
-              <motion.span
-                initial={{ opacity: 0, y: 5 }}
-                animate={{ opacity: 1, y: -195 }}
-                transition={{ duration: 0.2 }}
-                exit={{ opacity: 0, y: 5 }}
-                className="absolute left-0 -bottom-7 capitalize text-[15px] bg-gray-800 text-white px-4 py-[14px] rounded shadow-md"
-              >
-                Your Dropoff is at {dropoff}
-              </motion.span>
-            )} */}
           </div>
           <DatePicker name="moveDate" control={control} label="Move In Date" />
 
-          <div className="col-span-2">
-            <ItemsList
-              items={items}
-              setItems={setItems}
-              register={register}
-              control={control}
-            />
-          </div>
-
+          <ItemsList
+            items={items}
+            setItems={setItems}
+            register={register}
+            control={control}
+          />
           <button
             type="submit"
             className="bg-primary text-white py-[12px] w-full "

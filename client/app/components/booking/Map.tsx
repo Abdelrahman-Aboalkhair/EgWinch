@@ -194,7 +194,7 @@ const Map: React.FC<MapProps> = ({
     <MapContainer
       center={[30.0444, 31.2357]}
       zoom={12}
-      className="rounded-md h-[650px] w-[57%] focus:border-none focus:outline-none foucs:ring-2 focus:ring-primary"
+      className="rounded-md h-[500px] w-[55%] focus:border-none focus:outline-none foucs:ring-2 focus:ring-primary"
     >
       <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
       <MapEvents />
