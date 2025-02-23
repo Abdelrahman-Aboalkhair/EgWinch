@@ -16,13 +16,6 @@ export const driverApi = apiSlice.injectEndpoints({
       }),
     }),
 
-    submitForReview: builder.mutation({
-      query: () => ({
-        url: `/drivers/submitReview`,
-        method: "PUT",
-      }),
-    }),
-
     reviewDriverApplication: builder.mutation({
       query: ({ driverId, status, rejectionReason }) => ({
         url: `/admin/drivers/review`,
@@ -36,6 +29,5 @@ export const driverApi = apiSlice.injectEndpoints({
 export const {
   useStartOnboardingMutation,
   useUpdateDriverStepMutation,
-  useSubmitForReviewMutation,
   useReviewDriverApplicationMutation,
 } = driverApi;

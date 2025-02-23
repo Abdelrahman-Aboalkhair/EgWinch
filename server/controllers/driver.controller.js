@@ -77,8 +77,8 @@ exports.updateDriverProfile = async (req, res) => {
     ];
     const currentIndex = stepsOrder.indexOf(driver.currentStep);
 
-    if (currentIndex === -1 || step !== stepsOrder[currentIndex])
-      return res.status(400).json({ message: "Invalid step progression" });
+    // if (currentIndex === -1 || step !== stepsOrder[currentIndex])
+    //   return res.status(400).json({ message: "Invalid step progression" });
 
     let updateField = {};
 
@@ -113,7 +113,9 @@ exports.updateDriverProfile = async (req, res) => {
         break;
 
       case "documents":
+        console.log("it is a documents step");
         const files = req.files;
+        console.log("files: ", files);
 
         // Check for missing required documents
         const requiredDocs = ["profilePicture", "licenseImage", "vehicleImage"];

@@ -23,8 +23,6 @@ const Conversations = () => {
   const { conversations, activeConversation } = useAppSelector(
     (state) => state.conversations
   );
-  console.log("conversations: ", conversations);
-  console.log("activeConversation: ", activeConversation);
 
   const userId = user?.id || user?._id;
   const { data, isLoading, error } = useGetConversationsQuery({});

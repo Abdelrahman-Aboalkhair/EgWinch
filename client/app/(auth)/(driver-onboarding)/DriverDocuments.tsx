@@ -1,36 +1,45 @@
 import Input from "@/app/components/custom/Input";
 import { useUpdateDriverStepMutation } from "@/app/libs/features/apis/DriverApi";
-import { nextStep } from "@/app/libs/features/slices/DriverOnboardingSlice";
-import { useAppSelector } from "@/app/libs/hooks";
+import { MoveLeft } from "lucide-react";
 import { useForm } from "react-hook-form";
 
-const DriverDocuments = () => {
+const DriverDocuments = ({ nextStep, prevStep }) => {
   const {
     register,
     formState: { errors },
     setValue,
+    handleSubmit,
   } = useForm();
-
-  const { step } = useAppSelector((state) => state.driverOnboarding);
 
   const [submitDocuemts, { data, error, isLoading }] =
     useUpdateDriverStepMutation();
+  console.log("data: ", data);
+  if (error) {
+    console.log("error: ", error);
+  }
 
   const handleSubmitDocuments = async (data) => {
     const formData = new FormData();
-    // documents
+    formData.append("step", "documents");
     formData.append("licenseImage", data.licenseImage);
     formData.append("profilePicture", data.profilePicture);
     formData.append("vehicleImage", data.vehicleImage);
+
+    for (const entrie of formData.entries()) {
+      console.log(entrie);
+    }
     try {
-      await submitDocuemts({ driverId, step, data }).unwrap();
+      await submitDocuemts(formData).unwrap();
       nextStep();
     } catch (error) {
       console.error("Documents submission error:", error);
     }
   };
   return (
-    <>
+    <form
+      encType="multipart/form-data"
+      onSubmit={handleSubmit(handleSubmitDocuments)}
+    >
       <Input
         name="licenseImage"
         type="file"
@@ -58,16 +67,31 @@ const DriverDocuments = () => {
       <Input
         name="vehicleImage"
         type="file"
-        placeholder="Profile picture"
+        placeholder="Vehicle Image"
         register={register}
         setValue={setValue}
         validation={{
-          required: "Profile picture is required",
+          required: "Vehicle Imageis required",
         }}
         error={errors.vehicleImage?.message}
         className="py-[18px]"
       />
-    </>
+      <button
+        type="submit"
+        disabled={isLoading}
+        className="flex items-center justify-center gap-2 bg-primary text-white py-2 px-6 rounded mt-4"
+      >
+        {isLoading ? "Submitting..." : "Next"}
+      </button>
+      <button
+        type="button"
+        onClick={prevStep}
+        className="flex items-center justify-center gap-2 bg-primary text-white py-2 px-6 rounded mt-4"
+      >
+        <MoveLeft size={18} />
+        Back
+      </button>
+    </form>
   );
 };
 
