@@ -128,11 +128,9 @@ const Navbar = () => {
 
             {menuOpen && <UserMenu menuOpen={menuOpen} closeMenu={closeMenu} />}
 
-            {user?.role !== "driver" && (
-              <Link href="/driver-sign-up" className="text-[17px]">
-                Start Driving
-              </Link>
-            )}
+            <Link href="/driver-sign-up" className="text-[17px]">
+              Start Driving
+            </Link>
           </div>
         ) : (
           <Link href="/sign-in" className="text-[17px]">

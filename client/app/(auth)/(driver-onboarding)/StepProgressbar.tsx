@@ -1,4 +1,4 @@
-import { useAppSelector } from "@/app/libs/hooks";
+"use client";
 import { Check } from "lucide-react";
 
 const steps = [
@@ -9,9 +9,8 @@ const steps = [
   { label: "Submit Application" },
 ];
 
-const StepProgressbar = () => {
-  const { step } = useAppSelector((state) => state.driverOnboarding);
-
+const StepProgressbar = ({ step }) => {
+  console.log("step: ", step);
   return (
     <main className="flex items-center justify-between relative w-[50%] my-6">
       {steps.map((item, index) => {

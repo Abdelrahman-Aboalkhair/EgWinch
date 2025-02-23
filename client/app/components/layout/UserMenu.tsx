@@ -2,14 +2,13 @@
 import React from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { useAppDispatch, useAppSelector } from "@/app/libs/hooks";
+import { useAppDispatch } from "@/app/libs/hooks";
 import { clearAuthState } from "@/app/libs/features/slices/AuthSlice";
 import { useSignOutMutation } from "@/app/libs/features/apis/AuthApi";
 import { useRouter } from "next/navigation";
 import { LayoutDashboard, Home, User, LogOut } from "lucide-react";
 
 const UserMenu = ({ menuOpen, closeMenu }) => {
-  const { user } = useAppSelector((state) => state.auth);
   const dispatch = useAppDispatch();
   const [signOut] = useSignOutMutation();
   const router = useRouter();

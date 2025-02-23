@@ -2,12 +2,10 @@ import DatePicker from "@/app/components/custom/DatePicker";
 import Dropdown from "@/app/components/custom/Dropdown";
 import Input from "@/app/components/custom/Input";
 import { useUpdateDriverStepMutation } from "@/app/libs/features/apis/DriverApi";
-import { nextStep } from "@/app/libs/features/slices/DriverOnboardingSlice";
-import { useAppDispatch } from "@/app/libs/hooks";
-import { MoveRight } from "lucide-react";
+import { MoveLeft, MoveRight } from "lucide-react";
 import { useForm } from "react-hook-form";
 
-const DriverPersonalInfo = () => {
+const DriverPersonalInfo = ({ nextStep, prevStep }) => {
   const {
     register,
     control,
@@ -17,7 +15,6 @@ const DriverPersonalInfo = () => {
   } = useForm();
   const [submitPersonalInfo, { data, error, isLoading }] =
     useUpdateDriverStepMutation();
-  const dispatch = useAppDispatch();
 
   const handleSubmitPersonalInfo = async (formData) => {
     const payload = {
@@ -35,7 +32,8 @@ const DriverPersonalInfo = () => {
 
     try {
       await submitPersonalInfo(payload).unwrap();
-      dispatch(nextStep());
+
+      nextStep();
     } catch (error) {
       console.error("Personal Info submission error:", error);
     }
@@ -87,6 +85,14 @@ const DriverPersonalInfo = () => {
       >
         {isLoading ? "Submitting..." : "Next"}
         <MoveRight size={18} />
+      </button>
+      <button
+        type="button"
+        onClick={prevStep}
+        className="flex items-center justify-center gap-2 bg-primary text-white py-2 px-6 rounded mt-4"
+      >
+        <MoveLeft size={18} />
+        Back
       </button>
     </form>
   );

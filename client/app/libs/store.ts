@@ -4,6 +4,7 @@ import authReducer from "./features/slices/AuthSlice";
 import conversationReducer from "./features/slices/ConversationSlice";
 import toastReducer from "./features/slices/ToastSlice";
 import DriverOnboardingReducer from "./features/slices/DriverOnboardingSlice";
+import { setStore } from "./getStoreState";
 
 export const store = configureStore({
   reducer: {
@@ -16,6 +17,8 @@ export const store = configureStore({
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(authApi.middleware),
 });
+
+setStore(store);
 
 export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;

@@ -2,36 +2,39 @@ import DatePicker from "@/app/components/custom/DatePicker";
 import Dropdown from "@/app/components/custom/Dropdown";
 import Input from "@/app/components/custom/Input";
 import { useUpdateDriverStepMutation } from "@/app/libs/features/apis/DriverApi";
-import { nextStep } from "@/app/libs/features/slices/DriverOnboardingSlice";
-import { useAppSelector } from "@/app/libs/hooks";
-import React from "react";
+import { MoveLeft, MoveRight } from "lucide-react";
 import { useForm } from "react-hook-form";
 
-const DriverVehicleInfo = () => {
+const DriverVehicleInfo = ({ nextStep, prevStep }) => {
   const {
     register,
     control,
     formState: { errors },
     setValue,
+    handleSubmit,
   } = useForm();
-  const { step } = useAppSelector((state) => state.driverOnboarding);
 
   const [submitVehicleInfo, { data, error, isLoading }] =
     useUpdateDriverStepMutation();
+  console.log("data: ", data);
 
-  const handleSubmitVehicleInfo = async (data) => {
-    const formData = new FormData();
-
-    // vehicle info
-    formData.append("vehicleModel", data.vehicleModel);
-    formData.append("vehicleType", data.vehicleType);
-    formData.append("vehicleColor", data.vehicleColor);
-    formData.append("plateNumber", data.plateNumber);
-    formData.append("licenseNumber", data.licenseNumber);
-    formData.append("licenseExpiry", data.licenseExpiry);
+  const handleSubmitVehicleInfo = async (formData) => {
+    const payload = {
+      step: "vehicle_info",
+      data: {
+        vehicleModel: formData.vehicleModel,
+        vehicleType: formData.vehicleType,
+        vehicleColor: formData.vehicleColor,
+        plateNumber: formData.plateNumber,
+        licenseNumber: formData.licenseNumber,
+        licenseExpiry: formData.licenseExpiry,
+      },
+    };
+    console.log("payload: ", payload);
 
     try {
-      await submitVehicleInfo({ driverId, step, data }).unwrap();
+      await submitVehicleInfo(payload).unwrap();
+
       nextStep();
     } catch (error) {
       console.error("Vehicle info submission error:", error);
@@ -39,7 +42,10 @@ const DriverVehicleInfo = () => {
   };
 
   return (
-    <>
+    <form
+      className="bg-gray-50 flex flex-col items-center justify-center gap-4 p-4"
+      onSubmit={handleSubmit(handleSubmitVehicleInfo)}
+    >
       <Input
         name="vehicleType"
         type="text"
@@ -49,7 +55,7 @@ const DriverVehicleInfo = () => {
         error={errors.vehicleType?.message}
         className="py-[15px]"
       />
-      <DatePicker name="vehicleModal" control={control} label="Vehicle Model" />
+      <DatePicker name="vehicleModel" control={control} label="Vehicle Model" />
 
       <DatePicker
         name="licenseExpiry"
@@ -83,7 +89,25 @@ const DriverVehicleInfo = () => {
         onSelect={(value) => setValue("vehicleColor", value)}
         onClear={() => setValue("vehicleColor", "")}
       />
-    </>
+
+      <button
+        type="submit"
+        disabled={isLoading}
+        className="flex items-center justify-center gap-2 bg-primary text-white py-2 px-6 rounded mt-4"
+      >
+        {isLoading ? "Submitting..." : "Next"}
+        <MoveRight size={18} />
+      </button>
+
+      <button
+        type="button"
+        onClick={prevStep}
+        className="flex items-center justify-center gap-2 bg-primary text-white py-2 px-6 rounded mt-4"
+      >
+        <MoveLeft size={18} />
+        Back
+      </button>
+    </form>
   );
 };
 
