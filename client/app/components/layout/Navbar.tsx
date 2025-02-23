@@ -23,9 +23,6 @@ const Navbar = () => {
   const [notificationsOpen, setNotificationsOpen] = useState(false);
   const notificationRef = useRef(null);
 
-  const linkClass = (path: string) =>
-    `text-lg ${pathname === path ? "opacity-100" : "opacity-50"}`;
-
   // Close menus when clicking outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -56,14 +53,14 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="flex justify-between items-center bg-white border-b-2 border-lightText py-6">
+    <nav className="flex justify-between items-center bg-gray-50 border-b-2 border-gray-200/90 py-6">
       <div className="text-2xl font-semibold px-[10rem]">
         <Link href="/">
           <span className="cursor-pointer">EgWinch</span>
         </Link>
       </div>
 
-      <div className="flex items-center gap-6 px-[10rem]">
+      <div className="flex items-center gap-10 px-[10rem]">
         <div className="relative" ref={notificationRef}>
           <button className="relative mt-2" onClick={toggleNotifications}>
             <Bell size={23} />
@@ -116,7 +113,10 @@ const Navbar = () => {
         </div>
 
         {isLoggedIn ? (
-          <div key={user?.id} className="relative profile-menu">
+          <div
+            key={user?.id}
+            className="relative profile-menu flex items-center justify-center gap-8"
+          >
             <Image
               src={user?.profilePicture?.secure_url}
               alt="User Profile"
@@ -127,18 +127,18 @@ const Navbar = () => {
             />
 
             {menuOpen && <UserMenu menuOpen={menuOpen} closeMenu={closeMenu} />}
+
+            {user?.role !== "driver" && (
+              <Link href="/driver-sign-up" className="text-[17px]">
+                Start Driving
+              </Link>
+            )}
           </div>
         ) : (
           <Link href="/sign-in" className="text-[17px]">
             Sign in
           </Link>
         )}
-        <Link href="/driver-sign-up" className={"text-[17px]"}>
-          Become a Driver
-        </Link>
-        <Link href="/support" className="text-[17px]">
-          Support
-        </Link>
       </div>
     </nav>
   );

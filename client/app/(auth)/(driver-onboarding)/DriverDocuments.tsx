@@ -1,6 +1,34 @@
 import Input from "@/app/components/custom/Input";
+import { useUpdateDriverStepMutation } from "@/app/libs/features/apis/DriverApi";
+import { nextStep } from "@/app/libs/features/slices/DriverOnboardingSlice";
+import { useAppSelector } from "@/app/libs/hooks";
+import { useForm } from "react-hook-form";
 
-const DriverDocuments = ({ register, errors, setValue }: any) => {
+const DriverDocuments = () => {
+  const {
+    register,
+    formState: { errors },
+    setValue,
+  } = useForm();
+
+  const { step } = useAppSelector((state) => state.driverOnboarding);
+
+  const [submitDocuemts, { data, error, isLoading }] =
+    useUpdateDriverStepMutation();
+
+  const handleSubmitDocuments = async (data) => {
+    const formData = new FormData();
+    // documents
+    formData.append("licenseImage", data.licenseImage);
+    formData.append("profilePicture", data.profilePicture);
+    formData.append("vehicleImage", data.vehicleImage);
+    try {
+      await submitDocuemts({ driverId, step, data }).unwrap();
+      nextStep();
+    } catch (error) {
+      console.error("Documents submission error:", error);
+    }
+  };
   return (
     <>
       <Input
