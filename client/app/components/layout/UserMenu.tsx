@@ -30,7 +30,7 @@ const UserMenu = ({ menuOpen, closeMenu }) => {
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: -10 }}
-        className="absolute right-0 mt-4 w-56 bg-white shadow-lg rounded-lg z-[2200] border border-gray-200 overflow-hidden"
+        className="absolute right-0 top-[3rem] w-56 bg-white shadow-lg rounded-lg z-[2200] border border-gray-200 overflow-hidden"
       >
         {/* Triangle Indicator */}
         <div className="absolute top-[-10px] right-4 w-0 h-0 border-l-8 border-r-8 border-b-8 border-transparent border-b-white"></div>

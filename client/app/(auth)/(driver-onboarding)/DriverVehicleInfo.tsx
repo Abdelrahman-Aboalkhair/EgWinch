@@ -1,9 +1,43 @@
 import DatePicker from "@/app/components/custom/DatePicker";
 import Dropdown from "@/app/components/custom/Dropdown";
 import Input from "@/app/components/custom/Input";
+import { useUpdateDriverStepMutation } from "@/app/libs/features/apis/DriverApi";
+import { nextStep } from "@/app/libs/features/slices/DriverOnboardingSlice";
+import { useAppSelector } from "@/app/libs/hooks";
 import React from "react";
+import { useForm } from "react-hook-form";
 
-const DriverVehicleInfo = ({ register, errors, control, setValue }: any) => {
+const DriverVehicleInfo = () => {
+  const {
+    register,
+    control,
+    formState: { errors },
+    setValue,
+  } = useForm();
+  const { step } = useAppSelector((state) => state.driverOnboarding);
+
+  const [submitVehicleInfo, { data, error, isLoading }] =
+    useUpdateDriverStepMutation();
+
+  const handleSubmitVehicleInfo = async (data) => {
+    const formData = new FormData();
+
+    // vehicle info
+    formData.append("vehicleModel", data.vehicleModel);
+    formData.append("vehicleType", data.vehicleType);
+    formData.append("vehicleColor", data.vehicleColor);
+    formData.append("plateNumber", data.plateNumber);
+    formData.append("licenseNumber", data.licenseNumber);
+    formData.append("licenseExpiry", data.licenseExpiry);
+
+    try {
+      await submitVehicleInfo({ driverId, step, data }).unwrap();
+      nextStep();
+    } catch (error) {
+      console.error("Vehicle info submission error:", error);
+    }
+  };
+
   return (
     <>
       <Input
