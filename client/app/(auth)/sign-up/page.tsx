@@ -1,9 +1,9 @@
 "use client";
 import { useForm } from "react-hook-form";
-import Input from "@/app/components/custom/Input";
+import Input from "@/app/components/atoms/Input";
 import { useRegisterCustomerMutation } from "@/app/libs/features/apis/AuthApi";
 import { setCredentials } from "@/app/libs/features/slices/AuthSlice";
-import { useAppDispatch } from "@/app/libs/hooks";
+import { useAppDispatch } from "@/app/store/hooks";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { GoogleOAuthProvider } from "@react-oauth/google";

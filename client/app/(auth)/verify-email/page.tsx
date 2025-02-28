@@ -1,5 +1,5 @@
 "use client";
-import Input from "@/app/components/custom/Input";
+import Input from "@/app/components/atoms/Input";
 import { useVerifyEmailMutation } from "@/app/libs/features/apis/AuthApi";
 import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
