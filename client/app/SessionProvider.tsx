@@ -1,9 +1,9 @@
 "use client";
 import { useEffect } from "react";
-import { useAppDispatch } from "./libs/hooks";
-import { useValidateSessionQuery } from "./libs/features/apis/AuthApi";
-import { setCredentials } from "./libs/features/slices/AuthSlice";
-import TruckLoader from "./components/custom/TruckLoader";
+import { useAppDispatch } from "./store/hooks";
+import { useValidateSessionQuery } from "./store/apis/AuthApi";
+import { setCredentials } from "./store/slices/AuthSlice";
+import TruckLoader from "./components/atoms/TruckLoader";
 
 export const SessionProvider = ({
   children,

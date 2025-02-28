@@ -1,6 +1,6 @@
-import DatePicker from "@/app/components/custom/DatePicker";
-import Dropdown from "@/app/components/custom/Dropdown";
-import Input from "@/app/components/custom/Input";
+import DatePicker from "@/app/components/molecules/DatePicker";
+import Dropdown from "@/app/components/molecules/Dropdown";
+import Input from "@/app/components/atoms/Input";
 import { useUpdateDriverStepMutation } from "@/app/libs/features/apis/DriverApi";
 import { MoveLeft, MoveRight } from "lucide-react";
 import { useForm } from "react-hook-form";

@@ -1,7 +1,7 @@
 import React from "react";
 import { useGoogleLogin } from "@react-oauth/google";
-import axiosInstance from "@/app/helpers/axiosInstance";
-import { useAppDispatch } from "@/app/libs/hooks";
+import axiosInstance from "@/app/utils/axiosInstance";
+import { useAppDispatch } from "@/app/store/hooks";
 import { setCredentials } from "@/app/libs/features/slices/AuthSlice";
 import { useRouter } from "next/navigation";
 import Image from "next/image";

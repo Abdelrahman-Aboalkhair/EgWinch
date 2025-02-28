@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import DriverPersonalInfo from "../DriverPersonalInfo";
 import DriverVehicleInfo from "../DriverVehicleInfo";
 import DriverDocuments from "../DriverDocuments";
-import { useAppSelector } from "@/app/libs/hooks";
+import { useAppSelector } from "@/app/store/hooks";
 import StepProgressbar from "../StepProgressbar";
 import GetStarted from "../GetStarted";
 import useStorage from "@/app/hooks/useStorage";

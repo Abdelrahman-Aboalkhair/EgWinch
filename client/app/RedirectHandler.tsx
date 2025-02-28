@@ -1,7 +1,7 @@
 "use client";
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
-import { useAppSelector } from "./libs/hooks";
+import { useAppSelector } from "./store/hooks";
 
 export const RedirectHandler = () => {
   const router = useRouter();

@@ -1,7 +1,7 @@
 "use client";
-import BookMove from "./components/booking/BookMove";
-import Conversations from "./components/Conversations";
-import { useAppSelector } from "./libs/hooks";
+import BookMove from "./components/sections/booking/BookMove";
+import Conversations from "./components/sections/chat/Conversations";
+import { useAppSelector } from "./store/hooks";
 
 const Home = () => {
   const { isLoggedIn } = useAppSelector((state) => state.auth);
