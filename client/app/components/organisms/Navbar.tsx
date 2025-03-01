@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import { useAppSelector } from "@/app/store/hooks";
 import Image from "next/image";
 import UserMenu from "../molecules/UserMenu";
-import { Bell } from "lucide-react";
+import { Bell, User } from "lucide-react";
 import {
   useClearNotificationsMutation,
   useGetNotificationsQuery,
@@ -62,12 +62,14 @@ const Navbar = () => {
 
       <div className="flex items-center gap-10 px-[10rem]">
         <div className="relative" ref={notificationRef}>
-          <button className="relative mt-2" onClick={toggleNotifications}>
-            <Bell size={23} />
-            {notifications && notifications.some((n: any) => !n.isRead) && (
-              <div className="absolute top-0 right-0 w-[10px] h-[10px] bg-red-600 rounded-full" />
-            )}
-          </button>
+          {isLoggedIn && (
+            <button className="relative mt-2" onClick={toggleNotifications}>
+              <Bell size={23} />
+              {notifications && notifications.some((n: any) => !n.isRead) && (
+                <div className="absolute top-0 right-0 w-[10px] h-[10px] bg-red-600 rounded-full" />
+              )}
+            </button>
+          )}
 
           {notificationsOpen && (
             <div
@@ -117,15 +119,23 @@ const Navbar = () => {
             key={user?.id}
             className="relative profile-menu flex items-center justify-center gap-8"
           >
-            <Image
-              src={user?.profilePicture?.secure_url}
-              alt="User Profile"
-              className="rounded-full cursor-pointer"
-              width={40}
-              height={40}
-              onClick={() => setMenuOpen(!menuOpen)}
-            />
-
+            {user?.profilePicture?.secure_url ? (
+              <Image
+                src={user.profilePicture.secure_url}
+                alt="User Profile"
+                className="rounded-full cursor-pointer"
+                width={40}
+                height={40}
+                onClick={() => setMenuOpen(!menuOpen)}
+                onError={(e) => (e.currentTarget.style.display = "none")}
+              />
+            ) : (
+              <User
+                size={40}
+                className="rounded-full cursor-pointer bg-gray-200 p-2"
+                onClick={() => setMenuOpen(!menuOpen)}
+              />
+            )}
             {menuOpen && <UserMenu menuOpen={menuOpen} closeMenu={closeMenu} />}
 
             <Link href="/driver-sign-up" className="text-[17px]">

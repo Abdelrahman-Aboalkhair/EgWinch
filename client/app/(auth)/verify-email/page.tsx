@@ -1,61 +1,51 @@
 "use client";
-import Input from "@/app/components/atoms/Input";
-import { useVerifyEmailMutation } from "@/app/libs/features/apis/AuthApi";
+
+import OtpInput from "@/app/components/atoms/otpInput";
+import useToast from "@/app/hooks/useToast";
+import { useVerifyEmailMutation } from "@/app/store/apis/AuthApi";
 import { useRouter } from "next/navigation";
-import { useForm } from "react-hook-form";
+import { useState } from "react";
 
 const VerifyEmail = () => {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm();
+  const { showToast } = useToast();
   const [verifyEmail, { error, isLoading }] = useVerifyEmailMutation();
+  const [otp, setOtp] = useState();
   const router = useRouter();
 
-  const onSubmit = async (data) => {
-    console.log("Submitted data:", data);
+  const handleVerifyEmail = async () => {
     try {
-      const result = await verifyEmail({
-        emailVerificationToken: data.emailVerificationToken,
-      }).unwrap();
+      const result = await verifyEmail({ emailVerificationCode: otp }).unwrap();
       console.log("Verification result:", result);
 
       if (result.success) {
+        showToast(result.message, "success");
         router.push("/");
       }
     } catch (error) {
+      showToast(`${error?.data?.message || "An error occurred"}`, "error");
       console.error("Error occurred while verifying email", error);
     }
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-50">
-      <div className="bg-white p-8 rounded-xl shadow-lg w-full max-w-md">
-        <h1 className="text-3xl font-semibold text-center text-gray-800 mb-6">
-          Verify Your Email
+    <main className="flex flex-col items-center justify-center min-h-[75vh]">
+      <div className="space-y-2 pb-6">
+        <h1 className="text-[40px] font-bold text-center text-gray-800 tracking-wider">
+          Please check your email
         </h1>
-        <p className="text-center text-gray-600 mb-6">
-          Please enter the verification code sent to your email.
+        <p className="text-center text-gray-600 text-[17px]">
+          We’ve sent you a 4 digit code to abdelrahman.aboalkhair1@gmail.com
         </p>
-        <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
-          <Input
-            name="emailVerificationToken"
-            type="text"
-            placeholder="Enter Verification Code"
-            register={register}
-            className="py-3 px-4 border border-gray-300 rounded-md w-full focus:outline-none focus:ring-2 focus:ring-primary transition"
-          />
-          <button
-            type="submit"
-            className="w-full py-3 bg-primary text-white rounded-md hover:opacity-90"
-            disabled={isLoading}
-          >
-            {isLoading ? "Verifying..." : "Verify"}
-          </button>
-        </form>
       </div>
-    </div>
+      <OtpInput setOtp={setOtp} />
+      <button
+        className="w-[27%] py-3 bg-primary text-white rounded-md hover:opacity-90 mt-4"
+        disabled={isLoading}
+        onClick={handleVerifyEmail}
+      >
+        {isLoading ? "Verifying..." : "Verify your email"}
+      </button>
+    </main>
   );
 };
 

@@ -2,10 +2,10 @@ import React from "react";
 import { useGoogleLogin } from "@react-oauth/google";
 import axiosInstance from "@/app/utils/axiosInstance";
 import { useAppDispatch } from "@/app/store/hooks";
-import { setCredentials } from "@/app/libs/features/slices/AuthSlice";
+import { setCredentials } from "@/app/store/slices/AuthSlice";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
-import GoogleIcon from "@/app/assets/auth/google.png";
+import GoogleIcon from "@/app/assets/icons/google.png";
 
 const GoogleSignup = () => {
   const dispatch = useAppDispatch();

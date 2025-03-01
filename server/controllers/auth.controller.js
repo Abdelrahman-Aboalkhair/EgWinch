@@ -1,11 +1,7 @@
 const sendEmail = require("../utils/sendEmail");
 const cookieOptions = require("../constants/cookieOptions");
 const User = require("../models/user.model");
-const Driver = require("../models/driver.model");
-const axios = require("axios");
 const jwt = require("jsonwebtoken");
-const { uploadImage } = require("../utils/uploadImage");
-const fs = require("fs");
 
 exports.registerUser = async (req, res) => {
   try {
@@ -18,46 +14,32 @@ exports.registerUser = async (req, res) => {
     if (existingUser) {
       return res.status(400).json({
         success: false,
-        message: "Email or phone number already in use.",
+        message: "This email is already registered, please sign in",
       });
     }
 
     // Generate email verification token
-    const emailVerificationToken = Math.random().toString().slice(-4);
-    const emailTokenExpiry = new Date(Date.now() + 10 * 60 * 1000); // 10 minutes
+    const emailVerificationCode = Math.random().toString().slice(-4);
+    const verificationCodeExpiry = new Date(Date.now() + 10 * 60 * 1000); // 10 minutes
 
     // Create new User
     const newUser = await User.create({
       name,
       email,
       password,
-      emailVerificationToken,
-      emailTokenExpiry,
+      emailVerificationCode,
+      verificationCodeExpiry,
       profilePicture: {
         public_id: "",
         secure_url: "",
       },
     });
 
-    if (req.file) {
-      console.log("req.file: ", req.file);
-      const uploadResult = await uploadImage(req.file.path);
-      console.log("uploadResult: ", uploadResult);
-      if (uploadResult) {
-        newUser.profilePicture.public_id = uploadResult.public_id;
-        newUser.profilePicture.secure_url = uploadResult.secure_url;
-
-        // Remove the uploaded file from the server
-        fs.rmSync(`uploads/${req.file.filename}`);
-      }
-    }
-
-    // Send email verification
     await sendEmail({
       to: email,
-      subject: "Verify Your Email",
-      text: `Your verification code is: ${emailVerificationToken}`,
-      html: `<p>Your verification code is: <strong>${emailVerificationToken}</strong></p>`,
+      subject: "Verify Your Email - EgWinch",
+      text: `Your verification code is: ${emailVerificationCode}`,
+      code: emailVerificationCode,
     });
 
     // Generate tokens
@@ -71,13 +53,13 @@ exports.registerUser = async (req, res) => {
 
     res.status(201).json({
       success: true,
-      message: "User registered successfully. Please verify your email.",
+      message: "Signed up successfully. Please verify your email.",
       user: {
         id: newUser._id,
         name: newUser.name,
         email: newUser.email,
         role: newUser.role,
-        isEmailVerified: newUser.isEmailVerified,
+        emailVerified: newUser.emailVerified,
         profilePicture: newUser.profilePicture || "",
       },
       accessToken,
@@ -93,25 +75,24 @@ exports.registerUser = async (req, res) => {
 };
 
 exports.verfiyEmail = async (req, res) => {
-  const { emailVerificationToken } = req.body;
-  console.log("req.body: ", req.body);
-  console.log("emailVerificationToken: ", emailVerificationToken);
+  const { emailVerificationCode } = req.body;
+  console.log("emailVerificationCode: ", emailVerificationCode);
   try {
     const user = await User.findOne({
-      emailVerificationToken,
-      emailTokenExpiry: { $gt: Date.now() },
+      emailVerificationCode,
+      verificationCodeExpiry: { $gt: Date.now() },
     });
 
     if (!user) {
       return res.status(400).json({
         success: false,
-        message: "Invalid verification token.",
+        message: "Invalid or expired verification code.",
       });
     }
 
-    user.emailVerificationToken = null;
-    user.emailTokenExpiry = null;
-    user.isEmailVerified = true;
+    user.emailVerificationCode = null;
+    user.verificationCodeExpiry = null;
+    user.emailVerified = true;
 
     await user.save();
 
@@ -142,14 +123,15 @@ exports.signin = async (req, res) => {
     if (!user) {
       return res.status(400).json({
         success: false,
-        message: `There's not user found with this email ${email}`,
+        message: `There's not user found with this email, please sign up first`,
       });
     }
 
     if (user.googleId) {
       return res.status(400).json({
         success: false,
-        message: "Please sign in using Google.",
+        message:
+          "This email is registered with Google, please sign in with Google",
       });
     }
 
@@ -171,14 +153,14 @@ exports.signin = async (req, res) => {
 
     res.status(200).json({
       success: true,
-      message: "User logged in successfully",
+      message: "Signed in successfully",
       user: {
         _id: user._id,
         name: user.name,
         email: user.email,
         phoneNumber: user.phoneNumber,
         role: user.role,
-        isEmailVerified: user.isEmailVerified,
+        emailVerified: user.emailVerified,
         profilePicture: {
           public_id: user.profilePicture.public_id,
           secure_url: user.profilePicture.secure_url,
@@ -207,122 +189,6 @@ exports.signout = async (req, res) => {
       success: false,
       message: "An error occurred during logout.",
     });
-  }
-};
-
-exports.googleSignup = async (req, res) => {
-  try {
-    const { access_token } = req.body;
-
-    if (!access_token) {
-      return res
-        .status(400)
-        .json({ message: "Google access token is required" });
-    }
-
-    // Fetch user info from Google API
-    const googleResponse = await axios.get(
-      `https://www.googleapis.com/oauth2/v1/userinfo?alt=json&access_token=${access_token}`
-    );
-    const { email, name, picture, id: googleId } = googleResponse.data;
-
-    // Check if user already exists
-    let existingUser = await User.findOne({ email });
-    if (existingUser) {
-      return res
-        .status(400)
-        .json({ message: "User already exists, please log in" });
-    }
-
-    // Create new user
-    const user = new User({
-      name,
-      email,
-      googleId,
-      profilePicture: { secure_url: picture },
-      isEmailVerified: true,
-    });
-
-    await user.save();
-
-    // Generate tokens
-    const accessToken = await user.generateAccessToken();
-    const refreshToken = await user.generateRefreshToken();
-
-    res.cookie("refreshToken", refreshToken, cookieOptions);
-    user.refreshToken.push(refreshToken);
-    await user.save();
-
-    res.status(201).json({
-      message: "Sign-up successful",
-      accessToken,
-      refreshToken,
-      user: {
-        id: user._id,
-        name: user.name,
-        email: user.email,
-        role: user.role,
-        profilePicture: user.profilePicture || "",
-      },
-    });
-  } catch (error) {
-    console.error("Google Sign-Up Error:", error);
-    res
-      .status(500)
-      .json({ message: "Google sign-up failed", error: error.message });
-  }
-};
-
-exports.googleSignin = async (req, res) => {
-  try {
-    const { access_token } = req.body;
-
-    if (!access_token) {
-      return res
-        .status(400)
-        .json({ message: "Google access token is required" });
-    }
-
-    // Fetch user info from Google API
-    const googleResponse = await axios.get(
-      `https://www.googleapis.com/oauth2/v1/userinfo?alt=json&access_token=${access_token}`
-    );
-    const { email } = googleResponse.data;
-
-    // Check if user exists
-    let user = await User.findOne({ email });
-    if (!user) {
-      return res
-        .status(404)
-        .json({ message: "User not found, please sign up first" });
-    }
-
-    // Generate tokens
-    const accessToken = await user.generateAccessToken();
-    const refreshToken = await user.generateRefreshToken();
-
-    res.cookie("refreshToken", refreshToken, cookieOptions);
-    user.refreshToken.push(refreshToken);
-    await user.save();
-
-    res.json({
-      message: "Login successful",
-      accessToken,
-      refreshToken,
-      user: {
-        id: user._id,
-        name: user.name,
-        email: user.email,
-        role: user.role,
-        isEmailVerified: user.isEmailVerified,
-        profilePicture: user.profilePicture || "",
-      },
-    });
-  } catch (error) {
-    console.error("Google Login Error:", error);
-    res
-      .status(500)
-      .json({ message: "Google login failed", error: error.message });
   }
 };
 
@@ -384,7 +250,7 @@ exports.refreshToken = async (req, res) => {
             name: user.name,
             email: user.email,
             role: user.role,
-            isEmailVerified: user.isEmailVerified,
+            emailVerified: user.emailVerified,
             profilePicture: user.profilePicture,
           },
         });

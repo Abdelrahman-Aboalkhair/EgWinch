@@ -20,6 +20,10 @@ const userSchema = new mongoose.Schema(
       coordinates: { type: [Number], required: true, default: [0, 0] },
     },
     password: { type: String, select: false },
+    emailVerificationCode: String,
+    verificationCodeExpiry: Date,
+    emailVerified: { type: Boolean, default: false },
+
     refreshToken: [String],
   },
   { timestamps: true }
