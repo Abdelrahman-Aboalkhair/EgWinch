@@ -18,7 +18,7 @@ export const authApi = apiSlice.injectEndpoints({
       FormData
     >({
       query: (formData) => ({
-        url: "/auth/register-customer",
+        url: "/auth/register",
         method: "POST",
         body: formData,
       }),
@@ -62,18 +62,17 @@ export const authApi = apiSlice.injectEndpoints({
           const { data } = await queryFulfilled;
           dispatch(setCredentials(data));
         } catch (error) {
-          console.log("error: ", error);
           dispatch(clearAuthState());
         }
       },
     }),
 
-    verifyEmail: builder.mutation<void, { emailVerificationToken: string }>({
-      query: ({ emailVerificationToken }) => {
+    verifyEmail: builder.mutation<void, { emailVerificationCode: string }>({
+      query: ({ emailVerificationCode }) => {
         return {
           url: "/auth/verify-email",
           method: "POST",
-          body: { emailVerificationToken },
+          body: { emailVerificationCode },
           headers: {
             "Content-Type": "application/json",
           },

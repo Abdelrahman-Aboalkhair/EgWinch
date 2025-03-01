@@ -2,12 +2,12 @@ import React from "react";
 import { useGoogleLogin } from "@react-oauth/google";
 import axiosInstance from "@/app/utils/axiosInstance";
 import { useAppDispatch } from "@/app/store/hooks";
-import { setCredentials } from "../../store/slices/AuthSlice";
+import { setCredentials } from "../../../store/slices/AuthSlice";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
-import GoogleIcon from "../../assets/icons/google.png";
+import GoogleIcon from "@/app/assets/icons/google.png";
 
-const GoogleSignin = () => {
+const GoogleSignin = ({ onError }) => {
   const dispatch = useAppDispatch();
   const router = useRouter();
 
@@ -21,6 +21,9 @@ const GoogleSignin = () => {
         dispatch(setCredentials(res.data));
         router.push("/");
       } catch (error) {
+        onError(
+          error?.response?.data?.message ?? "An error occurred while signing in"
+        );
         console.error("Google sign-in failed", error);
       }
     },

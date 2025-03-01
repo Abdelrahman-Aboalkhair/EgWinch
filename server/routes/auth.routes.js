@@ -3,10 +3,15 @@ const {
   signout,
   refreshToken,
   verfiyEmail,
-  googleSignup,
-  googleSignin,
   registerUser,
 } = require("../controllers/auth.controller.js");
+
+const {
+  googleSignup,
+  googleSignin,
+  facebookSignup,
+  facebookSignin,
+} = require("../controllers/oAuth.controller.js");
 
 const upload = require("../middlewares/multer.middleware.js");
 
@@ -14,9 +19,10 @@ const express = require("express");
 
 const router = express.Router();
 
-// Authentication
 router.post("/google-signup", googleSignup);
 router.post("/google-signin", googleSignin);
+router.post("/facebook-signup", facebookSignup);
+router.post("/facebook-signin", facebookSignin);
 router.post("/register", upload.single("profilePicture"), registerUser);
 router.post("/verify-email", verfiyEmail);
 router.post("/sign-in", signin);
