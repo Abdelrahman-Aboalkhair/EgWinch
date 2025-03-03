@@ -7,6 +7,7 @@ const fs = require("fs");
 const path = require("path");
 const { createSocketServer } = require("./lib/socket.js");
 const cloudinary = require("cloudinary").v2;
+const logger = require("./config/logger.js");
 
 const options = {
   key: fs.readFileSync(path.join(__dirname, "localhost-key.pem")),
@@ -28,6 +29,6 @@ connectToDb();
 const PORT = process.env.PORT || 5000;
 
 server.listen(PORT, () => {
-  console.log(`Server is running on https://localhost:${PORT}`);
+  logger.info(`Server is running on https://localhost:${PORT}`);
 });
 module.exports = { io };
