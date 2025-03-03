@@ -8,14 +8,16 @@ const rateLimit = require("express-rate-limit");
 const mongoSanitize = require("express-mongo-sanitize");
 const xss = require("xss-clean");
 const hpp = require("hpp");
-const authRoutes = require("./routes/auth.routes.js");
-const userRoutes = require("./routes/user.routes.js");
-const driverRoutes = require("./routes/driver.routes.js");
-const bookingRoutes = require("./routes/booking.routes.js");
-const reviewRoutes = require("./routes/review.routes.js");
-const messageRoutes = require("./routes/message.routes.js");
-const conversationRoutes = require("./routes/conversation.routes.js");
-const notificationRoutes = require("./routes/notification.routes.js");
+const authRoutes = require("./modules/auth/auth.routes.js");
+const userRoutes = require("./modules/users/user.routes.js");
+const driverRoutes = require("./modules/drivers/driver.routes.js");
+const bookingRoutes = require("./modules/bookings/booking.routes.js");
+const reviewRoutes = require("./modules/reviews/review.routes.js");
+const messageRoutes = require("./modules/chat/message.routes.js");
+const conversationRoutes = require("./modules/chat/conversation.routes.js");
+const notificationRoutes = require("./modules/notifications/notification.routes.js");
+const { globalError } = require("./middlewares/globalError.js");
+const logger = require("./config/logger.js");
 
 dotenv.config();
 
@@ -31,7 +33,13 @@ app.use(
 );
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(morgan("dev"));
+app.use(
+  morgan("combined", {
+    stream: {
+      write: (message) => logger.info(message.trim()),
+    },
+  })
+);
 app.use(cookieParser());
 
 app.use(helmet());
@@ -49,5 +57,11 @@ app.use("/api/v1/reviews", reviewRoutes);
 app.use("/api/v1/notifications", notificationRoutes);
 app.use("/api/v1/messages", messageRoutes);
 app.use("/api/v1/conversations", conversationRoutes);
+
+app.all("*", (req, res, next) => {
+  next(new AppError(`Can't find ${req.originalUrl} on this server!`, 404));
+});
+
+app.use(globalError);
 
 module.exports = app;

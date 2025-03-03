@@ -1,0 +1,1836 @@
+[2025-03-03T04:25:37.205Z] [31MERROR[39M: uncaughtException: Cannot find module './routes/auth.routes.js'
+Require stack:
+- /app/app.js
+- /app/server.js
+Error: Cannot find module './routes/auth.routes.js'
+Require stack:
+- /app/app.js
+- /app/server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/app.js:11:20)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+[2025-03-03T04:25:44.172Z] [31MERROR[39M: uncaughtException: Cannot find module './routes/auth.routes.js'
+Require stack:
+- /app/app.js
+- /app/server.js
+Error: Cannot find module './routes/auth.routes.js'
+Require stack:
+- /app/app.js
+- /app/server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/app.js:11:20)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+[2025-03-03T04:25:48.420Z] [31MERROR[39M: uncaughtException: Cannot find module './routes/auth.routes.js'
+Require stack:
+- /app/app.js
+- /app/server.js
+Error: Cannot find module './routes/auth.routes.js'
+Require stack:
+- /app/app.js
+- /app/server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/app.js:11:20)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+[2025-03-03T04:26:19.524Z] [31MERROR[39M: uncaughtException: Cannot find module './routes/auth.routes.js'
+Require stack:
+- /app/app.js
+- /app/server.js
+Error: Cannot find module './routes/auth.routes.js'
+Require stack:
+- /app/app.js
+- /app/server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/app.js:11:20)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+[2025-03-03T04:26:37.043Z] [31MERROR[39M: uncaughtException: Cannot find module './routes/auth.routes.js'
+Require stack:
+- /app/app.js
+- /app/server.js
+Error: Cannot find module './routes/auth.routes.js'
+Require stack:
+- /app/app.js
+- /app/server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/app.js:11:20)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+[2025-03-03T04:27:14.901Z] [31MERROR[39M: uncaughtException: Cannot find module './routes/auth.routes.js'
+Require stack:
+- /app/app.js
+- /app/server.js
+Error: Cannot find module './routes/auth.routes.js'
+Require stack:
+- /app/app.js
+- /app/server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/app.js:11:20)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+[2025-03-03T04:27:27.288Z] [31MERROR[39M: uncaughtException: Cannot find module './routes/auth.routes.js'
+Require stack:
+- /app/app.js
+- /app/server.js
+Error: Cannot find module './routes/auth.routes.js'
+Require stack:
+- /app/app.js
+- /app/server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/app.js:11:20)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+[2025-03-03T04:27:39.989Z] [31MERROR[39M: uncaughtException: Cannot find module './routes/auth.routes.js'
+Require stack:
+- /app/app.js
+- /app/server.js
+Error: Cannot find module './routes/auth.routes.js'
+Require stack:
+- /app/app.js
+- /app/server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/app.js:11:20)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+[2025-03-03T04:28:13.221Z] [31MERROR[39M: uncaughtException: Cannot find module './routes/auth.routes.js'
+Require stack:
+- /app/app.js
+- /app/server.js
+Error: Cannot find module './routes/auth.routes.js'
+Require stack:
+- /app/app.js
+- /app/server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/app.js:11:20)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+[2025-03-03T04:28:15.185Z] [31MERROR[39M: uncaughtException: Cannot find module './routes/auth.routes.js'
+Require stack:
+- /app/app.js
+- /app/server.js
+Error: Cannot find module './routes/auth.routes.js'
+Require stack:
+- /app/app.js
+- /app/server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/app.js:11:20)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+[2025-03-03T04:28:58.491Z] [31MERROR[39M: uncaughtException: Cannot find module './routes/auth.routes.js'
+Require stack:
+- /app/app.js
+- /app/server.js
+Error: Cannot find module './routes/auth.routes.js'
+Require stack:
+- /app/app.js
+- /app/server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/app.js:11:20)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+[2025-03-03T04:29:01.106Z] [31MERROR[39M: uncaughtException: Cannot find module './routes/auth.routes.js'
+Require stack:
+- /app/app.js
+- /app/server.js
+Error: Cannot find module './routes/auth.routes.js'
+Require stack:
+- /app/app.js
+- /app/server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/app.js:11:20)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+[2025-03-03T04:29:27.141Z] [31MERROR[39M: uncaughtException: Cannot find module './routes/auth.routes.js'
+Require stack:
+- /app/app.js
+- /app/server.js
+Error: Cannot find module './routes/auth.routes.js'
+Require stack:
+- /app/app.js
+- /app/server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/app.js:11:20)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+[2025-03-03T04:29:56.687Z] [31MERROR[39M: uncaughtException: Cannot find module './routes/auth.routes.js'
+Require stack:
+- /app/app.js
+- /app/server.js
+Error: Cannot find module './routes/auth.routes.js'
+Require stack:
+- /app/app.js
+- /app/server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/app.js:11:20)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+[2025-03-03T04:29:57.304Z] [31MERROR[39M: uncaughtException: Cannot find module './routes/auth.routes.js'
+Require stack:
+- /app/app.js
+- /app/server.js
+Error: Cannot find module './routes/auth.routes.js'
+Require stack:
+- /app/app.js
+- /app/server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/app.js:11:20)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+[2025-03-03T04:30:02.360Z] [31MERROR[39M: uncaughtException: Cannot find module './routes/auth.routes.js'
+Require stack:
+- /app/app.js
+- /app/server.js
+Error: Cannot find module './routes/auth.routes.js'
+Require stack:
+- /app/app.js
+- /app/server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/app.js:11:20)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+[2025-03-03T04:30:02.729Z] [31MERROR[39M: uncaughtException: Cannot find module './routes/auth.routes.js'
+Require stack:
+- /app/app.js
+- /app/server.js
+Error: Cannot find module './routes/auth.routes.js'
+Require stack:
+- /app/app.js
+- /app/server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/app.js:11:20)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+[2025-03-03T04:30:07.680Z] [31MERROR[39M: uncaughtException: Cannot find module './routes/auth.routes.js'
+Require stack:
+- /app/app.js
+- /app/server.js
+Error: Cannot find module './routes/auth.routes.js'
+Require stack:
+- /app/app.js
+- /app/server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/app.js:11:20)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+[2025-03-03T04:30:08.213Z] [31MERROR[39M: uncaughtException: Cannot find module './routes/auth.routes.js'
+Require stack:
+- /app/app.js
+- /app/server.js
+Error: Cannot find module './routes/auth.routes.js'
+Require stack:
+- /app/app.js
+- /app/server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/app.js:11:20)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+[2025-03-03T04:30:12.563Z] [31MERROR[39M: uncaughtException: Cannot find module './routes/auth.routes.js'
+Require stack:
+- /app/app.js
+- /app/server.js
+Error: Cannot find module './routes/auth.routes.js'
+Require stack:
+- /app/app.js
+- /app/server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/app.js:11:20)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+[2025-03-03T04:30:13.094Z] [31MERROR[39M: uncaughtException: Cannot find module './routes/auth.routes.js'
+Require stack:
+- /app/app.js
+- /app/server.js
+Error: Cannot find module './routes/auth.routes.js'
+Require stack:
+- /app/app.js
+- /app/server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/app.js:11:20)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+[2025-03-03T04:30:19.147Z] [31MERROR[39M: uncaughtException: Cannot find module './routes/auth.routes.js'
+Require stack:
+- /app/app.js
+- /app/server.js
+Error: Cannot find module './routes/auth.routes.js'
+Require stack:
+- /app/app.js
+- /app/server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/app.js:11:20)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+[2025-03-03T04:30:19.738Z] [31MERROR[39M: uncaughtException: Cannot find module './routes/auth.routes.js'
+Require stack:
+- /app/app.js
+- /app/server.js
+Error: Cannot find module './routes/auth.routes.js'
+Require stack:
+- /app/app.js
+- /app/server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/app.js:11:20)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+[2025-03-03T04:30:23.448Z] [31MERROR[39M: uncaughtException: Cannot find module './routes/auth.routes.js'
+Require stack:
+- /app/app.js
+- /app/server.js
+Error: Cannot find module './routes/auth.routes.js'
+Require stack:
+- /app/app.js
+- /app/server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/app.js:11:20)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+[2025-03-03T04:30:23.973Z] [31MERROR[39M: uncaughtException: Cannot find module './routes/auth.routes.js'
+Require stack:
+- /app/app.js
+- /app/server.js
+Error: Cannot find module './routes/auth.routes.js'
+Require stack:
+- /app/app.js
+- /app/server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/app.js:11:20)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+[2025-03-03T04:30:30.102Z] [31MERROR[39M: uncaughtException: Cannot find module './routes/auth.routes.js'
+Require stack:
+- /app/app.js
+- /app/server.js
+Error: Cannot find module './routes/auth.routes.js'
+Require stack:
+- /app/app.js
+- /app/server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/app.js:11:20)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+[2025-03-03T04:30:30.665Z] [31MERROR[39M: uncaughtException: Cannot find module './routes/auth.routes.js'
+Require stack:
+- /app/app.js
+- /app/server.js
+Error: Cannot find module './routes/auth.routes.js'
+Require stack:
+- /app/app.js
+- /app/server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/app.js:11:20)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+[2025-03-03T04:30:36.824Z] [31MERROR[39M: uncaughtException: Cannot find module './routes/auth.routes.js'
+Require stack:
+- /app/app.js
+- /app/server.js
+Error: Cannot find module './routes/auth.routes.js'
+Require stack:
+- /app/app.js
+- /app/server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/app.js:11:20)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+[2025-03-03T04:30:37.461Z] [31MERROR[39M: uncaughtException: Cannot find module './routes/auth.routes.js'
+Require stack:
+- /app/app.js
+- /app/server.js
+Error: Cannot find module './routes/auth.routes.js'
+Require stack:
+- /app/app.js
+- /app/server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/app.js:11:20)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+[2025-03-03T04:30:43.629Z] [31MERROR[39M: uncaughtException: Cannot find module './routes/auth.routes.js'
+Require stack:
+- /app/app.js
+- /app/server.js
+Error: Cannot find module './routes/auth.routes.js'
+Require stack:
+- /app/app.js
+- /app/server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/app.js:11:20)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+[2025-03-03T04:30:44.095Z] [31MERROR[39M: uncaughtException: Cannot find module './routes/auth.routes.js'
+Require stack:
+- /app/app.js
+- /app/server.js
+Error: Cannot find module './routes/auth.routes.js'
+Require stack:
+- /app/app.js
+- /app/server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/app.js:11:20)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+[2025-03-03T04:30:59.735Z] [31MERROR[39M: uncaughtException: Cannot find module './routes/auth.routes.js'
+Require stack:
+- /app/app.js
+- /app/server.js
+Error: Cannot find module './routes/auth.routes.js'
+Require stack:
+- /app/app.js
+- /app/server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/app.js:11:20)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+[2025-03-03T04:31:06.140Z] [31MERROR[39M: uncaughtException: Cannot find module './routes/auth.routes.js'
+Require stack:
+- /app/app.js
+- /app/server.js
+Error: Cannot find module './routes/auth.routes.js'
+Require stack:
+- /app/app.js
+- /app/server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/app.js:11:20)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+[2025-03-03T04:31:11.419Z] [31MERROR[39M: uncaughtException: Cannot find module './routes/auth.routes.js'
+Require stack:
+- /app/app.js
+- /app/server.js
+Error: Cannot find module './routes/auth.routes.js'
+Require stack:
+- /app/app.js
+- /app/server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/app.js:11:20)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+[2025-03-03T04:31:18.897Z] [31MERROR[39M: uncaughtException: Cannot find module './routes/auth.routes.js'
+Require stack:
+- /app/app.js
+- /app/server.js
+Error: Cannot find module './routes/auth.routes.js'
+Require stack:
+- /app/app.js
+- /app/server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/app.js:11:20)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+[2025-03-03T04:31:29.843Z] [31MERROR[39M: uncaughtException: Cannot find module './routes/auth.routes.js'
+Require stack:
+- /app/app.js
+- /app/server.js
+Error: Cannot find module './routes/auth.routes.js'
+Require stack:
+- /app/app.js
+- /app/server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/app.js:11:20)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+[2025-03-03T04:31:36.205Z] [31MERROR[39M: uncaughtException: Cannot find module './routes/auth.routes.js'
+Require stack:
+- /app/app.js
+- /app/server.js
+Error: Cannot find module './routes/auth.routes.js'
+Require stack:
+- /app/app.js
+- /app/server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/app.js:11:20)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+[2025-03-03T04:31:42.655Z] [31MERROR[39M: uncaughtException: Cannot find module './routes/auth.routes.js'
+Require stack:
+- /app/app.js
+- /app/server.js
+Error: Cannot find module './routes/auth.routes.js'
+Require stack:
+- /app/app.js
+- /app/server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/app.js:11:20)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+[2025-03-03T04:32:17.930Z] [31MERROR[39M: uncaughtException: Cannot find module './routes/auth.routes.js'
+Require stack:
+- /app/app.js
+- /app/server.js
+Error: Cannot find module './routes/auth.routes.js'
+Require stack:
+- /app/app.js
+- /app/server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/app.js:11:20)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+[2025-03-03T04:32:24.341Z] [31MERROR[39M: uncaughtException: Cannot find module './routes/auth.routes.js'
+Require stack:
+- /app/app.js
+- /app/server.js
+Error: Cannot find module './routes/auth.routes.js'
+Require stack:
+- /app/app.js
+- /app/server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/app.js:11:20)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+[2025-03-03T04:32:29.764Z] [31MERROR[39M: uncaughtException: Cannot find module './routes/auth.routes.js'
+Require stack:
+- /app/app.js
+- /app/server.js
+Error: Cannot find module './routes/auth.routes.js'
+Require stack:
+- /app/app.js
+- /app/server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/app.js:11:20)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+[2025-03-03T04:32:39.717Z] [31MERROR[39M: uncaughtException: Cannot find module './routes/auth.routes.js'
+Require stack:
+- /app/app.js
+- /app/server.js
+Error: Cannot find module './routes/auth.routes.js'
+Require stack:
+- /app/app.js
+- /app/server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/app.js:11:20)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+[2025-03-03T04:32:48.142Z] [31MERROR[39M: uncaughtException: Cannot find module './routes/auth.routes.js'
+Require stack:
+- /app/app.js
+- /app/server.js
+Error: Cannot find module './routes/auth.routes.js'
+Require stack:
+- /app/app.js
+- /app/server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/app.js:11:20)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+[2025-03-03T04:32:57.191Z] [31MERROR[39M: uncaughtException: Cannot find module './routes/auth.routes.js'
+Require stack:
+- /app/app.js
+- /app/server.js
+Error: Cannot find module './routes/auth.routes.js'
+Require stack:
+- /app/app.js
+- /app/server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/app.js:11:20)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+[2025-03-03T04:33:07.199Z] [31MERROR[39M: uncaughtException: Cannot find module './routes/auth.routes.js'
+Require stack:
+- /app/app.js
+- /app/server.js
+Error: Cannot find module './routes/auth.routes.js'
+Require stack:
+- /app/app.js
+- /app/server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/app.js:11:20)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+[2025-03-03T04:34:20.004Z] [31MERROR[39M: uncaughtException: Cannot find module './routes/auth.routes.js'
+Require stack:
+- /app/app.js
+- /app/server.js
+Error: Cannot find module './routes/auth.routes.js'
+Require stack:
+- /app/app.js
+- /app/server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/app.js:11:20)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+[2025-03-03T04:34:23.552Z] [31MERROR[39M: uncaughtException: Cannot find module './routes/auth.routes.js'
+Require stack:
+- /app/app.js
+- /app/server.js
+Error: Cannot find module './routes/auth.routes.js'
+Require stack:
+- /app/app.js
+- /app/server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/app.js:11:20)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+[2025-03-03T04:34:27.421Z] [31MERROR[39M: uncaughtException: Cannot find module './routes/auth.routes.js'
+Require stack:
+- /app/app.js
+- /app/server.js
+Error: Cannot find module './routes/auth.routes.js'
+Require stack:
+- /app/app.js
+- /app/server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/app.js:11:20)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+[2025-03-03T04:34:28.298Z] [31MERROR[39M: uncaughtException: Cannot find module './routes/auth.routes.js'
+Require stack:
+- /app/app.js
+- /app/server.js
+Error: Cannot find module './routes/auth.routes.js'
+Require stack:
+- /app/app.js
+- /app/server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/app.js:11:20)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+[2025-03-03T04:35:05.416Z] [31MERROR[39M: uncaughtException: Cannot find module './routes/auth.routes.js'
+Require stack:
+- /app/app.js
+- /app/server.js
+Error: Cannot find module './routes/auth.routes.js'
+Require stack:
+- /app/app.js
+- /app/server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/app.js:11:20)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+[2025-03-03T04:35:13.382Z] [31MERROR[39M: uncaughtException: Cannot find module './routes/auth.routes.js'
+Require stack:
+- /app/app.js
+- /app/server.js
+Error: Cannot find module './routes/auth.routes.js'
+Require stack:
+- /app/app.js
+- /app/server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/app.js:11:20)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+[2025-03-03T04:35:17.123Z] [31MERROR[39M: uncaughtException: Cannot find module './routes/auth.routes.js'
+Require stack:
+- /app/app.js
+- /app/server.js
+Error: Cannot find module './routes/auth.routes.js'
+Require stack:
+- /app/app.js
+- /app/server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/app.js:11:20)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+[2025-03-03T04:35:17.960Z] [31MERROR[39M: uncaughtException: Cannot find module './routes/auth.routes.js'
+Require stack:
+- /app/app.js
+- /app/server.js
+Error: Cannot find module './routes/auth.routes.js'
+Require stack:
+- /app/app.js
+- /app/server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/app.js:11:20)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+[2025-03-03T04:38:52.727Z] [31MERROR[39M: uncaughtException: Cannot find module './routes/auth.routes.js'
+Require stack:
+- /app/app.js
+- /app/server.js
+Error: Cannot find module './routes/auth.routes.js'
+Require stack:
+- /app/app.js
+- /app/server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/app.js:11:20)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+[2025-03-03T04:38:53.094Z] [31MERROR[39M: uncaughtException: Cannot find module './routes/auth.routes.js'
+Require stack:
+- /app/app.js
+- /app/server.js
+Error: Cannot find module './routes/auth.routes.js'
+Require stack:
+- /app/app.js
+- /app/server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/app.js:11:20)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+[2025-03-03T04:39:04.777Z] [31MERROR[39M: uncaughtException: Cannot find module './routes/auth.routes.js'
+Require stack:
+- /app/app.js
+- /app/server.js
+Error: Cannot find module './routes/auth.routes.js'
+Require stack:
+- /app/app.js
+- /app/server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/app.js:11:20)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+[2025-03-03T04:39:16.024Z] [31MERROR[39M: uncaughtException: Cannot find module './routes/auth.routes.js'
+Require stack:
+- /app/app.js
+- /app/server.js
+Error: Cannot find module './routes/auth.routes.js'
+Require stack:
+- /app/app.js
+- /app/server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/app.js:11:20)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+[2025-03-03T04:39:20.501Z] [31MERROR[39M: uncaughtException: Cannot find module './routes/auth.routes.js'
+Require stack:
+- /app/app.js
+- /app/server.js
+Error: Cannot find module './routes/auth.routes.js'
+Require stack:
+- /app/app.js
+- /app/server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/app.js:11:20)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+[2025-03-03T04:39:23.097Z] [31MERROR[39M: uncaughtException: Cannot find module './routes/auth.routes.js'
+Require stack:
+- /app/app.js
+- /app/server.js
+Error: Cannot find module './routes/auth.routes.js'
+Require stack:
+- /app/app.js
+- /app/server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/app.js:11:20)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+[2025-03-03T04:41:35.479Z] [31MERROR[39M: uncaughtException: Cannot find module './routes/auth.routes.js'
+Require stack:
+- /app/app.js
+- /app/server.js
+Error: Cannot find module './routes/auth.routes.js'
+Require stack:
+- /app/app.js
+- /app/server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/app.js:11:20)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+[2025-03-03T04:41:55.278Z] [31MERROR[39M: uncaughtException: Cannot find module './routes/auth.routes.js'
+Require stack:
+- /app/app.js
+- /app/server.js
+Error: Cannot find module './routes/auth.routes.js'
+Require stack:
+- /app/app.js
+- /app/server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/app.js:11:20)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+[2025-03-03T04:41:57.008Z] [31MERROR[39M: uncaughtException: Cannot find module './routes/auth.routes.js'
+Require stack:
+- /app/app.js
+- /app/server.js
+Error: Cannot find module './routes/auth.routes.js'
+Require stack:
+- /app/app.js
+- /app/server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/app.js:11:20)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+[2025-03-03T04:42:00.684Z] [31MERROR[39M: uncaughtException: Cannot find module './routes/auth.routes.js'
+Require stack:
+- /app/app.js
+- /app/server.js
+Error: Cannot find module './routes/auth.routes.js'
+Require stack:
+- /app/app.js
+- /app/server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/app.js:11:20)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+[2025-03-03T04:43:32.915Z] [31MERROR[39M: uncaughtException: Cannot find module './routes/auth.routes.js'
+Require stack:
+- /app/app.js
+- /app/server.js
+Error: Cannot find module './routes/auth.routes.js'
+Require stack:
+- /app/app.js
+- /app/server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/app.js:11:20)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+[2025-03-03T04:43:44.240Z] [31MERROR[39M: uncaughtException: Cannot find module './routes/auth.routes.js'
+Require stack:
+- /app/app.js
+- /app/server.js
+Error: Cannot find module './routes/auth.routes.js'
+Require stack:
+- /app/app.js
+- /app/server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/app.js:11:20)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+[2025-03-03T04:44:47.599Z] [31MERROR[39M: uncaughtException: Cannot find module './routes/auth.routes.js'
+Require stack:
+- /app/app.js
+- /app/server.js
+Error: Cannot find module './routes/auth.routes.js'
+Require stack:
+- /app/app.js
+- /app/server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/app.js:11:20)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+[2025-03-03T04:44:56.766Z] [31MERROR[39M: uncaughtException: Cannot find module './routes/auth.routes.js'
+Require stack:
+- /app/app.js
+- /app/server.js
+Error: Cannot find module './routes/auth.routes.js'
+Require stack:
+- /app/app.js
+- /app/server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/app.js:11:20)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+[2025-03-03T04:45:00.120Z] [31MERROR[39M: uncaughtException: Cannot find module './routes/auth.routes.js'
+Require stack:
+- /app/app.js
+- /app/server.js
+Error: Cannot find module './routes/auth.routes.js'
+Require stack:
+- /app/app.js
+- /app/server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/app.js:11:20)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+[2025-03-03T04:45:13.357Z] [31MERROR[39M: uncaughtException: Cannot find module './routes/auth.routes.js'
+Require stack:
+- /app/app.js
+- /app/server.js
+Error: Cannot find module './routes/auth.routes.js'
+Require stack:
+- /app/app.js
+- /app/server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/app.js:11:20)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+[2025-03-03T04:46:04.241Z] [31MERROR[39M: uncaughtException: Cannot find module './routes/auth.routes.js'
+Require stack:
+- /app/app.js
+- /app/server.js
+Error: Cannot find module './routes/auth.routes.js'
+Require stack:
+- /app/app.js
+- /app/server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/app.js:11:20)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+[2025-03-03T04:46:15.290Z] [31MERROR[39M: uncaughtException: Cannot find module './routes/auth.routes.js'
+Require stack:
+- /app/app.js
+- /app/server.js
+Error: Cannot find module './routes/auth.routes.js'
+Require stack:
+- /app/app.js
+- /app/server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/app.js:11:20)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+[2025-03-03T04:46:18.144Z] [31MERROR[39M: uncaughtException: Cannot find module './routes/auth.routes.js'
+Require stack:
+- /app/app.js
+- /app/server.js
+Error: Cannot find module './routes/auth.routes.js'
+Require stack:
+- /app/app.js
+- /app/server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/app.js:11:20)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+[2025-03-03T04:46:29.945Z] [31MERROR[39M: uncaughtException: Cannot find module './routes/auth.routes.js'
+Require stack:
+- /app/app.js
+- /app/server.js
+Error: Cannot find module './routes/auth.routes.js'
+Require stack:
+- /app/app.js
+- /app/server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/app.js:11:20)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+[2025-03-03T04:46:32.696Z] [31MERROR[39M: uncaughtException: Cannot find module './routes/auth.routes.js'
+Require stack:
+- /app/app.js
+- /app/server.js
+Error: Cannot find module './routes/auth.routes.js'
+Require stack:
+- /app/app.js
+- /app/server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/app.js:11:20)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+[2025-03-03T04:48:51.781Z] [31MERROR[39M: uncaughtException: Cannot find module './routes/auth.routes.js'
+Require stack:
+- /app/app.js
+- /app/server.js
+Error: Cannot find module './routes/auth.routes.js'
+Require stack:
+- /app/app.js
+- /app/server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/app.js:11:20)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+[2025-03-03T04:50:55.872Z] [31MERROR[39M: uncaughtException: Cannot find module './routes/auth.routes.js'
+Require stack:
+- /app/app.js
+- /app/server.js
+Error: Cannot find module './routes/auth.routes.js'
+Require stack:
+- /app/app.js
+- /app/server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/app.js:11:20)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+[2025-03-03T04:51:53.428Z] [31MERROR[39M: uncaughtException: Cannot find module './modules/auth.routes.js'
+Require stack:
+- /app/app.js
+- /app/server.js
+Error: Cannot find module './modules/auth.routes.js'
+Require stack:
+- /app/app.js
+- /app/server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/app.js:11:20)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+[2025-03-03T04:52:09.825Z] [31MERROR[39M: uncaughtException: Cannot find module '../../controllers/auth.controller.js'
+Require stack:
+- /app/modules/auth/auth.routes.js
+- /app/app.js
+- /app/server.js
+Error: Cannot find module '../../controllers/auth.controller.js'
+Require stack:
+- /app/modules/auth/auth.routes.js
+- /app/app.js
+- /app/server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/modules/auth/auth.routes.js:7:5)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+[2025-03-03T04:52:15.333Z] [31MERROR[39M: uncaughtException: Cannot find module '../../controllers/auth.controller.js'
+Require stack:
+- /app/modules/auth/auth.routes.js
+- /app/app.js
+- /app/server.js
+Error: Cannot find module '../../controllers/auth.controller.js'
+Require stack:
+- /app/modules/auth/auth.routes.js
+- /app/app.js
+- /app/server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/modules/auth/auth.routes.js:7:5)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+[2025-03-03T04:52:20.355Z] [31MERROR[39M: uncaughtException: Cannot find module '../../controllers/auth.controller.js'
+Require stack:
+- /app/modules/auth/auth.routes.js
+- /app/app.js
+- /app/server.js
+Error: Cannot find module '../../controllers/auth.controller.js'
+Require stack:
+- /app/modules/auth/auth.routes.js
+- /app/app.js
+- /app/server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/modules/auth/auth.routes.js:7:5)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+[2025-03-03T04:52:24.472Z] [31MERROR[39M: uncaughtException: Cannot find module '../../controllers/auth.controller.js'
+Require stack:
+- /app/modules/auth/auth.routes.js
+- /app/app.js
+- /app/server.js
+Error: Cannot find module '../../controllers/auth.controller.js'
+Require stack:
+- /app/modules/auth/auth.routes.js
+- /app/app.js
+- /app/server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/modules/auth/auth.routes.js:7:5)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+[2025-03-03T04:52:28.652Z] [31MERROR[39M: uncaughtException: Cannot find module '../../controllers/auth.controller.js'
+Require stack:
+- /app/modules/auth/auth.routes.js
+- /app/app.js
+- /app/server.js
+Error: Cannot find module '../../controllers/auth.controller.js'
+Require stack:
+- /app/modules/auth/auth.routes.js
+- /app/app.js
+- /app/server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/modules/auth/auth.routes.js:7:5)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+[2025-03-03T04:52:31.754Z] [31MERROR[39M: uncaughtException: Cannot find module '../../controllers/auth.controller.js'
+Require stack:
+- /app/modules/auth/auth.routes.js
+- /app/app.js
+- /app/server.js
+Error: Cannot find module '../../controllers/auth.controller.js'
+Require stack:
+- /app/modules/auth/auth.routes.js
+- /app/app.js
+- /app/server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/modules/auth/auth.routes.js:7:5)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+[2025-03-03T04:52:41.689Z] [31MERROR[39M: uncaughtException: Cannot find module '../../controllers/auth.controller.js'
+Require stack:
+- /app/modules/auth/auth.routes.js
+- /app/app.js
+- /app/server.js
+Error: Cannot find module '../../controllers/auth.controller.js'
+Require stack:
+- /app/modules/auth/auth.routes.js
+- /app/app.js
+- /app/server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/modules/auth/auth.routes.js:7:5)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+[2025-03-03T04:52:44.841Z] [31MERROR[39M: uncaughtException: Cannot find module '../../controllers/auth.controller.js'
+Require stack:
+- /app/modules/auth/auth.routes.js
+- /app/app.js
+- /app/server.js
+Error: Cannot find module '../../controllers/auth.controller.js'
+Require stack:
+- /app/modules/auth/auth.routes.js
+- /app/app.js
+- /app/server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/modules/auth/auth.routes.js:7:5)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+[2025-03-03T04:53:12.963Z] [31MERROR[39M: uncaughtException: Cannot find module '../../controllers/auth.controller.js'
+Require stack:
+- /app/modules/auth/auth.routes.js
+- /app/app.js
+- /app/server.js
+Error: Cannot find module '../../controllers/auth.controller.js'
+Require stack:
+- /app/modules/auth/auth.routes.js
+- /app/app.js
+- /app/server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/modules/auth/auth.routes.js:11:5)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+[2025-03-03T04:53:14.974Z] [31MERROR[39M: uncaughtException: Cannot find module '../../controllers/auth.controller.js'
+Require stack:
+- /app/modules/auth/auth.routes.js
+- /app/app.js
+- /app/server.js
+Error: Cannot find module '../../controllers/auth.controller.js'
+Require stack:
+- /app/modules/auth/auth.routes.js
+- /app/app.js
+- /app/server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/modules/auth/auth.routes.js:11:5)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+[2025-03-03T04:53:32.219Z] [31MERROR[39M: uncaughtException: Identifier 'asyncHandler' has already been declared
+/app/modules/auth/auth.controller.js:7
+const asyncHandler = require("../../utils/asyncHandler");
+      ^
+
+SyntaxError: Identifier 'asyncHandler' has already been declared
+    at internalCompileFunction (node:internal/vm:76:18)
+    at wrapSafe (node:internal/modules/cjs/loader:1283:20)
+    at Module._compile (node:internal/modules/cjs/loader:1328:27)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/modules/auth/auth.routes.js:11:5)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+[2025-03-03T04:53:43.113Z] [31MERROR[39M: uncaughtException: Identifier 'asyncHandler' has already been declared
+/app/modules/auth/auth.controller.js:7
+const asyncHandler = require("../../utils/asyncHandler");
+      ^
+
+SyntaxError: Identifier 'asyncHandler' has already been declared
+    at internalCompileFunction (node:internal/vm:76:18)
+    at wrapSafe (node:internal/modules/cjs/loader:1283:20)
+    at Module._compile (node:internal/modules/cjs/loader:1328:27)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/modules/auth/auth.routes.js:11:5)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+[2025-03-03T04:53:59.315Z] [31MERROR[39M: uncaughtException: Identifier 'cookieOptions' has already been declared
+/app/modules/auth/auth.controller.js:7
+const cookieOptions = require("../../constants/cookieOptions");
+      ^
+
+SyntaxError: Identifier 'cookieOptions' has already been declared
+    at internalCompileFunction (node:internal/vm:76:18)
+    at wrapSafe (node:internal/modules/cjs/loader:1283:20)
+    at Module._compile (node:internal/modules/cjs/loader:1328:27)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/modules/auth/auth.routes.js:11:5)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+[2025-03-03T04:54:02.131Z] [31MERROR[39M: uncaughtException: Cannot find module '../models/user.model'
+Require stack:
+- /app/modules/auth/auth.controller.js
+- /app/modules/auth/auth.routes.js
+- /app/app.js
+- /app/server.js
+Error: Cannot find module '../models/user.model'
+Require stack:
+- /app/modules/auth/auth.controller.js
+- /app/modules/auth/auth.routes.js
+- /app/app.js
+- /app/server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/modules/auth/auth.controller.js:2:14)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+[2025-03-03T04:54:27.085Z] [31MERROR[39M: uncaughtException: Cannot find module './booking.model'
+Require stack:
+- /app/modules/users/user.model.js
+- /app/modules/auth/auth.controller.js
+- /app/modules/auth/auth.routes.js
+- /app/app.js
+- /app/server.js
+Error: Cannot find module './booking.model'
+Require stack:
+- /app/modules/users/user.model.js
+- /app/modules/auth/auth.controller.js
+- /app/modules/auth/auth.routes.js
+- /app/app.js
+- /app/server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/modules/users/user.model.js:4:17)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+[2025-03-03T04:54:39.236Z] [31MERROR[39M: uncaughtException: Cannot find module './booking.model'
+Require stack:
+- /app/modules/users/user.model.js
+- /app/modules/auth/auth.controller.js
+- /app/modules/auth/auth.routes.js
+- /app/app.js
+- /app/server.js
+Error: Cannot find module './booking.model'
+Require stack:
+- /app/modules/users/user.model.js
+- /app/modules/auth/auth.controller.js
+- /app/modules/auth/auth.routes.js
+- /app/app.js
+- /app/server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/modules/users/user.model.js:4:17)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+[2025-03-03T04:55:23.197Z] [31MERROR[39M: uncaughtException: Cannot find module './booking.model'
+Require stack:
+- /app/modules/users/user.model.js
+- /app/modules/auth/auth.controller.js
+- /app/modules/auth/auth.routes.js
+- /app/app.js
+- /app/server.js
+Error: Cannot find module './booking.model'
+Require stack:
+- /app/modules/users/user.model.js
+- /app/modules/auth/auth.controller.js
+- /app/modules/auth/auth.routes.js
+- /app/app.js
+- /app/server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/modules/users/user.model.js:4:17)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+[2025-03-03T04:55:34.513Z] [31MERROR[39M: uncaughtException: Cannot find module './booking.model'
+Require stack:
+- /app/modules/users/user.model.js
+- /app/modules/auth/auth.controller.js
+- /app/modules/auth/auth.routes.js
+- /app/app.js
+- /app/server.js
+Error: Cannot find module './booking.model'
+Require stack:
+- /app/modules/users/user.model.js
+- /app/modules/auth/auth.controller.js
+- /app/modules/auth/auth.routes.js
+- /app/app.js
+- /app/server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/modules/users/user.model.js:4:17)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+[2025-03-03T04:55:42.973Z] [31MERROR[39M: uncaughtException: Cannot find module './booking.model'
+Require stack:
+- /app/modules/users/user.model.js
+- /app/modules/auth/auth.controller.js
+- /app/modules/auth/auth.routes.js
+- /app/app.js
+- /app/server.js
+Error: Cannot find module './booking.model'
+Require stack:
+- /app/modules/users/user.model.js
+- /app/modules/auth/auth.controller.js
+- /app/modules/auth/auth.routes.js
+- /app/app.js
+- /app/server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/modules/users/user.model.js:4:17)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+[2025-03-03T04:56:01.946Z] [31MERROR[39M: uncaughtException: Cannot find module '../models/user.model'
+Require stack:
+- /app/modules/auth/auth.service.js
+- /app/modules/auth/auth.controller.js
+- /app/modules/auth/auth.routes.js
+- /app/app.js
+- /app/server.js
+Error: Cannot find module '../models/user.model'
+Require stack:
+- /app/modules/auth/auth.service.js
+- /app/modules/auth/auth.controller.js
+- /app/modules/auth/auth.routes.js
+- /app/app.js
+- /app/server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/modules/auth/auth.service.js:3:14)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+[2025-03-03T04:56:28.113Z] [31MERROR[39M: uncaughtException: Route.post() requires a callback function but got a [object Undefined]
+Error: Route.post() requires a callback function but got a [object Undefined]
+    at Route.<computed> [as post] (/app/node_modules/express/lib/router/route.js:216:15)
+    at proto.<computed> [as post] (/app/node_modules/express/lib/router/index.js:521:19)
+    at Object.<anonymous> (/app/modules/auth/auth.routes.js:24:8)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/app.js:11:20)
+[2025-03-03T04:57:29.005Z] [31MERROR[39M: uncaughtException: Route.post() requires a callback function but got a [object Undefined]
+Error: Route.post() requires a callback function but got a [object Undefined]
+    at Route.<computed> [as post] (/app/node_modules/express/lib/router/route.js:216:15)
+    at proto.<computed> [as post] (/app/node_modules/express/lib/router/index.js:521:19)
+    at Object.<anonymous> (/app/modules/auth/auth.routes.js:24:8)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/app.js:11:20)
+[2025-03-03T04:57:44.038Z] [31MERROR[39M: uncaughtException: Route.post() requires a callback function but got a [object Undefined]
+Error: Route.post() requires a callback function but got a [object Undefined]
+    at Route.<computed> [as post] (/app/node_modules/express/lib/router/route.js:216:15)
+    at proto.<computed> [as post] (/app/node_modules/express/lib/router/index.js:521:19)
+    at Object.<anonymous> (/app/modules/auth/auth.routes.js:24:8)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/app.js:11:20)
