@@ -57,7 +57,7 @@ const Input: React.FC<InputProps> = ({
       <div className="relative w-full">
         {type === "file" ? (
           <div
-            className="flex items-center justify-center w-full p-[15px] border border-gray-300 rounded-md cursor-pointer hover:border-primary"
+            className="flex items-center justify-center w-full p-[15px] border border-gray-300  rounded-md cursor-pointer hover:border-primary"
             onClick={handleFileClick}
           >
             <input
@@ -81,7 +81,7 @@ const Input: React.FC<InputProps> = ({
             {...register(name, validation)}
             type={type}
             placeholder={placeholder}
-            className={`p-[14px] pl-3 pr-10 w-full border text-gray-800 placeholder:text-gray-800 rounded-md focus:outline-none focus:ring-[1.4px] focus:ring-primary ${className}`}
+            className={`p-[14px] pl-3 pr-10 w-full border text-gray-800 placeholder:text-gray-800  rounded-md focus:outline-none focus:ring-[2px] focus:ring-primary ${className}`}
           />
         )}
 

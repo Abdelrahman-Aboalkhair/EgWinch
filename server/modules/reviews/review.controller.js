@@ -1,6 +1,6 @@
-const Review = require("../models/review.model");
-const User = require("../models/user.model");
-const Booking = require("../models/booking.model");
+const Review = require("./review.model");
+const User = require("../users/user.model");
+const Booking = require("../bookings/booking.model");
 const redis = require("../../lib/redis");
 
 exports.getUserReviews = async (req, res) => {

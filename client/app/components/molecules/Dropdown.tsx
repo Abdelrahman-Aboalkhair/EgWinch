@@ -56,7 +56,7 @@ const Dropdown: React.FC<DropdownProps> = ({
         className="flex items-center justify-between w-full p-[14px] border rounded-md cursor-pointer hover:border-primary"
         onClick={() => setIsOpen((prev) => !prev)}
       >
-        <span className="text-base font-medium">
+        <span className="text-base">
           {selectedOption ? selectedOption : label}
         </span>
 

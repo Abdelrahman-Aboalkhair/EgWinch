@@ -1,6 +1,5 @@
 "use client";
-
-import { useGetBookingsQuery } from "@/app/libs/features/apis/BookingApi";
+import { useGetBookingsQuery } from "@/app/store/apis/BookingApi";
 import { useAppSelector } from "@/app/store/hooks";
 import { motion } from "framer-motion";
 import {
@@ -17,17 +16,15 @@ const Dashboard = () => {
   const { user } = useAppSelector((state) => state.auth);
   const { data, isLoading } = useGetBookingsQuery({});
 
-  // Role-based statistics
-  const userRole = user?.role; // Assuming 'driver' or 'customer'
+  const userRole = user?.role;
 
-  // Booking stats
   const totalBookings = data?.totalBookings || 0;
   const totalOffers = data?.totalOffers || 0;
-  const completedBookings = data?.completedBookings || 5; // Static fallback
-  const canceledBookings = data?.canceledBookings || 2; // Static fallback
-  const pendingBookings = data?.pendingBookings || 3; // Static fallback
+  const completedBookings = data?.completedBookings || 5;
+  const canceledBookings = data?.canceledBookings || 2;
+  const pendingBookings = data?.pendingBookings || 3;
   const totalEarnings =
-    userRole === "driver" ? data?.totalEarnings || 1200 : null; // Static fallback for earnings (driver-only)
+    userRole === "driver" ? data?.totalEarnings || 1200 : null;
 
   return (
     <motion.div

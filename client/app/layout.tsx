@@ -46,9 +46,7 @@ export default function RootLayout({
       >
         <StoreProvider>
           <SessionProvider>
-            <Navbar />
             {children}
-            <Footer />
             <Toast />
           </SessionProvider>
         </StoreProvider>

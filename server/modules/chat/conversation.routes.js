@@ -1,12 +1,13 @@
-const express = require("express");
 const {
   createConversation,
   getConversations,
-} = require("../../controllers/conversation.controller");
-const router = express.Router();
-const { isLoggedIn } = require("../../middlewares/auth.middleware");
+} = require("./conversation.controller");
+const isAuthenticated = require("../../middlewares/isAuthenticated");
 
-router.get("/", isLoggedIn, getConversations);
-router.post("/", isLoggedIn, createConversation);
+const express = require("express");
+const router = express.Router();
+
+router.get("/", isAuthenticated, getConversations);
+router.post("/", isAuthenticated, createConversation);
 
 module.exports = router;

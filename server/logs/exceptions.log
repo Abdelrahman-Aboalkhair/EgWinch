@@ -1834,3 +1834,761 @@ Error: Route.post() requires a callback function but got a [object Undefined]
     at Module.require (node:internal/modules/cjs/loader:1231:19)
     at require (node:internal/modules/helpers:177:18)
     at Object.<anonymous> (/app/app.js:11:20)
+[2025-03-03T16:32:55.470Z] [31MERROR[39M: uncaughtException: Route.post() requires a callback function but got a [object Undefined]
+Error: Route.post() requires a callback function but got a [object Undefined]
+    at Route.<computed> [as post] (/app/node_modules/express/lib/router/route.js:216:15)
+    at proto.<computed> [as post] (/app/node_modules/express/lib/router/index.js:521:19)
+    at Object.<anonymous> (/app/modules/auth/auth.routes.js:24:8)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/app.js:11:20)
+[2025-03-03T16:33:37.117Z] [31MERROR[39M: uncaughtException: app.use() requires a middleware function
+TypeError: app.use() requires a middleware function
+    at Function.use (/app/node_modules/express/lib/application.js:217:11)
+    at Object.<anonymous> (/app/app.js:65:5)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/server.js:5:13)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+[2025-03-03T16:33:54.965Z] [31MERROR[39M: uncaughtException: app.use() requires a middleware function
+TypeError: app.use() requires a middleware function
+    at Function.use (/app/node_modules/express/lib/application.js:217:11)
+    at Object.<anonymous> (/app/app.js:65:5)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/server.js:5:13)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+[2025-03-03T16:34:16.117Z] [31MERROR[39M: uncaughtException: app.use() requires a middleware function
+TypeError: app.use() requires a middleware function
+    at Function.use (/app/node_modules/express/lib/application.js:217:11)
+    at Object.<anonymous> (/app/app.js:65:5)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/server.js:5:13)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+[2025-03-03T16:35:03.732Z] [31MERROR[39M: uncaughtException: Cannot find module '../models/message.model'
+Require stack:
+- /app/lib/socket.js
+- /app/server.js
+Error: Cannot find module '../models/message.model'
+Require stack:
+- /app/lib/socket.js
+- /app/server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/lib/socket.js:2:17)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+[2025-03-03T16:35:35.111Z] [31MERROR[39M: uncaughtException: Cannot find module '../models/message.model'
+Require stack:
+- /app/lib/socket.js
+- /app/server.js
+Error: Cannot find module '../models/message.model'
+Require stack:
+- /app/lib/socket.js
+- /app/server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/lib/socket.js:2:17)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+[2025-03-03T16:35:54.010Z] [31MERROR[39M: uncaughtException: Route.post() requires a callback function but got a [object Undefined]
+Error: Route.post() requires a callback function but got a [object Undefined]
+    at Route.<computed> [as post] (/app/node_modules/express/lib/router/route.js:216:15)
+    at proto.<computed> [as post] (/app/node_modules/express/lib/router/index.js:521:19)
+    at Object.<anonymous> (/app/modules/auth/auth.routes.js:24:8)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/app.js:11:20)
+[2025-03-03T16:36:44.562Z] [31MERROR[39M: uncaughtException: Route.post() requires a callback function but got a [object Undefined]
+Error: Route.post() requires a callback function but got a [object Undefined]
+    at Route.<computed> [as post] (/app/node_modules/express/lib/router/route.js:216:15)
+    at proto.<computed> [as post] (/app/node_modules/express/lib/router/index.js:521:19)
+    at Object.<anonymous> (/app/modules/auth/auth.routes.js:21:8)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/app.js:11:20)
+[2025-03-03T16:36:49.412Z] [31MERROR[39M: uncaughtException: Route.post() requires a callback function but got a [object Undefined]
+Error: Route.post() requires a callback function but got a [object Undefined]
+    at Route.<computed> [as post] (/app/node_modules/express/lib/router/route.js:216:15)
+    at proto.<computed> [as post] (/app/node_modules/express/lib/router/index.js:521:19)
+    at Object.<anonymous> (/app/modules/auth/auth.routes.js:24:8)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/app.js:11:20)
+[2025-03-03T16:38:04.345Z] [31MERROR[39M: uncaughtException: verfiyEmail is not defined
+ReferenceError: verfiyEmail is not defined
+    at Object.<anonymous> (/app/modules/auth/auth.routes.js:24:30)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/app.js:11:20)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+[2025-03-03T16:38:24.018Z] [31MERROR[39M: uncaughtException: Cannot find module '../../controllers/user.controller.js'
+Require stack:
+- /app/modules/users/user.routes.js
+- /app/app.js
+- /app/server.js
+Error: Cannot find module '../../controllers/user.controller.js'
+Require stack:
+- /app/modules/users/user.routes.js
+- /app/app.js
+- /app/server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/modules/users/user.routes.js:7:5)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+[2025-03-03T16:38:51.129Z] [31MERROR[39M: uncaughtException: Cannot find module '../../controllers/user.controller.js'
+Require stack:
+- /app/modules/users/user.routes.js
+- /app/app.js
+- /app/server.js
+Error: Cannot find module '../../controllers/user.controller.js'
+Require stack:
+- /app/modules/users/user.routes.js
+- /app/app.js
+- /app/server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/modules/users/user.routes.js:7:5)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+[2025-03-03T16:39:12.221Z] [31MERROR[39M: uncaughtException: Cannot find module '../../controllers/user.controller.js'
+Require stack:
+- /app/modules/users/user.routes.js
+- /app/app.js
+- /app/server.js
+Error: Cannot find module '../../controllers/user.controller.js'
+Require stack:
+- /app/modules/users/user.routes.js
+- /app/app.js
+- /app/server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/modules/users/user.routes.js:7:5)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+[2025-03-03T16:39:19.375Z] [31MERROR[39M: uncaughtException: Cannot find module '../../controllers/user.controller.js'
+Require stack:
+- /app/modules/users/user.routes.js
+- /app/app.js
+- /app/server.js
+Error: Cannot find module '../../controllers/user.controller.js'
+Require stack:
+- /app/modules/users/user.routes.js
+- /app/app.js
+- /app/server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/modules/users/user.routes.js:7:5)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+[2025-03-03T16:39:27.741Z] [31MERROR[39M: uncaughtException: Cannot find module '../../controllers/user.controller.js'
+Require stack:
+- /app/modules/users/user.routes.js
+- /app/app.js
+- /app/server.js
+Error: Cannot find module '../../controllers/user.controller.js'
+Require stack:
+- /app/modules/users/user.routes.js
+- /app/app.js
+- /app/server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/modules/users/user.routes.js:7:5)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+[2025-03-03T16:39:41.715Z] [31MERROR[39M: uncaughtException: Cannot find module '../../controllers/user.controller.js'
+Require stack:
+- /app/modules/users/user.routes.js
+- /app/app.js
+- /app/server.js
+Error: Cannot find module '../../controllers/user.controller.js'
+Require stack:
+- /app/modules/users/user.routes.js
+- /app/app.js
+- /app/server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/modules/users/user.routes.js:7:5)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+[2025-03-03T16:39:46.243Z] [31MERROR[39M: uncaughtException: Cannot find module '../../controllers/user.controller.js'
+Require stack:
+- /app/modules/users/user.routes.js
+- /app/app.js
+- /app/server.js
+Error: Cannot find module '../../controllers/user.controller.js'
+Require stack:
+- /app/modules/users/user.routes.js
+- /app/app.js
+- /app/server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/modules/users/user.routes.js:7:5)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+[2025-03-03T16:40:35.565Z] [31MERROR[39M: uncaughtException: Cannot find module '../models/user.model'
+Require stack:
+- /app/modules/users/user.controller.js
+- /app/modules/users/user.routes.js
+- /app/app.js
+- /app/server.js
+Error: Cannot find module '../models/user.model'
+Require stack:
+- /app/modules/users/user.controller.js
+- /app/modules/users/user.routes.js
+- /app/app.js
+- /app/server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/modules/users/user.controller.js:1:14)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+[2025-03-03T16:41:03.025Z] [31MERROR[39M: uncaughtException: Cannot find module '../../controllers/driver.controller.js'
+Require stack:
+- /app/modules/drivers/driver.routes.js
+- /app/app.js
+- /app/server.js
+Error: Cannot find module '../../controllers/driver.controller.js'
+Require stack:
+- /app/modules/drivers/driver.routes.js
+- /app/app.js
+- /app/server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/modules/drivers/driver.routes.js:5:5)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+[2025-03-03T16:41:37.296Z] [31MERROR[39M: uncaughtException: Cannot find module '../../controllers/driver.controller.js'
+Require stack:
+- /app/modules/drivers/driver.routes.js
+- /app/app.js
+- /app/server.js
+Error: Cannot find module '../../controllers/driver.controller.js'
+Require stack:
+- /app/modules/drivers/driver.routes.js
+- /app/app.js
+- /app/server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/modules/drivers/driver.routes.js:5:5)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+[2025-03-03T16:41:49.636Z] [31MERROR[39M: uncaughtException: Cannot find module '../../controllers/driver.controller.js'
+Require stack:
+- /app/modules/drivers/driver.routes.js
+- /app/app.js
+- /app/server.js
+Error: Cannot find module '../../controllers/driver.controller.js'
+Require stack:
+- /app/modules/drivers/driver.routes.js
+- /app/app.js
+- /app/server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/modules/drivers/driver.routes.js:5:5)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+[2025-03-03T16:41:56.864Z] [31MERROR[39M: uncaughtException: Cannot find module '../../controllers/driver.controller.js'
+Require stack:
+- /app/modules/drivers/driver.routes.js
+- /app/app.js
+- /app/server.js
+Error: Cannot find module '../../controllers/driver.controller.js'
+Require stack:
+- /app/modules/drivers/driver.routes.js
+- /app/app.js
+- /app/server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/modules/drivers/driver.routes.js:5:5)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+[2025-03-03T16:42:01.923Z] [31MERROR[39M: uncaughtException: Cannot find module '../../controllers/driver.controller.js'
+Require stack:
+- /app/modules/drivers/driver.routes.js
+- /app/app.js
+- /app/server.js
+Error: Cannot find module '../../controllers/driver.controller.js'
+Require stack:
+- /app/modules/drivers/driver.routes.js
+- /app/app.js
+- /app/server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/modules/drivers/driver.routes.js:5:5)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+[2025-03-03T16:42:11.439Z] [31MERROR[39M: uncaughtException: Cannot find module '../../controllers/driver.controller.js'
+Require stack:
+- /app/modules/drivers/driver.routes.js
+- /app/app.js
+- /app/server.js
+Error: Cannot find module '../../controllers/driver.controller.js'
+Require stack:
+- /app/modules/drivers/driver.routes.js
+- /app/app.js
+- /app/server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/modules/drivers/driver.routes.js:5:5)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+[2025-03-03T16:42:14.910Z] [31MERROR[39M: uncaughtException: Cannot find module '../../controllers/driver.controller.js'
+Require stack:
+- /app/modules/drivers/driver.routes.js
+- /app/app.js
+- /app/server.js
+Error: Cannot find module '../../controllers/driver.controller.js'
+Require stack:
+- /app/modules/drivers/driver.routes.js
+- /app/app.js
+- /app/server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/modules/drivers/driver.routes.js:5:5)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+[2025-03-03T16:42:19.094Z] [31MERROR[39M: uncaughtException: Cannot find module '../../controllers/driver.controller.js'
+Require stack:
+- /app/modules/drivers/driver.routes.js
+- /app/app.js
+- /app/server.js
+Error: Cannot find module '../../controllers/driver.controller.js'
+Require stack:
+- /app/modules/drivers/driver.routes.js
+- /app/app.js
+- /app/server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/modules/drivers/driver.routes.js:5:5)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+[2025-03-03T16:42:24.669Z] [31MERROR[39M: uncaughtException: Cannot find module '../../controllers/driver.controller.js'
+Require stack:
+- /app/modules/drivers/driver.routes.js
+- /app/app.js
+- /app/server.js
+Error: Cannot find module '../../controllers/driver.controller.js'
+Require stack:
+- /app/modules/drivers/driver.routes.js
+- /app/app.js
+- /app/server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/modules/drivers/driver.routes.js:5:5)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+[2025-03-03T16:42:31.248Z] [31MERROR[39M: uncaughtException: Cannot find module '../../controllers/driver.controller.js'
+Require stack:
+- /app/modules/drivers/driver.routes.js
+- /app/app.js
+- /app/server.js
+Error: Cannot find module '../../controllers/driver.controller.js'
+Require stack:
+- /app/modules/drivers/driver.routes.js
+- /app/app.js
+- /app/server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/modules/drivers/driver.routes.js:5:5)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+[2025-03-03T16:42:36.651Z] [31MERROR[39M: uncaughtException: Cannot find module '../../controllers/driver.controller.js'
+Require stack:
+- /app/modules/drivers/driver.routes.js
+- /app/app.js
+- /app/server.js
+Error: Cannot find module '../../controllers/driver.controller.js'
+Require stack:
+- /app/modules/drivers/driver.routes.js
+- /app/app.js
+- /app/server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/modules/drivers/driver.routes.js:5:5)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+[2025-03-03T16:42:44.080Z] [31MERROR[39M: uncaughtException: Cannot find module '../../controllers/driver.controller.js'
+Require stack:
+- /app/modules/drivers/driver.routes.js
+- /app/app.js
+- /app/server.js
+Error: Cannot find module '../../controllers/driver.controller.js'
+Require stack:
+- /app/modules/drivers/driver.routes.js
+- /app/app.js
+- /app/server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/modules/drivers/driver.routes.js:5:5)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+[2025-03-03T16:42:55.234Z] [31MERROR[39M: uncaughtException: Cannot find module '../models/driver.model'
+Require stack:
+- /app/modules/drivers/driver.controller.js
+- /app/modules/drivers/driver.routes.js
+- /app/app.js
+- /app/server.js
+Error: Cannot find module '../models/driver.model'
+Require stack:
+- /app/modules/drivers/driver.controller.js
+- /app/modules/drivers/driver.routes.js
+- /app/app.js
+- /app/server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/modules/drivers/driver.controller.js:1:16)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+[2025-03-03T16:43:28.135Z] [31MERROR[39M: uncaughtException: Cannot find module '../models/user.model'
+Require stack:
+- /app/modules/drivers/driver.controller.js
+- /app/modules/drivers/driver.routes.js
+- /app/app.js
+- /app/server.js
+Error: Cannot find module '../models/user.model'
+Require stack:
+- /app/modules/drivers/driver.controller.js
+- /app/modules/drivers/driver.routes.js
+- /app/app.js
+- /app/server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/modules/drivers/driver.controller.js:3:14)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+[2025-03-03T16:44:38.071Z] [31MERROR[39M: uncaughtException: Cannot find module '../../controllers/review.controller.js'
+Require stack:
+- /app/modules/reviews/review.routes.js
+- /app/app.js
+- /app/server.js
+Error: Cannot find module '../../controllers/review.controller.js'
+Require stack:
+- /app/modules/reviews/review.routes.js
+- /app/app.js
+- /app/server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/modules/reviews/review.routes.js:5:5)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+[2025-03-03T16:44:49.335Z] [31MERROR[39M: uncaughtException: Cannot find module '../models/review.model'
+Require stack:
+- /app/modules/reviews/review.controller.js
+- /app/modules/reviews/review.routes.js
+- /app/app.js
+- /app/server.js
+Error: Cannot find module '../models/review.model'
+Require stack:
+- /app/modules/reviews/review.controller.js
+- /app/modules/reviews/review.routes.js
+- /app/app.js
+- /app/server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/modules/reviews/review.controller.js:1:16)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+[2025-03-03T16:44:57.808Z] [31MERROR[39M: uncaughtException: Cannot find module '../models/user.model'
+Require stack:
+- /app/modules/reviews/review.controller.js
+- /app/modules/reviews/review.routes.js
+- /app/app.js
+- /app/server.js
+Error: Cannot find module '../models/user.model'
+Require stack:
+- /app/modules/reviews/review.controller.js
+- /app/modules/reviews/review.routes.js
+- /app/app.js
+- /app/server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/modules/reviews/review.controller.js:2:14)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+[2025-03-03T16:45:01.636Z] [31MERROR[39M: uncaughtException: Cannot find module '../models/booking.model'
+Require stack:
+- /app/modules/reviews/review.controller.js
+- /app/modules/reviews/review.routes.js
+- /app/app.js
+- /app/server.js
+Error: Cannot find module '../models/booking.model'
+Require stack:
+- /app/modules/reviews/review.controller.js
+- /app/modules/reviews/review.routes.js
+- /app/app.js
+- /app/server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/modules/reviews/review.controller.js:3:17)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+[2025-03-03T16:46:56.610Z] [31MERROR[39M: uncaughtException: notificationRoutes is not defined
+ReferenceError: notificationRoutes is not defined
+    at Object.<anonymous> (/app/app.js:57:34)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/server.js:5:13)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+[2025-03-03T16:47:20.595Z] [31MERROR[39M: uncaughtException: Cannot find module '../../controllers/notification.controller.js'
+Require stack:
+- /app/modules/notifications/notification.routes.js
+- /app/app.js
+- /app/server.js
+Error: Cannot find module '../../controllers/notification.controller.js'
+Require stack:
+- /app/modules/notifications/notification.routes.js
+- /app/app.js
+- /app/server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/modules/notifications/notification.routes.js:7:5)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+[2025-03-03T16:47:32.972Z] [31MERROR[39M: uncaughtException: Cannot find module '../../controllers/notification.controller.js'
+Require stack:
+- /app/modules/notifications/notification.routes.js
+- /app/app.js
+- /app/server.js
+Error: Cannot find module '../../controllers/notification.controller.js'
+Require stack:
+- /app/modules/notifications/notification.routes.js
+- /app/app.js
+- /app/server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/modules/notifications/notification.routes.js:7:5)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+[2025-03-03T16:47:42.625Z] [31MERROR[39M: uncaughtException: Cannot find module '../../controllers/notification.controller.js'
+Require stack:
+- /app/modules/notifications/notification.routes.js
+- /app/app.js
+- /app/server.js
+Error: Cannot find module '../../controllers/notification.controller.js'
+Require stack:
+- /app/modules/notifications/notification.routes.js
+- /app/app.js
+- /app/server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/modules/notifications/notification.routes.js:6:5)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+[2025-03-03T16:47:50.225Z] [31MERROR[39M: uncaughtException: Cannot find module '../models/notification.model.js'
+Require stack:
+- /app/modules/notifications/notification.controller.js
+- /app/modules/notifications/notification.routes.js
+- /app/app.js
+- /app/server.js
+Error: Cannot find module '../models/notification.model.js'
+Require stack:
+- /app/modules/notifications/notification.controller.js
+- /app/modules/notifications/notification.routes.js
+- /app/app.js
+- /app/server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/modules/notifications/notification.controller.js:1:22)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)

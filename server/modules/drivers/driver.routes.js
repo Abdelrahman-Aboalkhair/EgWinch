@@ -2,10 +2,9 @@ const {
   startOnboarding,
   updateDriverProfile,
   reviewDriverApplication,
-} = require("../../controllers/driver.controller.js");
-
-const { isAdmin, isLoggedIn } = require("../../middlewares/auth.middleware.js");
-
+} = require("./driver.controller.js");
+const isAuthenticated = require("../../middlewares/isAuthenticated.js");
+const isAuthorized = require("../../middlewares/isAuthorized.js");
 const upload = require("../../middlewares/multer.middleware.js");
 
 const express = require("express");
@@ -13,10 +12,10 @@ const express = require("express");
 const router = express.Router();
 
 // Driver onboarding
-router.post("/start-onboarding", isLoggedIn, startOnboarding);
+router.post("/start-onboarding", isAuthenticated, startOnboarding);
 router.put(
   "/update-onboarding",
-  isLoggedIn,
+  isAuthenticated,
   upload.fields([
     { name: "profilePicture", maxCount: 1 },
     { name: "licenseImage", maxCount: 1 },
@@ -24,6 +23,11 @@ router.put(
   ]),
   updateDriverProfile
 );
-router.put("/review-application", isLoggedIn, isAdmin, reviewDriverApplication);
+router.put(
+  "/review-application",
+  isAuthenticated,
+  isAuthorized,
+  reviewDriverApplication
+);
 
 module.exports = router;

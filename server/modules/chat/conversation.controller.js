@@ -1,4 +1,4 @@
-const Conversation = require("../models/conversation.model");
+const Conversation = require("./conversation.model");
 const redis = require("../../lib/redis");
 
 exports.createConversation = async (req, res) => {

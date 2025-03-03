@@ -1,30 +1,26 @@
 "use client";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
+import { motion } from "framer-motion";
 import Input from "../../atoms/Input";
 import Map from "../../molecules/Map";
-import { MapPinPlus, Navigation } from "lucide-react";
+import { Navigation, ChevronDown } from "lucide-react";
 import DatePicker from "../../molecules/DatePicker";
-import ItemsList from "./ItemsList";
 import { useCreateBookingMutation } from "../../../store/apis/BookingApi";
 import { useRouter } from "next/navigation";
 import { useAppDispatch } from "../../../store/hooks";
 import { addToast } from "../../../store/slices/ToastSlice";
-
-interface GeoJSONPoint {
-  type: "Point";
-  coordinates: [number, number];
-  address: string;
-}
+import ApartmentDetailsForm from "./ApartmentDetailsForm";
 
 const BookMove = () => {
   const { register, handleSubmit, control } = useForm();
   const [items, setItems] = useState([]);
+  const [showApartmentForm, setShowApartmentForm] = useState(false);
 
   const [pickupAddress, setPickupAddress] = useState("");
   const [dropoffAddress, setDropoffAddress] = useState("");
-  const [pickup, setPickup] = useState<GeoJSONPoint | null>(null);
-  const [dropoff, setDropoff] = useState<GeoJSONPoint | null>(null);
+  const [pickup, setPickup] = useState(null);
+  const [dropoff, setDropoff] = useState(null);
   const [routeDistance, setRouteDistance] = useState(null);
   const [routeDuration, setRouteDuration] = useState(null);
   const [createBooking, { isLoading, error }] = useCreateBookingMutation();
@@ -48,94 +44,107 @@ const BookMove = () => {
     }
   };
 
-  const onSetPickup = (pickupPosition: LatLng) => {
-    setPickup({
-      type: "Point",
-      coordinates: [pickupPosition.lng, pickupPosition.lat],
-      address: pickupAddress,
-    });
+  const addItem = (newItem) => {
+    setItems([...items, newItem]);
   };
 
-  const onSetDropoff = (dropoffPosition: LatLng) => {
-    setDropoff({
-      type: "Point",
-      coordinates: [dropoffPosition.lng, dropoffPosition.lat],
-      address: dropoffAddress,
-    });
+  const deleteItem = (index) => {
+    setItems(items.filter((_, i) => i !== index));
+  };
+
+  const updateItem = (index, updatedItem) => {
+    setItems(items.map((item, i) => (i === index ? updatedItem : item)));
   };
 
   return (
-    <main className="flex items-center justify-between min-h-screen px-[10rem]">
-      <div className="flex flex-col items-start justify-center gap-4 w-[40%]">
-        <form
-          className="grid grid-cols-2 gap-4 w-full"
-          onSubmit={handleSubmit(onSubmit)}
-        >
-          <div className="relative w-full col-span-2">
-            {pickup && dropoff && (
-              <li className="capitalize text-[15px] font-medium mb-2">
-                Your route is{" "}
-                <span className="text-primary font-semibold">
-                  {routeDistance?.toFixed(2) || 0} km
-                </span>
-                , which is approximately{" "}
-                <span className="text-primary font-semibold">
-                  {routeDuration?.toFixed(2) || 0} minutes
-                </span>{" "}
-              </li>
-            )}
-            <Input
-              name="pickupLocation"
-              placeholder="Enter Pickup Location"
-              register={register}
-              className="py-[15px] text-[16px] truncate"
-              icon={MapPinPlus}
-              value={pickupAddress || ""}
-              onChange={() => {}}
-            />
-          </div>
+    <>
+      <main className="flex items-center justify-between w-full min-h-screen">
+        <div className="flex flex-col items-start justify-center gap-4 w-[30%]">
+          <h1 className="text-[33px] font-bold w-[40rem] mb-2">
+            Move Smart, Move Easy with
+            <span className="text-primary ml-2">EgWinch</span>
+          </h1>
 
-          <div className="relative w-full col-span-2">
+          <form
+            className="flex flex-col items-start justify-start gap-3 w-full"
+            onSubmit={handleSubmit(onSubmit)}
+          >
+            <div className="relative w-full col-span-2">
+              {pickup && dropoff && (
+                <li className="capitalize text-[15px] font-medium mb-2">
+                  Your route is{" "}
+                  <span className="text-primary font-semibold">
+                    {routeDistance?.toFixed(2) || 0} km
+                  </span>
+                  , which is approximately{" "}
+                  <span className="text-primary font-semibold">
+                    {routeDuration?.toFixed(2) || 0} minutes
+                  </span>{" "}
+                </li>
+              )}
+              <Input
+                name="pickupLocation"
+                placeholder="Enter Pickup Location"
+                register={register}
+                className="py-[15px] text-[16px] truncate"
+                icon={Navigation}
+                value={pickupAddress || ""}
+                onChange={() => {}}
+              />
+            </div>
+
             <Input
               name="dropoffLocation"
               placeholder="Enter Dropoff Location"
               register={register}
               className="py-[15px] text-[16px] truncate"
-              icon={Navigation}
               value={dropoffAddress || ""}
               onChange={() => {}}
             />
-          </div>
-          <DatePicker name="moveDate" control={control} label="Move In Date" />
+            <DatePicker
+              name="moveDate"
+              control={control}
+              label="When are you moving?"
+            />
 
-          <ItemsList
-            items={items}
-            setItems={setItems}
-            register={register}
-            control={control}
-          />
-          <button
-            type="submit"
-            className="bg-primary text-white py-[12px] w-full "
-          >
-            Submit Booking
-          </button>
-        </form>
-      </div>
+            <button
+              type="button"
+              onClick={() => setShowApartmentForm(!showApartmentForm)}
+              className="flex items-center justify-center gap-2 text-white bg-primary px-4 py-[12px] rounded-lg mt-4"
+            >
+              Apartment details
+              <motion.div
+                animate={{ rotate: showApartmentForm ? 180 : 0 }}
+                transition={{ duration: 0.3 }}
+              >
+                <ChevronDown size={19} />
+              </motion.div>
+            </button>
+          </form>
+        </div>
 
-      <Map
-        pickup={pickup}
-        dropoff={dropoff}
-        setPickupAddress={setPickupAddress}
-        setDropoffAddress={setDropoffAddress}
-        onSetPickup={onSetPickup}
-        onSetDropoff={onSetDropoff}
-        setPickup={setPickup}
-        setDropoff={setDropoff}
-        setRouteDistance={setRouteDistance}
-        setRouteDuration={setRouteDuration}
-      />
-    </main>
+        <Map
+          pickup={pickup}
+          dropoff={dropoff}
+          setPickupAddress={setPickupAddress}
+          setDropoffAddress={setDropoffAddress}
+          onSetPickup={setPickup}
+          onSetDropoff={setDropoff}
+          setRouteDistance={setRouteDistance}
+          setRouteDuration={setRouteDuration}
+        />
+      </main>
+
+      {showApartmentForm && (
+        <ApartmentDetailsForm
+          register={register}
+          items={items}
+          addItem={addItem}
+          deleteItem={deleteItem}
+          updateItem={updateItem}
+        />
+      )}
+    </>
   );
 };
 

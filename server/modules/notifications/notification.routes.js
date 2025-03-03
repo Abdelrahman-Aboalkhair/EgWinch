@@ -1,16 +1,17 @@
-const express = require("express");
 const {
   getUserNotifications,
   clearNotifications,
   deleteNotification,
   markAsRead,
-} = require("../../controllers/notification.controller.js");
-const { isLoggedIn } = require("../../middlewares/auth.middleware.js");
+} = require("./notification.controller.js");
+const isAuthenticated = require("../../middlewares/isAuthenticated.js");
+
+const express = require("express");
 const router = express.Router();
 
-router.get("/", isLoggedIn, getUserNotifications);
-router.put("/read", isLoggedIn, markAsRead);
-router.delete("/", isLoggedIn, clearNotifications);
-router.delete("/:id", isLoggedIn, deleteNotification);
+router.get("/", isAuthenticated, getUserNotifications);
+router.put("/read", isAuthenticated, markAsRead);
+router.delete("/", isAuthenticated, clearNotifications);
+router.delete("/:id", isAuthenticated, deleteNotification);
 
 module.exports = router;

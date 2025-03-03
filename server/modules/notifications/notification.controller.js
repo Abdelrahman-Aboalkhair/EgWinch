@@ -1,4 +1,4 @@
-const Notification = require("../models/notification.model.js");
+const Notification = require("./notification.model.js");
 const redis = require("../../lib/redis.js");
 
 exports.getUserNotifications = async (req, res) => {

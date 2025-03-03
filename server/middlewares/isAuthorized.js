@@ -1,4 +1,4 @@
-exports.isAdmin = async (req, res, next) => {
+const isAuthorized = async (req, res, next) => {
   if (req.user.role !== "admin") {
     return res.status(403).json({
       success: false,
@@ -7,3 +7,5 @@ exports.isAdmin = async (req, res, next) => {
   }
   next();
 };
+
+module.exports = isAuthorized;
