@@ -5,7 +5,7 @@ import {
   useCreateOfferMutation,
   useGetBookingsQuery,
   useUpdateBookingMutation,
-} from "../../../store/apis/BookingApi";
+} from "@/app/store/apis/BookingApi";
 import React, { useState } from "react";
 import { Loader2, XCircle, Search, Check, ChevronDown } from "lucide-react";
 import { motion } from "framer-motion";

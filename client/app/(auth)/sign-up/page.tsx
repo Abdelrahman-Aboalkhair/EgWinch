@@ -131,7 +131,7 @@ const RegisterCustomer = () => {
           </Link>
         </p>
 
-        <div className="w-[60%] mx-auto">
+        <div className="w-[60%] mx-auto space-y-2">
           <GoogleOAuthProvider clientId="948178712281-5755ujm8o5sv36nvsqnj2uce7lc933cb.apps.googleusercontent.com">
             <GoogleSignup />
           </GoogleOAuthProvider>

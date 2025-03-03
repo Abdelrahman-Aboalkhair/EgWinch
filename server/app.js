@@ -16,7 +16,7 @@ const reviewRoutes = require("./modules/reviews/review.routes.js");
 const messageRoutes = require("./modules/chat/message.routes.js");
 const conversationRoutes = require("./modules/chat/conversation.routes.js");
 const notificationRoutes = require("./modules/notifications/notification.routes.js");
-const { globalError } = require("./middlewares/globalError.js");
+const globalError = require("./middlewares/globalError.js");
 const logger = require("./config/logger.js");
 
 dotenv.config();
@@ -40,8 +40,8 @@ app.use(
     },
   })
 );
-app.use(cookieParser());
 
+app.use(cookieParser());
 app.use(helmet());
 app.use(express.json());
 app.use(rateLimit({ windowMs: 15 * 60 * 1000, max: 100 }));

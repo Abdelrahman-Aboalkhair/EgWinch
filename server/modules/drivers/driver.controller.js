@@ -1,6 +1,6 @@
-const Driver = require("../models/driver.model");
+const Driver = require("./driver.model");
 const { uploadImage } = require("../../utils/uploadImage");
-const User = require("../models/user.model");
+const User = require("../users/user.model");
 const fs = require("fs");
 
 exports.startOnboarding = async (req, res) => {

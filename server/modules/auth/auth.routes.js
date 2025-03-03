@@ -2,7 +2,7 @@ const {
   signin,
   signout,
   refreshToken,
-  verfiyEmail,
+  verifyEmail,
   registerUser,
   googleSignup,
   googleSignin,
@@ -21,7 +21,7 @@ router.post("/google-signin", googleSignin);
 router.post("/facebook-signup", facebookSignup);
 router.post("/facebook-signin", facebookSignin);
 router.post("/register", upload.single("profilePicture"), registerUser);
-router.post("/verify-email", verfiyEmail);
+router.post("/verify-email", verifyEmail);
 router.post("/sign-in", signin);
 router.get("/sign-out", signout);
 router.get("/refresh-token", refreshToken);

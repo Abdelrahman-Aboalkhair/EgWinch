@@ -10,6 +10,7 @@ export default {
     extend: {
       colors: {
         primary: "var(--primary)",
+        inputBg: "#F4F4F4",
         secondary: "var(--secondary)",
         lightText: "var(--lightText)",
         darkText: "var(--darkText)",

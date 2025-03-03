@@ -77,10 +77,10 @@ const DatePicker = ({
   return (
     <div className="relative w-full" ref={pickerRef}>
       <div
-        className="flex justify-between items-center active:scale-95 bg-white p-[14px] rounded-md border cursor-pointer"
+        className="flex justify-between items-center active:scale-95 p-[14px] rounded-md border cursor-pointer"
         onClick={() => setIsOpen(!isOpen)}
       >
-        <span className="text-base font-medium">
+        <span className="text-base">
           {field.value ? format(field.value, "MM/dd/yyyy") : label}
         </span>
         <CalendarMinus2 className="text-xl" />
@@ -104,7 +104,7 @@ const DatePicker = ({
                 >
                   <ChevronLeft />
                 </button>
-                <span className="text-lg font-semibold">
+                <span className="text-lg font-medium">
                   {format(currentMonth, "MMMM yyyy")}
                 </span>
                 <button

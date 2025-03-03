@@ -4,16 +4,16 @@ const {
   me,
   getProfile,
   getUserBookingStats,
-} = require("../../controllers/user.controller.js");
-const { isLoggedIn } = require("../../middlewares/auth.middleware.js");
+} = require("./user.controller.js");
+const isAuthenticated = require("../../middlewares/isAuthenticated.js");
 
 const express = require("express");
 const router = express.Router();
 
-router.get("/", isLoggedIn, getAllUsers);
-router.get("/me", isLoggedIn, me);
-router.get("/profile/:id", isLoggedIn, getProfile);
-router.get("/booking-stats/:id", isLoggedIn, getUserBookingStats);
-router.post("/", isLoggedIn, createAdmin);
+router.get("/", isAuthenticated, getAllUsers);
+router.get("/me", isAuthenticated, me);
+router.get("/profile/:id", isAuthenticated, getProfile);
+router.get("/booking-stats/:id", isAuthenticated, getUserBookingStats);
+router.post("/", isAuthenticated, createAdmin);
 
 module.exports = router;

@@ -165,7 +165,6 @@ exports.googleSignup = async (req, res) => {
     const refreshToken = await user.generateRefreshToken();
 
     res.cookie("refreshToken", refreshToken, cookieOptions);
-    user.refreshToken.push(refreshToken);
     await user.save();
 
     res.status(201).json({
@@ -219,7 +218,6 @@ exports.googleSignin = async (req, res) => {
     const refreshToken = await user.generateRefreshToken();
 
     res.cookie("refreshToken", refreshToken, cookieOptions);
-    user.refreshToken.push(refreshToken);
     await user.save();
 
     res.json({
@@ -292,7 +290,6 @@ exports.facebookSignup = async (req, res) => {
     });
 
     res.cookie("refreshToken", refreshToken, { httpOnly: true, secure: false });
-    user.refreshToken.push(refreshToken);
     await user.save();
 
     res.status(201).json({
@@ -355,7 +352,6 @@ exports.facebookSignin = async (req, res) => {
     });
 
     res.cookie("refreshToken", refreshToken, { httpOnly: true, secure: false });
-    user.refreshToken.push(refreshToken);
     await user.save();
 
     res.json({

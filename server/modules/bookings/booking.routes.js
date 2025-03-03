@@ -5,17 +5,17 @@ const {
   createOffer,
   getBookings,
   predictMovePrice,
-} = require("../../controllers/booking.controller.js");
-const { isLoggedIn } = require("../../middlewares/auth.middleware.js");
+} = require("./booking.controller.js");
+const isAuthenticated = require("../../middlewares/isAuthenticated.js");
 
 const express = require("express");
 const router = express.Router();
 
 router.post("/predict_move_price", predictMovePrice);
-router.get("/", isLoggedIn, getBookings);
-router.post("/", isLoggedIn, createBooking);
-router.put("/create-offer/:bookingId", isLoggedIn, createOffer);
-router.put("/:id", isLoggedIn, updateBooking);
-router.delete("/:id", isLoggedIn, deleteBooking);
+router.get("/", isAuthenticated, getBookings);
+router.post("/", isAuthenticated, createBooking);
+router.put("/create-offer/:bookingId", isAuthenticated, createOffer);
+router.put("/:id", isAuthenticated, updateBooking);
+router.delete("/:id", isAuthenticated, deleteBooking);
 
 module.exports = router;

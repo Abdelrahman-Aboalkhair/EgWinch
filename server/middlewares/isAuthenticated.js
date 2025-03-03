@@ -1,6 +1,6 @@
 const jwt = require("jsonwebtoken");
 
-exports.isLoggedIn = async (req, res, next) => {
+const isAuthenticated = async (req, res, next) => {
   try {
     // get the accessToken from headers
     const accessToken = req.headers.authorization?.split(" ")[1];
@@ -22,3 +22,5 @@ exports.isLoggedIn = async (req, res, next) => {
     });
   }
 };
+
+module.exports = isAuthenticated;

@@ -60,8 +60,7 @@ const SignIn = () => {
           </h2>
 
           {error ||
-            googleError ||
-            (facebookError && (
+            (googleError && (
               <div className="bg-red-100 border border-red-400 text-center text-red-700 w-full mx-auto px-4 py-[18px] rounded relative mb-4">
                 <span className="block sm:inline">
                   {error?.data?.message ||
