@@ -12,19 +12,24 @@ const bookingSchema = new mongoose.Schema(
       type: mongoose.Schema.Types.ObjectId,
       ref: "User",
     },
+    onboardingStep: {
+      type: String,
+      enum: ["location", "items", "services", "access", "summary", "completed"],
+      default: "location",
+    },
     pickupLocation: {
       type: {
         type: String,
         enum: ["Point"],
-        required: true,
+        required: function () {
+          return this.onboardingStep !== "location";
+        },
       },
       coordinates: {
         type: [Number],
-        required: true,
       },
       address: {
         type: String,
-        required: true,
         trim: true,
       },
     },
@@ -32,44 +37,47 @@ const bookingSchema = new mongoose.Schema(
       type: {
         type: String,
         enum: ["Point"],
-        required: true,
+        required: function () {
+          return this.onboardingStep !== "location";
+        },
       },
       coordinates: {
         type: [Number],
-        required: true,
       },
       address: {
         type: String,
-        required: true,
         trim: true,
       },
     },
     moveDate: {
       type: Date,
-      required: true,
+      required: function () {
+        return this.onboardingStep !== "location";
+      },
     },
     status: {
       type: String,
-      required: true,
       enum: ["pending", "in-progress", "completed", "declined"],
       default: "pending",
-    },
-    additionalServices: {
-      type: [String],
-      default: [],
     },
     items: {
       type: [
         {
-          name: String,
-          quantity: Number,
-          isFragile: Boolean,
-          specialInstructions: String,
-          additionalServices: [String],
+          name: { type: String, required: true },
+          category: { type: String },
+          quantity: { type: Number, required: true, min: 1 },
+          isFragile: { type: Boolean, default: false },
+          specialInstructions: { type: String, trim: true },
+          additionalServices: [{ type: String }],
         },
       ],
-      required: true,
+      default: [],
     },
+    generalServices: {
+      type: [String],
+      default: [],
+    },
+
     offers: [
       {
         driver: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
@@ -81,9 +89,7 @@ const bookingSchema = new mongoose.Schema(
         },
       },
     ],
-    totalPrice: {
-      type: Number,
-    },
+    totalPrice: { type: Number },
     paymentStatus: {
       type: String,
       enum: ["pending", "paid", "failed"],
@@ -92,6 +98,9 @@ const bookingSchema = new mongoose.Schema(
   },
   { timestamps: true }
 );
+
+bookingSchema.index({ "pickupLocation.coordinates": "2dsphere" });
+bookingSchema.index({ "dropoffLocation.coordinates": "2dsphere" });
 
 // Function to clear cache when data changes
 const clearCache = async (userId) => {
