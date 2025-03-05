@@ -3,92 +3,52 @@ const User = require("../users/user.model");
 const axios = require("axios");
 const Notification = require("../notifications/notification.model");
 const redis = require("../../lib/redis");
+const BookingService = require("./booking.service");
 
-exports.createBooking = async (req, res) => {
-  try {
-    const { pickupLocation, dropoffLocation, moveDate, items } = req.body;
-    console.log("req.body: ", req.body);
-
-    if (
-      !pickupLocation ||
-      !pickupLocation.coordinates ||
-      !Array.isArray(pickupLocation.coordinates) ||
-      pickupLocation.coordinates.length !== 2
-    ) {
-      return res.status(400).json({
-        success: false,
-        message: "Invalid pickupLocation format. It must be a GeoJSON Point.",
-      });
+class BookingController {
+  static async startBooking(req, res) {
+    try {
+      const booking = await BookingService.createBooking(req.user.id);
+      res.status(201).json(booking);
+    } catch (error) {
+      res.status(500).json({ error: error.message });
     }
-
-    if (
-      !dropoffLocation ||
-      !dropoffLocation.coordinates ||
-      !Array.isArray(dropoffLocation.coordinates) ||
-      dropoffLocation.coordinates.length !== 2
-    ) {
-      return res.status(400).json({
-        success: false,
-        message: "Invalid dropoffLocation format. It must be a GeoJSON Point.",
-      });
-    }
-
-    // Create new booking
-    const booking = await Booking.create({
-      user: req.user.userId,
-      pickupLocation,
-      dropoffLocation,
-      moveDate,
-      items,
-      status: "pending",
-    });
-
-    // Invaldiate the cache
-    await redis.del(`bookings:${req.user.userId}`);
-
-    // Send the booking to nearby drivers
-    const nearbyDrivers = await User.aggregate([
-      {
-        $geoNear: {
-          near: {
-            type: "Point",
-            coordinates: pickupLocation.coordinates,
-          },
-          distanceField: "distance",
-          maxDistance: 15000, // 15km
-          spherical: true,
-          query: {
-            role: "driver",
-            availabilityStatus: "available",
-          },
-        },
-      },
-    ]);
-
-    console.log("found nearby drivers: ", nearbyDrivers);
-
-    // Send notification to nearby drivers
-    for (const driver of nearbyDrivers) {
-      const notification = new Notification({
-        user: driver._id,
-        message: `New booking request from ${req.user.name}`,
-      });
-      await notification.save();
-    }
-
-    res.status(201).json({
-      success: true,
-      message: "Booking created and sent to nearby drivers",
-      booking,
-    });
-  } catch (error) {
-    res.status(500).json({
-      success: false,
-      message: "An error occurred",
-      error: error.message,
-    });
   }
-};
+
+  static async updateStep(req, res) {
+    try {
+      const { step } = req.params;
+      const booking = await BookingService.updateBookingStep(
+        req.body.bookingId,
+        step,
+        req.body
+      );
+      res.status(200).json(booking);
+    } catch (error) {
+      res.status(500).json({ error: error.message });
+    }
+  }
+
+  static async getBooking(req, res) {
+    try {
+      const booking = await BookingService.getBooking(req.params.id);
+      if (!booking)
+        return res.status(404).json({ message: "Booking not found" });
+      res.status(200).json(booking);
+    } catch (error) {
+      res.status(500).json({ error: error.message });
+    }
+  }
+
+  static async completeBooking(req, res) {
+    try {
+      const booking = await BookingService.completeBooking(req.body.bookingId);
+      res.status(200).json(booking);
+    } catch (error) {
+      res.status(500).json({ error: error.message });
+    }
+  }
+}
 
 exports.predictMovePrice = async (req, res) => {
   const {
