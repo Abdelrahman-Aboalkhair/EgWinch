@@ -102,3 +102,18 @@
 [2025-03-03T18:07:21.601Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [03/Mar/2025:18:07:21 +0000] "GET /api/v1/notifications HTTP/1.1" 200 38 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36"
 [2025-03-03T18:08:13.827Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [03/Mar/2025:18:08:13 +0000] "GET /api/v1/auth/refresh-token HTTP/1.1" 200 515 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36"
 [2025-03-03T18:08:14.219Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [03/Mar/2025:18:08:14 +0000] "GET /api/v1/notifications HTTP/1.1" 200 37 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36"
+[2025-03-06T19:27:29.724Z] [32MINFO[39M: Server is running on https://localhost:5000
+[2025-03-06T19:27:31.176Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-06T19:27:44.122Z] [32MINFO[39M: Server is running on https://localhost:5000
+[2025-03-06T19:27:45.774Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-06T19:28:01.594Z] [32MINFO[39M: Server is running on https://localhost:5000
+[2025-03-06T19:28:03.135Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-06T19:30:47.198Z] [32MINFO[39M: Server is running on https://localhost:5000
+[2025-03-06T19:30:48.662Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-06T19:32:05.935Z] [32MINFO[39M: Server is running on https://localhost:5000
+[2025-03-06T19:32:06.758Z] [32MINFO[39M: Server is running on https://localhost:5000
+[2025-03-06T19:32:08.343Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-06T19:32:38.002Z] [32MINFO[39M: Server is running on https://localhost:5000
+[2025-03-06T19:32:39.166Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-06T19:33:13.309Z] [32MINFO[39M: Server is running on https://localhost:5000
+[2025-03-06T19:33:14.994Z] [32MINFO[39M: MongoDB connected successfully
