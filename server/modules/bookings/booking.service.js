@@ -138,7 +138,7 @@ class BookingService {
         booking.offers.some((offer) => offer.status === "accepted")
       ) {
         throw new Error(
-          "An offer has already been accepted, cannot accept another"
+          "An offer has already been accepted for this booking, cannot accept another"
         );
       }
 
@@ -155,7 +155,12 @@ class BookingService {
         booking.driver = driverId;
         booking.totalPrice = selectedOffer.price;
         booking.paymentStatus = "pending";
-        booking.status = "in-progress";
+        booking.status = "inProgress";
+
+        await Notification.create({
+          user: selectedOffer.driver,
+          message: `Your offer for booking ${booking._id} was accepted`,
+        });
       } else {
         selectedOffer.status = "declined";
         await Notification.create({

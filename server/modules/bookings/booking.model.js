@@ -14,7 +14,7 @@ const bookingSchema = new mongoose.Schema(
     },
     onboardingStep: {
       type: String,
-      enum: ["location", "items", "services", "access", "summary", "completed"],
+      enum: ["location", "items", "services", "completed"],
       default: "location",
     },
     pickupLocation: {
@@ -54,10 +54,11 @@ const bookingSchema = new mongoose.Schema(
       required: function () {
         return this.onboardingStep !== "location";
       },
+      default: Date.now,
     },
     status: {
       type: String,
-      enum: ["pending", "in-progress", "completed", "declined"],
+      enum: ["pending", "inProgress", "completed", "declined"],
       default: "pending",
     },
     items: {
