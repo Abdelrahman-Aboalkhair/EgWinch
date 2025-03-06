@@ -117,3 +117,41 @@
 [2025-03-06T19:32:39.166Z] [32MINFO[39M: MongoDB connected successfully
 [2025-03-06T19:33:13.309Z] [32MINFO[39M: Server is running on https://localhost:5000
 [2025-03-06T19:33:14.994Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-06T19:37:21.669Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [06/Mar/2025:19:37:21 +0000] "POST /api/v1/bookings HTTP/1.1" 401 76 "-" "PostmanRuntime/7.43.0"
+[2025-03-06T19:39:58.192Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [06/Mar/2025:19:39:58 +0000] "POST /api/v1/auth/register HTTP/1.1" 201 469 "-" "PostmanRuntime/7.43.0"
+[2025-03-06T19:40:42.895Z] [31MERROR[39M: [POST] /api/v1/bookings - Path `user` is required. - 400
+[2025-03-06T19:40:42.897Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [06/Mar/2025:19:40:42 +0000] "POST /api/v1/bookings HTTP/1.1" 500 987 "-" "PostmanRuntime/7.43.0"
+[2025-03-06T19:41:25.391Z] [32MINFO[39M: Server is running on https://localhost:5000
+[2025-03-06T19:41:26.673Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-06T19:41:34.155Z] [32MINFO[39M: Server is running on https://localhost:5000
+[2025-03-06T19:41:35.685Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-06T19:41:37.200Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [06/Mar/2025:19:41:37 +0000] "POST /api/v1/bookings HTTP/1.1" 201 271 "-" "PostmanRuntime/7.43.0"
+[2025-03-06T19:45:59.968Z] [32MINFO[39M: Server is running on https://localhost:5000
+[2025-03-06T19:46:01.369Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-06T19:46:20.542Z] [31MERROR[39M: [PUT] /api/v1/bookings/update-step/location - 400 - Unexpected token } in JSON at position 302
+[2025-03-06T19:46:31.995Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [06/Mar/2025:19:46:31 +0000] "PUT /api/v1/bookings/update-step/location HTTP/1.1" 200 514 "-" "PostmanRuntime/7.43.0"
+[2025-03-06T19:48:10.936Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [06/Mar/2025:19:48:10 +0000] "PUT /api/v1/bookings/update-step/items HTTP/1.1" 200 872 "-" "PostmanRuntime/7.43.0"
+[2025-03-06T19:48:44.722Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [06/Mar/2025:19:48:44 +0000] "PUT /api/v1/bookings/update-step/services HTTP/1.1" 200 898 "-" "PostmanRuntime/7.43.0"
+[2025-03-06T19:49:20.191Z] [32MINFO[39M: Server is running on https://localhost:5000
+[2025-03-06T19:49:21.754Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-06T19:49:34.373Z] [32MINFO[39M: Server is running on https://localhost:5000
+[2025-03-06T19:49:35.523Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-06T19:51:03.317Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [06/Mar/2025:19:51:03 +0000] "PUT /api/v1/bookings/update-step/completed HTTP/1.1" 200 899 "-" "PostmanRuntime/7.43.0"
+[2025-03-06T19:52:40.563Z] [32MINFO[39M: Server is running on https://localhost:5000
+[2025-03-06T19:52:41.834Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-06T19:53:08.791Z] [32MINFO[39M: Server is running on https://localhost:5000
+[2025-03-06T19:53:10.162Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-06T19:53:11.048Z] [32MINFO[39M: Server is running on https://localhost:5000
+[2025-03-06T19:53:12.274Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-06T19:53:13.375Z] [32MINFO[39M: Server is running on https://localhost:5000
+[2025-03-06T19:53:14.933Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-06T19:53:57.479Z] [32MINFO[39M: Server is running on https://localhost:5000
+[2025-03-06T19:53:59.064Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-06T19:54:02.147Z] [32MINFO[39M: Server is running on https://localhost:5000
+[2025-03-06T19:54:03.412Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-06T19:54:38.301Z] [32MINFO[39M: Server is running on https://localhost:5000
+[2025-03-06T19:54:39.629Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-06T19:54:45.684Z] [32MINFO[39M: Server is running on https://localhost:5000
+[2025-03-06T19:54:47.200Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-06T19:54:59.074Z] [32MINFO[39M: Server is running on https://localhost:5000
+[2025-03-06T19:55:00.710Z] [32MINFO[39M: MongoDB connected successfully

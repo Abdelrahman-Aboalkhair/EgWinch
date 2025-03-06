@@ -1,0 +1,2 @@
+[2025-03-06T19:40:42.895Z] [31MERROR[39M: [POST] /api/v1/bookings - Path `user` is required. - 400
+[2025-03-06T19:46:20.542Z] [31MERROR[39M: [PUT] /api/v1/bookings/update-step/location - 400 - Unexpected token } in JSON at position 302
