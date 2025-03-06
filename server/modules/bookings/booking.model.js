@@ -77,7 +77,6 @@ const bookingSchema = new mongoose.Schema(
       type: [String],
       default: [],
     },
-
     offers: [
       {
         driver: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
@@ -102,12 +101,10 @@ const bookingSchema = new mongoose.Schema(
 bookingSchema.index({ "pickupLocation.coordinates": "2dsphere" });
 bookingSchema.index({ "dropoffLocation.coordinates": "2dsphere" });
 
-// Function to clear cache when data changes
 const clearCache = async (userId) => {
   await redis.del(`bookingStats:${userId}`);
 };
 
-// Call this function when booking changes
 bookingSchema.post("save", async function () {
   await clearCache(this.user.toString());
   await clearCache(this?.driver?.toString());
@@ -117,10 +114,6 @@ bookingSchema.post("remove", async function () {
   await clearCache(this.user.toString());
   await clearCache(this?.driver?.toString());
 });
-
-// Create a geospatial index for pickup and dropoff locations
-bookingSchema.index({ "pickupLocation.coordinates": "2dsphere" });
-bookingSchema.index({ "dropoffLocation.coordinates": "2dsphere" });
 
 const Booking = mongoose.model("Booking", bookingSchema);
 module.exports = Booking;

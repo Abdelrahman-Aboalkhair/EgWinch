@@ -2592,3 +2592,767 @@ Require stack:
     at Module.load (node:internal/modules/cjs/loader:1203:32)
     at Module._load (node:internal/modules/cjs/loader:1019:12)
     at Module.require (node:internal/modules/cjs/loader:1231:19)
+[2025-03-06T19:07:27.976Z] [31MERROR[39M: uncaughtException: Cannot find module '../models/Booking'
+Require stack:
+- /app/modules/bookings/booking.service.js
+- /app/modules/bookings/booking.controller.js
+- /app/modules/bookings/booking.routes.js
+- /app/app.js
+- /app/server.js
+Error: Cannot find module '../models/Booking'
+Require stack:
+- /app/modules/bookings/booking.service.js
+- /app/modules/bookings/booking.controller.js
+- /app/modules/bookings/booking.routes.js
+- /app/app.js
+- /app/server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/modules/bookings/booking.service.js:1:17)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+[2025-03-06T19:09:00.780Z] [31MERROR[39M: uncaughtException: Cannot find module '../models/Booking'
+Require stack:
+- /app/modules/bookings/booking.service.js
+- /app/modules/bookings/booking.controller.js
+- /app/modules/bookings/booking.routes.js
+- /app/app.js
+- /app/server.js
+Error: Cannot find module '../models/Booking'
+Require stack:
+- /app/modules/bookings/booking.service.js
+- /app/modules/bookings/booking.controller.js
+- /app/modules/bookings/booking.routes.js
+- /app/app.js
+- /app/server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/modules/bookings/booking.service.js:1:17)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+[2025-03-06T19:09:10.050Z] [31MERROR[39M: uncaughtException: Cannot find module '../models/Booking'
+Require stack:
+- /app/modules/bookings/booking.service.js
+- /app/modules/bookings/booking.controller.js
+- /app/modules/bookings/booking.routes.js
+- /app/app.js
+- /app/server.js
+Error: Cannot find module '../models/Booking'
+Require stack:
+- /app/modules/bookings/booking.service.js
+- /app/modules/bookings/booking.controller.js
+- /app/modules/bookings/booking.routes.js
+- /app/app.js
+- /app/server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/modules/bookings/booking.service.js:1:17)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+[2025-03-06T19:09:42.441Z] [31MERROR[39M: uncaughtException: Route.post() requires a callback function but got a [object Undefined]
+Error: Route.post() requires a callback function but got a [object Undefined]
+    at Route.<computed> [as post] (/app/node_modules/express/lib/router/route.js:216:15)
+    at proto.<computed> [as post] (/app/node_modules/express/lib/router/index.js:521:19)
+    at Object.<anonymous> (/app/modules/bookings/booking.routes.js:16:8)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/app.js:14:23)
+[2025-03-06T19:10:52.276Z] [31MERROR[39M: uncaughtException: Route.post() requires a callback function but got a [object Undefined]
+Error: Route.post() requires a callback function but got a [object Undefined]
+    at Route.<computed> [as post] (/app/node_modules/express/lib/router/route.js:216:15)
+    at proto.<computed> [as post] (/app/node_modules/express/lib/router/index.js:521:19)
+    at Object.<anonymous> (/app/modules/bookings/booking.routes.js:16:8)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/app.js:14:23)
+[2025-03-06T19:10:59.935Z] [31MERROR[39M: uncaughtException: Route.post() requires a callback function but got a [object Undefined]
+Error: Route.post() requires a callback function but got a [object Undefined]
+    at Route.<computed> [as post] (/app/node_modules/express/lib/router/route.js:216:15)
+    at proto.<computed> [as post] (/app/node_modules/express/lib/router/index.js:521:19)
+    at Object.<anonymous> (/app/modules/bookings/booking.routes.js:16:8)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/app.js:14:23)
+[2025-03-06T19:11:01.184Z] [31MERROR[39M: uncaughtException: Route.post() requires a callback function but got a [object Undefined]
+Error: Route.post() requires a callback function but got a [object Undefined]
+    at Route.<computed> [as post] (/app/node_modules/express/lib/router/route.js:216:15)
+    at proto.<computed> [as post] (/app/node_modules/express/lib/router/index.js:521:19)
+    at Object.<anonymous> (/app/modules/bookings/booking.routes.js:16:8)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/app.js:14:23)
+[2025-03-06T19:11:50.332Z] [31MERROR[39M: uncaughtException: Route.post() requires a callback function but got a [object Undefined]
+Error: Route.post() requires a callback function but got a [object Undefined]
+    at Route.<computed> [as post] (/app/node_modules/express/lib/router/route.js:216:15)
+    at proto.<computed> [as post] (/app/node_modules/express/lib/router/index.js:521:19)
+    at Object.<anonymous> (/app/modules/bookings/booking.routes.js:16:8)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/app.js:14:23)
+[2025-03-06T19:12:03.280Z] [31MERROR[39M: uncaughtException: Route.post() requires a callback function but got a [object Undefined]
+Error: Route.post() requires a callback function but got a [object Undefined]
+    at Route.<computed> [as post] (/app/node_modules/express/lib/router/route.js:216:15)
+    at proto.<computed> [as post] (/app/node_modules/express/lib/router/index.js:521:19)
+    at Object.<anonymous> (/app/modules/bookings/booking.routes.js:16:8)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/app.js:14:23)
+[2025-03-06T19:13:17.379Z] [31MERROR[39M: uncaughtException: Route.post() requires a callback function but got a [object Undefined]
+Error: Route.post() requires a callback function but got a [object Undefined]
+    at Route.<computed> [as post] (/app/node_modules/express/lib/router/route.js:216:15)
+    at proto.<computed> [as post] (/app/node_modules/express/lib/router/index.js:521:19)
+    at Object.<anonymous> (/app/modules/bookings/booking.routes.js:16:8)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/app.js:14:23)
+[2025-03-06T19:14:22.082Z] [31MERROR[39M: uncaughtException: Route.post() requires a callback function but got a [object Undefined]
+Error: Route.post() requires a callback function but got a [object Undefined]
+    at Route.<computed> [as post] (/app/node_modules/express/lib/router/route.js:216:15)
+    at proto.<computed> [as post] (/app/node_modules/express/lib/router/index.js:521:19)
+    at Object.<anonymous> (/app/modules/bookings/booking.routes.js:16:8)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/app.js:14:23)
+[2025-03-06T19:15:09.652Z] [31MERROR[39M: uncaughtException: Route.post() requires a callback function but got a [object Undefined]
+Error: Route.post() requires a callback function but got a [object Undefined]
+    at Route.<computed> [as post] (/app/node_modules/express/lib/router/route.js:216:15)
+    at proto.<computed> [as post] (/app/node_modules/express/lib/router/index.js:521:19)
+    at Object.<anonymous> (/app/modules/bookings/booking.routes.js:16:8)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/app.js:14:23)
+[2025-03-06T19:15:25.784Z] [31MERROR[39M: uncaughtException: Cannot find module '../models/notification.model'
+Require stack:
+- /app/modules/bookings/booking.service.js
+- /app/modules/bookings/booking.controller.js
+- /app/modules/bookings/booking.routes.js
+- /app/app.js
+- /app/server.js
+Error: Cannot find module '../models/notification.model'
+Require stack:
+- /app/modules/bookings/booking.service.js
+- /app/modules/bookings/booking.controller.js
+- /app/modules/bookings/booking.routes.js
+- /app/app.js
+- /app/server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/modules/bookings/booking.service.js:2:22)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+[2025-03-06T19:15:35.847Z] [31MERROR[39M: uncaughtException: Cannot find module '../models/notification.model'
+Require stack:
+- /app/modules/bookings/booking.service.js
+- /app/modules/bookings/booking.controller.js
+- /app/modules/bookings/booking.routes.js
+- /app/app.js
+- /app/server.js
+Error: Cannot find module '../models/notification.model'
+Require stack:
+- /app/modules/bookings/booking.service.js
+- /app/modules/bookings/booking.controller.js
+- /app/modules/bookings/booking.routes.js
+- /app/app.js
+- /app/server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/modules/bookings/booking.service.js:2:22)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+[2025-03-06T19:15:48.594Z] [31MERROR[39M: uncaughtException: Cannot find module '../config/redis'
+Require stack:
+- /app/modules/bookings/booking.service.js
+- /app/modules/bookings/booking.controller.js
+- /app/modules/bookings/booking.routes.js
+- /app/app.js
+- /app/server.js
+Error: Cannot find module '../config/redis'
+Require stack:
+- /app/modules/bookings/booking.service.js
+- /app/modules/bookings/booking.controller.js
+- /app/modules/bookings/booking.routes.js
+- /app/app.js
+- /app/server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/modules/bookings/booking.service.js:3:15)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+[2025-03-06T19:16:30.362Z] [31MERROR[39M: uncaughtException: Cannot find module '../config/redis'
+Require stack:
+- /app/modules/bookings/booking.service.js
+- /app/modules/bookings/booking.controller.js
+- /app/modules/bookings/booking.routes.js
+- /app/app.js
+- /app/server.js
+Error: Cannot find module '../config/redis'
+Require stack:
+- /app/modules/bookings/booking.service.js
+- /app/modules/bookings/booking.controller.js
+- /app/modules/bookings/booking.routes.js
+- /app/app.js
+- /app/server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/modules/bookings/booking.service.js:3:15)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+[2025-03-06T19:17:59.028Z] [31MERROR[39M: uncaughtException: Unexpected token '}'
+/app/modules/bookings/booking.service.js:81
+}
+^
+
+SyntaxError: Unexpected token '}'
+    at internalCompileFunction (node:internal/vm:76:18)
+    at wrapSafe (node:internal/modules/cjs/loader:1283:20)
+    at Module._compile (node:internal/modules/cjs/loader:1328:27)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/modules/bookings/booking.controller.js:6:24)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+[2025-03-06T19:18:13.862Z] [31MERROR[39M: uncaughtException: Cannot find module '../config/redis'
+Require stack:
+- /app/modules/bookings/booking.service.js
+- /app/modules/bookings/booking.controller.js
+- /app/modules/bookings/booking.routes.js
+- /app/app.js
+- /app/server.js
+Error: Cannot find module '../config/redis'
+Require stack:
+- /app/modules/bookings/booking.service.js
+- /app/modules/bookings/booking.controller.js
+- /app/modules/bookings/booking.routes.js
+- /app/app.js
+- /app/server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/modules/bookings/booking.service.js:3:15)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+[2025-03-06T19:18:54.822Z] [31MERROR[39M: uncaughtException: Unexpected token '.'
+/app/modules/bookings/booking.service.js:157
+module.exports = BookingService;
+      ^
+
+SyntaxError: Unexpected token '.'
+    at internalCompileFunction (node:internal/vm:76:18)
+    at wrapSafe (node:internal/modules/cjs/loader:1283:20)
+    at Module._compile (node:internal/modules/cjs/loader:1328:27)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/modules/bookings/booking.controller.js:6:24)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+[2025-03-06T19:19:24.257Z] [31MERROR[39M: uncaughtException: Unexpected end of input
+/app/modules/bookings/booking.service.js:160
+
+
+
+SyntaxError: Unexpected end of input
+    at internalCompileFunction (node:internal/vm:76:18)
+    at wrapSafe (node:internal/modules/cjs/loader:1283:20)
+    at Module._compile (node:internal/modules/cjs/loader:1328:27)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/modules/bookings/booking.controller.js:6:24)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+[2025-03-06T19:19:40.735Z] [31MERROR[39M: uncaughtException: Cannot find module '../config/redis'
+Require stack:
+- /app/modules/bookings/booking.service.js
+- /app/modules/bookings/booking.controller.js
+- /app/modules/bookings/booking.routes.js
+- /app/app.js
+- /app/server.js
+Error: Cannot find module '../config/redis'
+Require stack:
+- /app/modules/bookings/booking.service.js
+- /app/modules/bookings/booking.controller.js
+- /app/modules/bookings/booking.routes.js
+- /app/app.js
+- /app/server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/modules/bookings/booking.service.js:3:15)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+[2025-03-06T19:21:05.523Z] [31MERROR[39M: uncaughtException: Cannot find module '../models/notification.model'
+Require stack:
+- /app/modules/bookings/booking.service.js
+- /app/modules/bookings/booking.controller.js
+- /app/modules/bookings/booking.routes.js
+- /app/app.js
+- /app/server.js
+Error: Cannot find module '../models/notification.model'
+Require stack:
+- /app/modules/bookings/booking.service.js
+- /app/modules/bookings/booking.controller.js
+- /app/modules/bookings/booking.routes.js
+- /app/app.js
+- /app/server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/modules/bookings/booking.service.js:2:22)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+[2025-03-06T19:21:48.503Z] [31MERROR[39M: uncaughtException: Cannot find module '../models/notification.model'
+Require stack:
+- /app/modules/bookings/booking.service.js
+- /app/modules/bookings/booking.controller.js
+- /app/modules/bookings/booking.routes.js
+- /app/app.js
+- /app/server.js
+Error: Cannot find module '../models/notification.model'
+Require stack:
+- /app/modules/bookings/booking.service.js
+- /app/modules/bookings/booking.controller.js
+- /app/modules/bookings/booking.routes.js
+- /app/app.js
+- /app/server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/modules/bookings/booking.service.js:2:22)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+[2025-03-06T19:22:00.334Z] [31MERROR[39M: uncaughtException: Cannot find module '../models/notification.model'
+Require stack:
+- /app/modules/bookings/booking.service.js
+- /app/modules/bookings/booking.controller.js
+- /app/modules/bookings/booking.routes.js
+- /app/app.js
+- /app/server.js
+Error: Cannot find module '../models/notification.model'
+Require stack:
+- /app/modules/bookings/booking.service.js
+- /app/modules/bookings/booking.controller.js
+- /app/modules/bookings/booking.routes.js
+- /app/app.js
+- /app/server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/modules/bookings/booking.service.js:2:22)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+[2025-03-06T19:23:14.085Z] [31MERROR[39M: uncaughtException: Cannot find module '../models/notification.model'
+Require stack:
+- /app/modules/bookings/booking.service.js
+- /app/modules/bookings/booking.controller.js
+- /app/modules/bookings/booking.routes.js
+- /app/app.js
+- /app/server.js
+Error: Cannot find module '../models/notification.model'
+Require stack:
+- /app/modules/bookings/booking.service.js
+- /app/modules/bookings/booking.controller.js
+- /app/modules/bookings/booking.routes.js
+- /app/app.js
+- /app/server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/modules/bookings/booking.service.js:2:22)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+[2025-03-06T19:23:21.324Z] [31MERROR[39M: uncaughtException: Cannot find module '../models/notification.model'
+Require stack:
+- /app/modules/bookings/booking.service.js
+- /app/modules/bookings/booking.controller.js
+- /app/modules/bookings/booking.routes.js
+- /app/app.js
+- /app/server.js
+Error: Cannot find module '../models/notification.model'
+Require stack:
+- /app/modules/bookings/booking.service.js
+- /app/modules/bookings/booking.controller.js
+- /app/modules/bookings/booking.routes.js
+- /app/app.js
+- /app/server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/modules/bookings/booking.service.js:2:22)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+[2025-03-06T19:23:23.195Z] [31MERROR[39M: uncaughtException: Cannot find module '../models/notification.model'
+Require stack:
+- /app/modules/bookings/booking.service.js
+- /app/modules/bookings/booking.controller.js
+- /app/modules/bookings/booking.routes.js
+- /app/app.js
+- /app/server.js
+Error: Cannot find module '../models/notification.model'
+Require stack:
+- /app/modules/bookings/booking.service.js
+- /app/modules/bookings/booking.controller.js
+- /app/modules/bookings/booking.routes.js
+- /app/app.js
+- /app/server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/modules/bookings/booking.service.js:2:22)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+[2025-03-06T19:23:35.301Z] [31MERROR[39M: uncaughtException: Cannot find module '../models/notification.model'
+Require stack:
+- /app/modules/bookings/booking.service.js
+- /app/modules/bookings/booking.controller.js
+- /app/modules/bookings/booking.routes.js
+- /app/app.js
+- /app/server.js
+Error: Cannot find module '../models/notification.model'
+Require stack:
+- /app/modules/bookings/booking.service.js
+- /app/modules/bookings/booking.controller.js
+- /app/modules/bookings/booking.routes.js
+- /app/app.js
+- /app/server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/modules/bookings/booking.service.js:2:22)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+[2025-03-06T19:23:57.208Z] [31MERROR[39M: uncaughtException: Cannot find module '../models/notification.model'
+Require stack:
+- /app/modules/bookings/booking.service.js
+- /app/modules/bookings/booking.controller.js
+- /app/modules/bookings/booking.routes.js
+- /app/app.js
+- /app/server.js
+Error: Cannot find module '../models/notification.model'
+Require stack:
+- /app/modules/bookings/booking.service.js
+- /app/modules/bookings/booking.controller.js
+- /app/modules/bookings/booking.routes.js
+- /app/app.js
+- /app/server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/modules/bookings/booking.service.js:2:22)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+[2025-03-06T19:24:05.871Z] [31MERROR[39M: uncaughtException: Cannot find module '../models/notification.model'
+Require stack:
+- /app/modules/bookings/booking.service.js
+- /app/modules/bookings/booking.controller.js
+- /app/modules/bookings/booking.routes.js
+- /app/app.js
+- /app/server.js
+Error: Cannot find module '../models/notification.model'
+Require stack:
+- /app/modules/bookings/booking.service.js
+- /app/modules/bookings/booking.controller.js
+- /app/modules/bookings/booking.routes.js
+- /app/app.js
+- /app/server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/modules/bookings/booking.service.js:2:22)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+[2025-03-06T19:24:15.246Z] [31MERROR[39M: uncaughtException: Cannot find module '../models/notification.model'
+Require stack:
+- /app/modules/bookings/booking.service.js
+- /app/modules/bookings/booking.controller.js
+- /app/modules/bookings/booking.routes.js
+- /app/app.js
+- /app/server.js
+Error: Cannot find module '../models/notification.model'
+Require stack:
+- /app/modules/bookings/booking.service.js
+- /app/modules/bookings/booking.controller.js
+- /app/modules/bookings/booking.routes.js
+- /app/app.js
+- /app/server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/modules/bookings/booking.service.js:2:22)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+[2025-03-06T19:24:26.675Z] [31MERROR[39M: uncaughtException: Cannot find module '../models/notification.model'
+Require stack:
+- /app/modules/bookings/booking.service.js
+- /app/modules/bookings/booking.controller.js
+- /app/modules/bookings/booking.routes.js
+- /app/app.js
+- /app/server.js
+Error: Cannot find module '../models/notification.model'
+Require stack:
+- /app/modules/bookings/booking.service.js
+- /app/modules/bookings/booking.controller.js
+- /app/modules/bookings/booking.routes.js
+- /app/app.js
+- /app/server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/modules/bookings/booking.service.js:2:22)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+[2025-03-06T19:24:29.890Z] [31MERROR[39M: uncaughtException: Cannot find module '../models/notification.model'
+Require stack:
+- /app/modules/bookings/booking.service.js
+- /app/modules/bookings/booking.controller.js
+- /app/modules/bookings/booking.routes.js
+- /app/app.js
+- /app/server.js
+Error: Cannot find module '../models/notification.model'
+Require stack:
+- /app/modules/bookings/booking.service.js
+- /app/modules/bookings/booking.controller.js
+- /app/modules/bookings/booking.routes.js
+- /app/app.js
+- /app/server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/modules/bookings/booking.service.js:2:22)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+[2025-03-06T19:24:35.809Z] [31MERROR[39M: uncaughtException: Route.post() requires a callback function but got a [object Undefined]
+Error: Route.post() requires a callback function but got a [object Undefined]
+    at Route.<computed> [as post] (/app/node_modules/express/lib/router/route.js:216:15)
+    at proto.<computed> [as post] (/app/node_modules/express/lib/router/index.js:521:19)
+    at Object.<anonymous> (/app/modules/bookings/booking.routes.js:16:8)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/app.js:14:23)
+[2025-03-06T19:24:39.497Z] [31MERROR[39M: uncaughtException: Route.post() requires a callback function but got a [object Undefined]
+Error: Route.post() requires a callback function but got a [object Undefined]
+    at Route.<computed> [as post] (/app/node_modules/express/lib/router/route.js:216:15)
+    at proto.<computed> [as post] (/app/node_modules/express/lib/router/index.js:521:19)
+    at Object.<anonymous> (/app/modules/bookings/booking.routes.js:16:8)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/app.js:14:23)
+[2025-03-06T19:24:52.920Z] [31MERROR[39M: uncaughtException: Route.post() requires a callback function but got a [object Undefined]
+Error: Route.post() requires a callback function but got a [object Undefined]
+    at Route.<computed> [as post] (/app/node_modules/express/lib/router/route.js:216:15)
+    at proto.<computed> [as post] (/app/node_modules/express/lib/router/index.js:521:19)
+    at Object.<anonymous> (/app/modules/bookings/booking.routes.js:16:8)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/app.js:14:23)
+[2025-03-06T19:25:34.533Z] [31MERROR[39M: uncaughtException: Route.post() requires a callback function but got a [object Undefined]
+Error: Route.post() requires a callback function but got a [object Undefined]
+    at Route.<computed> [as post] (/app/node_modules/express/lib/router/route.js:216:15)
+    at proto.<computed> [as post] (/app/node_modules/express/lib/router/index.js:521:19)
+    at Object.<anonymous> (/app/modules/bookings/booking.routes.js:16:8)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/app.js:14:23)
+[2025-03-06T19:27:56.156Z] [31MERROR[39M: uncaughtException: Route.post() requires a callback function but got a [object Undefined]
+Error: Route.post() requires a callback function but got a [object Undefined]
+    at Route.<computed> [as post] (/app/node_modules/express/lib/router/route.js:216:15)
+    at proto.<computed> [as post] (/app/node_modules/express/lib/router/index.js:521:19)
+    at Object.<anonymous> (/app/modules/bookings/booking.routes.js:22:8)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/app.js:14:23)
+[2025-03-06T19:31:46.987Z] [31MERROR[39M: uncaughtException: Cannot find module 'express-async-handler'
+Require stack:
+- /app/modules/drivers/driver.controller.js
+- /app/modules/drivers/driver.routes.js
+- /app/app.js
+- /app/server.js
+Error: Cannot find module 'express-async-handler'
+Require stack:
+- /app/modules/drivers/driver.controller.js
+- /app/modules/drivers/driver.routes.js
+- /app/app.js
+- /app/server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/modules/drivers/driver.controller.js:1:22)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+[2025-03-06T19:31:52.655Z] [31MERROR[39M: uncaughtException: Cannot find module 'express-async-handler'
+Require stack:
+- /app/modules/drivers/driver.controller.js
+- /app/modules/drivers/driver.routes.js
+- /app/app.js
+- /app/server.js
+Error: Cannot find module 'express-async-handler'
+Require stack:
+- /app/modules/drivers/driver.controller.js
+- /app/modules/drivers/driver.routes.js
+- /app/app.js
+- /app/server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/modules/drivers/driver.controller.js:1:22)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
