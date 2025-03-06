@@ -1,5 +1,6 @@
 const DriverService = require("./driver.service");
 const asyncHandler = require("../../utils/asyncHandler");
+const AppError = require("../../utils/AppError");
 
 exports.startOnboarding = asyncHandler(async (req, res) => {
   const { userId } = req.user;
@@ -11,20 +12,34 @@ exports.startOnboarding = asyncHandler(async (req, res) => {
   });
 });
 
-exports.updateDriverProfile = asyncHandler(async (req, res) => {
-  const { step, data } = req.body;
-  const response = await DriverService.updateDriverProfile(
+exports.updateStep = asyncHandler(async (req, res) => {
+  const { step } = req.params;
+  console.log("Received request for step:", step);
+  console.log("Request body:", req.body);
+
+  const files = req.files || [];
+  let data = { ...req.body };
+
+  // if (data.dateOfBirth) {
+  //   data.dateOfBirth = new Date(data.dateOfBirth);
+  //   if (isNaN(data.dateOfBirth.getTime())) {
+  //     throw new AppError(400, "Invalid date of birth");
+  //   }
+  // }
+
+  const response = await DriverService.updateOnboardingStep(
     req.user.userId,
     step,
     data,
-    req.files
+    files
   );
-  res.json(response);
+
+  res.status(200).json(response);
 });
 
-exports.reviewDriverApplication = asyncHandler(async (req, res) => {
+exports.updateStatus = asyncHandler(async (req, res) => {
   const { driverId, status, rejectionReason } = req.body;
-  const response = await DriverService.reviewDriverApplication(
+  const response = await DriverService.updateApplicationStatus(
     driverId,
     status,
     rejectionReason

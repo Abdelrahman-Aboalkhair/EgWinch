@@ -1,2 +1,14 @@
 [2025-03-06T19:40:42.895Z] [31MERROR[39M: [POST] /api/v1/bookings - Path `user` is required. - 400
 [2025-03-06T19:46:20.542Z] [31MERROR[39M: [PUT] /api/v1/bookings/update-step/location - 400 - Unexpected token } in JSON at position 302
+[2025-03-06T20:11:35.094Z] [31MERROR[39M: [POST] /api/v1/auth/sign-in - 500 - Cannot read properties of undefined (reading 'push')
+[2025-03-06T20:13:01.375Z] [31MERROR[39M: [POST] /api/v1/drivers/start-onboarding - 500 - AppError is not defined
+[2025-03-06T20:13:22.764Z] [31MERROR[39M: [POST] /api/v1/drivers - 500 - Error starting driver onboarding: Driver validation failed: vehicleInfo.vehicleModel: Path `vehicleInfo.vehicleModel` is required.
+[2025-03-06T20:22:26.446Z] [31MERROR[39M: [PUT] /api/v1/drivers/start-onboarding/personal_info - 500 - AppError is not defined
+[2025-03-06T20:22:50.207Z] [31MERROR[39M: [PUT] /api/v1/drivers/update-step/personal_info - 500 - Unexpected token o in JSON at position 1
+[2025-03-06T20:23:06.595Z] [31MERROR[39M: [PUT] /api/v1/drivers/update-step/personal_info - 500 - Unexpected token o in JSON at position 1
+[2025-03-06T20:23:18.571Z] [31MERROR[39M: [PUT] /api/v1/drivers/update-step/personal_info - 500 - Unexpected token o in JSON at position 1
+[2025-03-06T20:25:16.013Z] [31MERROR[39M: [PUT] /api/v1/drivers/update-step/personal_info - 500 - Unexpected token o in JSON at position 1
+[2025-03-06T20:31:23.363Z] [31MERROR[39M: [PUT] /api/v1/drivers/update-step/personal_info - 500 - Cannot convert object to primitive value
+[2025-03-06T20:37:08.976Z] [31MERROR[39M: [PUT] /api/v1/drivers/update-step/personal_info - Invalid date of birth - 400
+[2025-03-06T20:37:59.458Z] [31MERROR[39M: [PUT] /api/v1/drivers/update-step/personal_info - Invalid date of birth - 400
+[2025-03-06T20:38:27.907Z] [31MERROR[39M: [PUT] /api/v1/drivers/update-step/personal_info - 400 - Invalid date of birth

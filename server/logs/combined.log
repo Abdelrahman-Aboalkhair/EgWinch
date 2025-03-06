@@ -155,3 +155,163 @@
 [2025-03-06T19:54:47.200Z] [32MINFO[39M: MongoDB connected successfully
 [2025-03-06T19:54:59.074Z] [32MINFO[39M: Server is running on https://localhost:5000
 [2025-03-06T19:55:00.710Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-06T19:59:17.502Z] [32MINFO[39M: Server is running on https://localhost:5000
+[2025-03-06T19:59:18.556Z] [32MINFO[39M: Server is running on https://localhost:5000
+[2025-03-06T19:59:19.773Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-06T20:01:11.029Z] [32MINFO[39M: Server is running on https://localhost:5000
+[2025-03-06T20:01:12.277Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-06T20:01:49.999Z] [32MINFO[39M: Server is running on https://localhost:5000
+[2025-03-06T20:01:51.364Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-06T20:01:58.354Z] [32MINFO[39M: Server is running on https://localhost:5000
+[2025-03-06T20:01:59.639Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-06T20:02:58.899Z] [32MINFO[39M: Server is running on https://localhost:5000
+[2025-03-06T20:03:00.438Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-06T20:03:02.217Z] [32MINFO[39M: Server is running on https://localhost:5000
+[2025-03-06T20:03:03.550Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-06T20:03:41.217Z] [32MINFO[39M: Server is running on https://localhost:5000
+[2025-03-06T20:03:42.627Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-06T20:03:49.894Z] [32MINFO[39M: Server is running on https://localhost:5000
+[2025-03-06T20:03:51.474Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-06T20:03:59.982Z] [32MINFO[39M: Server is running on https://localhost:5000
+[2025-03-06T20:04:01.453Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-06T20:04:32.498Z] [32MINFO[39M: Server is running on https://localhost:5000
+[2025-03-06T20:04:33.685Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-06T20:04:46.372Z] [32MINFO[39M: Server is running on https://localhost:5000
+[2025-03-06T20:04:47.667Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-06T20:04:48.586Z] [32MINFO[39M: Server is running on https://localhost:5000
+[2025-03-06T20:04:50.118Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-06T20:05:32.841Z] [32MINFO[39M: Server is running on https://localhost:5000
+[2025-03-06T20:05:34.418Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-06T20:06:41.336Z] [32MINFO[39M: Server is running on https://localhost:5000
+[2025-03-06T20:06:42.638Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-06T20:06:48.577Z] [32MINFO[39M: Server is running on https://localhost:5000
+[2025-03-06T20:06:50.261Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-06T20:06:51.686Z] [32MINFO[39M: Server is running on https://localhost:5000
+[2025-03-06T20:06:53.198Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-06T20:06:55.273Z] [32MINFO[39M: Server is running on https://localhost:5000
+[2025-03-06T20:06:56.522Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-06T20:07:05.606Z] [32MINFO[39M: Server is running on https://localhost:5000
+[2025-03-06T20:07:06.949Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-06T20:07:37.562Z] [32MINFO[39M: Server is running on https://localhost:5000
+[2025-03-06T20:07:39.000Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-06T20:08:57.405Z] [32MINFO[39M: Server is running on https://localhost:5000
+[2025-03-06T20:08:59.084Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-06T20:09:04.757Z] [32MINFO[39M: Server is running on https://localhost:5000
+[2025-03-06T20:09:06.117Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-06T20:09:11.996Z] [32MINFO[39M: Server is running on https://localhost:5000
+[2025-03-06T20:09:13.241Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-06T20:09:16.009Z] [32MINFO[39M: Server is running on https://localhost:5000
+[2025-03-06T20:09:17.345Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-06T20:09:19.906Z] [32MINFO[39M: Server is running on https://localhost:5000
+[2025-03-06T20:09:21.303Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-06T20:09:25.789Z] [32MINFO[39M: Server is running on https://localhost:5000
+[2025-03-06T20:09:27.031Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-06T20:09:34.210Z] [32MINFO[39M: Server is running on https://localhost:5000
+[2025-03-06T20:09:35.728Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-06T20:11:35.094Z] [31MERROR[39M: [POST] /api/v1/auth/sign-in - 500 - Cannot read properties of undefined (reading 'push')
+[2025-03-06T20:11:35.098Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [06/Mar/2025:20:11:35 +0000] "POST /api/v1/auth/sign-in HTTP/1.1" 500 83 "-" "PostmanRuntime/7.43.0"
+[2025-03-06T20:12:38.286Z] [32MINFO[39M: Server is running on https://localhost:5000
+[2025-03-06T20:12:39.860Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-06T20:12:41.692Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [06/Mar/2025:20:12:41 +0000] "POST /api/v1/auth/sign-in HTTP/1.1" 200 443 "-" "PostmanRuntime/7.43.0"
+[2025-03-06T20:13:01.375Z] [31MERROR[39M: [POST] /api/v1/drivers/start-onboarding - 500 - AppError is not defined
+[2025-03-06T20:13:01.376Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [06/Mar/2025:20:13:01 +0000] "POST /api/v1/drivers/start-onboarding HTTP/1.1" 500 54 "-" "PostmanRuntime/7.43.0"
+[2025-03-06T20:13:22.764Z] [31MERROR[39M: [POST] /api/v1/drivers - 500 - Error starting driver onboarding: Driver validation failed: vehicleInfo.vehicleModel: Path `vehicleInfo.vehicleModel` is required.
+[2025-03-06T20:13:22.765Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [06/Mar/2025:20:13:22 +0000] "POST /api/v1/drivers HTTP/1.1" 500 161 "-" "PostmanRuntime/7.43.0"
+[2025-03-06T20:13:51.458Z] [32MINFO[39M: Server is running on https://localhost:5000
+[2025-03-06T20:13:53.038Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-06T20:13:56.135Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [06/Mar/2025:20:13:56 +0000] "POST /api/v1/drivers HTTP/1.1" 201 302 "-" "PostmanRuntime/7.43.0"
+[2025-03-06T20:14:12.722Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [06/Mar/2025:20:14:12 +0000] "POST /api/v1/drivers HTTP/1.1" 201 302 "-" "PostmanRuntime/7.43.0"
+[2025-03-06T20:15:06.841Z] [32MINFO[39M: Server is running on https://localhost:5000
+[2025-03-06T20:15:08.517Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-06T20:15:24.244Z] [32MINFO[39M: Server is running on https://localhost:5000
+[2025-03-06T20:15:25.671Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-06T20:15:30.757Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [06/Mar/2025:20:15:30 +0000] "POST /api/v1/drivers HTTP/1.1" 201 302 "-" "PostmanRuntime/7.43.0"
+[2025-03-06T20:15:39.255Z] [32MINFO[39M: Server is running on https://localhost:5000
+[2025-03-06T20:15:40.383Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-06T20:15:57.881Z] [32MINFO[39M: Server is running on https://localhost:5000
+[2025-03-06T20:15:59.159Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-06T20:16:19.636Z] [32MINFO[39M: Server is running on https://localhost:5000
+[2025-03-06T20:16:20.849Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-06T20:17:16.574Z] [32MINFO[39M: Server is running on https://localhost:5000
+[2025-03-06T20:17:18.085Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-06T20:17:34.563Z] [32MINFO[39M: Server is running on https://localhost:5000
+[2025-03-06T20:17:36.193Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-06T20:17:55.600Z] [32MINFO[39M: Server is running on https://localhost:5000
+[2025-03-06T20:17:56.887Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-06T20:18:14.088Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [06/Mar/2025:20:18:14 +0000] "POST /api/v1/drivers HTTP/1.1" 201 67 "-" "PostmanRuntime/7.43.0"
+[2025-03-06T20:18:47.272Z] [32MINFO[39M: Server is running on https://localhost:5000
+[2025-03-06T20:18:48.881Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-06T20:18:53.006Z] [32MINFO[39M: Server is running on https://localhost:5000
+[2025-03-06T20:18:54.664Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-06T20:19:33.171Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [06/Mar/2025:20:19:33 +0000] "POST /api/v1/drivers HTTP/1.1" 201 67 "-" "PostmanRuntime/7.43.0"
+[2025-03-06T20:20:20.355Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [06/Mar/2025:20:20:20 +0000] "POST /api/v1/drivers HTTP/1.1" 201 67 "-" "PostmanRuntime/7.43.0"
+[2025-03-06T20:21:10.209Z] [32MINFO[39M: Server is running on https://localhost:5000
+[2025-03-06T20:21:11.715Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-06T20:22:26.446Z] [31MERROR[39M: [PUT] /api/v1/drivers/start-onboarding/personal_info - 500 - AppError is not defined
+[2025-03-06T20:22:26.450Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [06/Mar/2025:20:22:26 +0000] "PUT /api/v1/drivers/start-onboarding/personal_info HTTP/1.1" 500 54 "-" "PostmanRuntime/7.43.0"
+[2025-03-06T20:22:50.207Z] [31MERROR[39M: [PUT] /api/v1/drivers/update-step/personal_info - 500 - Unexpected token o in JSON at position 1
+[2025-03-06T20:22:50.208Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [06/Mar/2025:20:22:50 +0000] "PUT /api/v1/drivers/update-step/personal_info HTTP/1.1" 500 71 "-" "PostmanRuntime/7.43.0"
+[2025-03-06T20:22:59.581Z] [32MINFO[39M: Server is running on https://localhost:5000
+[2025-03-06T20:23:00.886Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-06T20:23:05.304Z] [32MINFO[39M: Server is running on https://localhost:5000
+[2025-03-06T20:23:06.573Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-06T20:23:06.595Z] [31MERROR[39M: [PUT] /api/v1/drivers/update-step/personal_info - 500 - Unexpected token o in JSON at position 1
+[2025-03-06T20:23:06.599Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [06/Mar/2025:20:23:06 +0000] "PUT /api/v1/drivers/update-step/personal_info HTTP/1.1" 500 71 "-" "PostmanRuntime/7.43.0"
+[2025-03-06T20:23:18.571Z] [31MERROR[39M: [PUT] /api/v1/drivers/update-step/personal_info - 500 - Unexpected token o in JSON at position 1
+[2025-03-06T20:23:18.572Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [06/Mar/2025:20:23:18 +0000] "PUT /api/v1/drivers/update-step/personal_info HTTP/1.1" 500 71 "-" "PostmanRuntime/7.43.0"
+[2025-03-06T20:24:27.853Z] [32MINFO[39M: Server is running on https://localhost:5000
+[2025-03-06T20:24:29.588Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-06T20:25:14.668Z] [32MINFO[39M: Server is running on https://localhost:5000
+[2025-03-06T20:25:15.979Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-06T20:25:16.013Z] [31MERROR[39M: [PUT] /api/v1/drivers/update-step/personal_info - 500 - Unexpected token o in JSON at position 1
+[2025-03-06T20:25:16.015Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [06/Mar/2025:20:25:16 +0000] "PUT /api/v1/drivers/update-step/personal_info HTTP/1.1" 500 71 "-" "PostmanRuntime/7.43.0"
+[2025-03-06T20:25:31.280Z] [32MINFO[39M: Server is running on https://localhost:5000
+[2025-03-06T20:25:32.795Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-06T20:26:46.618Z] [32MINFO[39M: Server is running on https://localhost:5000
+[2025-03-06T20:26:48.139Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-06T20:28:11.810Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [06/Mar/2025:20:28:11 +0000] "PUT /api/v1/drivers/update-step/personal_info HTTP/1.1" 200 - "-" "PostmanRuntime/7.43.0"
+[2025-03-06T20:28:25.322Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [06/Mar/2025:20:28:25 +0000] "PUT /api/v1/drivers/update-step/personal_info HTTP/1.1" 200 - "-" "PostmanRuntime/7.43.0"
+[2025-03-06T20:28:33.950Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [06/Mar/2025:20:28:33 +0000] "PUT /api/v1/drivers/update-step/personal_info HTTP/1.1" 200 - "-" "PostmanRuntime/7.43.0"
+[2025-03-06T20:29:49.678Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [06/Mar/2025:20:29:49 +0000] "POST /api/v1/auth/sign-in HTTP/1.1" 200 447 "-" "PostmanRuntime/7.43.0"
+[2025-03-06T20:30:03.760Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [06/Mar/2025:20:30:03 +0000] "PUT /api/v1/drivers/update-step/personal_info HTTP/1.1" 200 - "-" "PostmanRuntime/7.43.0"
+[2025-03-06T20:31:11.699Z] [32MINFO[39M: Server is running on https://localhost:5000
+[2025-03-06T20:31:13.233Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-06T20:31:15.403Z] [32MINFO[39M: Server is running on https://localhost:5000
+[2025-03-06T20:31:16.992Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-06T20:31:17.592Z] [32MINFO[39M: Server is running on https://localhost:5000
+[2025-03-06T20:31:19.090Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-06T20:31:23.363Z] [31MERROR[39M: [PUT] /api/v1/drivers/update-step/personal_info - 500 - Cannot convert object to primitive value
+[2025-03-06T20:31:23.367Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [06/Mar/2025:20:31:23 +0000] "PUT /api/v1/drivers/update-step/personal_info HTTP/1.1" 500 71 "-" "PostmanRuntime/7.43.0"
+[2025-03-06T20:32:20.224Z] [32MINFO[39M: Server is running on https://localhost:5000
+[2025-03-06T20:32:21.478Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-06T20:32:22.837Z] [32MINFO[39M: Server is running on https://localhost:5000
+[2025-03-06T20:32:24.085Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-06T20:32:26.543Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [06/Mar/2025:20:32:26 +0000] "PUT /api/v1/drivers/update-step/personal_info HTTP/1.1" 200 - "-" "PostmanRuntime/7.43.0"
+[2025-03-06T20:33:50.079Z] [32MINFO[39M: Server is running on https://localhost:5000
+[2025-03-06T20:33:51.500Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-06T20:34:38.082Z] [32MINFO[39M: Server is running on https://localhost:5000
+[2025-03-06T20:34:39.415Z] [32MINFO[39M: Server is running on https://localhost:5000
+[2025-03-06T20:34:40.999Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-06T20:35:58.468Z] [32MINFO[39M: Server is running on https://localhost:5000
+[2025-03-06T20:35:59.903Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-06T20:37:04.409Z] [32MINFO[39M: Server is running on https://localhost:5000
+[2025-03-06T20:37:05.846Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-06T20:37:08.976Z] [31MERROR[39M: [PUT] /api/v1/drivers/update-step/personal_info - Invalid date of birth - 400
+[2025-03-06T20:37:08.980Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [06/Mar/2025:20:37:08 +0000] "PUT /api/v1/drivers/update-step/personal_info HTTP/1.1" 500 984 "-" "PostmanRuntime/7.43.0"
+[2025-03-06T20:37:57.621Z] [32MINFO[39M: Server is running on https://localhost:5000
+[2025-03-06T20:37:58.895Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-06T20:37:59.458Z] [31MERROR[39M: [PUT] /api/v1/drivers/update-step/personal_info - Invalid date of birth - 400
+[2025-03-06T20:37:59.462Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [06/Mar/2025:20:37:59 +0000] "PUT /api/v1/drivers/update-step/personal_info HTTP/1.1" 500 984 "-" "PostmanRuntime/7.43.0"
+[2025-03-06T20:38:04.793Z] [32MINFO[39M: Server is running on https://localhost:5000
+[2025-03-06T20:38:06.210Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-06T20:38:24.709Z] [32MINFO[39M: Server is running on https://localhost:5000
+[2025-03-06T20:38:26.210Z] [32MINFO[39M: Server is running on https://localhost:5000
+[2025-03-06T20:38:27.507Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-06T20:38:27.907Z] [31MERROR[39M: [PUT] /api/v1/drivers/update-step/personal_info - 400 - Invalid date of birth
+[2025-03-06T20:38:27.909Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [06/Mar/2025:20:38:27 +0000] "PUT /api/v1/drivers/update-step/personal_info HTTP/1.1" 400 51 "-" "PostmanRuntime/7.43.0"
+[2025-03-06T20:38:45.026Z] [32MINFO[39M: Server is running on https://localhost:5000
+[2025-03-06T20:38:46.370Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-06T20:38:49.413Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [06/Mar/2025:20:38:49 +0000] "PUT /api/v1/drivers/update-step/personal_info HTTP/1.1" 200 - "-" "PostmanRuntime/7.43.0"
+[2025-03-06T20:39:40.656Z] [32MINFO[39M: Server is running on https://localhost:5000
+[2025-03-06T20:39:42.125Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-06T20:39:42.263Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [06/Mar/2025:20:39:42 +0000] "PUT /api/v1/drivers/update-step/personal_info HTTP/1.1" 200 - "-" "PostmanRuntime/7.43.0"
