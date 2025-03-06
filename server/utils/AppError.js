@@ -1,10 +1,10 @@
-class ApiError extends Error {
+class AppError extends Error {
   constructor(statusCode, message) {
-    super(message); // calling parent class constructor with message
+    super(message);
     this.statusCode = statusCode;
     this.success = false;
     Error.captureStackTrace(this, this.constructor);
   }
 }
 
-module.exports = ApiError;
+module.exports = AppError;

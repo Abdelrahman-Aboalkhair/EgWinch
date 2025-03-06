@@ -1,13 +1,13 @@
 const sendEmail = require("../../utils/sendEmail");
 const User = require("../users/user.model");
-const ApiError = require("../../utils/ApiError");
+const AppError = require("../../utils/AppError");
 
 class AuthService {
   static async registerUser({ name, email, password }) {
     const existingUser = await User.findOne({ email });
 
     if (existingUser) {
-      throw new ApiError(
+      throw new AppError(
         400,
         "This email is already registered, please sign in"
       );
@@ -49,7 +49,7 @@ class AuthService {
     });
 
     if (!user) {
-      throw new ApiError(400, "Invalid or expired verification code.");
+      throw new AppError(400, "Invalid or expired verification code.");
     }
 
     user.emailVerificationCode = null;
@@ -61,29 +61,28 @@ class AuthService {
   }
 
   static async signin({ email, password }) {
-    if (!email) throw new ApiError(400, "Email is required");
+    if (!email) throw new AppError(400, "Email is required");
 
     const user = await User.findOne({ email }).select("+password");
     if (!user)
-      throw new ApiError(
+      throw new AppError(
         400,
         "No user found with this email, please sign up first"
       );
 
     if (user.googleId) {
-      throw new ApiError(
+      throw new AppError(
         400,
         "This email is registered with Google, please sign in with Google"
       );
     }
 
     const isPasswordValid = await user.comparePassword(password);
-    if (!isPasswordValid) throw new ApiError(400, "Invalid credentials");
+    if (!isPasswordValid) throw new AppError(400, "Invalid credentials");
 
     const accessToken = await user.generateAccessToken();
     const refreshToken = await user.generateRefreshToken();
 
-    user.refreshToken.push(refreshToken);
     await user.save();
 
     return { user, accessToken, refreshToken };

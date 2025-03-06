@@ -1,23 +1,23 @@
-const ApiError = require("../utils/ApiError");
+const AppError = require("../utils/AppError");
 const logger = require("../config/logger");
 
 const handleValidationError = (err) => {
   const message = Object.values(err.errors)
     .map((val) => val.message)
     .join(", ");
-  return new ApiError(message, 400);
+  return new AppError(message, 400);
 };
 
 const handleDuplicateKeyError = (err) => {
-  return new ApiError("Duplicate field value entered", 400);
+  return new AppError("Duplicate field value entered", 400);
 };
 
 const handleCastError = (err) => {
-  return new ApiError(`Invalid ${err.path}: ${err.value}`, 400);
+  return new AppError(`Invalid ${err.path}: ${err.value}`, 400);
 };
 
 const handleTokenExpiredError = () => {
-  return new ApiError("Invalid or expired token, please login again.", 403);
+  return new AppError("Invalid or expired token, please login again.", 403);
 };
 
 const globalError = (err, req, res, next) => {
