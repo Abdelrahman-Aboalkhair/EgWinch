@@ -39,8 +39,6 @@ interface MapProps {
   dropoff: GeoJSONPoint | null;
   onSetPickup: (pickup: LatLng) => void;
   onSetDropoff: (dropoff: LatLng) => void;
-  setPickup: (pickup: GeoJSONPoint | null) => void;
-  setDropoff: (dropoff: GeoJSONPoint | null) => void;
   setPickupAddress: (address: string) => void;
   setDropoffAddress: (address: string) => void;
   setRouteDistance: (distance: number) => void;
@@ -48,12 +46,8 @@ interface MapProps {
 }
 
 const Map: React.FC<MapProps> = ({
-  pickup,
-  dropoff,
   onSetPickup,
   onSetDropoff,
-  setPickup,
-  setDropoff,
   setRouteDistance,
   setRouteDuration,
   setPickupAddress,
@@ -62,18 +56,6 @@ const Map: React.FC<MapProps> = ({
   const [pickupPosition, setPickupPosition] = useState<LatLng | null>(null);
   const [dropoffPosition, setDropoffPosition] = useState<LatLng | null>(null);
   const [route, setRoute] = useState<LatLng[]>([]);
-
-  // Convert GeoJSON to LatLng when props change
-  useEffect(() => {
-    if (pickup) {
-      setPickupPosition(latLng(pickup.coordinates[1], pickup.coordinates[0]));
-    }
-    if (dropoff) {
-      setDropoffPosition(
-        latLng(dropoff.coordinates[1], dropoff.coordinates[0])
-      );
-    }
-  }, [pickup, dropoff]);
 
   useEffect(() => {
     if (pickupPosition && dropoffPosition) {
@@ -121,21 +103,11 @@ const Map: React.FC<MapProps> = ({
         setPickupPosition(newPickup);
         onSetPickup(newPickup);
         setPickupAddress(address);
-        setPickup({
-          type: "Point",
-          coordinates: [lng, lat],
-          address: address,
-        });
       } else {
         const newDropoff = latLng(lat, lng);
         setDropoffPosition(newDropoff);
         onSetDropoff(newDropoff);
         setDropoffAddress(address);
-        setDropoff({
-          type: "Point",
-          coordinates: [lng, lat],
-          address: address,
-        });
       }
     } catch (error) {
       console.error("Failed to get address:", error);
@@ -157,20 +129,10 @@ const Map: React.FC<MapProps> = ({
         setPickupPosition(newPosition);
         onSetPickup(newPosition);
         setPickupAddress(address);
-        setPickup({
-          type: "Point",
-          coordinates: [lng, lat],
-          address: address,
-        });
       } else {
         setDropoffPosition(newPosition);
         onSetDropoff(newPosition);
         setDropoffAddress(address);
-        setDropoff({
-          type: "Point",
-          coordinates: [lng, lat],
-          address: address,
-        });
       }
     } catch (error) {
       console.error("Failed to get address:", error);

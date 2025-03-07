@@ -81,7 +81,7 @@ const Input: React.FC<InputProps> = ({
             {...register(name, validation)}
             type={type}
             placeholder={placeholder}
-            className={`p-[14px] pl-3 pr-10 w-full border text-gray-800 placeholder:text-gray-800  rounded-md focus:outline-none focus:ring-[2px] focus:ring-primary ${className}`}
+            className={`p-[14px] pl-3 pr-10 w-full border  border-gray-300 text-gray-800 placeholder:text-gray-800 rounded focus:outline-none focus:ring-[2px] focus:ring-primary ${className}`}
           />
         )}
 

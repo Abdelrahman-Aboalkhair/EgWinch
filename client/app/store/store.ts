@@ -4,6 +4,7 @@ import authReducer from "./slices/AuthSlice";
 import conversationReducer from "./slices/ConversationSlice";
 import toastReducer from "./slices/ToastSlice";
 import DriverOnboardingReducer from "./slices/DriverOnboardingSlice";
+import BookingOnboardingReducer from "./slices/BookingSlice";
 
 export const store = configureStore({
   reducer: {
@@ -11,6 +12,7 @@ export const store = configureStore({
     conversations: conversationReducer,
     toasts: toastReducer,
     driverOnboarding: DriverOnboardingReducer,
+    booking: BookingOnboardingReducer,
     [authApi.reducerPath]: authApi.reducer,
   },
   middleware: (getDefaultMiddleware) =>
