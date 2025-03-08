@@ -6,19 +6,18 @@ import { ChevronDown } from "lucide-react";
 interface DropdownProps {
   label?: string;
   options: string[];
-  onSelect: (value: string) => void;
-  onClear: () => void;
+  value: string | null;
+  onChange: (value: string | null) => void;
 }
 
 const Dropdown: React.FC<DropdownProps> = ({
   label,
   options,
-  onSelect,
-  onClear,
+  value,
+  onChange,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
-  const [selectedOption, setSelectedOption] = useState<string | null>(null);
 
   const dropdownRef = useRef<HTMLDivElement | null>(null);
 
@@ -26,13 +25,11 @@ const Dropdown: React.FC<DropdownProps> = ({
     option.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
-  const handleSelect = (value: string) => {
-    setSelectedOption(value);
-    onSelect(value);
+  const handleSelect = (selectedValue: string) => {
+    onChange(selectedValue); // Updates form state
     setIsOpen(false);
   };
 
-  // Close the dropdown if clicked outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (
@@ -44,30 +41,24 @@ const Dropdown: React.FC<DropdownProps> = ({
     };
 
     document.addEventListener("mousedown", handleClickOutside);
-
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
+    return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
   return (
     <div className="relative w-full" ref={dropdownRef}>
       <div
-        className="flex items-center justify-between w-full p-[14px] border rounded-md cursor-pointer hover:border-primary"
+        className="flex items-center justify-between w-full p-[14px] border border-gray-300 rounded-md cursor-pointer hover:border-primary"
         onClick={() => setIsOpen((prev) => !prev)}
       >
-        <span className="text-base">
-          {selectedOption ? selectedOption : label}
-        </span>
+        <span className="text-base">{value || label}</span>
 
         <div className="flex items-center">
-          {selectedOption ? (
+          {value ? (
             <AiOutlineClose
               className="text-gray-600 cursor-pointer"
               onClick={(e) => {
                 e.stopPropagation();
-                setSelectedOption(null);
-                onClear();
+                onChange(null); // Clear selection
               }}
             />
           ) : (
@@ -83,16 +74,6 @@ const Dropdown: React.FC<DropdownProps> = ({
 
       {isOpen && (
         <div className="absolute w-full mt-2 bg-white border rounded-md shadow-lg z-10">
-          {/* Search bar */}
-          {/* <input
-            type="text"
-            className="w-full p-2 border-b focus:outline-none focus:border-primary"
-            placeholder="Search..."
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-          /> */}
-
-          {/* List of filtered options */}
           <motion.ul
             className="max-h-56 overflow-auto"
             initial={{ opacity: 0, y: 10 }}

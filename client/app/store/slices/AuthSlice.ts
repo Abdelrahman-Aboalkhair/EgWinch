@@ -40,6 +40,7 @@ const authSlice = createSlice({
       state.accessToken = null;
       state.isLoggedIn = false;
 
+      localStorage.removeItem("bookingStep");
       localStorage.removeItem("user");
     },
   },

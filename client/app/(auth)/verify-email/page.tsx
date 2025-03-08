@@ -1,6 +1,5 @@
 "use client";
-
-import OtpInput from "@/app/components/atoms/otpInput";
+import OtpInput from "@/app/components/molecules/Otp";
 import useToast from "@/app/hooks/useToast";
 import { useVerifyEmailMutation } from "@/app/store/apis/AuthApi";
 import { useRouter } from "next/navigation";

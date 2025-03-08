@@ -30,3 +30,4 @@
   pickup: { lat: 30.104147794697713, lng: 31.1861515045166 },
   dropoff: { lat: 30.047699084516957, lng: 31.237306594848636 }
 }" (type Object) at path "user" because of "BSONError" - 400
+[2025-03-08T13:39:40.134Z] [31MERROR[39M: MongoDB connection failed querySrv ESERVFAIL _mongodb._tcp.cluster0.xoiwv.mongodb.net

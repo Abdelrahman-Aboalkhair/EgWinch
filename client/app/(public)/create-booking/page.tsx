@@ -1,14 +1,13 @@
 "use client";
 import MainLayout from "@/app/components/templates/MainLayout";
 import { useAppSelector } from "@/app/store/hooks";
-import LocationsStep from "./LocationStep";
-import ItemsStep from "./ItemsStep";
-import ServicesStep from "./ServicesStep";
-import ConfirmationStep from "./ConfirmationStep";
+import LocationsStep from "./Locations";
+import ItemsStep from "./Items";
+import ServicesStep from "./Services";
+import ConfirmationStep from "./Summary";
 
 const BookingOnboarding = () => {
   const { step } = useAppSelector((state) => state.booking);
-  console.log("step: ", step);
   return (
     <MainLayout>
       {step == 1 && <LocationsStep />}

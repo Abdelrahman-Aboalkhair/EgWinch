@@ -31,7 +31,11 @@ const CheckBox: React.FC<CheckBoxProps> = ({
           >
             {field.value && <AiOutlineCheck className="text-white text-lg" />}
           </div>
-          {label && <span className="text-gray-700 select-none">{label}</span>}
+          {label && (
+            <span className="text-gray-700 select-none font-medium">
+              {label}
+            </span>
+          )}
         </div>
       )}
     />

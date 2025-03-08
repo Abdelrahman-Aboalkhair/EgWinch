@@ -21,7 +21,7 @@ const Home = () => {
           <Link href={"/create-booking"}>
             <button
               className="bg-primary text-white px-12 font-medium py-[12px] text-[16px] rounded
-             hover:opacity-90 active:scale-95 transition-all duration-300 hover:shadow-[0_0_5px_#6B8E23,0_0_5px_#6B8E23]"
+             hover:opacity-90 active:scale-95"
             >
               Book Now
             </button>

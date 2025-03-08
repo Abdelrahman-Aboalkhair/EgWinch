@@ -11,6 +11,7 @@ import { Loader2 } from "lucide-react";
 import GoogleSignup from "../(oAuth)/google/GoogleSignup";
 import useToast from "@/app/hooks/useToast";
 import FacebookSignup from "../(oAuth)/facebook/FacebookSignup";
+import { useState } from "react";
 
 interface InputForm {
   name: string;
@@ -22,7 +23,7 @@ const RegisterCustomer = () => {
   const { showToast } = useToast();
   const [registerCustomer, { error, isLoading }] =
     useRegisterCustomerMutation();
-  console.log("error: ", error);
+  const [googleError, setGoogleError] = useState<string | null>(null);
   const dispatch = useAppDispatch();
   const router = useRouter();
 
@@ -59,15 +60,17 @@ const RegisterCustomer = () => {
           Sign up
         </h2>
 
-        {error && (
-          <div className="bg-red-100 border border-red-400 text-center text-red-700 w-[60%] mx-auto px-4 py-[18px] rounded relative mb-4">
-            <span className="block sm:inline">
-              {error?.data?.message || "An unexpected error occurred."}
-            </span>
-          </div>
-        )}
+        {error ||
+          (googleError && (
+            <div className="bg-red-100 border border-red-400 text-center text-red-700 w-[60%] mx-auto px-4 py-[18px] rounded relative mb-4">
+              <span className="block sm:inline">
+                {error?.data?.message ||
+                  googleError ||
+                  "An unexpected error occurred."}
+              </span>
+            </div>
+          ))}
 
-        {/* Form Grid Layout */}
         <form
           encType="multipart/form-data"
           onSubmit={handleSubmit(onSubmit)}
@@ -133,7 +136,7 @@ const RegisterCustomer = () => {
 
         <div className="w-[60%] mx-auto space-y-2">
           <GoogleOAuthProvider clientId="948178712281-5755ujm8o5sv36nvsqnj2uce7lc933cb.apps.googleusercontent.com">
-            <GoogleSignup />
+            <GoogleSignup onError={setGoogleError} />
           </GoogleOAuthProvider>
 
           <FacebookSignup />
