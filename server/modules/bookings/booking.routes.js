@@ -1,6 +1,6 @@
 const {
   getBookings,
-  startBooking,
+  createBooking,
   updateStep,
   getBooking,
   completeBooking,
@@ -15,7 +15,7 @@ const express = require("express");
 const router = express.Router();
 
 router.get("/", isAuthenticated, getBookings);
-router.post("/", isAuthenticated, startBooking);
+router.post("/", isAuthenticated, createBooking);
 router.put("/update-step/:step", isAuthenticated, updateStep);
 router.get("/:id", isAuthenticated, getBooking);
 router.put("/complete", isAuthenticated, completeBooking);

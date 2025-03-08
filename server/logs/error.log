@@ -12,3 +12,21 @@
 [2025-03-06T20:37:08.976Z] [31MERROR[39M: [PUT] /api/v1/drivers/update-step/personal_info - Invalid date of birth - 400
 [2025-03-06T20:37:59.458Z] [31MERROR[39M: [PUT] /api/v1/drivers/update-step/personal_info - Invalid date of birth - 400
 [2025-03-06T20:38:27.907Z] [31MERROR[39M: [PUT] /api/v1/drivers/update-step/personal_info - 400 - Invalid date of birth
+[2025-03-07T23:50:33.476Z] [31MERROR[39M: [POST] /api/v1/bookings - Cast to ObjectId failed for value "{ userId: '67caeb182a60b39eaa82f41f' }" (type Object) at path "user" because of "BSONError" - 400
+[2025-03-07T23:51:24.445Z] [31MERROR[39M: [POST] /api/v1/bookings - Cast to ObjectId failed for value "{ userId: '67caeb182a60b39eaa82f41f' }" (type Object) at path "user" because of "BSONError" - 400
+[2025-03-07T23:53:38.030Z] [31MERROR[39M: [POST] /api/v1/bookings - Cast to ObjectId failed for value "{ userId: '67caeb182a60b39eaa82f41f' }" (type Object) at path "user" because of "BSONError" - 400
+[2025-03-07T23:57:20.973Z] [31MERROR[39M: [POST] /api/v1/bookings - Cast to ObjectId failed for value "{
+  userId: '67caeb182a60b39eaa82f41f',
+  pickup: { lat: 30.071173775590747, lng: 31.220152825811503 },
+  dropoff: { lat: 30.047104716304794, lng: 31.25760988220364 }
+}" (type Object) at path "user" because of "BSONError" - 400
+[2025-03-08T00:03:56.256Z] [31MERROR[39M: [POST] /api/v1/bookings - Cast to ObjectId failed for value "{
+  userId: '67caeb182a60b39eaa82f41f',
+  pickup: { lat: 30.067608358283245, lng: 31.215333938598636 },
+  dropoff: { lat: 30.044430015213965, lng: 31.241083145141605 }
+}" (type Object) at path "user" because of "BSONError" - 400
+[2025-03-08T00:05:41.233Z] [31MERROR[39M: [POST] /api/v1/bookings - Cast to ObjectId failed for value "{
+  userId: '67caeb182a60b39eaa82f41f',
+  pickup: { lat: 30.104147794697713, lng: 31.1861515045166 },
+  dropoff: { lat: 30.047699084516957, lng: 31.237306594848636 }
+}" (type Object) at path "user" because of "BSONError" - 400

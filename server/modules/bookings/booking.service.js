@@ -45,8 +45,12 @@ class BookingService {
 
     return { fromCache: false, ...response };
   }
-  static async createBooking(userId) {
-    return await Booking.create({ user: userId });
+  static async createBooking({ userId, pickupLocation, dropoffLocation }) {
+    return await Booking.create({
+      user: userId,
+      pickupLocation,
+      dropoffLocation,
+    });
   }
 
   static async updateBookingStep(bookingId, step, data) {

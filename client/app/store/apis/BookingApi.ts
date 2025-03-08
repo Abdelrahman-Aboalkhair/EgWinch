@@ -27,10 +27,12 @@ export const bookingApi = apiSlice.injectEndpoints({
     }),
 
     createBooking: builder.mutation({
-      query: () => ({
+      query: (data) => ({
         url: "/bookings",
         method: "POST",
+        body: data,
       }),
+
       invalidatesTags: ["Booking"],
     }),
 
@@ -38,7 +40,7 @@ export const bookingApi = apiSlice.injectEndpoints({
       query: ({ bookingId, step, data }) => ({
         url: `/bookings/update-step/${step}`,
         method: "PUT",
-        body: { bookingId, ...data },
+        body: { bookingId, data },
       }),
       invalidatesTags: ["Booking"],
     }),

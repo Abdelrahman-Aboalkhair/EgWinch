@@ -1,8 +1,8 @@
 "use client";
 import { useEffect, useState } from "react";
-import { updateLocations, updateStep } from "@/app/store/slices/BookingSlice";
+import { updateStep } from "@/app/store/slices/BookingSlice";
 import OnboardingLayout from "@/app/components/templates/OnboardingLayout";
-import { useAppDispatch } from "@/app/store/hooks";
+import { useAppDispatch, useAppSelector } from "@/app/store/hooks";
 import Input from "@/app/components/atoms/Input";
 import {
   useCreateBookingMutation,
@@ -17,6 +17,7 @@ const Map = dynamic(() => import("@/app/components/molecules/Map"), {
 });
 
 const LocationsStep = () => {
+  const { step } = useAppSelector((state) => state.booking);
   const { register, setValue, handleSubmit } = useForm();
   const dispatch = useAppDispatch();
   const [pickupAddress, setPickupAddress] = useState("");
@@ -44,28 +45,31 @@ const LocationsStep = () => {
   }, [dropoffAddress, setValue]);
 
   const onSubmit = async (data) => {
-    const formData = new FormData();
-    formData.append("pickupAddress", data.pickupAddress);
-    formData.append("dropoffAddress", data.dropoffAddress);
-    formData.append("pickupLocation", JSON.stringify(pickup));
-    formData.append("dropoffLocation", JSON.stringify(dropoff));
     try {
-      await createBooking({});
-      await updateOnboardingStep({
-        step: "location",
-        // ** Complete the onboarding logic
+      const res = await createBooking({
+        pickupLocation: {
+          type: "Point",
+          coordinates: [pickup.lng, pickup.lat],
+          address: pickupAddress,
+        },
+        dropoffLocation: {
+          type: "Point",
+          coordinates: [dropoff.lng, dropoff.lat],
+          address: dropoffAddress,
+        },
       });
-      dispatch(updateStep(1));
+
+      console.log("res: ", res);
+      dispatch(updateStep(step + 1));
     } catch (error) {
       console.log("error: ", error);
     }
   };
 
   return (
-    <OnboardingLayout currentStep={1}>
+    <OnboardingLayout currentStep={step}>
       <div className="flex flex-col md:flex-row gap-6 w-full items-center justify-center">
         <form
-          encType="multipart/form-data"
           className="flex flex-col gap-4 w-full md:w-[32%]"
           onSubmit={handleSubmit(onSubmit)}
         >

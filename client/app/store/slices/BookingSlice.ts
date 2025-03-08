@@ -10,8 +10,10 @@ interface BookingState {
   estimatedPrice?: number;
 }
 
+const savedStep =
+  typeof window !== "undefined" ? localStorage.getItem("bookingStep") : null;
 const initialState: BookingState = {
-  step: 1,
+  step: savedStep ? JSON.parse(savedStep) : 1,
   pickup: { location: "", floor: 0, access: "elevator" },
   dropoff: { location: "", floor: 0, access: "elevator" },
   items: { count: 0, fragile: false },
@@ -24,6 +26,9 @@ const bookingSlice = createSlice({
   reducers: {
     updateStep: (state, action: PayloadAction<number>) => {
       state.step = action.payload;
+      if (typeof window !== "undefined") {
+        localStorage.setItem("bookingStep", JSON.stringify(action.payload));
+      }
     },
     updateLocations: (
       state,
@@ -44,7 +49,12 @@ const bookingSlice = createSlice({
     setEstimatedPrice: (state, action: PayloadAction<number>) => {
       state.estimatedPrice = action.payload;
     },
-    resetBooking: () => initialState,
+    resetBooking: (state) => {
+      Object.assign(state, initialState);
+      if (typeof window !== "undefined") {
+        localStorage.removeItem("bookingStep");
+      }
+    },
   },
 });
 
