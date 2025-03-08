@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { updateStep } from "@/app/store/slices/BookingSlice";
+import { updateItems, updateStep } from "@/app/store/slices/BookingSlice";
 import { useAppDispatch, useAppSelector } from "@/app/store/hooks";
 import Input from "@/app/components/atoms/Input";
 import Dropdown from "@/app/components/molecules/Dropdown";
@@ -49,9 +49,14 @@ const Items = () => {
   };
 
   const handleNext = async () => {
-    console.log("sending items: ", items);
-    await updateOnboardingStep({ bookingId, step: "items", items });
-    dispatch(updateStep(step + 1));
+    try {
+      console.log("sending items: ", items);
+      await updateOnboardingStep({ bookingId, step: "items", items });
+      dispatch(updateStep(step + 1));
+      dispatch(updateItems(items));
+    } catch (error) {
+      console.log("error: ", error);
+    }
   };
 
   const handleBack = () => {
@@ -60,8 +65,6 @@ const Items = () => {
 
   return (
     <OnboardingLayout currentStep={step}>
-      <h1 className="text-3xl font-semibold mb-6">What are you moving?</h1>
-
       <div className="flex gap-10 w-full">
         <form onSubmit={handleSubmit(onSubmit)} className="w-1/2 space-y-4">
           <div className="grid grid-cols-2 gap-4">

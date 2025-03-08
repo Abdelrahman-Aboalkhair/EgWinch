@@ -1,4 +1,4 @@
-import { updateStep } from "@/app/store/slices/BookingSlice";
+import { updateServices, updateStep } from "@/app/store/slices/BookingSlice";
 import OnboardingLayout from "@/app/components/templates/OnboardingLayout";
 import { useAppDispatch, useAppSelector } from "@/app/store/hooks";
 import { useForm } from "react-hook-form";
@@ -21,6 +21,7 @@ const Services = () => {
         services: data.services,
       });
       dispatch(updateStep(step + 1));
+      dispatch(updateServices(data.services));
     } catch (error) {
       console.log("error: ", error);
     }
