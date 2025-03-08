@@ -13,12 +13,19 @@ exports.getBookings = asyncHandler(async (req, res) => {
   });
 });
 
-exports.startBooking = asyncHandler(async (req, res) => {
-  const booking = await BookingService.createBooking(req.user.userId);
+exports.createBooking = asyncHandler(async (req, res) => {
+  const { userId } = req.user;
+  const { pickupLocation, dropoffLocation } = req.body;
+  const booking = await BookingService.createBooking({
+    userId,
+    pickupLocation,
+    dropoffLocation,
+  });
   res.status(201).json(booking);
 });
 
 exports.updateStep = asyncHandler(async (req, res) => {
+  console.log("req.body: ", req.body);
   const { step } = req.params;
   const booking = await BookingService.updateBookingStep(
     req.body.bookingId,
