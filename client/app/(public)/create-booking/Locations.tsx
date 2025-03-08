@@ -1,6 +1,10 @@
 "use client";
 import { Suspense, useEffect, useState } from "react";
-import { setBookingId, updateStep } from "@/app/store/slices/BookingSlice";
+import {
+  setBookingId,
+  updateLocations,
+  updateStep,
+} from "@/app/store/slices/BookingSlice";
 import OnboardingLayout from "@/app/components/templates/OnboardingLayout";
 import { useAppDispatch, useAppSelector } from "@/app/store/hooks";
 import Input from "@/app/components/atoms/Input";
@@ -59,6 +63,12 @@ const Locations = () => {
       console.log("res: ", res);
       dispatch(setBookingId(res.data._id));
       dispatch(updateStep(step + 1));
+      dispatch(
+        updateLocations({
+          pickup: res.data.pickupLocation,
+          dropoff: res.data.dropoffLocation,
+        })
+      );
     } catch (error) {
       console.log("error: ", error);
     }
