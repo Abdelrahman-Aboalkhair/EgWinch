@@ -41,15 +41,12 @@ interface MapProps {
   onSetDropoff: (dropoff: LatLng) => void;
   setPickupAddress: (address: string) => void;
   setDropoffAddress: (address: string) => void;
-  setRouteDistance: (distance: number) => void;
-  setRouteDuration: (duration: number) => void;
 }
 
 const Map: React.FC<MapProps> = ({
   onSetPickup,
   onSetDropoff,
-  setRouteDistance,
-  setRouteDuration,
+
   setPickupAddress,
   setDropoffAddress,
 }) => {
@@ -69,7 +66,6 @@ const Map: React.FC<MapProps> = ({
         .then((res) => {
           const route = res.data.routes[0]?.geometry;
           const routeDuration = res.data.routes[0]?.duration;
-          setRouteDuration(routeDuration / 60);
 
           if (route) {
             const decoded = polyline.decode(route);
@@ -79,7 +75,6 @@ const Map: React.FC<MapProps> = ({
             );
 
             setRoute(polylinePoints);
-            setRouteDistance(res.data.routes[0].distance / 1000);
           } else {
             console.warn("No valid route found.");
           }
@@ -154,6 +149,7 @@ const Map: React.FC<MapProps> = ({
 
   return (
     <MapContainer
+      key={JSON.stringify(pickupPosition) + JSON.stringify(dropoffPosition)}
       center={[30.0444, 31.2357]}
       zoom={12}
       className="rounded-md h-[530px] w-1/2 focus:border-none focus:outline-none foucs:ring-2 focus:ring-primary"

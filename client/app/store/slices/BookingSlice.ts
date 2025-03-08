@@ -1,23 +1,53 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
+interface Item {
+  name: string;
+  category?: string;
+  quantity: number;
+  fragile: boolean;
+  specialInstructions?: string;
+  additionalService?: string;
+}
+
+interface Offer {
+  driver: string;
+  price: number;
+  status: "pending" | "negotiating" | "accepted" | "declined";
+}
+
+interface Location {
+  coordinates: [number, number];
+  address: string;
+  floorNumber: number;
+}
+
 interface BookingState {
   step: number;
   bookingId?: string;
-  pickup: { location: string; floor: number; access: string };
-  dropoff: { location: string; floor: number; access: string };
-  items: { count: number; fragile: boolean; instructions?: string };
+  user?: string;
+  driver?: string;
+  onboardingStep: "location" | "items" | "services" | "completed";
+  pickup: Location;
+  dropoff: Location;
+  moveDate?: string;
+  status: "pending" | "inProgress" | "completed" | "declined";
+  items: Item[];
   services: string[];
-  estimatedPrice?: number;
+  offers: Offer[];
+  totalPrice?: number;
+  paymentStatus: "pending" | "paid" | "failed";
 }
 
-const savedStep =
-  typeof window !== "undefined" ? localStorage.getItem("bookingStep") : null;
 const initialState: BookingState = {
-  step: savedStep ? JSON.parse(savedStep) : 1,
-  pickup: { location: "", floor: 0, access: "elevator" },
-  dropoff: { location: "", floor: 0, access: "elevator" },
-  items: { count: 0, fragile: false },
+  step: 1,
+  onboardingStep: "location",
+  pickup: { coordinates: [0, 0], address: "", floorNumber: 0 },
+  dropoff: { coordinates: [0, 0], address: "", floorNumber: 0 },
+  status: "pending",
+  items: [],
   services: [],
+  offers: [],
+  paymentStatus: "pending",
 };
 
 const bookingSlice = createSlice({
@@ -26,28 +56,52 @@ const bookingSlice = createSlice({
   reducers: {
     updateStep: (state, action: PayloadAction<number>) => {
       state.step = action.payload;
-      if (typeof window !== "undefined") {
-        localStorage.setItem("bookingStep", JSON.stringify(action.payload));
-      }
+    },
+    updateOnboardingStep: (
+      state,
+      action: PayloadAction<BookingState["onboardingStep"]>
+    ) => {
+      state.onboardingStep = action.payload;
     },
     updateLocations: (
       state,
-      action: PayloadAction<{
-        pickup: BookingState["pickup"];
-        dropoff: BookingState["dropoff"];
-      }>
+      action: PayloadAction<{ pickup: Location; dropoff: Location }>
     ) => {
       state.pickup = action.payload.pickup;
       state.dropoff = action.payload.dropoff;
     },
-    updateItems: (state, action: PayloadAction<BookingState["items"]>) => {
+    updateMoveDate: (state, action: PayloadAction<string>) => {
+      state.moveDate = action.payload;
+    },
+    updateItems: (state, action: PayloadAction<Item[]>) => {
       state.items = action.payload;
     },
     updateServices: (state, action: PayloadAction<string[]>) => {
       state.services = action.payload;
     },
+    updateOffers: (state, action: PayloadAction<Offer[]>) => {
+      state.offers = action.payload;
+    },
+    updateStatus: (state, action: PayloadAction<BookingState["status"]>) => {
+      state.status = action.payload;
+    },
     setEstimatedPrice: (state, action: PayloadAction<number>) => {
-      state.estimatedPrice = action.payload;
+      state.totalPrice = action.payload;
+    },
+    setPaymentStatus: (
+      state,
+      action: PayloadAction<BookingState["paymentStatus"]>
+    ) => {
+      state.paymentStatus = action.payload;
+    },
+    setBookingId: (state, action: PayloadAction<string>) => {
+      state.bookingId = action.payload;
+    },
+    setUser: (state, action: PayloadAction<string>) => {
+      state.user = action.payload;
+    },
+    setDriver: (state, action: PayloadAction<string>) => {
+      state.driver = action.payload;
     },
     resetBooking: (state) => {
       Object.assign(state, initialState);
@@ -60,10 +114,18 @@ const bookingSlice = createSlice({
 
 export const {
   updateStep,
+  updateOnboardingStep,
   updateLocations,
+  updateMoveDate,
   updateItems,
   updateServices,
+  updateOffers,
+  updateStatus,
   setEstimatedPrice,
+  setPaymentStatus,
+  setBookingId,
+  setUser,
+  setDriver,
   resetBooking,
 } = bookingSlice.actions;
 export default bookingSlice.reducer;

@@ -1,14 +1,11 @@
 "use client";
-import { useEffect, useState } from "react";
-import { updateStep } from "@/app/store/slices/BookingSlice";
+import { Suspense, useEffect, useState } from "react";
+import { setBookingId, updateStep } from "@/app/store/slices/BookingSlice";
 import OnboardingLayout from "@/app/components/templates/OnboardingLayout";
 import { useAppDispatch, useAppSelector } from "@/app/store/hooks";
 import Input from "@/app/components/atoms/Input";
-import {
-  useCreateBookingMutation,
-  useUpdateOnboardingStepMutation,
-} from "@/app/store/apis/BookingApi";
-import { Navigation } from "lucide-react";
+import { useCreateBookingMutation } from "@/app/store/apis/BookingApi";
+import { Loader2, Navigation } from "lucide-react";
 import { useForm } from "react-hook-form";
 import dynamic from "next/dynamic";
 
@@ -16,7 +13,7 @@ const Map = dynamic(() => import("@/app/components/molecules/Map"), {
   ssr: false,
 });
 
-const LocationsStep = () => {
+const Locations = () => {
   const { step } = useAppSelector((state) => state.booking);
   const { register, setValue, handleSubmit } = useForm();
   const dispatch = useAppDispatch();
@@ -26,10 +23,8 @@ const LocationsStep = () => {
   const [dropoff, setDropoff] = useState<LatLng | null>(null);
   const [routeDistance, setRouteDistance] = useState(null);
   const [routeDuration, setRouteDuration] = useState(null);
-  const [createBooking, { isLoading, error }] = useCreateBookingMutation();
-  const [updateOnboardingStep, { data, error: updateError }] =
-    useUpdateOnboardingStepMutation();
-  console.log("data: ", data);
+  const [createBooking, { error }] = useCreateBookingMutation();
+
   if (error) console.log(error);
 
   useEffect(() => {
@@ -51,15 +46,18 @@ const LocationsStep = () => {
           type: "Point",
           coordinates: [pickup.lng, pickup.lat],
           address: pickupAddress,
+          floorNumber: data.pickupFloorNumber,
         },
         dropoffLocation: {
           type: "Point",
           coordinates: [dropoff.lng, dropoff.lat],
           address: dropoffAddress,
+          floorNumber: data.dropoffFloorNumber,
         },
       });
 
       console.log("res: ", res);
+      dispatch(setBookingId(res.data._id));
       dispatch(updateStep(step + 1));
     } catch (error) {
       console.log("error: ", error);
@@ -68,34 +66,25 @@ const LocationsStep = () => {
 
   return (
     <OnboardingLayout currentStep={step}>
-      <div className="flex flex-col md:flex-row gap-6 w-full items-center justify-center">
+      <div className="flex flex-col md:flex-row gap-6 w-full items-center justify-between">
         <form
-          className="flex flex-col gap-4 w-full md:w-[32%]"
+          className="grid grid-cols-2 gap-4 w-full md:w-[40%]"
           onSubmit={handleSubmit(onSubmit)}
         >
-          <h1 className="text-[25px] font-semibold">
-            Where is your move hapenning?
-          </h1>
-          {pickup && dropoff && (
-            <p className="text-sm font-medium mb-2">
-              Your route is{" "}
-              <span className="text-primary font-semibold">
-                {routeDistance?.toFixed(2) || 0} km
-              </span>
-              , which takes around{" "}
-              <span className="text-primary font-semibold">
-                {routeDuration?.toFixed(2) || 0} minutes
-              </span>
-              .
-            </p>
-          )}
-
           <Input
             name="pickupLocation"
+            type="text"
             placeholder="Pick-up Location"
             register={register}
             className="py-4 text-base truncate"
             icon={Navigation}
+          />
+          <Input
+            name="pickupFloorNumber"
+            type="number"
+            placeholder="Floor Number"
+            register={register}
+            className="py-4 text-base truncate"
           />
 
           <Input
@@ -104,8 +93,15 @@ const LocationsStep = () => {
             register={register}
             className="py-4 text-base truncate"
           />
+          <Input
+            name="dropoffFloorNumber"
+            type="number"
+            placeholder="Floor Number"
+            register={register}
+            className="py-4 text-base truncate"
+          />
 
-          <div className="space-x-2">
+          <div className="flex w-full space-x-2">
             <button className="border-2 border-primary text-black py-2 px-4 mt-4 font-medium">
               Back to Home
             </button>
@@ -118,19 +114,28 @@ const LocationsStep = () => {
           </div>
         </form>
 
-        <Map
-          pickup={pickup}
-          dropoff={dropoff}
-          setPickupAddress={setPickupAddress}
-          setDropoffAddress={setDropoffAddress}
-          onSetPickup={setPickup}
-          onSetDropoff={setDropoff}
-          setRouteDistance={setRouteDistance}
-          setRouteDuration={setRouteDuration}
-        />
+        <Suspense
+          fallback={
+            <div className="flex items-center justify-center gap-2">
+              <h1 className="text-md font-medium">Loading Map</h1>
+              <Loader2 className="animate-spin text-primary" />
+            </div>
+          }
+        >
+          <Map
+            pickup={pickup}
+            dropoff={dropoff}
+            setPickupAddress={setPickupAddress}
+            setDropoffAddress={setDropoffAddress}
+            onSetPickup={setPickup}
+            onSetDropoff={setDropoff}
+            setRouteDistance={setRouteDistance}
+            setRouteDuration={setRouteDuration}
+          />
+        </Suspense>
       </div>
     </OnboardingLayout>
   );
 };
 
-export default LocationsStep;
+export default Locations;

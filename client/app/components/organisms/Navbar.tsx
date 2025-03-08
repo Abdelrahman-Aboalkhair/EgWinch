@@ -21,8 +21,25 @@ const Navbar = () => {
   const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
   const [notificationsOpen, setNotificationsOpen] = useState(false);
-  const notificationRef = useRef(null);
-  const menuRef = useRef(null);
+  const notificationRef = useRef<HTMLDivElement>(null);
+  const menuRef = useRef<HTMLDivElement>(null);
+
+  // Close menu when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        menuRef.current &&
+        !menuRef.current.contains(event.target as Node) &&
+        !notificationRef.current?.contains(event.target as Node)
+      ) {
+        setMenuOpen(false);
+        setNotificationsOpen(false);
+      }
+    };
+
+    document.addEventListener("click", handleClickOutside);
+    return () => document.removeEventListener("click", handleClickOutside);
+  }, []);
 
   return (
     <nav className="flex justify-between items-center pt-8">
@@ -38,7 +55,11 @@ const Navbar = () => {
           {isLoggedIn && (
             <button
               className="relative mt-2"
-              onClick={() => setNotificationsOpen(!notificationsOpen)}
+              onClick={(e) => {
+                e.stopPropagation();
+                setNotificationsOpen(!notificationsOpen);
+                setMenuOpen(false); // Close user menu when opening notifications
+              }}
             >
               <Bell size={23} />
               {notifications.some((n: any) => !n.isRead) && (
@@ -87,29 +108,32 @@ const Navbar = () => {
           )}
         </div>
 
-        {/* User Menu - Show on Hover */}
+        {/* User Menu - Click to Toggle */}
         {isLoggedIn ? (
-          <div
-            className="relative flex items-center gap-8"
-            onMouseEnter={() => setMenuOpen(true)}
-            onMouseLeave={() => setMenuOpen(false)}
-            ref={menuRef}
-          >
-            {user?.profilePicture?.secure_url ? (
-              <Image
-                src={user.profilePicture.secure_url}
-                alt="User Profile"
-                className="rounded-full cursor-pointer"
-                width={40}
-                height={40}
-                onError={(e) => (e.currentTarget.style.display = "none")}
-              />
-            ) : (
-              <User
-                size={40}
-                className="rounded-full cursor-pointer bg-gray-200 p-2"
-              />
-            )}
+          <div className="relative flex items-center gap-8" ref={menuRef}>
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                setMenuOpen(!menuOpen);
+                setNotificationsOpen(false); // Close notifications when opening user menu
+              }}
+            >
+              {user?.profilePicture?.secure_url ? (
+                <Image
+                  src={user.profilePicture.secure_url}
+                  alt="User Profile"
+                  className="rounded-full cursor-pointer"
+                  width={40}
+                  height={40}
+                  onError={(e) => (e.currentTarget.style.display = "none")}
+                />
+              ) : (
+                <User
+                  size={40}
+                  className="rounded-full cursor-pointer bg-gray-200 p-2"
+                />
+              )}
+            </button>
 
             {menuOpen && (
               <UserMenu

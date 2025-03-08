@@ -32,6 +32,9 @@ const bookingSchema = new mongoose.Schema(
         type: String,
         trim: true,
       },
+      floorNumber: {
+        type: Number,
+      },
     },
     dropoffLocation: {
       type: {
@@ -47,6 +50,9 @@ const bookingSchema = new mongoose.Schema(
       address: {
         type: String,
         trim: true,
+      },
+      floorNumber: {
+        type: Number,
       },
     },
     moveDate: {
@@ -67,9 +73,9 @@ const bookingSchema = new mongoose.Schema(
           name: { type: String, required: true },
           category: { type: String },
           quantity: { type: Number, required: true, min: 1 },
-          isFragile: { type: Boolean, default: false },
+          fragile: { type: Boolean, default: false },
           specialInstructions: { type: String, trim: true },
-          additionalServices: [{ type: String }],
+          additionalService: { type: String, trim: true },
         },
       ],
       default: [],

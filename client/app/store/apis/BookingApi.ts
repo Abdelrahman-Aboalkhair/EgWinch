@@ -37,10 +37,10 @@ export const bookingApi = apiSlice.injectEndpoints({
     }),
 
     updateOnboardingStep: builder.mutation({
-      query: ({ bookingId, step, data }) => ({
+      query: ({ bookingId, step, items }) => ({
         url: `/bookings/update-step/${step}`,
         method: "PUT",
-        body: { bookingId, data },
+        body: { bookingId, items },
       }),
       invalidatesTags: ["Booking"],
     }),

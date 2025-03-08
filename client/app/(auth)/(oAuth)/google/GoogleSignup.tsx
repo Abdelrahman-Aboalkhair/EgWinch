@@ -7,7 +7,7 @@ import { useRouter } from "next/navigation";
 import Image from "next/image";
 import GoogleIcon from "@/app/assets/icons/google.png";
 
-const GoogleSignup = () => {
+const GoogleSignup = ({ onError }) => {
   const dispatch = useAppDispatch();
   const router = useRouter();
 
@@ -16,12 +16,15 @@ const GoogleSignup = () => {
       try {
         const res = await axiosInstance.post("/auth/google-signup", {
           access_token: tokenResponse.access_token,
-          role: "customer", // Modify based on user selection
+          role: "customer",
         });
 
         dispatch(setCredentials(res.data));
         router.push("/");
       } catch (error) {
+        onError(
+          error?.response?.data?.message ?? "An error occurred while signing in"
+        );
         console.error("Google signup failed", error);
       }
     },
