@@ -152,7 +152,7 @@ const Map: React.FC<MapProps> = ({
       key={JSON.stringify(pickupPosition) + JSON.stringify(dropoffPosition)}
       center={[30.0444, 31.2357]}
       zoom={12}
-      className="rounded-md h-[530px] w-1/2 focus:border-none focus:outline-none foucs:ring-2 focus:ring-primary"
+      className="rounded-md h-[480px] w-1/2"
     >
       <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
       <MapEvents />

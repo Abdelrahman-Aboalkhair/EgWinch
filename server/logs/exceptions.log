@@ -3638,3 +3638,8 @@ SyntaxError: Unexpected token '.'
     at require (node:internal/modules/helpers:177:18)
     at Object.<anonymous> (/app/modules/bookings/booking.routes.js:11:5)
     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+[2025-03-08T20:49:16.375Z] [31MERROR[39M: uncaughtException: Operation `users.findOne()` buffering timed out after 10000ms
+MongooseError: Operation `users.findOne()` buffering timed out after 10000ms
+    at Timeout.<anonymous> (/app/node_modules/mongoose/lib/drivers/node-mongodb-native/collection.js:185:23)
+    at listOnTimeout (node:internal/timers:569:17)
+    at process.processTimers (node:internal/timers:512:7)

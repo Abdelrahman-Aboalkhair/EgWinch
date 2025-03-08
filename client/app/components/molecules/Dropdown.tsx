@@ -58,7 +58,7 @@ const Dropdown: React.FC<DropdownProps> = ({
               className="text-gray-600 cursor-pointer"
               onClick={(e) => {
                 e.stopPropagation();
-                onChange(null); // Clear selection
+                onChange(null);
               }}
             />
           ) : (

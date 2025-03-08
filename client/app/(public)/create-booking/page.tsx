@@ -1,7 +1,7 @@
 "use client";
 import MainLayout from "@/app/components/templates/MainLayout";
 import { useAppSelector } from "@/app/store/hooks";
-import LocationsStep from "./Locations";
+import LocationsStep from "./Location";
 import ItemsStep from "./Items";
 import ServicesStep from "./Services";
 import ConfirmationStep from "./Summary";
