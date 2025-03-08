@@ -18,7 +18,7 @@ const OnboardingLayout: React.FC<OnboardingLayoutProps> = ({
   currentStep,
 }) => {
   return (
-    <main className="flex flex-col items-center justify-center gap-[5rem]">
+    <main className="flex flex-col items-center justify-center gap-[4rem]">
       <Stepper steps={steps} currentStep={currentStep} />
       {children}
     </main>

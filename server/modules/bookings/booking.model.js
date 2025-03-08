@@ -27,13 +27,16 @@ const bookingSchema = new mongoose.Schema(
       },
       coordinates: {
         type: [Number],
+        required: true,
       },
       address: {
         type: String,
         trim: true,
+        required: true,
       },
       floorNumber: {
         type: Number,
+        required: true,
       },
     },
     dropoffLocation: {
@@ -46,13 +49,16 @@ const bookingSchema = new mongoose.Schema(
       },
       coordinates: {
         type: [Number],
+        required: true,
       },
       address: {
         type: String,
         trim: true,
+        required: true,
       },
       floorNumber: {
         type: Number,
+        required: true,
       },
     },
     moveDate: {
