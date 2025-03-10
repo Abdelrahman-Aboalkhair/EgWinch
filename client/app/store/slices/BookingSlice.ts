@@ -2,9 +2,9 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 interface Item {
   name: string;
-  category?: string;
+  category: string;
   quantity: number;
-  fragile: boolean;
+  fragile?: boolean;
   specialInstructions?: string;
   additionalService?: string;
 }
