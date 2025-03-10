@@ -29,6 +29,6 @@ connectToDb();
 const PORT = process.env.PORT || 5000;
 
 server.listen(PORT, () => {
-  logger.info(`Server is running on https://localhost:${PORT}`);
+  logger.info(`Server is running on http://localhost:${PORT}`);
 });
 module.exports = { io };

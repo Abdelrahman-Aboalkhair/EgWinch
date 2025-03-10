@@ -1,5 +1,5 @@
 "use client";
-import { Suspense, useEffect, useState } from "react";
+import { Suspense, useCallback, useEffect, useMemo, useState } from "react";
 import {
   setBookingId,
   updateLocations,
@@ -9,23 +9,33 @@ import OnboardingLayout from "@/app/components/templates/OnboardingLayout";
 import { useAppDispatch, useAppSelector } from "@/app/store/hooks";
 import Input from "@/app/components/atoms/Input";
 import { useCreateBookingMutation } from "@/app/store/apis/BookingApi";
-import { Loader2, Navigation } from "lucide-react";
+import { LampFloor, Loader2, MapPinHouse, Navigation } from "lucide-react";
 import { useForm } from "react-hook-form";
 import dynamic from "next/dynamic";
 import useLocationSuggestions from "@/app/hooks/useGetLocationSuggestions";
-
+import Button from "@/app/components/atoms/Button";
 const Map = dynamic(() => import("@/app/components/molecules/Map"), {
   ssr: false,
 });
 
 const Location = () => {
-  const { step } = useAppSelector((state) => state.booking);
   const {
-    register,
-    setValue,
+    control,
     handleSubmit,
+    setValue,
     formState: { errors },
-  } = useForm();
+  } = useForm({
+    defaultValues: {
+      pickupLocation: "",
+      pickupFloorNumber: 1,
+      dropoffLocation: "",
+      dropoffFloorNumber: 1,
+      pickupAddress: "",
+      dropoffAddress: "",
+    },
+  });
+  const { step } = useAppSelector((state) => state.booking);
+
   const dispatch = useAppDispatch();
   const [pickupAddress, setPickupAddress] = useState("");
   const [dropoffAddress, setDropoffAddress] = useState("");
@@ -43,21 +53,43 @@ const Location = () => {
     fetchSuggestions: fetchDropoffSuggestions,
   } = useLocationSuggestions();
 
-  const handleSelectPickup = (suggestion) => {
+  const handleSelectPickup = useCallback((suggestion) => {
     setPickupAddress(suggestion.display_name);
     setPickup({
       lat: parseFloat(suggestion.lat),
       lng: parseFloat(suggestion.lon),
     });
-  };
+  }, []);
 
-  const handleSelectDropoff = (suggestion) => {
+  const handleSelectDropoff = useCallback((suggestion) => {
     setDropoffAddress(suggestion.display_name);
     setDropoff({
       lat: parseFloat(suggestion.lat),
       lng: parseFloat(suggestion.lon),
     });
-  };
+  }, []);
+
+  const handleSetPickup = useCallback((location) => {
+    setPickup(location);
+  }, []);
+
+  const handleSetDropoff = useCallback((location) => {
+    setDropoff(location);
+  }, []);
+
+  const mapProps = useMemo(
+    () => ({
+      pickup,
+      dropoff,
+      setPickupAddress,
+      setDropoffAddress,
+      onSetPickup: handleSetPickup,
+      onSetDropoff: handleSetDropoff,
+      setRouteDistance,
+      setRouteDuration,
+    }),
+    [pickup, dropoff]
+  );
 
   useEffect(() => {
     if (pickupAddress) {
@@ -76,23 +108,24 @@ const Location = () => {
   if (error) console.log(error);
 
   const onSubmit = async (data) => {
+    console.log("data: ", data);
+    const pickupLocation = {
+      type: "Point",
+      coordinates: [pickup.lng, pickup.lat],
+      address: data.pickupAddress,
+      floorNumber: data.pickupFloorNumber,
+    };
+    const dropoffLocation = {
+      type: "Point",
+      coordinates: [dropoff.lng, dropoff.lat],
+      address: data.dropoffAddress,
+      floorNumber: data.dropoffFloorNumber,
+    };
     try {
       const res = await createBooking({
-        pickupLocation: {
-          type: "Point",
-          coordinates: [pickup.lng, pickup.lat],
-          address: pickupAddress,
-          floorNumber: data.pickupFloorNumber,
-        },
-        dropoffLocation: {
-          type: "Point",
-          coordinates: [dropoff.lng, dropoff.lat],
-          address: dropoffAddress,
-          floorNumber: data.dropoffFloorNumber,
-        },
+        pickupLocation,
+        dropoffLocation,
       });
-
-      console.log("res: ", res);
       dispatch(setBookingId(res.data._id));
       dispatch(updateStep(step + 1));
       dispatch(
@@ -119,88 +152,75 @@ const Location = () => {
             </span>
           </div>
         )}
+
         <form
-          className="grid grid-cols-2 gap-4 w-full md:w-[40%] bg-white shadow-md p-8 rounded-md"
+          className="grid grid-cols-2 gap-4 w-full md:w-[40%] p-8 rounded-md"
           onSubmit={handleSubmit(onSubmit)}
         >
-          <div className="flex flex-col items-start justify-start gap-2">
-            <Input
-              name="pickupLocation"
-              value={pickupAddress}
-              placeholder="Pick-up Location"
-              register={register}
-              className="py-4 text-base truncate"
-              fetchSuggestions={fetchPickupSuggestions}
-              suggestions={pickupSuggestions}
-              onSelectSuggestion={handleSelectPickup}
-              validation={{ required: "Pick-up location is required" }}
-            />
-            {errors.pickupLocation && (
-              <span className="text-red-500 text-sm">
-                {errors.pickupLocation.message}
-              </span>
-            )}
-          </div>
-          <div className="flex flex-col items-start justify-start gap-2">
-            <Input
-              name="pickupFloorNumber"
-              value={dropoffAddress}
-              type="number"
-              placeholder="Floor Number"
-              register={register}
-              className="py-4 text-base truncate"
-              validation={{ required: "Pick-up Floor Number is required" }}
-            />
-            {errors.pickupFloorNumber && (
-              <span className="text-red-500 text-sm">
-                {errors.pickupFloorNumber.message}
-              </span>
-            )}
-          </div>
+          <Input
+            control={control}
+            name="pickupLocation"
+            placeholder="Pick-up Location"
+            setValue={setValue}
+            className="py-4 text-base truncate"
+            fetchSuggestions={fetchPickupSuggestions}
+            suggestions={pickupSuggestions}
+            onSelectSuggestion={handleSelectPickup}
+            validation={{ required: "Pick-up location is required" }}
+            icon={Navigation}
+            error={errors.pickupLocation?.message}
+          />
 
-          <div className="flex flex-col items-start justify-start gap-2">
-            <Input
-              name="dropoffLocation"
-              placeholder="Drop-off Location"
-              register={register}
-              className="py-4 text-base truncate"
-              fetchSuggestions={fetchDropoffSuggestions}
-              suggestions={dropoffSuggestions}
-              onSelectSuggestion={handleSelectDropoff}
-              validation={{ required: "Drop-off location is required" }}
-            />
-            {errors.dropoffLocation && (
-              <span className="text-red-500 text-sm">
-                {errors.dropoffLocation.message}
-              </span>
-            )}
-          </div>
-          <div className="flex flex-col items-start justify-start gap-2">
-            <Input
-              name="dropoffFloorNumber"
-              type="number"
-              placeholder="Floor Number"
-              register={register}
-              className="py-4 text-base truncate"
-              validation={{ required: "Drop-off Floor Number is required" }}
-            />
-            {errors.dropoffFloorNumber && (
-              <span className="text-red-500 text-sm">
-                {errors.dropoffFloorNumber.message}
-              </span>
-            )}
-          </div>
+          <Input
+            control={control}
+            name="pickupFloorNumber"
+            type="number"
+            setValue={setValue}
+            placeholder="Floor Number"
+            className="py-4 text-base truncate"
+            validation={{ required: "Pick-up Floor Number is required" }}
+            icon={LampFloor}
+            error={errors.pickupFloorNumber?.message}
+          />
+
+          <Input
+            control={control}
+            name="dropoffLocation"
+            placeholder="Drop-off Location"
+            setValue={setValue}
+            className="py-4 text-base truncate"
+            fetchSuggestions={fetchDropoffSuggestions}
+            suggestions={dropoffSuggestions}
+            onSelectSuggestion={handleSelectDropoff}
+            validation={{ required: "Drop-off location is required" }}
+            icon={MapPinHouse}
+            error={errors.dropoffLocation?.message}
+          />
+          <Input
+            control={control}
+            name="dropoffFloorNumber"
+            type="number"
+            placeholder="Floor Number"
+            setValue={setValue}
+            className="py-4 text-base truncate"
+            validation={{ required: "Drop-off Floor Number is required" }}
+            icon={LampFloor}
+            error={errors.dropoffFloorNumber?.message}
+          />
 
           <div className="flex w-full space-x-2">
-            <button className="border-2 border-primary text-black py-2 px-4 mt-4 font-medium">
+            <Button
+              type="button"
+              className="border-2 border-primary text-black py-2 px-4 mt-4 font-medium"
+            >
               Back to Home
-            </button>
-            <button
+            </Button>
+            <Button
               type="submit"
               className="bg-primary text-white py-2 px-8 mt-4 font-medium active:scale-95 hover:opacity-90"
             >
               Next
-            </button>
+            </Button>
           </div>
         </form>
 
@@ -212,16 +232,7 @@ const Location = () => {
             </div>
           }
         >
-          <Map
-            pickup={pickup}
-            dropoff={dropoff}
-            setPickupAddress={setPickupAddress}
-            setDropoffAddress={setDropoffAddress}
-            onSetPickup={setPickup}
-            onSetDropoff={setDropoff}
-            setRouteDistance={setRouteDistance}
-            setRouteDuration={setRouteDuration}
-          />
+          <Map {...mapProps} />
         </Suspense>
       </div>
     </OnboardingLayout>

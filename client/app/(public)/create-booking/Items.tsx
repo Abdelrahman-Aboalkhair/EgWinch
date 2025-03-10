@@ -22,13 +22,13 @@ interface ItemProps {
 }
 
 const Items = () => {
-  const { step, bookingId } = useAppSelector((state) => state.booking);
-  console.log("bookingId: ", bookingId);
-  const [updateOnboardingStep] = useUpdateOnboardingStepMutation();
-  const dispatch = useAppDispatch();
-  const [items, setItems] = useState<ItemProps[]>([]);
-
-  const { register, handleSubmit, control, reset } = useForm<ItemProps>({
+  const {
+    setValue,
+    handleSubmit,
+    control,
+    reset,
+    formState: { errors },
+  } = useForm<ItemProps>({
     defaultValues: {
       name: "",
       quantity: "",
@@ -38,6 +38,11 @@ const Items = () => {
       specialInstructions: "",
     },
   });
+  const { step, bookingId } = useAppSelector((state) => state.booking);
+  console.log("bookingId: ", bookingId);
+  const [updateOnboardingStep] = useUpdateOnboardingStepMutation();
+  const dispatch = useAppDispatch();
+  const [items, setItems] = useState<ItemProps[]>([]);
 
   const onSubmit = (data: ItemProps) => {
     setItems([...items, data]);
@@ -68,8 +73,21 @@ const Items = () => {
       <div className="flex gap-10 w-full">
         <form onSubmit={handleSubmit(onSubmit)} className="w-1/2 space-y-4">
           <div className="grid grid-cols-2 gap-4">
-            <Input name="name" placeholder="Item Name" register={register} />
-            <Input name="quantity" placeholder="Quantity" register={register} />
+            <Input
+              name="name"
+              placeholder="Item Name"
+              control={control}
+              setValue={setValue}
+              validation={{ required: true }}
+              error={errors.name?.message}
+            />
+            <Input
+              name="quantity"
+              placeholder="Quantity"
+              control={control}
+              setValue={setValue}
+              error={errors.quantity?.message}
+            />
             <Controller
               name="category"
               control={control}
@@ -95,7 +113,9 @@ const Items = () => {
             <Input
               name="specialInstructions"
               placeholder="Special Instructions"
-              register={register}
+              control={control}
+              setValue={setValue}
+              error={errors.specialInstructions?.message}
             />
             <CheckBox name="fragile" control={control} label="Fragile" />
           </div>

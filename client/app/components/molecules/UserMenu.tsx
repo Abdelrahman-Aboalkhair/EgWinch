@@ -7,6 +7,7 @@ import { clearAuthState } from "../../store/slices/AuthSlice";
 import { useSignOutMutation } from "../../store/apis/AuthApi";
 import { useRouter } from "next/navigation";
 import { LayoutDashboard, Home, User, LogOut } from "lucide-react";
+import Button from "../atoms/Button";
 
 const UserMenu = ({ menuOpen, closeMenu }) => {
   const dispatch = useAppDispatch();
@@ -31,10 +32,8 @@ const UserMenu = ({ menuOpen, closeMenu }) => {
         exit={{ opacity: 0, y: -10 }}
         className="absolute right-0 top-[3rem] w-56 bg-white shadow-lg rounded-lg z-[2200] border border-gray-200 overflow-hidden"
       >
-        {/* Triangle Indicator */}
         <div className="absolute top-[-10px] right-4 w-0 h-0 border-l-8 border-r-8 border-b-8 border-transparent border-b-white"></div>
 
-        {/* Menu Items */}
         <div className="flex flex-col text-gray-700">
           <Link
             href="/dashboard"
@@ -60,7 +59,7 @@ const UserMenu = ({ menuOpen, closeMenu }) => {
             <User size={18} />
             <span>Your Profile</span>
           </Link>
-          <button
+          <Button
             onClick={() => {
               handleSignOut();
               closeMenu();
@@ -69,7 +68,7 @@ const UserMenu = ({ menuOpen, closeMenu }) => {
           >
             <LogOut size={18} />
             <span>Sign out</span>
-          </button>
+          </Button>
         </div>
       </motion.div>
     )
