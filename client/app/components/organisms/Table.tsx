@@ -22,13 +22,13 @@ const Table: React.FC<TableProps> = ({
 }) => {
   return (
     <div className="w-full overflow-x-auto">
-      <table className="w-full border-collapse border border-gray-200">
+      <table className="w-full border-none">
         <thead className="bg-gray-100">
-          <tr>
+          <tr className="border-b border-gray-200">
             {columns.map((column) => (
               <th
                 key={column.key}
-                className="px-4 py-2 border border-gray-300 text-left"
+                className="px-4 py-2 text-left text-gray-700 font-semibold"
               >
                 {column.label}
               </th>
@@ -52,10 +52,7 @@ const Table: React.FC<TableProps> = ({
                 className="hover:bg-gray-50"
               >
                 {columns.map((column) => (
-                  <td
-                    key={column.key}
-                    className="px-4 py-2 border border-gray-300"
-                  >
+                  <td key={column.key} className="px-4 py-2">
                     {column.render ? column.render(row) : row[column.key]}
                   </td>
                 ))}
