@@ -3,9 +3,10 @@ import { useState } from "react";
 import {
   useCreateAdminMutation,
   useGetAllUsersQuery,
-} from "@/app/libs/features/apis/UserApi";
+} from "@/app/store/apis/UserApi";
 import { Loader2, Search, PlusCircle } from "lucide-react";
 import { motion } from "framer-motion";
+import Table from "@/app/components/organisms/Table";
 
 const ManageUsers = () => {
   const [createAdmin, { isLoading: createAdminLoading }] =
@@ -29,9 +30,15 @@ const ManageUsers = () => {
     user.name.toLowerCase().includes(search.toLowerCase())
   );
 
+  const columns = [
+    { key: "_id", label: "ID" },
+    { key: "name", label: "Name" },
+    { key: "email", label: "Email" },
+    { key: "role", label: "Role" },
+  ];
+
   return (
     <div className="p-6 bg-white shadow-md rounded-xl">
-      {/* Header */}
       <div className="flex justify-between items-center mb-4">
         <h2 className="text-xl font-semibold">Manage Users</h2>
         <div className="relative">
@@ -44,7 +51,6 @@ const ManageUsers = () => {
             onChange={(e) => setSearch(e.target.value)}
           />
         </div>
-        {/* Show Create Admin button only for admins */}
         {users?.currentUser?.role === "admin" && (
           <button
             onClick={() => setIsModalOpen(true)}
@@ -55,47 +61,20 @@ const ManageUsers = () => {
         )}
       </div>
 
-      {/* Loading State */}
       {isLoading ? (
         <div className="flex justify-center items-center py-10">
           <Loader2 className="animate-spin text-primary" size={32} />
         </div>
       ) : (
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-          <div className="overflow-x-auto">
-            <table className="w-full border-collapse border border-gray-200">
-              <thead className="bg-gray-100">
-                <tr>
-                  <th className="th">ID</th>
-                  <th className="th">Name</th>
-                  <th className="th">Email</th>
-                  <th className="th">Role</th>
-                </tr>
-              </thead>
-              <tbody>
-                {filteredUsers?.length ? (
-                  filteredUsers.map((user) => (
-                    <tr key={user.id || user._id} className="hover:bg-gray-50">
-                      <td className="td">{user._id}</td>
-                      <td className="td">{user.name}</td>
-                      <td className="td">{user.email}</td>
-                      <td className="td">{user.role}</td>
-                    </tr>
-                  ))
-                ) : (
-                  <tr>
-                    <td colSpan={5} className="text-center py-4 text-gray-500">
-                      No users found.
-                    </td>
-                  </tr>
-                )}
-              </tbody>
-            </table>
-          </div>
+          <Table
+            data={filteredUsers || []}
+            columns={columns}
+            isLoading={isLoading}
+          />
         </motion.div>
       )}
 
-      {/* Create Admin Modal */}
       {isModalOpen && (
         <div key={isModalOpen} onClick={() => setIsModalOpen(false)}>
           <div className="space-y-4">

@@ -16,6 +16,7 @@ const reviewRoutes = require("./modules/reviews/review.routes.js");
 const messageRoutes = require("./modules/chat/message.routes.js");
 const conversationRoutes = require("./modules/chat/conversation.routes.js");
 const notificationRoutes = require("./modules/notifications/notification.routes.js");
+const locationRoutes = require("./modules/locations/location.routes.js");
 const globalError = require("./middlewares/globalError.js");
 const logger = require("./config/logger.js");
 
@@ -57,6 +58,7 @@ app.use("/api/v1/reviews", reviewRoutes);
 app.use("/api/v1/notifications", notificationRoutes);
 app.use("/api/v1/messages", messageRoutes);
 app.use("/api/v1/conversations", conversationRoutes);
+app.use("/api/v1/locations", locationRoutes);
 
 app.all("*", (req, res, next) => {
   next(new AppError(`Can't find ${req.originalUrl} on this server!`, 404));

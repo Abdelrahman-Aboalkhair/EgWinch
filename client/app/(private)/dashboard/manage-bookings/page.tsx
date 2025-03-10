@@ -66,7 +66,6 @@ const ManageBookings = () => {
 
   return (
     <main className="p-6 bg-white shadow-md rounded-xl">
-      {/* Header */}
       <div className="flex justify-between items-center mb-4">
         <h2 className="text-xl font-semibold">Manage Bookings</h2>
         <div className="relative">
@@ -91,7 +90,6 @@ const ManageBookings = () => {
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
           <div className="overflow-x-auto">
             <table className="w-full border-collapse border border-gray-200">
-              {/* Table Head */}
               <thead className="bg-gray-50">
                 <tr>
                   <th className="th">Customer</th>
