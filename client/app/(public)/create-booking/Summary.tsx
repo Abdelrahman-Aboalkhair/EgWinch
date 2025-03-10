@@ -38,7 +38,7 @@ const Summary = () => {
           </div>
 
           {/* Arrow */}
-          <ArrowRight className="text-gray-600 w-6 h-6" />
+          <ArrowRight className="text-gray-600 w-[2rem] h-[2rem]" />
 
           {/* Dropoff */}
           <div className="text-right">

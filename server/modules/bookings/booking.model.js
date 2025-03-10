@@ -87,7 +87,12 @@ const bookingSchema = new mongoose.Schema(
       default: [],
     },
     generalServices: {
-      type: [String],
+      type: [
+        {
+          name: { type: String, required: true },
+          details: { type: String, trim: true },
+        },
+      ],
       default: [],
     },
     offers: [
