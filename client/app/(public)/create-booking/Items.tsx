@@ -1,5 +1,4 @@
 "use client";
-import { useState } from "react";
 import { updateItems, updateStep } from "@/app/store/slices/BookingSlice";
 import { useAppDispatch, useAppSelector } from "@/app/store/hooks";
 import Input from "@/app/components/atoms/Input";
@@ -40,26 +39,34 @@ const Items = () => {
     },
   });
 
-  const { step, bookingId } = useAppSelector((state) => state.booking);
+  const {
+    step,
+    items: savedItems,
+    bookingId,
+  } = useAppSelector((state) => state.booking);
   const [updateOnboardingStep] = useUpdateOnboardingStepMutation();
   const dispatch = useAppDispatch();
-  const [items, setItems] = useState<ItemProps[]>([]);
 
   const onSubmit = (data: ItemProps) => {
-    setItems([...items, data]);
+    const newItems = [...savedItems, data];
+    dispatch(updateItems(newItems));
     reset();
   };
 
   const deleteItem = (index: number) => {
-    setItems(items.filter((_, i) => i !== index));
+    const newItems = savedItems.filter((_, i) => i !== index);
+    dispatch(updateItems(newItems));
   };
 
   const handleNext = async () => {
     try {
-      console.log("sending items: ", items);
-      await updateOnboardingStep({ bookingId, step: "items", items });
+      console.log("sending items: ", savedItems);
+      await updateOnboardingStep({
+        bookingId,
+        step: "items",
+        items: savedItems,
+      });
       dispatch(updateStep(step + 1));
-      dispatch(updateItems(items));
     } catch (error) {
       console.log("error: ", error);
     }
@@ -163,7 +170,7 @@ const Items = () => {
           <h2 className="text-xl font-semibold text-center mb-4">Summary</h2>
           <div className="border rounded-lg overflow-hidden">
             <Table
-              data={items}
+              data={savedItems || []}
               columns={columns}
               emptyMessage="No items added yet."
             />
