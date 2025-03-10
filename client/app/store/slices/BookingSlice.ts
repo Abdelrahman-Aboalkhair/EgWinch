@@ -1,42 +1,11 @@
+import {
+  BookingState,
+  Item,
+  Location,
+  Offer,
+  Service,
+} from "@/app/types/Booking.types";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-
-interface Item {
-  name: string;
-  category: string;
-  quantity: number;
-  fragile?: boolean;
-  specialInstructions?: string;
-  additionalService?: string;
-}
-
-interface Offer {
-  driver: string;
-  price: number;
-  status: "pending" | "negotiating" | "accepted" | "declined";
-}
-
-interface Location {
-  coordinates: [number, number];
-  address: string;
-  floorNumber: number;
-}
-
-interface BookingState {
-  step: number;
-  bookingId?: string;
-  user?: string;
-  driver?: string;
-  onboardingStep: "location" | "items" | "services" | "completed";
-  pickup: Location;
-  dropoff: Location;
-  moveDate?: string;
-  status: "pending" | "inProgress" | "completed" | "declined";
-  items: Item[];
-  services: string[];
-  offers: Offer[];
-  totalPrice?: number;
-  paymentStatus: "pending" | "paid" | "failed";
-}
 
 const loadState = (): BookingState => {
   if (typeof window !== "undefined") {
@@ -49,11 +18,19 @@ const loadState = (): BookingState => {
 const initialState: BookingState = loadState() || {
   step: 1,
   onboardingStep: "location",
-  pickup: { coordinates: [0, 0], address: "", floorNumber: 0 },
-  dropoff: { coordinates: [0, 0], address: "", floorNumber: 0 },
+  pickup: {
+    coordinates: [0, 0],
+    address: "",
+    floorNumber: 0,
+  },
+  dropoff: {
+    coordinates: [0, 0],
+    address: "",
+    floorNumber: 0,
+  },
   status: "pending",
   items: [],
-  services: [],
+  services: [] as Service[],
   offers: [],
   paymentStatus: "pending",
 };
@@ -71,10 +48,7 @@ const bookingSlice = createSlice({
     ) => {
       state.onboardingStep = action.payload;
     },
-    updateLocations: (
-      state,
-      action: PayloadAction<{ pickup: Location; dropoff: Location }>
-    ) => {
+    updateLocations: (state, action: PayloadAction<Location>) => {
       state.pickup = action.payload.pickup;
       state.dropoff = action.payload.dropoff;
     },
@@ -84,7 +58,7 @@ const bookingSlice = createSlice({
     updateItems: (state, action: PayloadAction<Item[]>) => {
       state.items = action.payload;
     },
-    updateServices: (state, action: PayloadAction<string[]>) => {
+    updateServices: (state, action: PayloadAction<Service[]>) => {
       state.services = action.payload;
     },
     updateOffers: (state, action: PayloadAction<Offer[]>) => {

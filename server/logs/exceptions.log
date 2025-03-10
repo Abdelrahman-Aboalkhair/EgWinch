@@ -3648,3 +3648,19 @@ MongooseError: Operation `users.findOne()` buffering timed out after 10000ms
     at Timeout.<anonymous> (/app/node_modules/mongoose/lib/drivers/node-mongodb-native/collection.js:185:23)
     at listOnTimeout (node:internal/timers:569:17)
     at process.processTimers (node:internal/timers:512:7)
+[2025-03-10T13:15:42.532Z] [31MERROR[39M: uncaughtException: Unexpected token ':'
+/app/modules/bookings/booking.model.js:91
+        name: { type: String, required: true },
+            ^
+
+SyntaxError: Unexpected token ':'
+    at internalCompileFunction (node:internal/vm:76:18)
+    at wrapSafe (node:internal/modules/cjs/loader:1283:20)
+    at Module._compile (node:internal/modules/cjs/loader:1328:27)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/modules/users/user.model.js:4:17)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)

@@ -28,7 +28,8 @@ const RegisterCustomer = () => {
   const router = useRouter();
 
   const {
-    register,
+    setValue,
+    control,
     handleSubmit,
     formState: { errors },
   } = useForm<InputForm>();
@@ -80,7 +81,8 @@ const RegisterCustomer = () => {
             name="name"
             type="text"
             placeholder="Name"
-            register={register}
+            setValue={setValue}
+            control={control}
             validation={{ required: "Name is required" }}
             error={errors.name?.message}
             className="py-[18px]"
@@ -90,7 +92,8 @@ const RegisterCustomer = () => {
             name="email"
             type="text"
             placeholder="Email"
-            register={register}
+            setValue={setValue}
+            control={control}
             validation={{ required: "Email is required" }}
             error={errors.email?.message}
             className="py-[18px]"
@@ -100,7 +103,8 @@ const RegisterCustomer = () => {
             name="password"
             type="password"
             placeholder="Password"
-            register={register}
+            setValue={setValue}
+            control={control}
             validation={{
               required: "Password is required",
               minLength: {
