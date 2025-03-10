@@ -1,18 +1,23 @@
 import { useState } from "react";
 import { ArrowRight } from "lucide-react";
 import OnboardingLayout from "@/app/components/templates/OnboardingLayout";
-import { useAppSelector } from "@/app/store/hooks";
+import { useAppDispatch, useAppSelector } from "@/app/store/hooks";
 import Button from "@/app/components/atoms/Button";
 import Card from "@/app/components/molecules/Card";
 import Modal from "@/app/components/organisms/Modal";
+import { updateStep } from "@/app/store/slices/BookingSlice";
 
 const Summary = () => {
   const { step, pickup, dropoff, moveDate, items, services } = useAppSelector(
     (state) => state.booking
   );
+  const dispatch = useAppDispatch();
 
   const [showDetails, setShowDetails] = useState(false);
 
+  const handleBack = () => {
+    dispatch(updateStep(step - 1));
+  };
   return (
     <OnboardingLayout currentStep={step}>
       <div className="flex flex-col items-center justify-center gap-4">
@@ -86,6 +91,21 @@ const Summary = () => {
             Close
           </Button>
         </Modal>
+      </div>
+      <div className="flex justify-center mt-6 gap-2">
+        <button
+          type="button"
+          onClick={handleBack}
+          className="border-2 border-primary text-black py-2 px-10 font-medium"
+        >
+          Back
+        </button>
+        <button
+          type="submit"
+          className="bg-primary text-white py-[10px] px-12 font-medium active:scale-95 hover:opacity-90"
+        >
+          Next
+        </button>
       </div>
     </OnboardingLayout>
   );

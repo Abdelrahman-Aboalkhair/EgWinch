@@ -1,19 +1,37 @@
+"use client";
 import { updateServices, updateStep } from "@/app/store/slices/BookingSlice";
 import OnboardingLayout from "@/app/components/templates/OnboardingLayout";
 import { useAppDispatch, useAppSelector } from "@/app/store/hooks";
 import { useForm } from "react-hook-form";
 import additionalServicesOptions from "@/app/constants/additionalServicesOptions";
 import { useUpdateOnboardingStepMutation } from "@/app/store/apis/BookingApi";
+import { useEffect } from "react";
+
+interface ServicesForm {
+  services: string[];
+}
 
 const Services = () => {
-  const { handleSubmit, register } = useForm();
-  const { step, bookingId } = useAppSelector((state) => state.booking);
-  const [updateOnboardingStep, { error }] = useUpdateOnboardingStepMutation();
-  console.log("error: ", error);
+  const {
+    services: savedServices,
+    step,
+    bookingId,
+  } = useAppSelector((state) => state.booking);
+  console.log("savedServices: ", savedServices);
   const dispatch = useAppDispatch();
+  const [updateOnboardingStep] = useUpdateOnboardingStepMutation();
 
-  const onSubmit = async (data: { services: string[] }) => {
-    console.log("Selected Services:", data.services);
+  const { handleSubmit, register, reset } = useForm<ServicesForm>({
+    defaultValues: {
+      services: savedServices || [],
+    },
+  });
+
+  useEffect(() => {
+    reset({ services: savedServices || [] });
+  }, [savedServices, reset]);
+
+  const onSubmit = async (data: ServicesForm) => {
     try {
       await updateOnboardingStep({
         bookingId,
@@ -48,6 +66,7 @@ const Services = () => {
                 type="checkbox"
                 value={service}
                 {...register("services")}
+                defaultChecked={savedServices?.includes(service)}
                 className="w-5 h-5 text-primary border-gray-300 rounded focus:ring-primary"
               />
               <span className="text-gray-800">{service}</span>
@@ -57,6 +76,7 @@ const Services = () => {
 
         <div className="flex justify-center mt-6 gap-2">
           <button
+            type="button"
             onClick={handleBack}
             className="border-2 border-primary text-black py-2 px-10 font-medium"
           >
