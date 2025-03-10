@@ -38,7 +38,15 @@ interface BookingState {
   paymentStatus: "pending" | "paid" | "failed";
 }
 
-const initialState: BookingState = {
+const loadState = (): BookingState => {
+  if (typeof window !== "undefined") {
+    const storedState = localStorage.getItem("bookingState");
+    return storedState ? JSON.parse(storedState) : null;
+  }
+  return null;
+};
+
+const initialState: BookingState = loadState() || {
   step: 1,
   onboardingStep: "location",
   pickup: { coordinates: [0, 0], address: "", floorNumber: 0 },
@@ -106,11 +114,23 @@ const bookingSlice = createSlice({
     resetBooking: (state) => {
       Object.assign(state, initialState);
       if (typeof window !== "undefined") {
-        localStorage.removeItem("bookingStep");
+        localStorage.removeItem("bookingState");
       }
     },
   },
 });
+
+export const persistBookingStateMiddleware =
+  (store: any) => (next: any) => (action: any) => {
+    const result = next(action);
+    if (typeof window !== "undefined") {
+      localStorage.setItem(
+        "bookingState",
+        JSON.stringify(store.getState().booking)
+      );
+    }
+    return result;
+  };
 
 export const {
   updateStep,
@@ -128,4 +148,5 @@ export const {
   setDriver,
   resetBooking,
 } = bookingSlice.actions;
+
 export default bookingSlice.reducer;

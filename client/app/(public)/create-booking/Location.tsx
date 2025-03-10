@@ -34,7 +34,11 @@ const Location = () => {
       dropoffAddress: "",
     },
   });
-  const { step } = useAppSelector((state) => state.booking);
+  const {
+    step,
+    pickup: savedPickup,
+    dropoff: savedDropoff,
+  } = useAppSelector((state) => state.booking);
 
   const dispatch = useAppDispatch();
   const [pickupAddress, setPickupAddress] = useState("");
@@ -92,18 +96,37 @@ const Location = () => {
   );
 
   useEffect(() => {
+    if (savedPickup) {
+      setPickupAddress(savedPickup.address);
+      setPickup({
+        lat: savedPickup.coordinates[1],
+        lng: savedPickup.coordinates[0],
+      });
+      setValue("pickupFloorNumber", savedPickup.floorNumber || 1);
+    }
+    if (savedDropoff) {
+      setDropoffAddress(savedDropoff.address);
+      setDropoff({
+        lat: savedDropoff.coordinates[1],
+        lng: savedDropoff.coordinates[0],
+      });
+    }
+    setValue("dropoffFloorNumber", savedDropoff.floorNumber || 1);
+  }, []);
+
+  useEffect(() => {
     if (pickupAddress) {
       setValue("pickupLocation", pickupAddress);
       setValue("pickupAddress", pickupAddress);
     }
-  }, [pickupAddress, setValue]);
+  }, [pickupAddress, savedPickup, setValue]);
 
   useEffect(() => {
     if (dropoffAddress) {
       setValue("dropoffLocation", dropoffAddress);
       setValue("dropoffAddress", dropoffAddress);
     }
-  }, [dropoffAddress, setValue]);
+  }, [dropoffAddress, savedDropoff, setValue]);
 
   if (error) console.log(error);
 
@@ -160,7 +183,8 @@ const Location = () => {
           <Input
             control={control}
             name="pickupLocation"
-            placeholder="Pick-up Location"
+            label="Pick-up Location"
+            placeholder="Type or choose your location"
             setValue={setValue}
             className="py-4 text-base truncate"
             fetchSuggestions={fetchPickupSuggestions}
@@ -176,7 +200,8 @@ const Location = () => {
             name="pickupFloorNumber"
             type="number"
             setValue={setValue}
-            placeholder="Floor Number"
+            label="Pick-up Floor Number"
+            placeholder="Type a floor number"
             className="py-4 text-base truncate"
             validation={{ required: "Pick-up Floor Number is required" }}
             icon={LampFloor}
@@ -186,7 +211,8 @@ const Location = () => {
           <Input
             control={control}
             name="dropoffLocation"
-            placeholder="Drop-off Location"
+            label="Drop-off Location"
+            placeholder="Type or choose your location"
             setValue={setValue}
             className="py-4 text-base truncate"
             fetchSuggestions={fetchDropoffSuggestions}
@@ -200,7 +226,8 @@ const Location = () => {
             control={control}
             name="dropoffFloorNumber"
             type="number"
-            placeholder="Floor Number"
+            label="Drop-off Floor Number"
+            placeholder="Type a floor number"
             setValue={setValue}
             className="py-4 text-base truncate"
             validation={{ required: "Drop-off Floor Number is required" }}

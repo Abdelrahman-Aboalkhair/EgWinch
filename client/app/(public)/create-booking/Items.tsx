@@ -11,6 +11,7 @@ import CheckBox from "@/app/components/atoms/CheckBox";
 import categoryOptions from "@/app/constants/categoryOptions";
 import additionalServicesOptions from "@/app/constants/additionalServicesOptions";
 import { useUpdateOnboardingStepMutation } from "@/app/store/apis/BookingApi";
+import Table from "@/app/components/organisms/Table";
 
 interface ItemProps {
   name: string;
@@ -38,8 +39,8 @@ const Items = () => {
       specialInstructions: "",
     },
   });
+
   const { step, bookingId } = useAppSelector((state) => state.booking);
-  console.log("bookingId: ", bookingId);
   const [updateOnboardingStep] = useUpdateOnboardingStepMutation();
   const dispatch = useAppDispatch();
   const [items, setItems] = useState<ItemProps[]>([]);
@@ -68,13 +69,41 @@ const Items = () => {
     dispatch(updateStep(step - 1));
   };
 
+  const columns = [
+    { key: "name", label: "Item" },
+    { key: "quantity", label: "Qty" },
+    {
+      key: "fragile",
+      label: "Fragile",
+      render: (row: ItemProps) => (row.fragile ? "Yes" : "No"),
+    },
+    { key: "category", label: "Category" },
+    { key: "additionalService", label: "Service" },
+    {
+      key: "actions",
+      label: "Action",
+      render: (_: any, index: number) => (
+        <button
+          onClick={() => deleteItem(index)}
+          className="text-red-500 hover:text-red-700"
+        >
+          <Trash2 size={18} />
+        </button>
+      ),
+    },
+  ];
+
   return (
     <OnboardingLayout currentStep={step}>
       <div className="flex gap-10 w-full">
-        <form onSubmit={handleSubmit(onSubmit)} className="w-1/2 space-y-4">
+        <form
+          onSubmit={handleSubmit(onSubmit)}
+          className="w-1/2 space-y-4 pt-[3rem]"
+        >
           <div className="grid grid-cols-2 gap-4">
             <Input
               name="name"
+              type="text"
               placeholder="Item Name"
               control={control}
               setValue={setValue}
@@ -83,6 +112,7 @@ const Items = () => {
             />
             <Input
               name="quantity"
+              type="number"
               placeholder="Quantity"
               control={control}
               setValue={setValue}
@@ -112,6 +142,7 @@ const Items = () => {
             />
             <Input
               name="specialInstructions"
+              type="text"
               placeholder="Special Instructions"
               control={control}
               setValue={setValue}
@@ -128,53 +159,14 @@ const Items = () => {
           </button>
         </form>
 
-        {/* Summary Section */}
         <div className="w-1/2">
           <h2 className="text-xl font-semibold text-center mb-4">Summary</h2>
           <div className="border rounded-lg overflow-hidden">
-            <table className="w-full text-left border-collapse">
-              <thead className="bg-gray-100">
-                <tr className="text-sm text-gray-700">
-                  <th className="py-2 px-3">Item</th>
-                  <th className="py-2 px-3">Qty</th>
-                  <th className="py-2 px-3">Fragile</th>
-                  <th className="py-2 px-3">Category</th>
-                  <th className="py-2 px-3">Service</th>
-                  <th className="py-2 px-3">Action</th>
-                </tr>
-              </thead>
-              <tbody>
-                {items.length > 0 ? (
-                  items.map((item, index) => (
-                    <tr key={index} className="border-b">
-                      <td className="py-2 px-3">{item.name || "N/A"}</td>
-                      <td className="py-2 px-3">{item.quantity || "N/A"}</td>
-                      <td className="py-2 px-3">
-                        {item.fragile ? "Yes" : "No"}
-                      </td>
-                      <td className="py-2 px-3">{item.category || "N/A"}</td>
-                      <td className="py-2 px-3">
-                        {item.additionalService || "N/A"}
-                      </td>
-                      <td className="py-2 px-3">
-                        <button
-                          onClick={() => deleteItem(index)}
-                          className="text-red-500 hover:text-red-700"
-                        >
-                          <Trash2 size={18} />
-                        </button>
-                      </td>
-                    </tr>
-                  ))
-                ) : (
-                  <tr>
-                    <td colSpan={6} className="py-4 text-center text-gray-500">
-                      No items added yet.
-                    </td>
-                  </tr>
-                )}
-              </tbody>
-            </table>
+            <Table
+              data={items}
+              columns={columns}
+              emptyMessage="No items added yet."
+            />
           </div>
         </div>
       </div>
