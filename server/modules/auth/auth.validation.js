@@ -21,7 +21,13 @@ const signupSchema = Joi.object({
     .max(32)
     .pattern(
       new RegExp(
-        "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&#])[A-Za-z\\d@$!%*?&#]{8,32}$"
+        "^(?=.*[a-z])" + // at least one lowercase letter
+          "(?=.*[A-Z])" + // at least one uppercase letter
+          "(?=.*\\d)" + // at least one number
+          "(?=.*[!@#$%^&*()\\-_=+{};:,<.>])" + // at least one special character
+          "(?!.*\\s)" + // no whitespace allowed
+          "(?!.*(.+)\\1{2,})" + // no more than 2 consecutive repeated characters
+          "[A-Za-z\\d!@#$%^&*()\\-_=+{};:,<.>]{8,32}$"
       )
     )
     .required()
@@ -29,8 +35,9 @@ const signupSchema = Joi.object({
       "string.min": "Password must be at least 8 characters long",
       "string.max": "Password cannot exceed 32 characters",
       "string.pattern.base":
-        "Password must contain at least one uppercase letter, one lowercase letter, one number, and one special character",
-      "any.required": "Password is required",
+        "Password must contain at least one uppercase letter, one lowercase letter, " +
+        "one number, one special character, no spaces, and cannot have more than 2 repeating characters",
+      "any.required": "New password is required",
     }),
 
   profilePicture: Joi.object({
@@ -75,10 +82,29 @@ const resetPasswordSchema = Joi.object({
   token: Joi.string().required().messages({
     "any.required": "Reset token is required",
   }),
-  newPassword: Joi.string().min(6).required().messages({
-    "string.min": "Password must be at least 6 characters long",
-    "any.required": "New password is required",
-  }),
+  newPassword: Joi.string()
+    .min(8)
+    .max(32)
+    .pattern(
+      new RegExp(
+        "^(?=.*[a-z])" + // at least one lowercase letter
+          "(?=.*[A-Z])" + // at least one uppercase letter
+          "(?=.*\\d)" + // at least one number
+          "(?=.*[!@#$%^&*()\\-_=+{};:,<.>])" + // at least one special character
+          "(?!.*\\s)" + // no whitespace allowed
+          "(?!.*(.+)\\1{2,})" + // no more than 2 consecutive repeated characters
+          "[A-Za-z\\d!@#$%^&*()\\-_=+{};:,<.>]{8,32}$"
+      )
+    )
+    .required()
+    .messages({
+      "string.min": "Password must be at least 8 characters long",
+      "string.max": "Password cannot exceed 32 characters",
+      "string.pattern.base":
+        "Password must contain at least one uppercase letter, one lowercase letter, " +
+        "one number, one special character, no spaces, and cannot have more than 2 repeating characters",
+      "any.required": "New password is required",
+    }),
 });
 
 const validateRegister = validateRequest(signupSchema);

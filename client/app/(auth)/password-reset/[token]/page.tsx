@@ -14,7 +14,7 @@ interface Props {
 }
 
 const PasswordResetWithToken = () => {
-  const { handleSubmit, control, watch } = useForm({
+  const { handleSubmit, control } = useForm({
     defaultValues: {
       password: "",
       confirmPassword: "",
@@ -25,7 +25,7 @@ const PasswordResetWithToken = () => {
   const [resetPassword, { data, error, isLoading }] =
     useResetPasswordMutation();
   const [message, setMessage] = useState("");
-  const router = useRouter();
+  const [isError, setIsError] = useState(false); // New state to track error status
 
   const onSubmit = async (formData: {
     password: string;
@@ -33,6 +33,7 @@ const PasswordResetWithToken = () => {
   }) => {
     if (formData.password !== formData.confirmPassword) {
       setMessage("Passwords do not match");
+      setIsError(true);
       return;
     }
 
@@ -41,9 +42,11 @@ const PasswordResetWithToken = () => {
         token,
         newPassword: formData.password,
       }).unwrap();
-      console.log("res: ", res);
+      setMessage("Password reset successful! You can now log in.");
+      setIsError(false);
     } catch (err) {
       setMessage(err?.data?.message || "Something went wrong");
+      setIsError(true);
     }
   };
 
@@ -57,8 +60,10 @@ const PasswordResetWithToken = () => {
 
         {message && (
           <div
-            className={`px-4 py-2 mb-4 rounded ${
-              error ? "bg-red-100 text-red-700" : "bg-green-100 text-green-700"
+            className={`w-full text-center py-[22px] mb-4 rounded ${
+              isError
+                ? "bg-red-100 text-red-700 border-2 border-red-400"
+                : "bg-green-100 text-green-700"
             }`}
           >
             {message}

@@ -103,8 +103,8 @@ class AuthService {
 
       if (existingUser) {
         throw new AppError(
-          "This email is already registered, please sign in",
-          400
+          400,
+          "This email is already registered, please sign in"
         );
       }
 
@@ -124,8 +124,8 @@ class AuthService {
       return { user, accessToken, refreshToken };
     } catch (error) {
       throw new AppError(
-        error.response?.data?.error || "Google signup failed",
-        500
+        500,
+        error.response?.data?.error || "Google signup failed"
       );
     }
   }
@@ -139,7 +139,7 @@ class AuthService {
 
       let user = await User.findOne({ email }).select("+password");
       if (!user) {
-        throw new AppError("This email is not registered, please sign up", 404);
+        throw new AppError(404, "This email is not registered, please sign up");
       } else if (user.password) {
         throw new AppError(
           "This email is not registered with Google, please sign in with email and password",
@@ -153,8 +153,8 @@ class AuthService {
       return { user, accessToken, refreshToken };
     } catch (error) {
       throw new AppError(
-        error.response?.data?.error || "Google signin failed",
-        500
+        500,
+        error.response?.data?.error || "Google signin failed"
       );
     }
   }
@@ -162,7 +162,7 @@ class AuthService {
   static async forgotPassword(email) {
     const user = await User.findOne({ email });
     if (!user) {
-      throw new AppError("User with this email does not exist", 404);
+      throw new AppError(404, "This email is not registered, please sign up");
     }
 
     const resetToken = user.setResetPasswordToken();
@@ -183,7 +183,7 @@ class AuthService {
       user.resetPasswordToken = undefined;
       user.resetPasswordExpires = undefined;
       await user.save({ validateBeforeSave: false });
-      throw new AppError("Failed to send reset email. Try again later.", 500);
+      throw new AppError(500, "Failed to send reset email. Try again later.");
     }
   }
 
@@ -200,7 +200,7 @@ class AuthService {
       throw new AppError("Invalid or expired reset token", 400);
     }
 
-    user.password = await bcrypt.hash(newPassword, 10);
+    user.password = newPassword;
     user.resetPasswordToken = undefined;
     user.resetPasswordExpires = undefined;
     await user.save();

@@ -11,6 +11,7 @@ import {
   useGetNotificationsQuery,
   useMarkAsReadMutation,
 } from "../../store/apis/NotificationApi";
+import Button from "../atoms/Button";
 
 const Navbar = () => {
   const { isLoggedIn, user } = useAppSelector((state) => state.auth);
@@ -147,7 +148,7 @@ const Navbar = () => {
             </Link>
           </div>
         ) : (
-          <Link href="/sign-in" className="text-[17px]">
+          <Link href="/sign-in" className="text-[17px] font-medium capitalize">
             Sign in
           </Link>
         )}

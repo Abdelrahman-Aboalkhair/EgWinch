@@ -2295,3 +2295,162 @@
 [2025-03-10T20:21:54.533Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [10/Mar/2025:20:21:54 +0000] "POST /api/v1/auth/reset-password HTTP/1.1" 200 60 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36"
 [2025-03-10T20:23:12.802Z] [31MERROR[39M: [POST] /api/v1/auth/sign-in - 400 - Invalid credentials
 [2025-03-10T20:23:12.803Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [10/Mar/2025:20:23:12 +0000] "POST /api/v1/auth/sign-in HTTP/1.1" 400 49 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36"
+[2025-03-10T21:36:26.339Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-10T21:36:27.861Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-10T21:36:38.724Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [10/Mar/2025:21:36:38 +0000] "GET /api/v1/auth/refresh-token HTTP/1.1" 401 55 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36"
+[2025-03-10T21:36:38.755Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [10/Mar/2025:21:36:38 +0000] "GET /api/v1/auth/refresh-token HTTP/1.1" 401 55 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36"
+[2025-03-10T21:36:38.771Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [10/Mar/2025:21:36:38 +0000] "GET /api/v1/notifications HTTP/1.1" 401 77 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36"
+[2025-03-10T21:36:40.025Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [10/Mar/2025:21:36:40 +0000] "GET /api/v1/auth/refresh-token HTTP/1.1" 401 55 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36"
+[2025-03-10T21:37:01.271Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [10/Mar/2025:21:37:01 +0000] "GET /api/v1/auth/refresh-token HTTP/1.1" 401 55 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36"
+[2025-03-10T21:37:01.282Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [10/Mar/2025:21:37:01 +0000] "GET /api/v1/notifications HTTP/1.1" 401 77 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36"
+[2025-03-10T21:37:01.299Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [10/Mar/2025:21:37:01 +0000] "GET /api/v1/auth/refresh-token HTTP/1.1" 401 55 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36"
+[2025-03-10T21:37:01.303Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [10/Mar/2025:21:37:01 +0000] "GET /api/v1/auth/refresh-token HTTP/1.1" 401 55 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36"
+[2025-03-10T21:37:01.762Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [10/Mar/2025:21:37:01 +0000] "GET /api/v1/auth/refresh-token HTTP/1.1" 401 55 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36"
+[2025-03-10T21:37:17.805Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [10/Mar/2025:21:37:17 +0000] "GET /api/v1/auth/refresh-token HTTP/1.1" 401 55 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36"
+[2025-03-10T21:37:17.821Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [10/Mar/2025:21:37:17 +0000] "GET /api/v1/notifications HTTP/1.1" 401 77 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36"
+[2025-03-10T21:37:17.830Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [10/Mar/2025:21:37:17 +0000] "GET /api/v1/auth/refresh-token HTTP/1.1" 401 55 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36"
+[2025-03-10T21:37:17.834Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [10/Mar/2025:21:37:17 +0000] "GET /api/v1/auth/refresh-token HTTP/1.1" 401 55 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36"
+[2025-03-10T21:37:18.394Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [10/Mar/2025:21:37:18 +0000] "GET /api/v1/auth/refresh-token HTTP/1.1" 401 55 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36"
+[2025-03-10T21:38:32.172Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [10/Mar/2025:21:38:32 +0000] "GET /api/v1/auth/refresh-token HTTP/1.1" 401 55 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36"
+[2025-03-10T21:38:32.200Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [10/Mar/2025:21:38:32 +0000] "GET /api/v1/auth/refresh-token HTTP/1.1" 401 55 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36"
+[2025-03-10T21:38:32.222Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [10/Mar/2025:21:38:32 +0000] "GET /api/v1/notifications HTTP/1.1" 401 77 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36"
+[2025-03-10T21:38:33.069Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [10/Mar/2025:21:38:33 +0000] "GET /api/v1/auth/refresh-token HTTP/1.1" 401 55 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36"
+[2025-03-10T21:39:27.737Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [10/Mar/2025:21:39:27 +0000] "GET /api/v1/notifications HTTP/1.1" 401 77 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36"
+[2025-03-10T21:39:27.749Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [10/Mar/2025:21:39:27 +0000] "GET /api/v1/auth/refresh-token HTTP/1.1" 401 55 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36"
+[2025-03-10T21:39:34.788Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [10/Mar/2025:21:39:34 +0000] "GET /api/v1/auth/refresh-token HTTP/1.1" 401 55 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36"
+[2025-03-10T21:39:40.412Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [10/Mar/2025:21:39:40 +0000] "GET /api/v1/notifications HTTP/1.1" 401 77 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36"
+[2025-03-10T21:39:40.418Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [10/Mar/2025:21:39:40 +0000] "GET /api/v1/auth/refresh-token HTTP/1.1" 401 55 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36"
+[2025-03-10T21:41:18.780Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [10/Mar/2025:21:41:18 +0000] "GET /api/v1/notifications HTTP/1.1" 401 77 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36"
+[2025-03-10T21:41:18.788Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [10/Mar/2025:21:41:18 +0000] "GET /api/v1/auth/refresh-token HTTP/1.1" 401 55 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36"
+[2025-03-10T21:41:48.843Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [10/Mar/2025:21:41:48 +0000] "GET /api/v1/notifications HTTP/1.1" 401 77 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36"
+[2025-03-10T21:41:48.852Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [10/Mar/2025:21:41:48 +0000] "GET /api/v1/auth/refresh-token HTTP/1.1" 401 55 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36"
+[2025-03-10T21:44:02.090Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [10/Mar/2025:21:44:02 +0000] "GET /api/v1/notifications HTTP/1.1" 401 77 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36"
+[2025-03-10T21:44:20.335Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [10/Mar/2025:21:44:20 +0000] "GET /api/v1/auth/refresh-token HTTP/1.1" 401 55 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36"
+[2025-03-10T21:44:20.359Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [10/Mar/2025:21:44:20 +0000] "GET /api/v1/notifications HTTP/1.1" 401 77 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36"
+[2025-03-10T21:44:57.725Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [10/Mar/2025:21:44:57 +0000] "GET /api/v1/auth/refresh-token HTTP/1.1" 401 55 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36"
+[2025-03-10T21:45:01.090Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [10/Mar/2025:21:45:01 +0000] "GET /api/v1/auth/refresh-token HTTP/1.1" 401 55 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36"
+[2025-03-10T21:45:01.147Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [10/Mar/2025:21:45:01 +0000] "GET /api/v1/notifications HTTP/1.1" 401 77 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36"
+[2025-03-10T21:46:01.817Z] [31MERROR[39M: [POST] /api/v1/auth/forgot-password - User with this email does not exist - 404
+[2025-03-10T21:46:01.819Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [10/Mar/2025:21:46:01 +0000] "POST /api/v1/auth/forgot-password HTTP/1.1" 500 998 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36"
+[2025-03-10T21:46:35.941Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-10T21:46:37.691Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-10T21:46:39.021Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-10T21:48:32.638Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-10T21:48:34.168Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-10T21:48:46.877Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-10T21:48:48.418Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-10T21:48:49.506Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-10T21:48:50.959Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-10T21:48:51.994Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-10T21:48:53.356Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-10T21:49:05.119Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-10T21:49:07.466Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-10T21:49:10.483Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-10T21:49:11.868Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-10T21:49:30.778Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-10T21:49:32.774Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-10T21:49:37.814Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-10T21:49:39.695Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-10T21:49:41.675Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-10T21:49:52.771Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-10T21:49:54.683Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-10T21:49:55.865Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [10/Mar/2025:21:49:55 +0000] "GET /api/v1/auth/refresh-token HTTP/1.1" 401 55 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36"
+[2025-03-10T21:50:05.642Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [10/Mar/2025:21:50:05 +0000] "POST /api/v1/auth/forgot-password HTTP/1.1" 200 52 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36"
+[2025-03-10T21:50:13.194Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [10/Mar/2025:21:50:13 +0000] "GET /api/v1/auth/refresh-token HTTP/1.1" 401 55 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36"
+[2025-03-10T21:52:19.764Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [10/Mar/2025:21:52:19 +0000] "GET /api/v1/auth/refresh-token HTTP/1.1" 401 55 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36"
+[2025-03-10T21:53:45.219Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [10/Mar/2025:21:53:45 +0000] "POST /api/v1/auth/reset-password HTTP/1.1" 200 60 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36"
+[2025-03-10T21:53:58.206Z] [31MERROR[39M: [POST] /api/v1/auth/sign-in - 400 - Invalid credentials
+[2025-03-10T21:53:58.206Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [10/Mar/2025:21:53:58 +0000] "POST /api/v1/auth/sign-in HTTP/1.1" 400 49 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36"
+[2025-03-10T21:55:50.874Z] [31MERROR[39M: [POST] /api/v1/auth/sign-in - 400 - Invalid credentials
+[2025-03-10T21:55:50.875Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [10/Mar/2025:21:55:50 +0000] "POST /api/v1/auth/sign-in HTTP/1.1" 400 49 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36"
+[2025-03-10T21:56:14.620Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [10/Mar/2025:21:56:14 +0000] "GET /api/v1/auth/refresh-token HTTP/1.1" 401 55 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36"
+[2025-03-10T21:57:21.777Z] [31MERROR[39M: [POST] /api/v1/auth/sign-in - 400 - Invalid credentials
+[2025-03-10T21:57:21.779Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [10/Mar/2025:21:57:21 +0000] "POST /api/v1/auth/sign-in HTTP/1.1" 400 49 "-" "PostmanRuntime/7.43.0"
+[2025-03-10T21:57:43.766Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [10/Mar/2025:21:57:43 +0000] "POST /api/v1/auth/forgot-password HTTP/1.1" 200 52 "-" "PostmanRuntime/7.43.0"
+[2025-03-10T21:58:15.515Z] [31MERROR[39M: [POST] /api/v1/auth/reset-password - Invalid or expired reset token - 400
+[2025-03-10T21:58:15.517Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [10/Mar/2025:21:58:15 +0000] "POST /api/v1/auth/reset-password HTTP/1.1" 500 993 "-" "PostmanRuntime/7.43.0"
+[2025-03-10T21:59:20.242Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [10/Mar/2025:21:59:20 +0000] "GET /api/v1/auth/refresh-token HTTP/1.1" 401 55 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36"
+[2025-03-10T22:00:10.383Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-10T22:00:11.930Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-10T22:00:28.049Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-10T22:00:29.184Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-10T22:00:43.090Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-10T22:00:44.929Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-10T22:01:15.835Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-10T22:01:17.743Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-10T22:01:34.294Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-10T22:01:35.553Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-10T22:01:37.222Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [10/Mar/2025:22:01:37 +0000] "POST /api/v1/auth/reset-password HTTP/1.1" 200 60 "-" "PostmanRuntime/7.43.0"
+[2025-03-10T22:01:50.434Z] [31MERROR[39M: [POST] /api/v1/auth/sign-in - 400 - Invalid credentials
+[2025-03-10T22:01:50.435Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [10/Mar/2025:22:01:50 +0000] "POST /api/v1/auth/sign-in HTTP/1.1" 400 49 "-" "PostmanRuntime/7.43.0"
+[2025-03-10T22:03:55.605Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-10T22:03:57.351Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-10T22:04:09.749Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [10/Mar/2025:22:04:09 +0000] "POST /api/v1/auth/sign-up HTTP/1.1" 201 459 "-" "PostmanRuntime/7.43.0"
+[2025-03-10T22:04:22.720Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [10/Mar/2025:22:04:22 +0000] "POST /api/v1/auth/forgot-password HTTP/1.1" 200 52 "-" "PostmanRuntime/7.43.0"
+[2025-03-10T22:04:33.617Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [10/Mar/2025:22:04:33 +0000] "GET /api/v1/auth/refresh-token HTTP/1.1" 401 55 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36"
+[2025-03-10T22:05:54.563Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-10T22:05:56.332Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-10T22:06:00.007Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-10T22:06:01.224Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-10T22:06:06.608Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-10T22:06:07.887Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-10T22:06:10.953Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-10T22:06:12.503Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-10T22:06:14.915Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [10/Mar/2025:22:06:14 +0000] "POST /api/v1/auth/reset-password HTTP/1.1" 200 60 "-" "PostmanRuntime/7.43.0"
+[2025-03-10T22:06:23.133Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [10/Mar/2025:22:06:23 +0000] "POST /api/v1/auth/sign-in HTTP/1.1" 200 433 "-" "PostmanRuntime/7.43.0"
+[2025-03-10T22:07:55.995Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-10T22:07:57.513Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-10T22:08:04.584Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-10T22:08:05.777Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-10T22:08:13.645Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [10/Mar/2025:22:08:13 +0000] "POST /api/v1/auth/forgot-password HTTP/1.1" 200 52 "-" "PostmanRuntime/7.43.0"
+[2025-03-10T22:08:23.089Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [10/Mar/2025:22:08:23 +0000] "GET /api/v1/auth/refresh-token HTTP/1.1" 401 55 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36"
+[2025-03-10T22:08:30.774Z] [31MERROR[39M: [POST] /api/v1/auth/reset-password - 400 - Password must contain at least one uppercase letter, one lowercase letter, one number, one special character, no spaces, and cannot have more than 2 repeating characters
+[2025-03-10T22:08:30.775Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [10/Mar/2025:22:08:30 +0000] "POST /api/v1/auth/reset-password HTTP/1.1" 400 199 "-" "PostmanRuntime/7.43.0"
+[2025-03-10T22:08:54.475Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [10/Mar/2025:22:08:54 +0000] "POST /api/v1/auth/reset-password HTTP/1.1" 200 60 "-" "PostmanRuntime/7.43.0"
+[2025-03-10T22:08:59.336Z] [31MERROR[39M: [POST] /api/v1/auth/sign-in - 400 - Invalid credentials
+[2025-03-10T22:08:59.336Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [10/Mar/2025:22:08:59 +0000] "POST /api/v1/auth/sign-in HTTP/1.1" 400 49 "-" "PostmanRuntime/7.43.0"
+[2025-03-10T22:09:03.709Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [10/Mar/2025:22:09:03 +0000] "POST /api/v1/auth/sign-in HTTP/1.1" 200 433 "-" "PostmanRuntime/7.43.0"
+[2025-03-10T22:09:17.025Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-10T22:09:48.100Z] [31MERROR[39M: MongoDB connection failed Could not connect to any servers in your MongoDB Atlas cluster. One common reason is that you're trying to access the database from an IP that isn't whitelisted. Make sure your current IP address is on your Atlas cluster's IP whitelist: https://www.mongodb.com/docs/atlas/security-whitelist/
+[2025-03-10T22:13:06.858Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [10/Mar/2025:22:13:06 +0000] "GET /api/v1/auth/refresh-token HTTP/1.1" 401 55 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36"
+[2025-03-10T22:13:06.865Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [10/Mar/2025:22:13:06 +0000] "GET /api/v1/notifications HTTP/1.1" 401 77 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36"
+[2025-03-10T22:18:17.810Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [10/Mar/2025:22:18:17 +0000] "GET /api/v1/auth/refresh-token HTTP/1.1" 401 55 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36"
+[2025-03-10T22:18:17.824Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [10/Mar/2025:22:18:17 +0000] "GET /api/v1/notifications HTTP/1.1" 401 77 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36"
+[2025-03-10T22:18:44.368Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [10/Mar/2025:22:18:44 +0000] "GET /api/v1/auth/refresh-token HTTP/1.1" 401 55 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36"
+[2025-03-10T22:18:44.378Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [10/Mar/2025:22:18:44 +0000] "GET /api/v1/notifications HTTP/1.1" 401 77 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36"
+[2025-03-10T22:18:49.424Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [10/Mar/2025:22:18:49 +0000] "GET /api/v1/auth/refresh-token HTTP/1.1" 401 55 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36"
+[2025-03-10T22:18:49.434Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [10/Mar/2025:22:18:49 +0000] "GET /api/v1/notifications HTTP/1.1" 401 77 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36"
+[2025-03-10T22:26:20.422Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [10/Mar/2025:22:26:20 +0000] "GET /api/v1/auth/refresh-token HTTP/1.1" 401 55 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36"
+[2025-03-10T22:26:20.436Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [10/Mar/2025:22:26:20 +0000] "GET /api/v1/notifications HTTP/1.1" 401 77 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36"
+[2025-03-10T22:27:26.137Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [10/Mar/2025:22:27:26 +0000] "GET /api/v1/auth/refresh-token HTTP/1.1" 401 55 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36"
+[2025-03-10T22:27:26.166Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [10/Mar/2025:22:27:26 +0000] "GET /api/v1/notifications HTTP/1.1" 401 77 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36"
+[2025-03-10T22:27:36.582Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [10/Mar/2025:22:27:36 +0000] "GET /api/v1/auth/refresh-token HTTP/1.1" 401 55 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36"
+[2025-03-10T22:27:36.596Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [10/Mar/2025:22:27:36 +0000] "GET /api/v1/notifications HTTP/1.1" 401 77 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36"
+[2025-03-10T22:27:41.641Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [10/Mar/2025:22:27:41 +0000] "GET /api/v1/auth/refresh-token HTTP/1.1" 401 55 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36"
+[2025-03-10T22:27:41.654Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [10/Mar/2025:22:27:41 +0000] "GET /api/v1/notifications HTTP/1.1" 401 77 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36"
+[2025-03-10T22:27:49.604Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [10/Mar/2025:22:27:49 +0000] "GET /api/v1/auth/refresh-token HTTP/1.1" 401 55 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36"
+[2025-03-10T22:27:49.619Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [10/Mar/2025:22:27:49 +0000] "GET /api/v1/notifications HTTP/1.1" 401 77 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36"
+[2025-03-10T22:28:00.180Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [10/Mar/2025:22:28:00 +0000] "GET /api/v1/auth/refresh-token HTTP/1.1" 401 55 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36"
+[2025-03-10T22:28:00.196Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [10/Mar/2025:22:28:00 +0000] "GET /api/v1/notifications HTTP/1.1" 401 77 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36"
+[2025-03-10T22:28:20.144Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [10/Mar/2025:22:28:20 +0000] "GET /api/v1/auth/refresh-token HTTP/1.1" 401 55 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36"
+[2025-03-10T22:28:20.157Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [10/Mar/2025:22:28:20 +0000] "GET /api/v1/notifications HTTP/1.1" 401 77 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36"
+[2025-03-10T22:38:15.117Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [10/Mar/2025:22:38:15 +0000] "GET /api/v1/notifications HTTP/1.1" 401 77 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36"
+[2025-03-10T22:46:24.344Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [10/Mar/2025:22:46:24 +0000] "GET /api/v1/auth/refresh-token HTTP/1.1" 401 55 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36"
+[2025-03-10T22:47:27.498Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [10/Mar/2025:22:47:27 +0000] "GET /api/v1/auth/refresh-token HTTP/1.1" 401 55 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36"
+[2025-03-10T22:47:40.987Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [10/Mar/2025:22:47:40 +0000] "GET /api/v1/auth/refresh-token HTTP/1.1" 401 55 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36"
+[2025-03-10T22:50:18.179Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [10/Mar/2025:22:50:18 +0000] "GET /api/v1/auth/refresh-token HTTP/1.1" 401 55 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36"
+[2025-03-10T22:50:51.611Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [10/Mar/2025:22:50:51 +0000] "GET /api/v1/auth/refresh-token HTTP/1.1" 401 55 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36"
+[2025-03-10T22:50:51.644Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [10/Mar/2025:22:50:51 +0000] "GET /api/v1/notifications HTTP/1.1" 401 77 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36"
+[2025-03-10T22:54:05.522Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [10/Mar/2025:22:54:05 +0000] "GET /api/v1/auth/refresh-token HTTP/1.1" 401 55 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36"
+[2025-03-10T22:54:05.568Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [10/Mar/2025:22:54:05 +0000] "GET /api/v1/notifications HTTP/1.1" 401 77 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36"
+[2025-03-10T22:55:21.357Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [10/Mar/2025:22:55:21 +0000] "GET /api/v1/notifications HTTP/1.1" 401 77 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36"
+[2025-03-10T22:58:25.553Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [10/Mar/2025:22:58:25 +0000] "GET /api/v1/auth/refresh-token HTTP/1.1" 401 55 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36"
+[2025-03-10T22:58:25.600Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [10/Mar/2025:22:58:25 +0000] "GET /api/v1/notifications HTTP/1.1" 401 77 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36"
+[2025-03-10T22:59:43.112Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [10/Mar/2025:22:59:43 +0000] "GET /api/v1/auth/refresh-token HTTP/1.1" 401 55 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36"
+[2025-03-10T22:59:43.246Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [10/Mar/2025:22:59:43 +0000] "GET /api/v1/notifications HTTP/1.1" 401 77 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36"
+[2025-03-10T23:02:42.233Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [10/Mar/2025:23:02:42 +0000] "GET /api/v1/auth/refresh-token HTTP/1.1" 401 55 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36"
+[2025-03-10T23:02:42.291Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [10/Mar/2025:23:02:42 +0000] "GET /api/v1/notifications HTTP/1.1" 401 77 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36"
+[2025-03-10T23:02:54.279Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [10/Mar/2025:23:02:54 +0000] "GET /api/v1/auth/refresh-token HTTP/1.1" 401 55 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36"
+[2025-03-10T23:02:54.307Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [10/Mar/2025:23:02:54 +0000] "GET /api/v1/notifications HTTP/1.1" 401 77 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36"
+[2025-03-10T23:02:59.207Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [10/Mar/2025:23:02:59 +0000] "GET /api/v1/auth/refresh-token HTTP/1.1" 401 55 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36"
+[2025-03-10T23:02:59.215Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [10/Mar/2025:23:02:59 +0000] "GET /api/v1/notifications HTTP/1.1" 401 77 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36"

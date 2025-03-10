@@ -5,16 +5,19 @@ import LocationsStep from "./Location";
 import ItemsStep from "./Items";
 import ServicesStep from "./Services";
 import ConfirmationStep from "./Summary";
+import ProtectedRoute from "@/app/(private)/ProtectedRoute";
 
 const BookingOnboarding = () => {
   const { step } = useAppSelector((state) => state.booking);
   return (
-    <MainLayout>
-      {step == 1 && <LocationsStep />}
-      {step == 2 && <ItemsStep />}
-      {step == 3 && <ServicesStep />}
-      {step == 4 && <ConfirmationStep />}
-    </MainLayout>
+    <ProtectedRoute>
+      <MainLayout>
+        {step == 1 && <LocationsStep />}
+        {step == 2 && <ItemsStep />}
+        {step == 3 && <ServicesStep />}
+        {step == 4 && <ConfirmationStep />}
+      </MainLayout>
+    </ProtectedRoute>
   );
 };
 

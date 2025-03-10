@@ -1,9 +1,9 @@
 "use client";
 import { useEffect } from "react";
-import { useAppDispatch } from "./store/hooks";
-import { useValidateSessionQuery } from "./store/apis/AuthApi";
-import { setCredentials } from "./store/slices/AuthSlice";
 import { usePathname } from "next/navigation";
+import { useAppDispatch } from "@/app/store/hooks";
+import { useValidateSessionQuery } from "@/app/store/apis/AuthApi";
+import { setCredentials } from "@/app/store/slices/AuthSlice";
 
 export const SessionProvider = ({
   children,
@@ -14,19 +14,23 @@ export const SessionProvider = ({
   const { data } = useValidateSessionQuery();
   const pathname = usePathname();
 
+  const publicRoutes = [
+    "/",
+    "/sign-in",
+    "/sign-up",
+    "/password-reset",
+    "/verify-email",
+  ];
+
+  const isPasswordResetRoute = pathname.startsWith("/password-reset");
+
   useEffect(() => {
-    if (pathname.startsWith("/password-reset")) {
-      return;
-    }
+    if (publicRoutes.includes(pathname) || isPasswordResetRoute) return;
 
     if (data?.user && data?.accessToken) {
       dispatch(setCredentials(data));
     }
   }, [data, dispatch, pathname]);
-
-  if (pathname.startsWith("/password-reset")) {
-    return <>{children}</>;
-  }
 
   return <>{children}</>;
 };

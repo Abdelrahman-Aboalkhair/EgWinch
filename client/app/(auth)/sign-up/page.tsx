@@ -12,6 +12,7 @@ import GoogleSignup from "../(oAuth)/google/GoogleSignup";
 import useToast from "@/app/hooks/useToast";
 import FacebookSignup from "../(oAuth)/facebook/FacebookSignup";
 import { useState } from "react";
+import AuthLayout from "@/app/components/templates/AuthLayout";
 
 interface InputForm {
   name: string;
@@ -19,7 +20,7 @@ interface InputForm {
   password: string;
 }
 
-const RegisterCustomer = () => {
+const Signup = () => {
   const { showToast } = useToast();
   const [registerCustomer, { error, isLoading }] =
     useRegisterCustomerMutation();
@@ -55,7 +56,7 @@ const RegisterCustomer = () => {
   };
 
   return (
-    <main className="flex items-center justify-center min-h-screen">
+    <AuthLayout>
       <div className="w-full max-w-3xl p-8">
         <h2 className="text-3xl font-semibold text-center text-gray-700 mb-6">
           Sign up
@@ -75,7 +76,7 @@ const RegisterCustomer = () => {
         <form
           encType="multipart/form-data"
           onSubmit={handleSubmit(onSubmit)}
-          className="flex flex-col items-center justify-center gap-3 w-[60%] mx-auto"
+          className="w-full space-y-4"
         >
           <Input
             name="name"
@@ -138,7 +139,14 @@ const RegisterCustomer = () => {
           </Link>
         </p>
 
-        <div className="w-[60%] mx-auto space-y-2">
+        <p
+          className="relative text-center text-gray-500 py-2 before:content-[''] 
+          before:absolute before:left-0 before:top-1/2 before:w-[45%] before:h-[1px] before:bg-gray-300 after:content-[''] 
+          after:absolute after:right-0 after:top-1/2 after:w-[45%] after:h-[1px] after:bg-gray-300"
+        >
+          or
+        </p>
+        <div className="space-y-2">
           <GoogleOAuthProvider clientId="948178712281-5755ujm8o5sv36nvsqnj2uce7lc933cb.apps.googleusercontent.com">
             <GoogleSignup onError={setGoogleError} />
           </GoogleOAuthProvider>
@@ -146,8 +154,8 @@ const RegisterCustomer = () => {
           <FacebookSignup />
         </div>
       </div>
-    </main>
+    </AuthLayout>
   );
 };
 
-export default RegisterCustomer;
+export default Signup;
