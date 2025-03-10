@@ -12,7 +12,7 @@ interface InputProps {
   icon?: LucideIcon;
   className?: string;
   error?: string;
-  setValue: UseFormSetValue<any>;
+  setValue?: UseFormSetValue<any>;
   fetchSuggestions?: (query: string) => void;
   suggestions?: { display_name: string; lat: string; lon: string }[];
   onSelectSuggestion?: (suggestion: {

@@ -20,16 +20,21 @@ const handleTokenExpiredError = () => {
   return new AppError("Invalid or expired token, please login again.", 403);
 };
 
+const handleJoiValidationError = (err) => {
+  const message = err.details.map((detail) => detail.message).join(", ");
+  return new AppError(message, 400);
+};
+
 const globalError = (err, req, res, next) => {
   let error = { ...err };
   error.message = err.message || "Internal Server Error";
   error.statusCode = err.statusCode || 500;
 
-  // Handle specific errors
   if (err.name === "ValidationError") error = handleValidationError(err);
   if (err.code === 11000) error = handleDuplicateKeyError(err);
   if (err.name === "CastError") error = handleCastError(err);
   if (err.name === "TokenExpiredError") error = handleTokenExpiredError();
+  if (err.isJoi) error = handleJoiValidationError(err);
 
   logger.error(
     `[${req.method}] ${req.originalUrl} - ${error.statusCode} - ${error.message}`

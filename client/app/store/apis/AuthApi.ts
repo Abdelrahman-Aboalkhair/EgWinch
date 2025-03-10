@@ -18,7 +18,7 @@ export const authApi = apiSlice.injectEndpoints({
       FormData
     >({
       query: (formData) => ({
-        url: "/auth/register",
+        url: "/auth/sign-up",
         method: "POST",
         body: formData,
       }),
@@ -62,6 +62,7 @@ export const authApi = apiSlice.injectEndpoints({
           const { data } = await queryFulfilled;
           dispatch(setCredentials(data));
         } catch (error) {
+          console.log("error: ", error);
           dispatch(clearAuthState());
         }
       },
@@ -79,6 +80,32 @@ export const authApi = apiSlice.injectEndpoints({
         };
       },
     }),
+
+    forgotPassword: builder.mutation<void, { email: string }>({
+      query: ({ email }) => {
+        return {
+          url: "/auth/forgot-password",
+          method: "POST",
+          body: { email },
+        };
+      },
+    }),
+
+    resetPassword: builder.mutation<
+      void,
+      { token: string; newPassword: string }
+    >({
+      query: ({ token, newPassword }) => {
+        return {
+          url: "/auth/reset-password",
+          method: "POST",
+          body: { newPassword, token },
+          headers: {
+            "Content-Type": "application/json",
+          },
+        };
+      },
+    }),
   }),
 });
 
@@ -89,4 +116,6 @@ export const {
   useSignOutMutation,
   useVerifyEmailMutation,
   useValidateSessionQuery,
+  useForgotPasswordMutation,
+  useResetPasswordMutation,
 } = authApi;

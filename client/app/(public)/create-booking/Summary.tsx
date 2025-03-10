@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { ArrowRight } from "lucide-react";
+import { motion } from "framer-motion";
+import { MapPin, Calendar, Package, Wrench, ArrowRight } from "lucide-react";
 import OnboardingLayout from "@/app/components/templates/OnboardingLayout";
 import { useAppDispatch, useAppSelector } from "@/app/store/hooks";
 import Button from "@/app/components/atoms/Button";
@@ -18,32 +19,58 @@ const Summary = () => {
   const handleBack = () => {
     dispatch(updateStep(step - 1));
   };
+
   return (
     <OnboardingLayout currentStep={step}>
-      <div className="flex flex-col items-center justify-center gap-4">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.4 }}
+        className="flex flex-col items-center justify-center gap-6"
+      >
         {/* Move Date */}
-        <Card className="w-full max-w-md text-center">
-          <h2 className="text-lg font-semibold text-gray-700">
-            Move Date:{" "}
-            {moveDate ? new Date(moveDate).toLocaleDateString() : "Not set"}
-          </h2>
+        <Card className="w-full max-w-md shadow-md bg-white/80 backdrop-blur-lg">
+          <div className="flex flex-row items-center gap-3 p-4">
+            <Calendar className="text-primary w-6 h-6" />
+            <h3 className="text-lg font-semibold">
+              {moveDate ? new Date(moveDate).toLocaleDateString() : "Not set"}
+            </h3>
+          </div>
         </Card>
 
         {/* Pickup & Dropoff Summary */}
-        <Card className="w-full max-w-md flex items-center justify-between">
-          {/* Pickup */}
-          <div className="text-left">
-            <span className="text-gray-500 text-sm">Pickup</span>
-            <h3 className="font-semibold">{pickup.address || "Not set"}</h3>
-          </div>
+        <Card className="w-full max-w-md shadow-md bg-white/80 backdrop-blur-lg">
+          <div className="flex items-center justify-between p-4">
+            {/* Pickup */}
+            <div className="flex items-center gap-2">
+              <MapPin className="text-green-600" size={50} />
+              <div>
+                <p className="text-xs text-gray-500">Pickup</p>
+                <p className="font-semibold">{pickup.address || "Not set"}</p>
+              </div>
+            </div>
 
-          {/* Arrow */}
-          <ArrowRight className="text-gray-600 w-[2rem] h-[2rem]" />
+            {/* Arrow */}
+            <motion.div
+              initial={{ x: -10 }}
+              animate={{ x: 0 }}
+              transition={{
+                repeat: Infinity,
+                repeatType: "reverse",
+                duration: 1,
+              }}
+            >
+              <ArrowRight className="text-gray-600 w-6 h-6" />
+            </motion.div>
 
-          {/* Dropoff */}
-          <div className="text-right">
-            <span className="text-gray-500 text-sm">Dropoff</span>
-            <h3 className="font-semibold">{dropoff.address || "Not set"}</h3>
+            {/* Dropoff */}
+            <div className="flex items-center gap-2 text-right">
+              <div>
+                <p className="text-xs text-gray-500">Dropoff</p>
+                <p className="font-semibold">{dropoff.address || "Not set"}</p>
+              </div>
+              <MapPin className="text-red-600" size={50} />
+            </div>
           </div>
         </Card>
 
@@ -58,54 +85,50 @@ const Summary = () => {
         {/* Move Details Modal */}
         <Modal open={showDetails} onClose={() => setShowDetails(false)}>
           <h2 className="text-xl font-semibold mb-4">Move Details</h2>
-          <p>
-            <strong>Move Date:</strong>{" "}
-            {moveDate ? new Date(moveDate).toLocaleString() : "Not set"}
-          </p>
-          <p>
-            <strong>Pickup:</strong> {pickup.address || "Not set"} (Floor:{" "}
-            {pickup.floorNumber})
-          </p>
-          <p>
-            <strong>Dropoff:</strong> {dropoff.address || "Not set"} (Floor:{" "}
-            {dropoff.floorNumber})
-          </p>
-          <p>
-            <strong>Items:</strong>{" "}
-            {items.length > 0
-              ? items.map((item, i) => (
-                  <span key={i}>
-                    {item.quantity}x {item.name}{" "}
-                    {item.fragile ? "(Fragile)" : ""}
-                    {i < items.length - 1 ? ", " : ""}
-                  </span>
-                ))
-              : "No items added"}
-          </p>
-          <p>
-            <strong>Services:</strong>{" "}
-            {services.length > 0 ? services.join(", ") : "None"}
-          </p>
-
-          <Button className="mt-4 w-full" onClick={() => setShowDetails(false)}>
+          <div className="space-y-3">
+            <p>
+              <strong>Move Date:</strong>{" "}
+              {moveDate ? new Date(moveDate).toLocaleString() : "Not set"}
+            </p>
+            <p>
+              <strong>Pickup:</strong> {pickup.address || "Not set"} (Floor:{" "}
+              {pickup.floorNumber})
+            </p>
+            <p>
+              <strong>Dropoff:</strong> {dropoff.address || "Not set"} (Floor:{" "}
+              {dropoff.floorNumber})
+            </p>
+            <p className="flex items-center gap-2">
+              <Package className="text-blue-600 w-5 h-5" />
+              <strong>Items:</strong>{" "}
+              {items.length > 0
+                ? items.map((item, i) => (
+                    <span key={i}>
+                      {item.quantity}x {item.name}{" "}
+                      {item.fragile ? "(Fragile)" : ""}
+                      {i < items.length - 1 ? ", " : ""}
+                    </span>
+                  ))
+                : "No items added"}
+            </p>
+            <p className="flex items-center gap-2">
+              <Wrench className="text-yellow-600" size={20} />
+              <strong>Services:</strong>{" "}
+              {services.length > 0 ? services.join(", ") : "None"}
+            </p>
+          </div>
+          <Button className="w-full mt-4" onClick={() => setShowDetails(false)}>
             Close
           </Button>
         </Modal>
-      </div>
-      <div className="flex justify-center mt-6 gap-2">
-        <button
-          type="button"
-          onClick={handleBack}
-          className="border-2 border-primary text-black py-2 px-10 font-medium"
-        >
+      </motion.div>
+
+      {/* Navigation Buttons */}
+      <div className="flex justify-center mt-6 gap-3">
+        <Button variant="outline" onClick={handleBack}>
           Back
-        </button>
-        <button
-          type="submit"
-          className="bg-primary text-white py-[10px] px-12 font-medium active:scale-95 hover:opacity-90"
-        >
-          Next
-        </button>
+        </Button>
+        <Button className="bg-primary text-white px-4">Create Booking</Button>
       </div>
     </OnboardingLayout>
   );

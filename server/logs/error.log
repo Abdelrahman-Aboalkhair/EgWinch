@@ -33,3 +33,23 @@
 [2025-03-08T13:39:40.134Z] [31MERROR[39M: MongoDB connection failed querySrv ESERVFAIL _mongodb._tcp.cluster0.xoiwv.mongodb.net
 [2025-03-08T20:50:47.552Z] [31MERROR[39M: MongoDB connection failed Could not connect to any servers in your MongoDB Atlas cluster. One common reason is that you're trying to access the database from an IP that isn't whitelisted. Make sure your current IP address is on your Atlas cluster's IP whitelist: https://www.mongodb.com/docs/atlas/security-whitelist/
 [2025-03-10T11:00:39.144Z] [31MERROR[39M: MongoDB connection failed Could not connect to any servers in your MongoDB Atlas cluster. One common reason is that you're trying to access the database from an IP that isn't whitelisted. Make sure your current IP address is on your Atlas cluster's IP whitelist: https://www.mongodb.com/docs/atlas/security-whitelist/
+[2025-03-10T18:34:31.042Z] [31MERROR[39M: MongoDB connection failed querySrv ESERVFAIL _mongodb._tcp.cluster0.xoiwv.mongodb.net
+[2025-03-10T19:06:56.803Z] [31MERROR[39M: [POST] /api/v1/auth/sign-up - 500 - AppError is not defined
+[2025-03-10T19:07:21.711Z] [31MERROR[39M: [POST] /api/v1/auth/sign-up - "email" must be a valid email - 400
+[2025-03-10T19:09:07.017Z] [31MERROR[39M: [POST] /api/v1/auth/sign-up - 400 - "email" must be a valid email
+[2025-03-10T19:10:52.875Z] [31MERROR[39M: [POST] /api/v1/auth/sign-up - 400 - Please enter a valid email address, "name" is not allowed
+[2025-03-10T19:15:20.961Z] [31MERROR[39M: [POST] /api/v1/auth/sign-up - 400 - Please enter a valid email address, Password must contain at least one uppercase letter, one lowercase letter, one number, and one special character
+[2025-03-10T19:15:44.185Z] [31MERROR[39M: [POST] /api/v1/auth/sign-up - 400 - Password must contain at least one uppercase letter, one lowercase letter, one number, and one special character
+[2025-03-10T19:16:00.249Z] [31MERROR[39M: [POST] /api/v1/auth/sign-up - 400 - Password must contain at least one uppercase letter, one lowercase letter, one number, and one special character
+[2025-03-10T19:51:58.402Z] [31MERROR[39M: [POST] /api/v1/auth/forgot-password - 400 - Please provide a valid email address
+[2025-03-10T19:52:39.323Z] [31MERROR[39M: [POST] /api/v1/auth/forgot-password - 400 - Please provide a valid email address
+[2025-03-10T19:54:50.749Z] [31MERROR[39M: [POST] /api/v1/auth/forgot-password - 400 - Please provide a valid email address
+[2025-03-10T20:10:22.902Z] [31MERROR[39M: [POST] /api/v1/auth/reset-password - 400 - Reset token is required, New password is required, "password" is not allowed
+[2025-03-10T20:10:43.501Z] [31MERROR[39M: [POST] /api/v1/auth/reset-password - 400 - Reset token is required, New password is required
+[2025-03-10T20:11:56.142Z] [31MERROR[39M: [POST] /api/v1/auth/reset-password - 400 - Reset token is required, New password is required
+[2025-03-10T20:13:56.029Z] [31MERROR[39M: [POST] /api/v1/auth/reset-password - 400 - Reset token is required, New password is required
+[2025-03-10T20:14:52.274Z] [31MERROR[39M: [POST] /api/v1/auth/reset-password - Invalid or expired reset token - 400
+[2025-03-10T20:16:06.073Z] [31MERROR[39M: [POST] /api/v1/auth/password-reset - 500 - AppError is not defined
+[2025-03-10T20:18:31.927Z] [31MERROR[39M: [POST] /api/v1/auth/password-reset - 500 - AppError is not defined
+[2025-03-10T20:19:07.313Z] [31MERROR[39M: [POST] /api/v1/auth/password-reset - Can't find /api/v1/auth/password-reset on this server! - 404
+[2025-03-10T20:23:12.802Z] [31MERROR[39M: [POST] /api/v1/auth/sign-in - 400 - Invalid credentials

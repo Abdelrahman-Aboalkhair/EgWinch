@@ -1,7 +1,6 @@
 const cookieOptions = require("../../constants/cookieOptions");
 const User = require("../users/user.model");
 const jwt = require("jsonwebtoken");
-const axios = require("axios");
 const AuthService = require("./auth.service");
 const asyncHandler = require("../../utils/asyncHandler");
 
@@ -69,308 +68,114 @@ exports.signout = asyncHandler(async (req, res) => {
   res.status(200).json({ success: true, message: result.message });
 });
 
-exports.refreshToken = async (req, res) => {
-  try {
-    const refreshToken = req?.cookies?.refreshToken;
+exports.refreshToken = asyncHandler(async (req, res) => {
+  const refreshToken = req?.cookies?.refreshToken;
 
-    if (!refreshToken) {
-      return res.status(401).json({
-        success: false,
-        message: "Refresh token is required",
-      });
-    }
+  if (!refreshToken) {
+    return res.status(401).json({
+      success: false,
+      message: "Refresh token is required",
+    });
+  }
 
-    jwt.verify(
-      refreshToken,
-      process.env.REFRESH_TOKEN_SECRET,
-      async (err, decoded) => {
-        if (err) {
-          return res.status(403).json({
-            success: false,
-            message: "Invalid or expired refresh token",
-          });
-        }
-
-        const user = await User.findById(decoded.userId);
-        if (!user) {
-          return res.status(404).json({
-            success: false,
-            message: "User not found",
-          });
-        }
-
-        const newRefreshToken = await user.generateRefreshToken();
-        const newAccessToken = await user.generateAccessToken();
-
-        res.cookie("refreshToken", newRefreshToken, cookieOptions);
-        await user.save();
-
-        res.status(200).json({
-          success: true,
-          accessToken: newAccessToken,
-          user: {
-            _id: user._id,
-            name: user.name,
-            email: user.email,
-            role: user.role,
-            emailVerified: user.emailVerified,
-            profilePicture: user.profilePicture,
-          },
+  jwt.verify(
+    refreshToken,
+    process.env.REFRESH_TOKEN_SECRET,
+    async (err, decoded) => {
+      if (err) {
+        return res.status(403).json({
+          success: false,
+          message: "Invalid or expired refresh token",
         });
       }
-    );
-  } catch (error) {
-    res.status(500).json({
-      success: false,
-      message: "Internal server error",
-      error: error.message,
-    });
-  }
-};
 
-exports.googleSignup = async (req, res) => {
-  try {
-    const { access_token } = req.body;
+      const user = await User.findById(decoded.userId);
+      if (!user) {
+        return res.status(404).json({
+          success: false,
+          message: "User not found",
+        });
+      }
 
-    if (!access_token) {
-      return res
-        .status(400)
-        .json({ message: "Google access token is required" });
-    }
+      const newRefreshToken = await user.generateRefreshToken();
+      const newAccessToken = await user.generateAccessToken();
 
-    const googleResponse = await axios.get(
-      `https://www.googleapis.com/oauth2/v1/userinfo?alt=json&access_token=${access_token}`
-    );
-    const { email, name, picture, id: googleId } = googleResponse.data;
+      res.cookie("refreshToken", newRefreshToken, cookieOptions);
+      await user.save();
 
-    let existingUser = await User.findOne({ email });
-    if (existingUser) {
-      return res
-        .status(400)
-        .json({ message: "This email is already registered, please sign in" });
-    }
-
-    const user = new User({
-      name,
-      email,
-      googleId,
-      profilePicture: { secure_url: picture },
-      emailVerified: true,
-    });
-
-    await user.save();
-
-    // Generate tokens
-    const accessToken = await user.generateAccessToken();
-    const refreshToken = await user.generateRefreshToken();
-
-    res.cookie("refreshToken", refreshToken, cookieOptions);
-    await user.save();
-
-    res.status(201).json({
-      message: "Sign-up successful",
-      accessToken,
-      refreshToken,
-      user: {
-        id: user._id,
-        name: user.name,
-        email: user.email,
-        role: user.role,
-        profilePicture: user.profilePicture || "",
-      },
-    });
-  } catch (error) {
-    console.error("Google Sign-Up Error:", error);
-    res
-      .status(500)
-      .json({ message: "Google sign-up failed", error: error.message });
-  }
-};
-
-exports.googleSignin = async (req, res) => {
-  try {
-    const { access_token } = req.body;
-
-    if (!access_token) {
-      return res
-        .status(400)
-        .json({ message: "Google access token is required" });
-    }
-
-    const googleResponse = await axios.get(
-      `https://www.googleapis.com/oauth2/v1/userinfo?alt=json&access_token=${access_token}`
-    );
-    const { email } = googleResponse.data;
-
-    let user = await User.findOne({ email }).select("+password");
-    if (!user) {
-      return res
-        .status(404)
-        .json({ message: "This email is not registered, please sign up" });
-    } else if (user.password) {
-      return res.status(400).json({
-        message:
-          "This email is not registered with Google, please sign in with email and password",
+      res.status(200).json({
+        success: true,
+        accessToken: newAccessToken,
+        user: {
+          _id: user._id,
+          name: user.name,
+          email: user.email,
+          role: user.role,
+          emailVerified: user.emailVerified,
+          profilePicture: user.profilePicture,
+        },
       });
     }
+  );
+});
 
-    const accessToken = await user.generateAccessToken();
-    const refreshToken = await user.generateRefreshToken();
+exports.googleSignup = asyncHandler(async (req, res) => {
+  const { access_token } = req.body;
 
-    res.cookie("refreshToken", refreshToken, cookieOptions);
-    await user.save();
+  const { user, accessToken, refreshToken } = await AuthService.googleSignup(
+    access_token
+  );
 
-    res.json({
-      message: "Login successful",
-      accessToken,
-      refreshToken,
-      user: {
-        id: user._id,
-        name: user.name,
-        email: user.email,
-        role: user.role,
-        emailVerified: user.emailVerified,
-        profilePicture: user.profilePicture || "",
-      },
-    });
-  } catch (error) {
-    console.error("Google Login Error:", error);
-    res
-      .status(500)
-      .json({ message: "Google login failed", error: error.message });
-  }
-};
+  res.cookie("refreshToken", refreshToken, cookieOptions);
 
-exports.facebookSignup = async (req, res) => {
-  try {
-    const { access_token } = req.body;
-    console.log("access_token: ", access_token);
+  res.status(201).json({
+    message: "Sign-up successful",
+    accessToken,
+    refreshToken,
+    user: {
+      id: user._id,
+      name: user.name,
+      email: user.email,
+      role: user.role,
+      profilePicture: user.profilePicture || "",
+    },
+  });
+});
 
-    if (!access_token) {
-      return res
-        .status(400)
-        .json({ message: "Facebook access token is required" });
-    }
+exports.googleSignin = asyncHandler(async (req, res) => {
+  const { access_token } = req.body;
 
-    // Get user info from Facebook API
-    const fbResponse = await axios.get(
-      `https://graph.facebook.com/me?fields=id,name,email,picture&access_token=${access_token}`
-    );
+  const { user, accessToken, refreshToken } = await AuthService.googleSignin(
+    access_token
+  );
 
-    console.log("fbResponse: ", fbResponse);
+  res.cookie("refreshToken", refreshToken, cookieOptions);
 
-    const { email, name, id: facebookId, picture } = fbResponse.data;
+  res.json({
+    message: "Login successful",
+    accessToken,
+    refreshToken,
+    user: {
+      id: user._id,
+      name: user.name,
+      email: user.email,
+      role: user.role,
+      emailVerified: user.emailVerified,
+      profilePicture: user.profilePicture || "",
+    },
+  });
+});
 
-    // Check if user already exists
-    let existingUser = await User.findOne({ email });
-    if (existingUser) {
-      return res
-        .status(400)
-        .json({ message: "This email is already registered, please sign in" });
-    }
+exports.forgotPassword = asyncHandler(async (req, res) => {
+  const { email } = req.body;
+  console.log("email: ", email);
+  const response = await AuthService.forgotPassword(email);
+  res.json(response);
+});
 
-    // Create new user
-    const user = new User({
-      name,
-      email,
-      facebookId,
-      profilePicture: { secure_url: picture.data.url },
-      emailVerified: true,
-    });
-
-    await user.save();
-
-    // Generate tokens
-    const accessToken = jwt.sign({ id: user._id }, process.env.JWT_SECRET, {
-      expiresIn: "1h",
-    });
-
-    const refreshToken = jwt.sign({ id: user._id }, process.env.JWT_SECRET, {
-      expiresIn: "7d",
-    });
-
-    res.cookie("refreshToken", refreshToken, { httpOnly: true, secure: false });
-    await user.save();
-
-    res.status(201).json({
-      message: "Sign-up successful",
-      accessToken,
-      refreshToken,
-      user: {
-        id: user._id,
-        name: user.name,
-        email: user.email,
-        role: user.role,
-        profilePicture: user.profilePicture || "",
-      },
-    });
-  } catch (error) {
-    console.error("Facebook Sign-Up Error:", error);
-    res
-      .status(500)
-      .json({ message: "Facebook sign-up failed", error: error.message });
-  }
-};
-
-exports.facebookSignin = async (req, res) => {
-  try {
-    const { access_token } = req.body;
-
-    if (!access_token) {
-      return res
-        .status(400)
-        .json({ message: "Facebook access token is required" });
-    }
-
-    // Get user info from Facebook API
-    const fbResponse = await axios.get(
-      `https://graph.facebook.com/me?fields=id,email&access_token=${access_token}`
-    );
-
-    const { email } = fbResponse.data;
-
-    let user = await User.findOne({ email }).select("+password");
-
-    if (!user) {
-      return res
-        .status(404)
-        .json({ message: "This email is not registered, please sign up" });
-    } else if (user.password) {
-      return res.status(400).json({
-        message:
-          "This email is not registered with Facebook, please sign in with email and password",
-      });
-    }
-
-    // Generate tokens
-    const accessToken = jwt.sign({ id: user._id }, process.env.JWT_SECRET, {
-      expiresIn: "1h",
-    });
-
-    const refreshToken = jwt.sign({ id: user._id }, process.env.JWT_SECRET, {
-      expiresIn: "7d",
-    });
-
-    res.cookie("refreshToken", refreshToken, { httpOnly: true, secure: false });
-    await user.save();
-
-    res.json({
-      message: "Login successful",
-      accessToken,
-      refreshToken,
-      user: {
-        id: user._id,
-        name: user.name,
-        email: user.email,
-        role: user.role,
-        emailVerified: user.emailVerified,
-        profilePicture: user.profilePicture || "",
-      },
-    });
-  } catch (error) {
-    console.error("Facebook Login Error:", error);
-    res
-      .status(500)
-      .json({ message: "Facebook login failed", error: error.message });
-  }
-};
+exports.resetPassword = asyncHandler(async (req, res) => {
+  const { token, newPassword } = req.body;
+  console.log("req.body: ", req.body);
+  const response = await AuthService.resetPassword(token, newPassword);
+  res.json(response);
+});

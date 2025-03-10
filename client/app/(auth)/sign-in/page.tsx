@@ -98,8 +98,16 @@ const SignIn = () => {
                 },
               }}
               error={errors.password?.message}
-              className="py-[18px]"
+              className="py-[18px] mb-2"
             />
+
+            <Link
+              href="/password-reset"
+              className="text-[15px] text-gray-800 hover:underline
+            "
+            >
+              Forgot password?
+            </Link>
 
             <button
               type="submit"

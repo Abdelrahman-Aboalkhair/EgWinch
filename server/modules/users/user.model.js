@@ -3,6 +3,7 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const Booking = require("../bookings/booking.model");
 const redis = require("../../lib/redis");
+const crypto = require("crypto");
 
 const userSchema = new mongoose.Schema(
   {
@@ -23,6 +24,8 @@ const userSchema = new mongoose.Schema(
     emailVerificationCode: String,
     verificationCodeExpiry: Date,
     emailVerified: { type: Boolean, default: false },
+    resetPasswordToken: { type: String, select: false },
+    resetPasswordExpires: { type: Date, select: false },
   },
   { timestamps: true }
 );
@@ -111,14 +114,22 @@ userSchema.statics.getBookingStats = async function (userId) {
   return result;
 };
 
-/*** Hash Password Before Saving ***/
 userSchema.pre("save", async function (next) {
   if (!this.isModified("password")) return next();
   this.password = await bcrypt.hash(this.password, 10);
   next();
 });
 
-/*** Password Comparison ***/
+userSchema.methods.setResetPasswordToken = function () {
+  const resetToken = crypto.randomBytes(32).toString("hex");
+  this.resetPasswordToken = crypto
+    .createHash("sha256")
+    .update(resetToken)
+    .digest("hex");
+  this.resetPasswordExpires = Date.now() + 15 * 60 * 1000; // 15 minutes
+  return resetToken;
+};
+
 userSchema.methods.comparePassword = async function (candidatePassword) {
   if (!this.password) {
     console.error("Password is missing for user:", this._id);
@@ -127,7 +138,6 @@ userSchema.methods.comparePassword = async function (candidatePassword) {
   return await bcrypt.compare(candidatePassword, this.password);
 };
 
-/*** JWT Token Generation ***/
 userSchema.methods.generateAccessToken = function () {
   return jwt.sign(
     { userId: this._id, role: this.role },
@@ -148,7 +158,6 @@ userSchema.methods.generateRefreshToken = function () {
   );
 };
 
-/*** Enable GeoJSON Index for Location Queries ***/
 userSchema.index({ location: "2dsphere" });
 
 const User = mongoose.model("User", userSchema);

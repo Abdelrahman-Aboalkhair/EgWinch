@@ -1,6 +1,10 @@
 const sendEmail = require("../../utils/sendEmail");
 const User = require("../users/user.model");
 const AppError = require("../../utils/AppError");
+const axios = require("axios");
+const crypto = require("crypto");
+const bcrypt = require("bcryptjs");
+const passwordResetTemplate = require("../../templates/passwordReset.template");
 
 class AuthService {
   static async registerUser({ name, email, password }) {
@@ -13,11 +17,9 @@ class AuthService {
       );
     }
 
-    // Generate email verification token
     const emailVerificationCode = Math.random().toString().slice(-4);
-    const verificationCodeExpiry = new Date(Date.now() + 10 * 60 * 1000); // 10 minutes
+    const verificationCodeExpiry = new Date(Date.now() + 10 * 60 * 1000);
 
-    // Create new user
     const newUser = await User.create({
       name,
       email,
@@ -61,8 +63,6 @@ class AuthService {
   }
 
   static async signin({ email, password }) {
-    if (!email) throw new AppError(400, "Email is required");
-
     const user = await User.findOne({ email }).select("+password");
     if (!user)
       throw new AppError(
@@ -92,13 +92,121 @@ class AuthService {
     return { message: "User logged out successfully" };
   }
 
-  static async refreshToken() {}
-  static async forgotPassword() {}
-  static async resetPassword() {}
-  static async googleSignup() {}
-  static async googleSignin() {}
-  static async facebookSignup() {}
-  static async facebookSignin() {}
+  static async googleSignup(access_token) {
+    try {
+      const googleResponse = await axios.get(
+        `https://www.googleapis.com/oauth2/v1/userinfo?alt=json&access_token=${access_token}`
+      );
+      const { email, name, picture, id: googleId } = googleResponse.data;
+
+      let existingUser = await User.findOne({ email });
+
+      if (existingUser) {
+        throw new AppError(
+          "This email is already registered, please sign in",
+          400
+        );
+      }
+
+      const user = new User({
+        name,
+        email,
+        googleId,
+        profilePicture: { secure_url: picture },
+        emailVerified: true,
+      });
+
+      await user.save();
+
+      const accessToken = await user.generateAccessToken();
+      const refreshToken = await user.generateRefreshToken();
+
+      return { user, accessToken, refreshToken };
+    } catch (error) {
+      throw new AppError(
+        error.response?.data?.error || "Google signup failed",
+        500
+      );
+    }
+  }
+
+  static async googleSignin(access_token) {
+    try {
+      const googleResponse = await axios.get(
+        `https://www.googleapis.com/oauth2/v1/userinfo?alt=json&access_token=${access_token}`
+      );
+      const { email } = googleResponse.data;
+
+      let user = await User.findOne({ email }).select("+password");
+      if (!user) {
+        throw new AppError("This email is not registered, please sign up", 404);
+      } else if (user.password) {
+        throw new AppError(
+          "This email is not registered with Google, please sign in with email and password",
+          400
+        );
+      }
+
+      const accessToken = await user.generateAccessToken();
+      const refreshToken = await user.generateRefreshToken();
+
+      return { user, accessToken, refreshToken };
+    } catch (error) {
+      throw new AppError(
+        error.response?.data?.error || "Google signin failed",
+        500
+      );
+    }
+  }
+
+  static async forgotPassword(email) {
+    const user = await User.findOne({ email });
+    if (!user) {
+      throw new AppError("User with this email does not exist", 404);
+    }
+
+    const resetToken = user.setResetPasswordToken();
+    await user.save({ validateBeforeSave: false });
+
+    const resetUrl = `${process.env.CLIENT_URL}/password-reset/${resetToken}`;
+    const htmlTemplate = passwordResetTemplate(resetUrl);
+
+    try {
+      await sendEmail({
+        to: user.email,
+        subject: "Reset your password",
+        html: htmlTemplate,
+      });
+
+      return { message: "Password reset email sent successfully" };
+    } catch (error) {
+      user.resetPasswordToken = undefined;
+      user.resetPasswordExpires = undefined;
+      await user.save({ validateBeforeSave: false });
+      throw new AppError("Failed to send reset email. Try again later.", 500);
+    }
+  }
+
+  static async resetPassword(token, newPassword) {
+    const hashedToken = crypto.createHash("sha256").update(token).digest("hex");
+
+    const user = await User.findOne({
+      resetPasswordToken: hashedToken,
+      resetPasswordExpires: { $gt: Date.now() },
+    });
+    console.log("user: ", user);
+
+    if (!user) {
+      throw new AppError("Invalid or expired reset token", 400);
+    }
+
+    user.password = await bcrypt.hash(newPassword, 10);
+    user.resetPasswordToken = undefined;
+    user.resetPasswordExpires = undefined;
+    await user.save();
+
+    return { message: "Password reset successful. You can now log in." };
+  }
 }
 
 module.exports = AuthService;
