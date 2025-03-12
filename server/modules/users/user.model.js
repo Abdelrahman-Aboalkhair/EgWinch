@@ -13,7 +13,7 @@ const userSchema = new mongoose.Schema(
     googleId: String,
     role: {
       type: String,
-      enum: ["user", "driver", "admin"],
+      enum: ["user", "driver", "admin", "super-admin"],
       default: "user",
     },
     location: {

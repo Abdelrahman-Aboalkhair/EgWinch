@@ -3,7 +3,6 @@ const User = require("../users/user.model");
 const AppError = require("../../utils/AppError");
 const axios = require("axios");
 const crypto = require("crypto");
-const bcrypt = require("bcryptjs");
 const passwordResetTemplate = require("../../templates/passwordReset.template");
 
 class AuthService {

@@ -2560,3 +2560,109 @@
 [2025-03-12T12:30:20.313Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [12/Mar/2025:12:30:20 +0000] "GET /api/v1/auth/refresh-token HTTP/1.1" 401 55 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
 [2025-03-12T12:36:54.496Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [12/Mar/2025:12:36:54 +0000] "GET /api/v1/auth/refresh-token HTTP/1.1" 401 55 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
 [2025-03-12T12:37:36.136Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [12/Mar/2025:12:37:36 +0000] "GET /api/v1/auth/refresh-token HTTP/1.1" 401 55 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-12T12:40:18.058Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-12T12:40:19.420Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-12T12:40:27.426Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-12T12:40:28.886Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-12T12:40:39.307Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-12T12:40:40.586Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-12T12:40:42.778Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-12T12:40:44.423Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-12T12:41:58.483Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-12T12:41:59.698Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-12T12:42:25.558Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-12T12:42:26.688Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-12T12:42:31.358Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-12T12:42:32.611Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-12T12:42:35.651Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-12T12:42:36.843Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-12T12:43:13.118Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-12T12:43:14.440Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-12T12:43:14.871Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-12T12:43:15.998Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-12T12:43:17.385Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-12T12:43:20.659Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-12T12:43:21.792Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-12T12:43:34.939Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-12T12:43:36.192Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-12T12:44:00.122Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-12T12:44:01.448Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-12T12:44:09.763Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-12T12:44:10.907Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-12T12:44:12.467Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-12T12:44:25.475Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-12T12:44:26.935Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-12T12:46:02.401Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-12T12:46:03.968Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-12T12:46:05.820Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-12T12:46:07.026Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-12T12:46:09.354Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-12T12:46:10.524Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-12T12:46:15.948Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-12T12:46:17.088Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-12T12:47:04.720Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-12T12:47:05.959Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-12T12:47:17.478Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-12T12:47:19.168Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-12T12:47:31.757Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-12T12:47:32.966Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-12T12:49:11.318Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-12T12:49:12.606Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-12T12:49:32.555Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-12T12:49:33.704Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-12T12:49:41.607Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-12T12:49:42.803Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-12T12:49:44.533Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-12T12:49:46.170Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-12T12:49:57.603Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-12T12:49:58.767Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-12T12:50:11.705Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-12T12:50:13.001Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-12T12:50:26.305Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-12T12:50:27.850Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-12T12:50:55.934Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-12T12:50:57.328Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-12T12:51:15.919Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-12T12:51:17.159Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-12T12:51:28.593Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-12T12:51:29.768Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-12T12:51:35.111Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-12T12:51:36.250Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-12T12:51:45.436Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-12T12:51:46.626Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-12T12:51:48.744Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-12T12:51:49.908Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-12T12:51:55.216Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-12T12:51:56.254Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-12T12:51:57.454Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-12T12:52:01.188Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-12T12:52:02.324Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-12T12:52:05.261Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-12T12:52:06.627Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-12T12:54:47.636Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-12T12:54:48.984Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-12T13:35:41.050Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-12T13:35:42.258Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-12T13:35:53.724Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-12T13:35:55.010Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-12T13:35:58.537Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-12T13:35:59.821Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-12T13:36:32.905Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-12T13:36:34.424Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-12T13:40:13.832Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-12T13:40:15.083Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-12T13:40:28.311Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-12T13:40:29.430Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-12T13:40:40.164Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-12T13:40:41.301Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-12T13:40:49.579Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-12T13:40:51.270Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-12T13:40:57.648Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-12T13:40:58.794Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-12T13:41:08.363Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-12T13:41:09.605Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-12T13:42:50.443Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-12T13:42:51.763Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-12T13:43:10.037Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-12T13:43:10.873Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-12T13:43:12.055Z] [32MINFO[39M: MongoDB connected successfully

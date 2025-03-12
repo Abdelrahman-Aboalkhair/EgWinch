@@ -3,7 +3,7 @@ const Notification = require("../notifications/notification.model");
 const redis = require("../../lib/redis");
 
 class BookingService {
-  static async getBookings(userId, query) {
+  static async getUserBookings(userId, query) {
     const cacheKey = `bookings:${userId}`;
     let { id, page = 1, limit = 10 } = query;
 
@@ -45,6 +45,8 @@ class BookingService {
 
     return { fromCache: false, ...response };
   }
+
+  static async getAllBookings(query) {}
   static async createBooking({ userId, pickupLocation, dropoffLocation }) {
     return await Booking.create({
       user: userId,

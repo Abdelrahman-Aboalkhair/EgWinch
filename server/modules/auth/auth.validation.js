@@ -26,8 +26,7 @@ const signupSchema = Joi.object({
           "(?=.*\\d)" + // at least one number
           "(?=.*[!@#$%^&*()\\-_=+{};:,<.>])" + // at least one special character
           "(?!.*\\s)" + // no whitespace allowed
-          "(?!.*(.+)\\1{2,})" + // no more than 2 consecutive repeated characters
-          "[A-Za-z\\d!@#$%^&*()\\-_=+{};:,<.>]{8,32}$"
+          "[A-Za-z\\d!@#$%^&*()\\-_=+{};:,<.>]{8,32}$" // allowed characters
       )
     )
     .required()

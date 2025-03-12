@@ -2,9 +2,19 @@ const axios = require("axios");
 const BookingService = require("./booking.service");
 const asyncHandler = require("../../utils/asyncHandler");
 
-exports.getBookings = asyncHandler(async (req, res) => {
+exports.getAllBookings = asyncHandler(async (req, res) => {
+  const result = await BookingService.getAllBookings(req.query);
+
+  res.status(200).json({
+    success: true,
+    message: "All Bookings retrieved successfully",
+    ...result,
+  });
+});
+
+exports.getUserBookings = asyncHandler(async (req, res) => {
   const { userId } = req.user;
-  const result = await BookingService.getBookings(userId, req.query);
+  const result = await BookingService.getUserBookings(userId, req.query);
 
   res.status(200).json({
     success: true,
@@ -32,14 +42,6 @@ exports.updateStep = asyncHandler(async (req, res) => {
     step,
     req.body
   );
-  res.status(200).json(booking);
-});
-
-exports.getBooking = asyncHandler(async (req, res) => {
-  const booking = await BookingService.getBooking(req.params.id);
-  if (!booking) {
-    return res.status(404).json({ message: "Booking not found" });
-  }
   res.status(200).json(booking);
 });
 
