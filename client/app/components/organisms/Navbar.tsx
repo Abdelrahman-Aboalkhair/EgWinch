@@ -148,9 +148,11 @@ const Navbar = () => {
             </Link>
           </div>
         ) : (
-          <Link href="/sign-in" className="text-[17px] font-medium capitalize">
-            Sign in
-          </Link>
+          <Button className="bg-primary text-white px-[1.5rem] font-medium py-[9px] text-[16px] rounded">
+            <Link href="/sign-in" className="font-medium capitalize">
+              Sign in
+            </Link>
+          </Button>
         )}
       </div>
     </nav>

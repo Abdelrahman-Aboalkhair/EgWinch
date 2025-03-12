@@ -92,65 +92,51 @@ class AuthService {
   }
 
   static async googleSignup(access_token) {
-    try {
-      const googleResponse = await axios.get(
-        `https://www.googleapis.com/oauth2/v1/userinfo?alt=json&access_token=${access_token}`
-      );
-      const { email, name, picture, id: googleId } = googleResponse.data;
+    const googleResponse = await axios.get(
+      `https://www.googleapis.com/oauth2/v1/userinfo?alt=json&access_token=${access_token}`
+    );
+    const { email, name, picture, id: googleId } = googleResponse.data;
 
-      let existingUser = await User.findOne({ email });
+    let existingUser = await User.findOne({ email });
 
-      if (existingUser) {
-        throw new AppError(
-          400,
-          "This email is already registered, please sign in"
-        );
-      }
-
-      const user = new User({
-        name,
-        email,
-        googleId,
-        profilePicture: { secure_url: picture },
-        emailVerified: true,
-      });
-
-      await user.save();
-
-      const accessToken = await user.generateAccessToken();
-      const refreshToken = await user.generateRefreshToken();
-
-      return { user, accessToken, refreshToken };
-    } catch (error) {
+    if (existingUser) {
       throw new AppError(
-        500,
-        error.response?.data?.error || "Google signup failed"
+        400,
+        "This email is already registered, please sign in"
       );
     }
+
+    const user = new User({
+      name,
+      email,
+      googleId,
+      profilePicture: { secure_url: picture },
+      emailVerified: true,
+    });
+
+    await user.save();
+
+    const accessToken = await user.generateAccessToken();
+    const refreshToken = await user.generateRefreshToken();
+
+    return { user, accessToken, refreshToken };
   }
 
   static async googleSignin(access_token) {
-    try {
-      const googleResponse = await axios.get(
-        `https://www.googleapis.com/oauth2/v1/userinfo?alt=json&access_token=${access_token}`
-      );
-      const { email } = googleResponse.data;
+    const googleResponse = await axios.get(
+      `https://www.googleapis.com/oauth2/v1/userinfo?alt=json&access_token=${access_token}`
+    );
+    const { email } = googleResponse.data;
 
-      let user = await User.findOne({ email }).select("+password");
-      if (!user) {
-        throw new AppError(404, "This email is not registered, please sign up");
-      }
-
-      const accessToken = await user.generateAccessToken();
-      const refreshToken = await user.generateRefreshToken();
-
-      return { user, accessToken, refreshToken };
-    } catch (error) {
-      throw new AppError(
-        500,
-        error.response?.data?.error || "Google signin failed"
-      );
+    let user = await User.findOne({ email }).select("+password");
+    if (!user) {
+      throw new AppError(404, "This email is not registered, please sign up");
     }
+
+    const accessToken = await user.generateAccessToken();
+    const refreshToken = await user.generateRefreshToken();
+
+    return { user, accessToken, refreshToken };
   }
 
   static async forgotPassword(email) {
@@ -165,20 +151,13 @@ class AuthService {
     const resetUrl = `${process.env.CLIENT_URL}/password-reset/${resetToken}`;
     const htmlTemplate = passwordResetTemplate(resetUrl);
 
-    try {
-      await sendEmail({
-        to: user.email,
-        subject: "Reset your password",
-        html: htmlTemplate,
-      });
+    await sendEmail({
+      to: user.email,
+      subject: "Reset your password",
+      html: htmlTemplate,
+    });
 
-      return { message: "Password reset email sent successfully" };
-    } catch (error) {
-      user.resetPasswordToken = undefined;
-      user.resetPasswordExpires = undefined;
-      await user.save({ validateBeforeSave: false });
-      throw new AppError(500, "Failed to send reset email. Try again later.");
-    }
+    return { message: "Password reset email sent successfully" };
   }
 
   static async resetPassword(token, newPassword) {

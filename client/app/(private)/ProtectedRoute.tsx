@@ -3,7 +3,12 @@ import { usePathname, useRouter } from "next/navigation";
 import { useAppSelector } from "../store/hooks";
 import { useEffect } from "react";
 
-const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
+interface ProtectedRouteProps {
+  children: React.ReactNode;
+  roles?: string[];
+}
+
+const ProtectedRoute = ({ children, roles }: ProtectedRouteProps) => {
   const router = useRouter();
   const { user } = useAppSelector((state) => state.auth);
   const pathname = usePathname();
@@ -15,15 +20,23 @@ const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
     "/verify-email",
   ];
   const isPasswordResetRoute = pathname.startsWith("/password-reset");
-  console.log("isPasswordResetRoute: ", isPasswordResetRoute);
 
   useEffect(() => {
     if (!user && !publicRoutes.includes(pathname) && !isPasswordResetRoute) {
       router.push("/sign-in");
+      return;
     }
-  }, [user, pathname, router]);
+
+    if (user && roles && !roles.includes(user.role)) {
+      router.push("/unauthorized");
+    }
+  }, [user, pathname, router, roles]);
 
   if (!user && !publicRoutes.includes(pathname) && !isPasswordResetRoute) {
+    return null;
+  }
+
+  if (user && roles && !roles.includes(user.role)) {
     return null;
   }
 

@@ -13,14 +13,11 @@ export const authApi = apiSlice.injectEndpoints({
         body: credentials,
       }),
     }),
-    registerCustomer: builder.mutation<
-      { user: User; accessToken: string },
-      FormData
-    >({
-      query: (formData) => ({
+    signup: builder.mutation<{ user: User; accessToken: string }, FormData>({
+      query: (data) => ({
         url: "/auth/sign-up",
         method: "POST",
-        body: formData,
+        body: data,
       }),
     }),
     registerDriver: builder.mutation<
@@ -74,9 +71,6 @@ export const authApi = apiSlice.injectEndpoints({
           url: "/auth/verify-email",
           method: "POST",
           body: { emailVerificationCode },
-          headers: {
-            "Content-Type": "application/json",
-          },
         };
       },
     }),
@@ -111,7 +105,7 @@ export const authApi = apiSlice.injectEndpoints({
 
 export const {
   useSignInMutation,
-  useRegisterCustomerMutation,
+  useSignupMutation,
   useRegisterDriverMutation,
   useSignOutMutation,
   useVerifyEmailMutation,

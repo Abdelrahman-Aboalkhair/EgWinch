@@ -1,7 +1,6 @@
 "use client";
 import { useForm } from "react-hook-form";
 import Input from "@/app/components/atoms/Input";
-import { useRegisterCustomerMutation } from "@/app/store/apis/AuthApi";
 import { setCredentials } from "@/app/store/slices/AuthSlice";
 import { useAppDispatch } from "@/app/store/hooks";
 import Link from "next/link";
@@ -15,6 +14,7 @@ import { useState } from "react";
 import AuthLayout from "@/app/components/templates/AuthLayout";
 import PasswordField from "@/app/components/molecules/PasswordField";
 import { z } from "zod";
+import { useSignupMutation } from "@/app/store/apis/AuthApi";
 
 interface InputForm {
   name: string;
@@ -22,13 +22,23 @@ interface InputForm {
   password: string;
 }
 
-const emailSchema = z.string().email("Invalid email address");
-const nameSchema = z.string().min(2, "Name must be at least 2 characters long");
+const nameSchema = (value: string) => {
+  const result = z
+    .string()
+    .min(2, "Name must be at least 2 characters long")
+    .safeParse(value);
+  return result.success || result.error.errors[0].message;
+};
+
+const emailSchema = (value: string) => {
+  const result = z.string().email("Invalid email address").safeParse(value);
+  return result.success || result.error.errors[0].message;
+};
 
 const Signup = () => {
   const { showToast } = useToast();
-  const [registerCustomer, { error, isLoading }] =
-    useRegisterCustomerMutation();
+  const [signup, { error, isLoading }] = useSignupMutation();
+  const [resultError, setResultError] = useState<string | null>(null);
   const [googleError, setGoogleError] = useState<string | null>(null);
   const dispatch = useAppDispatch();
   const router = useRouter();
@@ -48,22 +58,17 @@ const Signup = () => {
   });
 
   const onSubmit = async (data: InputForm) => {
-    const formData = new FormData();
-    formData.append("name", data.name);
-    formData.append("email", data.email);
-    formData.append("password", data.password);
-
+    setResultError(null);
     try {
-      const result = await registerCustomer(formData);
-      console.log("result: ", result);
+      const result = await signup(data).unwrap();
       dispatch(setCredentials(result));
-
-      if (result.data?.success) {
-        showToast(result.data?.message, "success");
+      if (result.success) {
+        showToast(result.message, "success");
         router.push("/verify-email");
       }
     } catch (error) {
-      console.error("Error occurred while signing up", error);
+      console.log("signup error:", error);
+      setResultError(error.data?.message || "An unexpected error occurred");
     }
   };
 
@@ -73,23 +78,18 @@ const Signup = () => {
         <h2 className="text-3xl font-semibold text-center text-gray-700 mb-6">
           Sign up
         </h2>
+        {(error || googleError || resultError) && (
+          <div className="bg-red-100 border border-red-400 text-center text-red-700 w-full px-4 py-[18px] rounded relative mb-4">
+            <span className="block sm:inline">
+              {resultError ||
+                error?.data?.message ||
+                googleError ||
+                "An unexpected error occurred"}
+            </span>
+          </div>
+        )}
 
-        {error ||
-          (googleError && (
-            <div className="bg-red-100 border border-red-400 text-center text-red-700 w-[60%] mx-auto px-4 py-[18px] rounded relative mb-4">
-              <span className="block sm:inline">
-                {error?.data?.message ||
-                  googleError ||
-                  "An unexpected error occurred."}
-              </span>
-            </div>
-          ))}
-
-        <form
-          encType="multipart/form-data"
-          onSubmit={handleSubmit(onSubmit)}
-          className="w-full space-y-4"
-        >
+        <form onSubmit={handleSubmit(onSubmit)} className="w-full space-y-4">
           <Input
             name="name"
             type="text"
@@ -129,7 +129,6 @@ const Signup = () => {
           </button>
         </form>
 
-        {/* Sign in & Google Auth */}
         <p className="text-center text-gray-500 py-4">
           Already have an account?{" "}
           <Link href="/sign-in" className="text-primary hover:underline">

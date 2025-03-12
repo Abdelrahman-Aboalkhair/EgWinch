@@ -47,7 +47,11 @@ const Stepper: React.FC<StepperProps> = ({ steps, currentStep }) => {
             </div>
 
             {index < steps.length - 1 && (
-              <div className="items-center justify-center w-[120px] h-[2px] bg-gray-200 mt-[-20px]" />
+              <div
+                className={`items-center justify-center w-[120px] h-[2px] bg-gray-200 mt-[-20px] ${
+                  isActive || isCompleted ? "bg-primary" : ""
+                }`}
+              />
             )}
           </div>
         );

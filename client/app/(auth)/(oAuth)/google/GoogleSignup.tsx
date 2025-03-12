@@ -16,7 +16,6 @@ const GoogleSignup = ({ onError }) => {
       try {
         const res = await axiosInstance.post("/auth/google-signup", {
           access_token: tokenResponse.access_token,
-          role: "customer",
         });
 
         dispatch(setCredentials(res.data));

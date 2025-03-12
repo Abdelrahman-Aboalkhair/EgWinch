@@ -10,15 +10,10 @@ async function createSuperAdmin() {
   const existingSuperAdmin = await User.findOne({ role: "super-admin" });
 
   if (!existingSuperAdmin) {
-    const hashedPassword = await bcrypt.hash(
-      process.env.SUPER_ADMIN_PASSWORD,
-      12
-    );
-
     await User.create({
       name: "Super Admin",
       email: "superadmin@gmail.com",
-      password: hashedPassword,
+      password: process.env.SUPER_ADMIN_PASSWORD,
       role: "super-admin",
     });
 

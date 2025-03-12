@@ -36030,3 +36030,19 @@ Error: Route.get() requires a callback function but got a [object Undefined]
     at Module.require (node:internal/modules/cjs/loader:1231:19)
     at require (node:internal/modules/helpers:177:18)
     at Object.<anonymous> (/app/app.js:14:23)
+[2025-03-12T15:49:34.455Z] [31MERROR[39M: uncaughtException: Unexpected token ':'
+/app/modules/auth/auth.service.js:103
+      rver_1         | error:  AppError: This email is already registered, please sign in
+                            ^
+
+SyntaxError: Unexpected token ':'
+    at internalCompileFunction (node:internal/vm:76:18)
+    at wrapSafe (node:internal/modules/cjs/loader:1283:20)
+    at Module._compile (node:internal/modules/cjs/loader:1328:27)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/modules/auth/auth.controller.js:4:21)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)

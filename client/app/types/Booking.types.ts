@@ -18,15 +18,15 @@ export interface Offer {
   status: "pending" | "negotiating" | "accepted" | "declined";
 }
 
-interface Location {
-  pickup: LocationPoint;
-  dropoff: LocationPoint;
-}
-
-interface LocationPoint {
+export interface Location {
   coordinates: [number, number];
   address: string;
   floorNumber: number;
+}
+
+export interface LatLng {
+  lat: number;
+  lng: number;
 }
 
 export interface BookingState {

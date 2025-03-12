@@ -71,3 +71,31 @@
 [2025-03-12T02:15:06.653Z] [31MERROR[39M: [POST] /api/v1/auth/google-signup - 400 - "role" is not allowed
 [2025-03-12T02:15:16.035Z] [31MERROR[39M: [POST] /api/v1/auth/google-signup - 400 - "role" is not allowed
 [2025-03-12T02:21:39.445Z] [31MERROR[39M: [POST] /api/v1/auth/google-signin - 500 - Google signin failed
+[2025-03-12T14:57:24.475Z] [31MERROR[39M: [POST] /api/v1/auth/sign-in - 400 - Invalid credentials
+[2025-03-12T15:01:44.939Z] [31MERROR[39M: [POST] /api/v1/auth/sign-in - 400 - Invalid credentials
+[2025-03-12T15:02:01.018Z] [31MERROR[39M: [POST] /api/v1/auth/sign-in - 400 - Invalid credentials
+[2025-03-12T15:06:48.932Z] [31MERROR[39M: [GET] /api/v1/bookings - Can't find /api/v1/bookings on this server! - 404
+[2025-03-12T15:07:28.800Z] [31MERROR[39M: [POST] /api/v1/bookings - You are not authorized to perform this action - 403
+[2025-03-12T15:07:30.714Z] [31MERROR[39M: [POST] /api/v1/bookings - You are not authorized to perform this action - 403
+[2025-03-12T15:11:41.601Z] [31MERROR[39M: [POST] /api/v1/bookings - You are not authorized to perform this action - 403
+[2025-03-12T15:12:03.936Z] [31MERROR[39M: [POST] /api/v1/bookings - You are not authorized to perform this action - 403
+[2025-03-12T15:13:34.870Z] [31MERROR[39M: [POST] /api/v1/bookings - You are not authorized to perform this action - 403
+[2025-03-12T15:13:51.784Z] [31MERROR[39M: [POST] /api/v1/bookings - You are not authorized to perform this action - 403
+[2025-03-12T15:19:34.286Z] [31MERROR[39M: [POST] /api/v1/bookings - You are not authorized to perform this action - 403
+[2025-03-12T15:19:36.872Z] [31MERROR[39M: [PUT] /api/v1/bookings/update-step/items - You are not authorized to perform this action - 403
+[2025-03-12T15:20:26.796Z] [31MERROR[39M: [POST] /api/v1/bookings - You are not authorized to perform this action - 403
+[2025-03-12T15:22:33.170Z] [31MERROR[39M: [POST] /api/v1/bookings - 403 - You are not authorized to perform this action
+[2025-03-12T15:30:35.437Z] [31MERROR[39M: [POST] /api/v1/bookings - 403 - You are not authorized to perform this action
+[2025-03-12T15:37:04.870Z] [31MERROR[39M: [GET] /api/v1/bookings - Can't find /api/v1/bookings on this server! - 404
+[2025-03-12T15:38:00.932Z] [31MERROR[39M: [POST] /api/v1/auth/google-signup - 400 - "role" is not allowed
+[2025-03-12T15:38:56.093Z] [31MERROR[39M: [POST] /api/v1/auth/sign-in - 400 - This email is registered with Google, please sign in with Google
+[2025-03-12T15:39:11.175Z] [31MERROR[39M: [POST] /api/v1/auth/sign-up - 400 - This email is already registered, please sign in
+[2025-03-12T15:40:56.562Z] [31MERROR[39M: [POST] /api/v1/auth/sign-up - 400 - This email is already registered, please sign in
+[2025-03-12T15:42:50.284Z] [31MERROR[39M: [POST] /api/v1/auth/sign-up - 400 - This email is already registered, please sign in
+[2025-03-12T15:43:35.647Z] [31MERROR[39M: [POST] /api/v1/auth/sign-up - 400 - This email is already registered, please sign in
+[2025-03-12T15:44:00.365Z] [31MERROR[39M: [POST] /api/v1/auth/google-signup - 500 - Google signup failed
+[2025-03-12T15:44:09.283Z] [31MERROR[39M: [POST] /api/v1/auth/google-signup - 500 - Google signup failed
+[2025-03-12T15:47:12.733Z] [31MERROR[39M: [POST] /api/v1/auth/google-signup - 500 - Google signup failed
+[2025-03-12T15:53:15.239Z] [31MERROR[39M: [POST] /api/v1/auth/google-signup - 400 - This email is already registered, please sign in
+[2025-03-12T15:53:28.550Z] [31MERROR[39M: [POST] /api/v1/auth/sign-in - 400 - This email is registered with Google, please sign in with Google
+[2025-03-12T15:58:07.592Z] [31MERROR[39M: [POST] /api/v1/auth/sign-up - 400 - This email is already registered, please sign in

@@ -15,6 +15,7 @@ import dynamic from "next/dynamic";
 import useLocationSuggestions from "@/app/hooks/useGetLocationSuggestions";
 import Button from "@/app/components/atoms/Button";
 import Link from "next/link";
+import { LatLng } from "@/app/types/Booking.types";
 const Map = dynamic(() => import("@/app/components/molecules/Map"), {
   ssr: false,
 });
@@ -46,8 +47,6 @@ const Location = () => {
   const [dropoffAddress, setDropoffAddress] = useState("");
   const [pickup, setPickup] = useState<LatLng | null>(null);
   const [dropoff, setDropoff] = useState<LatLng | null>(null);
-  const [routeDistance, setRouteDistance] = useState(null);
-  const [routeDuration, setRouteDuration] = useState(null);
   const [createBooking, { error }] = useCreateBookingMutation();
   const {
     suggestions: pickupSuggestions,
@@ -90,8 +89,6 @@ const Location = () => {
       setDropoffAddress,
       onSetPickup: handleSetPickup,
       onSetDropoff: handleSetDropoff,
-      setRouteDistance,
-      setRouteDuration,
     }),
     [pickup, dropoff]
   );
@@ -132,16 +129,15 @@ const Location = () => {
   if (error) console.log(error);
 
   const onSubmit = async (data) => {
-    console.log("data: ", data);
     const pickupLocation = {
       type: "Point",
-      coordinates: [pickup.lng, pickup.lat],
+      coordinates: [pickup?.lng, pickup?.lat],
       address: data.pickupAddress,
       floorNumber: data.pickupFloorNumber,
     };
     const dropoffLocation = {
       type: "Point",
-      coordinates: [dropoff.lng, dropoff.lat],
+      coordinates: [dropoff?.lng, dropoff?.lat],
       address: data.dropoffAddress,
       floorNumber: data.dropoffFloorNumber,
     };
@@ -150,7 +146,8 @@ const Location = () => {
         pickupLocation,
         dropoffLocation,
       });
-      dispatch(setBookingId(res.data._id));
+      console.log("res: ", res);
+      dispatch(setBookingId(res?.data?._id));
       dispatch(updateStep(step + 1));
       dispatch(
         updateLocations({

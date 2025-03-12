@@ -9,7 +9,6 @@ import { useRouter } from "next/navigation";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import { RedirectHandler } from "@/app/RedirectHandler";
 import GoogleSignin from "../(oAuth)/google/GoogleSignin";
-import useToast from "@/app/hooks/useToast";
 import { useState } from "react";
 import FacebookSignin from "../(oAuth)/facebook/FacebookSignin";
 import AuthLayout from "@/app/components/templates/AuthLayout";
@@ -22,7 +21,6 @@ interface InputForm {
 }
 
 const SignIn = () => {
-  const { showToast } = useToast();
   const [googleError, setGoogleError] = useState<string | null>(null);
   const [facebookError, setFacebookError] = useState<string | null>(null);
   const [signIn, { error, isLoading }] = useSignInMutation();
@@ -42,17 +40,22 @@ const SignIn = () => {
   });
 
   const onSubmit = async (formData: InputForm) => {
-    console.log(formData);
-
     try {
-      const result = await signIn(formData);
+      const result = await signIn(formData).unwrap();
       console.log("result: ", result);
-      dispatch(setCredentials(result.data));
-
-      showToast(result.data?.message, "success");
-      router.push("/");
+      dispatch(
+        setCredentials({
+          accessToken: result.accessToken,
+          user: result.user,
+        })
+      );
+      if (result.success && result.user.role === ("super-admin" || "admin")) {
+        router.push("/dashboard");
+      } else {
+        router.push("/");
+      }
     } catch (error) {
-      console.error("Error occurred while signing up", error);
+      console.log("error: ", error);
     }
   };
 
@@ -64,17 +67,15 @@ const SignIn = () => {
           Sign in
         </h2>
 
-        {error ||
-          (googleError && (
-            <div className="bg-red-100 border border-red-400 text-center text-red-700 w-full mx-auto px-4 py-[18px] rounded relative mb-4">
-              <span className="block sm:inline">
-                {error?.data?.message ||
-                  googleError ||
-                  facebookError ||
-                  "An unexpected error occurred."}
-              </span>
-            </div>
-          ))}
+        {(error || googleError) && (
+          <div className="bg-red-100 border border-red-400 text-center text-red-700 w-full mx-auto px-4 py-[18px] rounded relative mb-4">
+            <span className="block sm:inline">
+              {error?.data?.message ||
+                googleError ||
+                "An unexpected error occurred"}
+            </span>
+          </div>
+        )}
 
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 w-full ">
           <Input
@@ -119,7 +120,7 @@ const SignIn = () => {
           </button>
         </form>
 
-        <p className="text-center text-gray-500 py-4">
+        <p className="text-center text-gray-500 pt-4">
           Don&apos;t have an account?{" "}
           <Link
             href="/sign-up"
