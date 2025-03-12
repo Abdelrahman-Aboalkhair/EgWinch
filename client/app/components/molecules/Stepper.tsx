@@ -23,7 +23,7 @@ const Stepper: React.FC<StepperProps> = ({ steps, currentStep }) => {
           >
             <div className="flex flex-col items-center justify-center">
               <div
-                className={`w-12 h-12 flex items-center justify-center rounded-full font-bold ml-[4px] ${
+                className={`w-[52px] h-[52px] flex items-center justify-center rounded-full font-bold ml-[4px] ${
                   isActive
                     ? "border-[3px] border-primary text-primary"
                     : isCompleted

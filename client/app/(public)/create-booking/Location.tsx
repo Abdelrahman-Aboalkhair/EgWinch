@@ -164,7 +164,7 @@ const Location = () => {
     <OnboardingLayout currentStep={step}>
       <div className="flex flex-col md:flex-row gap-6 w-full items-center justify-between">
         <div className="flex flex-col item-center justify-between w-[40%]">
-          <h1 className="text-[32px] font-bold text-stone-800">
+          <h1 className="text-[35px] font-bold text-stone-700">
             Set Your Pickup & Dropoff Points
           </h1>
           <p className="text-gray-800 pt-1 text-[16px]">
@@ -172,13 +172,12 @@ const Location = () => {
             ensure a smooth and accurate move.
           </p>
           <form
-            className="grid grid-cols-2 gap-4 w-full rounded-md pt-8"
+            className="grid grid-cols-2 gap-4 w-full rounded-md pt-4"
             onSubmit={handleSubmit(onSubmit)}
           >
             <Input
               control={control}
               name="pickupLocation"
-              label="Pickup Location"
               placeholder="Type or choose your location"
               setValue={setValue}
               className="py-4 text-base truncate"
@@ -195,7 +194,6 @@ const Location = () => {
               name="pickupFloorNumber"
               type="number"
               setValue={setValue}
-              label="Pickup Floor Number"
               placeholder="Type a floor number"
               className="py-4 text-base truncate"
               validation={{ required: "Pickup Floor Number is required" }}
@@ -206,7 +204,6 @@ const Location = () => {
             <Input
               control={control}
               name="dropoffLocation"
-              label="Dropoff Location"
               placeholder="Type or choose your location"
               setValue={setValue}
               className="py-4 text-base truncate"
@@ -221,7 +218,6 @@ const Location = () => {
               control={control}
               name="dropoffFloorNumber"
               type="number"
-              label="Dropoff Floor Number"
               placeholder="Type a floor number"
               setValue={setValue}
               className="py-4 text-base truncate"

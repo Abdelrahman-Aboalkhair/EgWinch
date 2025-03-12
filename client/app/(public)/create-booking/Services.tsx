@@ -49,7 +49,7 @@ const Services = () => {
     dispatch(updateServices(newServices));
   };
 
-  const onSubmit = async () => {
+  const handleNext = async () => {
     try {
       await updateOnboardingStep({
         bookingId,
@@ -60,6 +60,10 @@ const Services = () => {
     } catch (error) {
       console.error("Error updating step:", error);
     }
+  };
+
+  const handleBack = () => {
+    dispatch(updateStep(step - 1));
   };
 
   const columns = [
@@ -85,7 +89,7 @@ const Services = () => {
 
   return (
     <OnboardingLayout currentStep={step}>
-      <div className="flex items-center justify-between w-full">
+      <div className="flex items-center justify-between w-full mt-[2rem]">
         <form onSubmit={handleSubmit(addService)} className="w-[25%] space-y-4">
           <div className="flex flex-col items-start justify-start text-start w-[40rem]">
             <h1 className="text-[34px] tracking-wide font-bold text-stone-800">
@@ -123,26 +127,24 @@ const Services = () => {
           </Button>
         </form>
 
-        <div className="w-1/2 mt-[3rem]">
-          <div className="border rounded-lg overflow-hidden">
+        <div className="w-1/2 flex flex-col items-center justify-center mt-[5.5rem]">
+          <div className="w-full rounded-lg overflow-hidden">
             <Table
               data={savedServices || []}
               columns={columns}
               emptyMessage="No services added yet."
             />
           </div>
-          <div className="flex justify-center mt-6 gap-2">
+          <div className="flex justify-center items-center mt-6 gap-2">
             <Button
-              type="button"
-              onClick={() => dispatch(updateStep(step - 1))}
-              className="border-2 border-primary text-black py-2 px-10 font-medium"
+              onClick={handleBack}
+              className="border-2 border-primary text-black py-2 px-8 font-medium"
             >
               Back
             </Button>
             <Button
-              type="button"
-              onClick={onSubmit}
-              className="bg-primary text-white py-[10px] px-12 font-medium active:scale-95 hover:opacity-90"
+              onClick={handleNext}
+              className="bg-primary text-white py-[10px] px-8 font-medium active:scale-95 hover:opacity-90"
             >
               Next
             </Button>

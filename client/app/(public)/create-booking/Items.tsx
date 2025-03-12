@@ -12,6 +12,7 @@ import additionalServicesOptions from "@/app/constants/additionalServicesOptions
 import { useUpdateOnboardingStepMutation } from "@/app/store/apis/BookingApi";
 import Table from "@/app/components/organisms/Table";
 import Button from "@/app/components/atoms/Button";
+import TextArea from "@/app/components/atoms/TextArea";
 
 interface ItemProps {
   name: string;
@@ -103,78 +104,78 @@ const Items = () => {
 
   return (
     <OnboardingLayout currentStep={step}>
-      <div className="flex flex-col items-center justify-center text-center w-[45%] mx-auto">
-        <h1 className="text-[34px] tracking-wide font-bold text-stone-800">
-          What&apos;s Moving With You?
-        </h1>
-        <p className="text-gray-800 pt-1 text-[16px]">
-          List your furniture, appliances, and any fragile items so we can match
-          you with the right equipment and winch driver.
-        </p>
-      </div>
       <div className="flex gap-10 w-full">
-        <form onSubmit={handleSubmit(onSubmit)} className="w-1/2 space-y-4 ">
-          <div className="grid grid-cols-2 gap-4">
-            <Input
-              name="name"
-              type="text"
-              placeholder="Item Name"
-              control={control}
-              setValue={setValue}
-              validation={{ required: true }}
-              error={errors.name?.message}
-            />
-            <Input
-              name="quantity"
-              type="number"
-              placeholder="Quantity"
-              control={control}
-              setValue={setValue}
-              error={errors.quantity?.message}
-            />
-            <Controller
-              name="category"
-              control={control}
-              render={({ field }) => (
-                <Dropdown
-                  label="Category"
-                  options={categoryOptions}
-                  {...field}
-                />
-              )}
-            />
-            <Controller
-              name="additionalService"
-              control={control}
-              render={({ field }) => (
-                <Dropdown
-                  label="Additional Service"
-                  options={additionalServicesOptions}
-                  {...field}
-                />
-              )}
-            />
-            <Input
-              name="specialInstructions"
-              type="text"
-              placeholder="Special Instructions"
-              control={control}
-              setValue={setValue}
-              error={errors.specialInstructions?.message}
-            />
-            <CheckBox name="fragile" control={control} label="Fragile" />
-          </div>
-          <Button
-            type="submit"
-            className="flex items-center gap-2 bg-primary text-white py-2 px-4 rounded-md hover:opacity-90 active:scale-95"
-          >
-            <PlusCircle />
-            Add Item
-          </Button>
-        </form>
+        <div className="flex flex-col items-start justify-start text-start w-1/2 mx-aut mt-[2rem]">
+          <h1 className="text-[35px] tracking-wide font-bold text-stone-700">
+            What&apos;re you moving?
+          </h1>
+          <p className="text-gray-800 pt-1 pb-4 text-[16px] w-[40rem]">
+            List your furniture, appliances, and any fragile items so we can
+            match you with the right equipment and winch driver.
+          </p>
+          <form onSubmit={handleSubmit(onSubmit)} className="w-full space-y-4 ">
+            <div className="grid grid-cols-2 gap-2">
+              <Input
+                name="name"
+                type="text"
+                placeholder="Item Name"
+                control={control}
+                setValue={setValue}
+                validation={{ required: true }}
+                error={errors.name?.message}
+              />
+              <Input
+                name="quantity"
+                type="number"
+                placeholder="Quantity"
+                control={control}
+                setValue={setValue}
+                error={errors.quantity?.message}
+              />
+              <Controller
+                name="category"
+                control={control}
+                render={({ field }) => (
+                  <Dropdown
+                    label="Category"
+                    options={categoryOptions}
+                    {...field}
+                  />
+                )}
+              />
+              <Controller
+                name="additionalService"
+                control={control}
+                render={({ field }) => (
+                  <Dropdown
+                    label="Additional Service"
+                    options={additionalServicesOptions}
+                    {...field}
+                  />
+                )}
+              />
+              <TextArea
+                name="specialInstructions"
+                rows={4}
+                cols={10}
+                placeholder="Special Instructions"
+                control={control}
+                error={errors.details?.message}
+              />
 
-        <div className="w-1/2">
-          <div className="border rounded-lg overflow-hidden">
+              <CheckBox name="fragile" control={control} label="Fragile" />
+            </div>
+            <Button
+              type="submit"
+              className="flex items-center gap-2 bg-primary text-white py-2 px-4 rounded-md hover:opacity-90 active:scale-95"
+            >
+              <PlusCircle />
+              Add Item
+            </Button>
+          </form>
+        </div>
+        <div className="flex flex-col w-1/2 items-center justify-center">
+          <div className="rounded-lg overflow-hidden w-full">
             <Table
               data={savedItems || []}
               columns={columns}
@@ -184,7 +185,7 @@ const Items = () => {
           <div className="flex justify-center items-center mt-6 gap-2">
             <Button
               onClick={handleBack}
-              className="border-2 border-primary text-black py-2 px-4 font-medium"
+              className="border-2 border-primary text-black py-2 px-8 font-medium"
             >
               Back
             </Button>

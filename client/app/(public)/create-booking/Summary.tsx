@@ -28,7 +28,6 @@ const Summary = () => {
         transition={{ duration: 0.4 }}
         className="flex flex-col items-center justify-center gap-6"
       >
-        {/* Move Date */}
         <Card className="w-full max-w-md shadow-md bg-white/80 backdrop-blur-lg">
           <div className="flex flex-row items-center gap-3 p-4">
             <Calendar className="text-primary w-6 h-6" />
@@ -38,10 +37,8 @@ const Summary = () => {
           </div>
         </Card>
 
-        {/* Pickup & Dropoff Summary */}
         <Card className="w-full max-w-md shadow-md bg-white/80 backdrop-blur-lg">
           <div className="flex items-center justify-between p-4">
-            {/* Pickup */}
             <div className="flex items-center gap-2">
               <MapPin className="text-green-600" size={50} />
               <div>
@@ -50,7 +47,6 @@ const Summary = () => {
               </div>
             </div>
 
-            {/* Arrow */}
             <motion.div
               initial={{ x: -10 }}
               animate={{ x: 0 }}
@@ -63,7 +59,6 @@ const Summary = () => {
               <ArrowRight className="text-gray-600 w-6 h-6" />
             </motion.div>
 
-            {/* Dropoff */}
             <div className="flex items-center gap-2 text-right">
               <div>
                 <p className="text-xs text-gray-500">Dropoff</p>
@@ -72,17 +67,14 @@ const Summary = () => {
               <MapPin className="text-red-600" size={50} />
             </div>
           </div>
+          <Button
+            onClick={() => setShowDetails(true)}
+            className="w-full max-w-md"
+          >
+            Show Move Details
+          </Button>
         </Card>
 
-        {/* Show Details Button */}
-        <Button
-          onClick={() => setShowDetails(true)}
-          className="w-full max-w-md"
-        >
-          Show Move Details
-        </Button>
-
-        {/* Move Details Modal */}
         <Modal open={showDetails} onClose={() => setShowDetails(false)}>
           <h2 className="text-xl font-semibold mb-4">Move Details</h2>
           <div className="space-y-3">
@@ -123,11 +115,8 @@ const Summary = () => {
         </Modal>
       </motion.div>
 
-      {/* Navigation Buttons */}
       <div className="flex justify-center mt-6 gap-3">
-        <Button variant="outline" onClick={handleBack}>
-          Back
-        </Button>
+        <Button onClick={handleBack}>Back</Button>
         <Button className="bg-primary text-white px-4">Create Booking</Button>
       </div>
     </OnboardingLayout>
