@@ -140,11 +140,6 @@ class AuthService {
       let user = await User.findOne({ email }).select("+password");
       if (!user) {
         throw new AppError(404, "This email is not registered, please sign up");
-      } else if (user.password) {
-        throw new AppError(
-          "This email is not registered with Google, please sign in with email and password",
-          400
-        );
       }
 
       const accessToken = await user.generateAccessToken();

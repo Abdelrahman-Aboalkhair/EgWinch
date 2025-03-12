@@ -68,57 +68,6 @@ exports.signout = asyncHandler(async (req, res) => {
   res.status(200).json({ success: true, message: result.message });
 });
 
-exports.refreshToken = asyncHandler(async (req, res) => {
-  const refreshToken = req?.cookies?.refreshToken;
-
-  if (!refreshToken) {
-    return res.status(401).json({
-      success: false,
-      message: "Refresh token is required",
-    });
-  }
-
-  jwt.verify(
-    refreshToken,
-    process.env.REFRESH_TOKEN_SECRET,
-    async (err, decoded) => {
-      if (err) {
-        return res.status(403).json({
-          success: false,
-          message: "Invalid or expired refresh token",
-        });
-      }
-
-      const user = await User.findById(decoded.userId);
-      if (!user) {
-        return res.status(404).json({
-          success: false,
-          message: "User not found",
-        });
-      }
-
-      const newRefreshToken = await user.generateRefreshToken();
-      const newAccessToken = await user.generateAccessToken();
-
-      res.cookie("refreshToken", newRefreshToken, cookieOptions);
-      await user.save();
-
-      res.status(200).json({
-        success: true,
-        accessToken: newAccessToken,
-        user: {
-          _id: user._id,
-          name: user.name,
-          email: user.email,
-          role: user.role,
-          emailVerified: user.emailVerified,
-          profilePicture: user.profilePicture,
-        },
-      });
-    }
-  );
-});
-
 exports.googleSignup = asyncHandler(async (req, res) => {
   const { access_token } = req.body;
 
@@ -178,4 +127,55 @@ exports.resetPassword = asyncHandler(async (req, res) => {
   console.log("req.body: ", req.body);
   const response = await AuthService.resetPassword(token, newPassword);
   res.json(response);
+});
+
+exports.refreshToken = asyncHandler(async (req, res) => {
+  const refreshToken = req?.cookies?.refreshToken;
+
+  if (!refreshToken) {
+    return res.status(401).json({
+      success: false,
+      message: "Refresh token is required",
+    });
+  }
+
+  jwt.verify(
+    refreshToken,
+    process.env.REFRESH_TOKEN_SECRET,
+    async (err, decoded) => {
+      if (err) {
+        return res.status(403).json({
+          success: false,
+          message: "Invalid or expired refresh token",
+        });
+      }
+
+      const user = await User.findById(decoded.userId);
+      if (!user) {
+        return res.status(404).json({
+          success: false,
+          message: "User not found",
+        });
+      }
+
+      const newRefreshToken = await user.generateRefreshToken();
+      const newAccessToken = await user.generateAccessToken();
+
+      res.cookie("refreshToken", newRefreshToken, cookieOptions);
+      await user.save();
+
+      res.status(200).json({
+        success: true,
+        accessToken: newAccessToken,
+        user: {
+          _id: user._id,
+          name: user.name,
+          email: user.email,
+          role: user.role,
+          emailVerified: user.emailVerified,
+          profilePicture: user.profilePicture,
+        },
+      });
+    }
+  );
 });

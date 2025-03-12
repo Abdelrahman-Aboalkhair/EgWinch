@@ -14,6 +14,7 @@ import { useForm } from "react-hook-form";
 import dynamic from "next/dynamic";
 import useLocationSuggestions from "@/app/hooks/useGetLocationSuggestions";
 import Button from "@/app/components/atoms/Button";
+import Link from "next/link";
 const Map = dynamic(() => import("@/app/components/molecules/Map"), {
   ssr: false,
 });
@@ -165,91 +166,89 @@ const Location = () => {
   return (
     <OnboardingLayout currentStep={step}>
       <div className="flex flex-col md:flex-row gap-6 w-full items-center justify-between">
-        {routeDistance && routeDuration && (
-          <div className="flex flex-col items-center justify-center">
-            <span className="text-2xl font-semibold">
-              {routeDistance.toFixed(2)} km
-            </span>
-            <span className="text-2xl font-semibold">
-              {routeDuration.toFixed(2)} min
-            </span>
-          </div>
-        )}
+        <div className="flex flex-col item-center justify-between w-[40%]">
+          <h1 className="text-[32px] font-bold text-stone-800">
+            Set Your Pickup & Dropoff Points
+          </h1>
+          <p className="text-gray-800 pt-1 text-[16px]">
+            Enter your current and new address, along with floor details, to
+            ensure a smooth and accurate move.
+          </p>
+          <form
+            className="grid grid-cols-2 gap-4 w-full rounded-md pt-8"
+            onSubmit={handleSubmit(onSubmit)}
+          >
+            <Input
+              control={control}
+              name="pickupLocation"
+              label="Pickup Location"
+              placeholder="Type or choose your location"
+              setValue={setValue}
+              className="py-4 text-base truncate"
+              fetchSuggestions={fetchPickupSuggestions}
+              suggestions={pickupSuggestions}
+              onSelectSuggestion={handleSelectPickup}
+              validation={{ required: "Pickup location is required" }}
+              icon={Navigation}
+              error={errors.pickupLocation?.message}
+            />
 
-        <form
-          className="grid grid-cols-2 gap-4 w-full md:w-[40%] p-8 rounded-md"
-          onSubmit={handleSubmit(onSubmit)}
-        >
-          <Input
-            control={control}
-            name="pickupLocation"
-            label="Pick-up Location"
-            placeholder="Type or choose your location"
-            setValue={setValue}
-            className="py-4 text-base truncate"
-            fetchSuggestions={fetchPickupSuggestions}
-            suggestions={pickupSuggestions}
-            onSelectSuggestion={handleSelectPickup}
-            validation={{ required: "Pick-up location is required" }}
-            icon={Navigation}
-            error={errors.pickupLocation?.message}
-          />
+            <Input
+              control={control}
+              name="pickupFloorNumber"
+              type="number"
+              setValue={setValue}
+              label="Pickup Floor Number"
+              placeholder="Type a floor number"
+              className="py-4 text-base truncate"
+              validation={{ required: "Pickup Floor Number is required" }}
+              icon={LampFloor}
+              error={errors.pickupFloorNumber?.message}
+            />
 
-          <Input
-            control={control}
-            name="pickupFloorNumber"
-            type="number"
-            setValue={setValue}
-            label="Pick-up Floor Number"
-            placeholder="Type a floor number"
-            className="py-4 text-base truncate"
-            validation={{ required: "Pick-up Floor Number is required" }}
-            icon={LampFloor}
-            error={errors.pickupFloorNumber?.message}
-          />
+            <Input
+              control={control}
+              name="dropoffLocation"
+              label="Dropoff Location"
+              placeholder="Type or choose your location"
+              setValue={setValue}
+              className="py-4 text-base truncate"
+              fetchSuggestions={fetchDropoffSuggestions}
+              suggestions={dropoffSuggestions}
+              onSelectSuggestion={handleSelectDropoff}
+              validation={{ required: "Dropoff location is required" }}
+              icon={MapPinHouse}
+              error={errors.dropoffLocation?.message}
+            />
+            <Input
+              control={control}
+              name="dropoffFloorNumber"
+              type="number"
+              label="Dropoff Floor Number"
+              placeholder="Type a floor number"
+              setValue={setValue}
+              className="py-4 text-base truncate"
+              validation={{ required: "Dropoff Floor Number is required" }}
+              icon={LampFloor}
+              error={errors.dropoffFloorNumber?.message}
+            />
 
-          <Input
-            control={control}
-            name="dropoffLocation"
-            label="Drop-off Location"
-            placeholder="Type or choose your location"
-            setValue={setValue}
-            className="py-4 text-base truncate"
-            fetchSuggestions={fetchDropoffSuggestions}
-            suggestions={dropoffSuggestions}
-            onSelectSuggestion={handleSelectDropoff}
-            validation={{ required: "Drop-off location is required" }}
-            icon={MapPinHouse}
-            error={errors.dropoffLocation?.message}
-          />
-          <Input
-            control={control}
-            name="dropoffFloorNumber"
-            type="number"
-            label="Drop-off Floor Number"
-            placeholder="Type a floor number"
-            setValue={setValue}
-            className="py-4 text-base truncate"
-            validation={{ required: "Drop-off Floor Number is required" }}
-            icon={LampFloor}
-            error={errors.dropoffFloorNumber?.message}
-          />
-
-          <div className="flex w-full space-x-2">
-            <Button
-              type="button"
-              className="border-2 border-primary text-black py-2 px-4 mt-4 font-medium"
-            >
-              Back to Home
-            </Button>
-            <Button
-              type="submit"
-              className="bg-primary text-white py-2 px-8 mt-4 font-medium active:scale-95 hover:opacity-90"
-            >
-              Next
-            </Button>
-          </div>
-        </form>
+            <div className="flex w-full space-x-2">
+              <Link
+                href={"/"}
+                className="border-2 border-primary text-black py-2 px-4 mt-4 font-medium"
+              >
+                Back to Home
+              </Link>
+              <Button
+                type="submit"
+                className="bg-primary text-white py-2 px-6 mt-4 font-medium active:scale-95 hover:opacity-90"
+              >
+                Next
+              </Button>
+            </div>
+          </form>
+        </div>
 
         <Suspense
           fallback={

@@ -38,8 +38,8 @@ const Stepper: React.FC<StepperProps> = ({ steps, currentStep }) => {
                 )}
               </div>
               <span
-                className={`text-[14px] mt-2 font-medium tracking-wide ${
-                  isActive ? "text-primary" : ""
+                className={`text-[14px] mt-2 tracking-wide text-gray-500 ${
+                  isActive ? "text-primary font-semibold" : "font-medium"
                 }`}
               >
                 {step.label}

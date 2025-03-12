@@ -8,8 +8,8 @@ const Home = () => {
     <MainLayout>
       <main className="flex items-center justify-between pt-[7%]">
         <div className="flex flex-col items-start justify-center gap-4">
-          <div className="pb-4 space-y-1">
-            <h1 className="text-[50px] font-bold text-stone-800 w-[50rem] text-wrap">
+          <div className="pb-4 space-y-2">
+            <h1 className="text-[50px] font-bold text-stone-800 w-[50rem] text-wrap leading-[68px]">
               Move Smart, Move Easy with
               <span className="text-primary ml-2">Egwinch</span>
             </h1>

@@ -10,6 +10,7 @@ import Input from "@/app/components/atoms/Input";
 import Button from "@/app/components/atoms/Button";
 import { Trash2 } from "lucide-react";
 import Table from "@/app/components/organisms/Table";
+import TextArea from "@/app/components/atoms/TextArea";
 
 const Services = () => {
   const {
@@ -26,7 +27,6 @@ const Services = () => {
     control,
     reset,
     setValue,
-    watch,
     formState: { errors },
   } = useForm<{ name: string; details: string }>({
     defaultValues: { name: "", details: "" },
@@ -85,63 +85,69 @@ const Services = () => {
 
   return (
     <OnboardingLayout currentStep={step}>
-      <form onSubmit={handleSubmit(addService)} className="p-4 space-y-4">
-        <h1 className="text-[28px] font-semibold">
-          Enhance your move with extra services
-        </h1>
-        <Controller
-          name="name"
-          control={control}
-          render={({ field }) => (
-            <Dropdown
-              label="Choose your additional services"
-              options={additionalServicesOptions}
-              {...field}
-            />
-          )}
-        />
-        <Input
-          name="details"
-          type="text"
-          placeholder="Details"
-          control={control}
-          setValue={setValue}
-          error={errors.details?.message}
-        />
-        <Button
-          type="submit"
-          className="bg-primary text-white py-[10px] px-12 font-medium"
-        >
-          Add
-        </Button>
-      </form>
-
-      <div className="w-1/2 mt-6">
-        <h2 className="text-xl font-semibold text-center mb-4">Summary</h2>
-        <div className="border rounded-lg overflow-hidden">
-          <Table
-            data={savedServices || []}
-            columns={columns}
-            emptyMessage="No services added yet."
+      <div className="flex items-center justify-between w-full">
+        <form onSubmit={handleSubmit(addService)} className="w-[25%] space-y-4">
+          <div className="flex flex-col items-start justify-start text-start w-[40rem]">
+            <h1 className="text-[34px] tracking-wide font-bold text-stone-800">
+              Need Extra Help?
+            </h1>
+            <p className="text-gray-800 pt-1 text-[16px]">
+              Select additional services like carpentry, electrical work, or
+              special handling for delicate items.
+            </p>
+          </div>
+          <Controller
+            name="name"
+            control={control}
+            render={({ field }) => (
+              <Dropdown
+                label="Choose your additional services"
+                options={additionalServicesOptions}
+                {...field}
+              />
+            )}
           />
-        </div>
-      </div>
+          <TextArea
+            name="details"
+            rows={4}
+            cols={50}
+            placeholder="Details"
+            control={control}
+            error={errors.details?.message}
+          />
+          <Button
+            type="submit"
+            className="bg-primary text-white py-[10px] w-full font-medium"
+          >
+            Add
+          </Button>
+        </form>
 
-      <div className="flex justify-center mt-6 gap-2">
-        <Button
-          type="button"
-          onClick={() => dispatch(updateStep(step - 1))}
-          className="border-2 border-primary text-black py-2 px-10 font-medium"
-        >
-          Back
-        </Button>
-        <Button
-          type="button"
-          onClick={onSubmit}
-          className="bg-primary text-white py-[10px] px-12 font-medium active:scale-95 hover:opacity-90"
-        >
-          Next
-        </Button>
+        <div className="w-1/2 mt-[3rem]">
+          <div className="border rounded-lg overflow-hidden">
+            <Table
+              data={savedServices || []}
+              columns={columns}
+              emptyMessage="No services added yet."
+            />
+          </div>
+          <div className="flex justify-center mt-6 gap-2">
+            <Button
+              type="button"
+              onClick={() => dispatch(updateStep(step - 1))}
+              className="border-2 border-primary text-black py-2 px-10 font-medium"
+            >
+              Back
+            </Button>
+            <Button
+              type="button"
+              onClick={onSubmit}
+              className="bg-primary text-white py-[10px] px-12 font-medium active:scale-95 hover:opacity-90"
+            >
+              Next
+            </Button>
+          </div>
+        </div>
       </div>
     </OnboardingLayout>
   );

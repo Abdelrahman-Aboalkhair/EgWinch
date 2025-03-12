@@ -11,6 +11,7 @@ import categoryOptions from "@/app/constants/categoryOptions";
 import additionalServicesOptions from "@/app/constants/additionalServicesOptions";
 import { useUpdateOnboardingStepMutation } from "@/app/store/apis/BookingApi";
 import Table from "@/app/components/organisms/Table";
+import Button from "@/app/components/atoms/Button";
 
 interface ItemProps {
   name: string;
@@ -90,23 +91,29 @@ const Items = () => {
       key: "actions",
       label: "Action",
       render: (_: any, index: number) => (
-        <button
+        <Button
           onClick={() => deleteItem(index)}
           className="text-red-500 hover:text-red-700"
         >
           <Trash2 size={18} />
-        </button>
+        </Button>
       ),
     },
   ];
 
   return (
     <OnboardingLayout currentStep={step}>
+      <div className="flex flex-col items-center justify-center text-center w-[45%] mx-auto">
+        <h1 className="text-[34px] tracking-wide font-bold text-stone-800">
+          What&apos;s Moving With You?
+        </h1>
+        <p className="text-gray-800 pt-1 text-[16px]">
+          List your furniture, appliances, and any fragile items so we can match
+          you with the right equipment and winch driver.
+        </p>
+      </div>
       <div className="flex gap-10 w-full">
-        <form
-          onSubmit={handleSubmit(onSubmit)}
-          className="w-1/2 space-y-4 pt-[3rem]"
-        >
+        <form onSubmit={handleSubmit(onSubmit)} className="w-1/2 space-y-4 ">
           <div className="grid grid-cols-2 gap-4">
             <Input
               name="name"
@@ -157,17 +164,16 @@ const Items = () => {
             />
             <CheckBox name="fragile" control={control} label="Fragile" />
           </div>
-          <button
+          <Button
             type="submit"
             className="flex items-center gap-2 bg-primary text-white py-2 px-4 rounded-md hover:opacity-90 active:scale-95"
           >
             <PlusCircle />
             Add Item
-          </button>
+          </Button>
         </form>
 
         <div className="w-1/2">
-          <h2 className="text-xl font-semibold text-center mb-4">Summary</h2>
           <div className="border rounded-lg overflow-hidden">
             <Table
               data={savedItems || []}
@@ -175,22 +181,21 @@ const Items = () => {
               emptyMessage="No items added yet."
             />
           </div>
+          <div className="flex justify-center items-center mt-6 gap-2">
+            <Button
+              onClick={handleBack}
+              className="border-2 border-primary text-black py-2 px-4 font-medium"
+            >
+              Back
+            </Button>
+            <Button
+              onClick={handleNext}
+              className="bg-primary text-white py-[10px] px-8 font-medium active:scale-95 hover:opacity-90"
+            >
+              Next
+            </Button>
+          </div>
         </div>
-      </div>
-
-      <div className="flex justify-between mt-6 gap-2">
-        <button
-          onClick={handleBack}
-          className="border-2 border-primary text-black py-2 px-4 font-medium"
-        >
-          Back
-        </button>
-        <button
-          onClick={handleNext}
-          className="bg-primary text-white py-[10px] px-8 font-medium active:scale-95 hover:opacity-90"
-        >
-          Next
-        </button>
       </div>
     </OnboardingLayout>
   );

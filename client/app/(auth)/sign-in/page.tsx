@@ -31,11 +31,15 @@ const SignIn = () => {
   const router = useRouter();
 
   const {
-    setValue,
     control,
     handleSubmit,
     formState: { errors },
-  } = useForm<InputForm>();
+  } = useForm<InputForm>({
+    defaultValues: {
+      email: "",
+      password: "",
+    },
+  });
 
   const onSubmit = async (formData: InputForm) => {
     console.log(formData);
@@ -77,7 +81,6 @@ const SignIn = () => {
             name="email"
             type="text"
             placeholder="Email"
-            setValue={setValue}
             control={control}
             validation={{ required: "Email is required" }}
             error={errors.email?.message}
@@ -88,7 +91,6 @@ const SignIn = () => {
             name="password"
             type="password"
             placeholder="Password"
-            setValue={setValue}
             control={control}
             validation={{
               required: "Password is required",

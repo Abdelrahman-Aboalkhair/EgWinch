@@ -1,0 +1,96 @@
+"use client";
+import React, { useEffect, useState } from "react";
+import { z } from "zod";
+import { motion } from "framer-motion";
+
+export const passwordSchema = z
+  .string()
+  .min(8, "Password must be at least 8 characters long")
+  .regex(/[A-Z]/, "Must include at least one uppercase letter")
+  .regex(/[0-9]/, "Must include at least one number")
+  .regex(
+    /[!@#$%^&*(),.?":{}|<>]/,
+    "Must include at least one special character"
+  );
+
+interface PasswordFieldProps {
+  name?: string;
+  register: any;
+  errors: any;
+  watch: any;
+}
+
+const PasswordField: React.FC<PasswordFieldProps> = ({
+  name = "password",
+  register,
+  errors,
+  watch,
+}) => {
+  const passwordValue = watch(name, "");
+
+  const [strength, setStrength] = useState(0);
+
+  useEffect(() => {
+    let score = 0;
+    if (passwordValue.length >= 8) score++;
+    if (/[A-Z]/.test(passwordValue)) score++;
+    if (/[0-9]/.test(passwordValue)) score++;
+    if (/[!@#$%^&*(),.?":{}|<>]/.test(passwordValue)) score++;
+    setStrength(score);
+  }, [passwordValue]);
+
+  return (
+    <div>
+      <input
+        type="password"
+        placeholder="Enter your password"
+        {...register(name, {
+          required: "Password is required",
+          validate: (value) => {
+            const result = passwordSchema.safeParse(value);
+            return result.success || result.error.errors[0].message;
+          },
+        })}
+        className="p-[17px] pl-3 pr-10 w-full border border-gray-300 text-gray-800 placeholder:text-black 
+              rounded focus:outline-none focus:ring-[2px] focus:ring-lime-700"
+      />
+      {errors[name] && (
+        <p className="text-red-500 text-sm mt-1">
+          {errors[name]?.message as string}
+        </p>
+      )}
+
+      <div className="mt-2">
+        <div className="flex items-center justify-center gap-[1px] py-2">
+          {[...Array(4)].map((_, index) => (
+            <motion.div
+              key={index}
+              className="h-[6px] flex-1 rounded w-[100px]"
+              initial={{ scaleX: 0 }}
+              animate={{ scaleX: strength > index ? 1 : 0.93 }}
+              transition={{ duration: 0.3, ease: "easeOut" }}
+              style={{
+                backgroundColor:
+                  strength > index ? "rgb(34 197 94)" : "rgb(239 68 68)",
+                transformOrigin: "left",
+              }}
+            />
+          ))}
+        </div>
+        <p className="text-[12px] text-gray-500 text-right">
+          {strength === 1
+            ? "Very weak"
+            : strength === 2
+            ? "Weak"
+            : strength === 3
+            ? "Good"
+            : strength === 4
+            ? "Strong"
+            : "Password strength"}
+        </p>
+      </div>
+    </div>
+  );
+};
+
+export default PasswordField;

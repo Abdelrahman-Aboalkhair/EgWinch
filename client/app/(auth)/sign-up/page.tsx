@@ -13,12 +13,17 @@ import useToast from "@/app/hooks/useToast";
 import FacebookSignup from "../(oAuth)/facebook/FacebookSignup";
 import { useState } from "react";
 import AuthLayout from "@/app/components/templates/AuthLayout";
+import PasswordField from "@/app/components/molecules/PasswordField";
+import { z } from "zod";
 
 interface InputForm {
   name: string;
   email: string;
   password: string;
 }
+
+const emailSchema = z.string().email("Invalid email address");
+const nameSchema = z.string().min(2, "Name must be at least 2 characters long");
 
 const Signup = () => {
   const { showToast } = useToast();
@@ -29,11 +34,18 @@ const Signup = () => {
   const router = useRouter();
 
   const {
-    setValue,
+    register,
+    watch,
     control,
     handleSubmit,
     formState: { errors },
-  } = useForm<InputForm>();
+  } = useForm<InputForm>({
+    defaultValues: {
+      name: "",
+      email: "",
+      password: "",
+    },
+  });
 
   const onSubmit = async (data: InputForm) => {
     const formData = new FormData();
@@ -82,9 +94,8 @@ const Signup = () => {
             name="name"
             type="text"
             placeholder="Name"
-            setValue={setValue}
             control={control}
-            validation={{ required: "Name is required" }}
+            validation={{ required: "Name is required", validate: nameSchema }}
             error={errors.name?.message}
             className="py-[18px]"
           />
@@ -93,29 +104,16 @@ const Signup = () => {
             name="email"
             type="text"
             placeholder="Email"
-            setValue={setValue}
             control={control}
-            validation={{ required: "Email is required" }}
+            validation={{
+              required: "Email is required",
+              validate: emailSchema,
+            }}
             error={errors.email?.message}
             className="py-[18px]"
           />
 
-          <Input
-            name="password"
-            type="password"
-            placeholder="Password"
-            setValue={setValue}
-            control={control}
-            validation={{
-              required: "Password is required",
-              minLength: {
-                value: 6,
-                message: "Password must be at least 6 characters long",
-              },
-            }}
-            error={errors.password?.message}
-            className="py-[18px]"
-          />
+          <PasswordField register={register} watch={watch} errors={errors} />
 
           <button
             type="submit"

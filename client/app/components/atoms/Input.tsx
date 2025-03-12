@@ -41,7 +41,9 @@ const Input: React.FC<InputProps> = ({
 
   return (
     <div className="relative w-full">
-      {label && <label className="text-gray-700 mb-1">{label}</label>}
+      {label && (
+        <label className="text-gray-700 pb-2 font-medium">{label}</label>
+      )}
 
       <Controller
         name={name}
@@ -52,7 +54,8 @@ const Input: React.FC<InputProps> = ({
             {...field}
             type={type}
             placeholder={placeholder}
-            className={`p-[14px] pl-3 pr-10 w-full border border-gray-300 text-gray-800 placeholder:text-black rounded focus:outline-none focus:ring-[2px] focus:ring-primary ${className}`}
+            className={`p-[14px] pl-3 pr-10 w-full border border-gray-300 text-gray-800 placeholder:text-black 
+              rounded focus:outline-none focus:ring-[2px] focus:ring-lime-700 ${className}`}
             onChange={(e) => {
               field.onChange(e);
               if (fetchSuggestions) {
