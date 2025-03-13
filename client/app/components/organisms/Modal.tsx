@@ -34,18 +34,18 @@ const Modal: React.FC<ModalProps> = ({ open, onClose, children }) => {
     <AnimatePresence>
       {open && (
         <motion.div
-          className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50"
+          className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50 w-full"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
         >
           <motion.div
             ref={modalRef}
-            className="bg-white rounded-lg p-6 w-11/12 max-w-lg relative shadow-lg"
+            className="flex flex-col items-center justify-center bg-white rounded-lg p-6 w-[50rem] max-w-full max-h-[80vh] overflow-y-auto relative shadow-lg"
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.9 }}
-            transition={{ duration: 0.3, ease: "easeInOut" }}
+            transition={{ duration: 0.2, ease: "easeInOut" }}
           >
             <button
               onClick={onClose}

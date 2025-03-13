@@ -8,6 +8,7 @@ import { useSignOutMutation } from "../../store/apis/AuthApi";
 import { useRouter } from "next/navigation";
 import { LayoutDashboard, Home, User, LogOut } from "lucide-react";
 import Button from "../atoms/Button";
+import { resetBooking } from "@/app/store/slices/BookingSlice";
 
 const UserMenu = ({ menuOpen, closeMenu }) => {
   const dispatch = useAppDispatch();
@@ -18,6 +19,7 @@ const UserMenu = ({ menuOpen, closeMenu }) => {
     try {
       await signOut();
       dispatch(clearAuthState());
+      dispatch(resetBooking());
       router.push("/sign-in");
     } catch (error) {
       console.error("Error occurred while signing out", error);

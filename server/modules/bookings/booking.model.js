@@ -86,7 +86,7 @@ const bookingSchema = new mongoose.Schema(
       ],
       default: [],
     },
-    generalServices: {
+    additionalServices: {
       type: [
         {
           name: { type: String, required: true },

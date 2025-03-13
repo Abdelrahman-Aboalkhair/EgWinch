@@ -1,49 +1,54 @@
 const AppError = require("../utils/AppError");
 const logger = require("../config/logger");
 
-const handleValidationError = (err) => {
-  const message = Object.values(err.errors)
-    .map((val) => val.message)
-    .join(", ");
-  return new AppError(message, 400);
-};
-
-const handleDuplicateKeyError = (err) => {
-  return new AppError("Duplicate field value entered", 400);
-};
-
-const handleCastError = (err) => {
-  return new AppError(`Invalid ${err.path}: ${err.value}`, 400);
-};
-
-const handleTokenExpiredError = () => {
-  return new AppError("Invalid or expired token, please login again.", 403);
-};
-
-const handleJoiValidationError = (err) => {
-  const message = err.details.map((detail) => detail.message).join(", ");
-  return new AppError(message, 400);
+const errorHandlers = {
+  ValidationError: (err) =>
+    new AppError(
+      400,
+      Object.values(err.errors)
+        .map((val) => val.message)
+        .join(", ")
+    ),
+  11000: () => new AppError(400, "Duplicate field value entered"),
+  CastError: (err) => new AppError(400, `Invalid ${err.path}: ${err.value}`),
+  TokenExpiredError: () =>
+    new AppError(401, "Your session has expired, please login again."),
+  Joi: (err) =>
+    new AppError(400, err.details.map((detail) => detail.message).join(", ")),
 };
 
 const globalError = (err, req, res, next) => {
-  let error = { ...err };
-  error.message = err.message || "Internal Server Error";
-  error.statusCode = err.statusCode || 500;
+  let error = err;
 
-  if (err.name === "ValidationError") error = handleValidationError(err);
-  if (err.code === 11000) error = handleDuplicateKeyError(err);
-  if (err.name === "CastError") error = handleCastError(err);
-  if (err.name === "TokenExpiredError") error = handleTokenExpiredError();
-  if (err.isJoi) error = handleJoiValidationError(err);
+  if (errorHandlers[err.name] || errorHandlers[err.code]) {
+    error = (errorHandlers[err.name] || errorHandlers[err.code])(err);
+  }
 
-  logger.error(
-    `[${req.method}] ${req.originalUrl} - ${error.statusCode} - ${error.message}`
-  );
+  if (process.env.NODE_ENV === "development") {
+    console.error("Error Stack:", err.stack);
+    logger.error({
+      message: error.message,
+      stack: error.stack,
+      statusCode: error.statusCode || 500,
+      path: req.originalUrl,
+      method: req.method,
+    });
+  }
 
-  // Send error response
-  res.status(error.statusCode).json({
-    status: error.statusCode.toString().startsWith("4") ? "fail" : "error",
+  if (process.env.NODE_ENV === "production" && error.isOperational) {
+    logger.error(
+      `[${req.method}] ${req.originalUrl} - ${error.statusCode} - ${error.message}`
+    );
+  }
+
+  res.status(error.statusCode || 500).json({
+    status:
+      error.statusCode >= 400 && error.statusCode < 500 ? "fail" : "error",
     message: error.message,
+    ...(process.env.NODE_ENV === "development" && {
+      stack: error.stack,
+      error: error,
+    }),
   });
 };
 

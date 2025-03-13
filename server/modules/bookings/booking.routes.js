@@ -21,7 +21,7 @@ router.get(
   authorizeRole("admin", "super-admin"),
   getAllBookings
 );
-router.get("/user", isAuthenticated, authorizeRole("user"), getUserBookings);
+router.get("/me", isAuthenticated, authorizeRole("user"), getUserBookings);
 router.post("/", isAuthenticated, authorizeRole("user"), createBooking);
 router.put(
   "/update-step/:step",

@@ -18,7 +18,6 @@ const Services = () => {
     step,
     bookingId,
   } = useAppSelector((state) => state.booking);
-  console.log("savedServices: ", savedServices);
   const dispatch = useAppDispatch();
   const [updateOnboardingStep] = useUpdateOnboardingStepMutation();
 
@@ -26,7 +25,6 @@ const Services = () => {
     handleSubmit,
     control,
     reset,
-    setValue,
     formState: { errors },
   } = useForm<{ name: string; details: string }>({
     defaultValues: { name: "", details: "" },
@@ -54,7 +52,7 @@ const Services = () => {
       await updateOnboardingStep({
         bookingId,
         step: "services",
-        services: savedServices,
+        additionalServices: savedServices,
       });
       dispatch(updateStep(step + 1));
     } catch (error) {

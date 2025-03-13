@@ -4,7 +4,7 @@ const jwt = require("jsonwebtoken");
 const AuthService = require("./auth.service");
 const asyncHandler = require("../../utils/asyncHandler");
 
-exports.registerUser = asyncHandler(async (req, res) => {
+exports.register = asyncHandler(async (req, res) => {
   const { name, email, password } = req.body;
   const { user, accessToken, refreshToken } = await AuthService.registerUser({
     name,

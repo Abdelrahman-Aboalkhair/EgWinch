@@ -17,7 +17,11 @@ export default {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      fontFamily: {
+        cairo: ["Cairo", "sans-serif"],
+      },
     },
   },
+
   plugins: [],
 } satisfies Config;

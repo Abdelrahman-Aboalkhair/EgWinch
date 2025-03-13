@@ -2,7 +2,7 @@ const Joi = require("joi");
 const validateRequest = require("../../utils/validateRequest");
 
 const signupSchema = Joi.object({
-  name: Joi.string().min(3).max(50).required().messages({
+  name: Joi.string().lowercase().trim().min(3).max(50).required().messages({
     "string.min": "Name must be at least 3 characters long",
     "string.max": "Name cannot exceed 50 characters",
     "any.required": "Name is required",
@@ -10,6 +10,8 @@ const signupSchema = Joi.object({
 
   email: Joi.string()
     .email({ tlds: { allow: false } })
+    .trim()
+    .lowercase()
     .required()
     .messages({
       "string.email": "Please enter a valid email address",
@@ -49,12 +51,12 @@ const signupSchema = Joi.object({
 
 const verifyEmailSchema = Joi.object({
   emailVerificationCode: Joi.string().length(4).required(),
-});
+}).options({ stripUnknown: true });
 
 const signinSchema = Joi.object({
   email: Joi.string().email().required(),
   password: Joi.string().min(6).required(),
-});
+}).options({ stripUnknown: true });
 
 const refreshTokenSchema = Joi.object({
   cookies: Joi.object({
@@ -62,20 +64,20 @@ const refreshTokenSchema = Joi.object({
       "string.empty": "Refresh token is required",
     }),
   }).unknown(true), // Allow other cookies
-});
+}).options({ stripUnknown: true });
 
 const googleAuthSchema = Joi.object({
   access_token: Joi.string().required().messages({
     "string.empty": "Google access token is required",
   }),
-});
+}).options({ stripUnknown: true });
 
 const forgotPasswordSchema = Joi.object({
   email: Joi.string().email().required().messages({
     "string.email": "Please provide a valid email address",
     "any.required": "Email is required",
   }),
-});
+}).options({ stripUnknown: true });
 
 const resetPasswordSchema = Joi.object({
   token: Joi.string().required().messages({
@@ -104,7 +106,7 @@ const resetPasswordSchema = Joi.object({
         "one number, one special character, no spaces, and cannot have more than 2 repeating characters",
       "any.required": "New password is required",
     }),
-});
+}).options({ stripUnknown: true });
 
 const validateRegister = validateRequest(signupSchema);
 const validateVerifyEmail = validateRequest(verifyEmailSchema);

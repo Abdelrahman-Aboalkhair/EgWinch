@@ -2872,3 +2872,292 @@
 [2025-03-12T16:56:24.261Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [12/Mar/2025:16:56:24 +0000] "POST /api/v1/bookings HTTP/1.1" 201 680 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
 [2025-03-12T16:56:42.521Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [12/Mar/2025:16:56:42 +0000] "PUT /api/v1/bookings/update-step/items HTTP/1.1" 200 991 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
 [2025-03-12T16:56:57.063Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [12/Mar/2025:16:56:57 +0000] "PUT /api/v1/bookings/update-step/services HTTP/1.1" 200 994 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-12T17:09:16.775Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-12T17:09:18.021Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-12T17:10:28.106Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [12/Mar/2025:17:10:28 +0000] "GET /api/v1/notifications HTTP/1.1" 401 77 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-12T17:10:28.490Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [12/Mar/2025:17:10:28 +0000] "GET /api/v1/auth/refresh-token HTTP/1.1" 200 498 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-12T17:10:35.761Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [12/Mar/2025:17:10:35 +0000] "GET /api/v1/notifications HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-12T17:11:11.810Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [12/Mar/2025:17:11:11 +0000] "GET /api/v1/notifications HTTP/1.1" 401 77 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-12T17:11:12.113Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [12/Mar/2025:17:11:12 +0000] "GET /api/v1/auth/refresh-token HTTP/1.1" 200 498 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-12T17:27:49.590Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [12/Mar/2025:17:27:49 +0000] "GET /api/v1/notifications HTTP/1.1" 401 77 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-12T17:27:49.781Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [12/Mar/2025:17:27:49 +0000] "GET /api/v1/auth/refresh-token HTTP/1.1" 200 498 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-12T17:33:48.044Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [12/Mar/2025:17:33:48 +0000] "GET /api/v1/notifications HTTP/1.1" 401 77 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-12T17:33:49.089Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [12/Mar/2025:17:33:49 +0000] "GET /api/v1/auth/refresh-token HTTP/1.1" 200 498 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-12T17:34:16.723Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [12/Mar/2025:17:34:16 +0000] "GET /api/v1/auth/refresh-token HTTP/1.1" 200 498 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-12T17:34:28.920Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [12/Mar/2025:17:34:28 +0000] "GET /api/v1/notifications HTTP/1.1" 401 77 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-12T17:34:29.127Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [12/Mar/2025:17:34:29 +0000] "GET /api/v1/auth/refresh-token HTTP/1.1" 200 498 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-12T17:39:47.797Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [12/Mar/2025:17:39:47 +0000] "GET /api/v1/auth/refresh-token HTTP/1.1" 200 498 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-12T17:40:02.543Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [12/Mar/2025:17:40:02 +0000] "GET /api/v1/notifications HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-12T17:47:07.762Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [12/Mar/2025:17:47:07 +0000] "GET /api/v1/notifications HTTP/1.1" 401 77 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-12T17:47:08.136Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [12/Mar/2025:17:47:08 +0000] "GET /api/v1/auth/refresh-token HTTP/1.1" 200 498 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-12T17:55:31.318Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [12/Mar/2025:17:55:31 +0000] "GET /api/v1/locations/geocode/reverse?lat=30.071470887901302&lon=31.196708679199222 HTTP/1.1" 200 608 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-12T17:55:32.345Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [12/Mar/2025:17:55:32 +0000] "GET /api/v1/locations/geocode/reverse?lat=30.039972019576012&lon=31.267089843750004 HTTP/1.1" 200 685 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-12T17:56:08.834Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [12/Mar/2025:17:56:08 +0000] "GET /api/v1/locations/geocode/reverse?lat=30.055425546694924&lon=31.188125610351566 HTTP/1.1" 200 680 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-12T17:56:11.521Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [12/Mar/2025:17:56:11 +0000] "GET /api/v1/locations/geocode/reverse?lat=30.055128386219575&lon=31.26091003417969 HTTP/1.1" 200 750 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-12T17:56:18.238Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [12/Mar/2025:17:56:18 +0000] "GET /api/v1/notifications HTTP/1.1" 401 77 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-12T17:56:19.229Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [12/Mar/2025:17:56:19 +0000] "GET /api/v1/auth/refresh-token HTTP/1.1" 200 498 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-12T17:56:19.265Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [12/Mar/2025:17:56:19 +0000] "GET /api/v1/locations/geocode/reverse?lat=30.0643399462443&lon=31.189842224121097 HTTP/1.1" 200 806 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-12T17:56:20.255Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [12/Mar/2025:17:56:20 +0000] "GET /api/v1/locations/geocode/reverse?lat=30.025705085640688&lon=31.302452087402347 HTTP/1.1" 200 694 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-12T17:56:43.975Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [12/Mar/2025:17:56:43 +0000] "GET /api/v1/notifications HTTP/1.1" 401 77 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-12T17:56:44.241Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [12/Mar/2025:17:56:44 +0000] "GET /api/v1/auth/refresh-token HTTP/1.1" 200 498 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-12T17:56:45.078Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [12/Mar/2025:17:56:45 +0000] "GET /api/v1/locations/geocode/reverse?lat=30.066419857302407&lon=31.18606567382813 HTTP/1.1" 200 747 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-12T17:56:46.064Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [12/Mar/2025:17:56:46 +0000] "GET /api/v1/locations/geocode/reverse?lat=30.040269225526092&lon=31.248550415039066 HTTP/1.1" 200 712 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-12T17:57:27.034Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [12/Mar/2025:17:57:27 +0000] "POST /api/v1/bookings HTTP/1.1" 201 729 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-12T17:57:28.469Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [12/Mar/2025:17:57:28 +0000] "PUT /api/v1/bookings/update-step/items HTTP/1.1" 200 1040 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-12T17:57:29.287Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [12/Mar/2025:17:57:29 +0000] "PUT /api/v1/bookings/update-step/services HTTP/1.1" 200 1043 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-12T18:11:08.524Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [12/Mar/2025:18:11:08 +0000] "GET /api/v1/notifications HTTP/1.1" 401 77 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-12T18:11:08.625Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [12/Mar/2025:18:11:08 +0000] "GET /api/v1/auth/refresh-token HTTP/1.1" 200 498 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-12T18:13:23.221Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [12/Mar/2025:18:13:23 +0000] "GET /api/v1/notifications HTTP/1.1" 401 77 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-12T18:13:23.474Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [12/Mar/2025:18:13:23 +0000] "GET /api/v1/auth/refresh-token HTTP/1.1" 200 498 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-12T18:24:56.895Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [12/Mar/2025:18:24:56 +0000] "GET /api/v1/notifications HTTP/1.1" 401 77 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-12T18:24:57.054Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [12/Mar/2025:18:24:57 +0000] "GET /api/v1/auth/refresh-token HTTP/1.1" 200 498 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-12T18:30:11.189Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [12/Mar/2025:18:30:11 +0000] "POST /api/v1/bookings HTTP/1.1" 201 729 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-12T18:30:12.508Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [12/Mar/2025:18:30:12 +0000] "PUT /api/v1/bookings/update-step/items HTTP/1.1" 200 1040 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-12T18:30:13.637Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [12/Mar/2025:18:30:13 +0000] "PUT /api/v1/bookings/update-step/services HTTP/1.1" 200 1043 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-12T18:30:20.801Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [12/Mar/2025:18:30:20 +0000] "POST /api/v1/bookings HTTP/1.1" 201 729 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-12T18:30:21.488Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [12/Mar/2025:18:30:21 +0000] "PUT /api/v1/bookings/update-step/items HTTP/1.1" 200 1040 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-12T18:30:22.542Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [12/Mar/2025:18:30:22 +0000] "PUT /api/v1/bookings/update-step/services HTTP/1.1" 200 1043 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-12T18:31:23.829Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [12/Mar/2025:18:31:23 +0000] "GET /api/v1/notifications HTTP/1.1" 401 77 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-12T18:31:24.035Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [12/Mar/2025:18:31:24 +0000] "GET /api/v1/auth/refresh-token HTTP/1.1" 200 498 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-12T18:32:28.996Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [12/Mar/2025:18:32:28 +0000] "POST /api/v1/bookings HTTP/1.1" 201 729 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-12T18:32:30.222Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [12/Mar/2025:18:32:30 +0000] "PUT /api/v1/bookings/update-step/items HTTP/1.1" 200 1040 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-12T18:32:30.947Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [12/Mar/2025:18:32:30 +0000] "PUT /api/v1/bookings/update-step/services HTTP/1.1" 200 1043 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-12T18:32:35.342Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [12/Mar/2025:18:32:35 +0000] "PUT /api/v1/bookings/update-step/items HTTP/1.1" 200 1040 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-12T18:32:36.745Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [12/Mar/2025:18:32:36 +0000] "PUT /api/v1/bookings/update-step/services HTTP/1.1" 200 1043 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-12T18:32:43.021Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [12/Mar/2025:18:32:43 +0000] "PUT /api/v1/bookings/update-step/services HTTP/1.1" 200 1043 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-12T18:35:35.828Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [12/Mar/2025:18:35:35 +0000] "PUT /api/v1/bookings/update-step/items HTTP/1.1" 200 1040 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-12T18:35:36.504Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [12/Mar/2025:18:35:36 +0000] "PUT /api/v1/bookings/update-step/services HTTP/1.1" 200 1043 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-12T18:40:19.751Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [12/Mar/2025:18:40:19 +0000] "GET /api/v1/notifications HTTP/1.1" 401 77 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-12T18:40:20.007Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [12/Mar/2025:18:40:20 +0000] "GET /api/v1/auth/refresh-token HTTP/1.1" 200 498 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-12T18:46:29.854Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [12/Mar/2025:18:46:29 +0000] "GET /api/v1/auth/sign-out HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-12T18:46:44.354Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [12/Mar/2025:18:46:44 +0000] "POST /api/v1/auth/google-signin HTTP/1.1" 200 724 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-12T18:46:45.101Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [12/Mar/2025:18:46:45 +0000] "GET /api/v1/notifications HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-12T18:46:58.695Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [12/Mar/2025:18:46:58 +0000] "GET /api/v1/notifications HTTP/1.1" 401 77 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-12T18:46:59.086Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [12/Mar/2025:18:46:59 +0000] "GET /api/v1/auth/refresh-token HTTP/1.1" 200 498 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-12T18:47:00.649Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [12/Mar/2025:18:47:00 +0000] "GET /api/v1/notifications HTTP/1.1" 200 37 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-12T18:47:40.540Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [12/Mar/2025:18:47:40 +0000] "GET /api/v1/auth/sign-out HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-12T18:48:30.912Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [12/Mar/2025:18:48:30 +0000] "POST /api/v1/auth/google-signin HTTP/1.1" 200 724 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-12T18:48:33.947Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [12/Mar/2025:18:48:33 +0000] "GET /api/v1/auth/sign-out HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-12T18:49:48.167Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [12/Mar/2025:18:49:48 +0000] "GET /api/v1/auth/refresh-token HTTP/1.1" 401 55 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-12T18:49:53.220Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [12/Mar/2025:18:49:53 +0000] "POST /api/v1/auth/google-signin HTTP/1.1" 200 724 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-12T18:49:53.947Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [12/Mar/2025:18:49:53 +0000] "GET /api/v1/notifications HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-12T18:50:39.412Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [12/Mar/2025:18:50:39 +0000] "POST /api/v1/bookings HTTP/1.1" 201 586 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-12T18:51:27.690Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [12/Mar/2025:18:51:27 +0000] "PUT /api/v1/bookings/update-step/items HTTP/1.1" 200 931 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-12T18:52:06.023Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [12/Mar/2025:18:52:06 +0000] "PUT /api/v1/bookings/update-step/services HTTP/1.1" 200 934 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-12T18:52:33.945Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [12/Mar/2025:18:52:33 +0000] "PUT /api/v1/bookings/update-step/services HTTP/1.1" 200 934 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-12T18:52:46.036Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-12T18:52:47.493Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-12T18:53:24.165Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [12/Mar/2025:18:53:24 +0000] "PUT /api/v1/bookings/update-step/services HTTP/1.1" 200 948 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-12T18:54:25.468Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [12/Mar/2025:18:54:25 +0000] "PUT /api/v1/bookings/update-step/services HTTP/1.1" 200 948 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-12T18:56:22.779Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-12T18:56:24.286Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-12T18:56:25.483Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [12/Mar/2025:18:56:25 +0000] "GET /api/v1/auth/sign-out HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-12T18:56:35.120Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [12/Mar/2025:18:56:35 +0000] "GET /api/v1/auth/refresh-token HTTP/1.1" 401 55 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-12T18:56:47.552Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [12/Mar/2025:18:56:47 +0000] "GET /api/v1/auth/refresh-token HTTP/1.1" 401 55 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-12T18:57:07.409Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [12/Mar/2025:18:57:07 +0000] "POST /api/v1/auth/google-signin HTTP/1.1" 200 724 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-12T18:57:08.143Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [12/Mar/2025:18:57:08 +0000] "GET /api/v1/notifications HTTP/1.1" 200 38 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-12T18:57:17.553Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [12/Mar/2025:18:57:17 +0000] "GET /api/v1/locations/geocode/reverse?lat=30.059288551718577&lon=31.203575134277347 HTTP/1.1" 200 748 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-12T18:57:18.635Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [12/Mar/2025:18:57:18 +0000] "GET /api/v1/locations/geocode/reverse?lat=30.040269225526092&lon=31.265029907226566 HTTP/1.1" 200 771 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-12T18:57:24.791Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [12/Mar/2025:18:57:24 +0000] "POST /api/v1/bookings HTTP/1.1" 201 752 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-12T18:57:38.400Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [12/Mar/2025:18:57:38 +0000] "PUT /api/v1/bookings/update-step/items HTTP/1.1" 200 916 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-12T18:57:42.913Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [12/Mar/2025:18:57:42 +0000] "PUT /api/v1/bookings/update-step/services HTTP/1.1" 200 919 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-12T18:57:48.743Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [12/Mar/2025:18:57:48 +0000] "PUT /api/v1/bookings/update-step/services HTTP/1.1" 200 919 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-12T18:57:55.401Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [12/Mar/2025:18:57:55 +0000] "PUT /api/v1/bookings/update-step/services HTTP/1.1" 200 989 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-12T19:00:47.503Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [12/Mar/2025:19:00:47 +0000] "GET /api/v1/notifications HTTP/1.1" 401 77 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-12T19:00:47.599Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [12/Mar/2025:19:00:47 +0000] "GET /api/v1/auth/refresh-token HTTP/1.1" 200 498 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-12T19:05:13.679Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [12/Mar/2025:19:05:13 +0000] "PUT /api/v1/bookings/update-step/completed HTTP/1.1" 200 990 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-12T19:05:38.123Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [12/Mar/2025:19:05:38 +0000] "GET /api/v1/auth/refresh-token HTTP/1.1" 200 498 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-12T19:05:55.412Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [12/Mar/2025:19:05:55 +0000] "GET /api/v1/bookings/user HTTP/1.1" 401 77 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-12T19:05:55.613Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [12/Mar/2025:19:05:55 +0000] "GET /api/v1/auth/refresh-token HTTP/1.1" 200 498 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-12T19:07:42.479Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [12/Mar/2025:19:07:42 +0000] "GET /api/v1/bookings/user HTTP/1.1" 401 76 "-" "PostmanRuntime/7.43.0"
+[2025-03-12T19:08:10.359Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-12T19:08:11.844Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-12T19:08:13.358Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-12T19:08:19.585Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-12T19:08:20.720Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-12T19:08:21.664Z] [31MERROR[39M: [POST] /api/v1/auth/sign-in - 400 - This email is registered with Google, please sign in with Google
+[2025-03-12T19:08:21.668Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [12/Mar/2025:19:08:21 +0000] "POST /api/v1/auth/sign-in HTTP/1.1" 400 94 "-" "PostmanRuntime/7.43.0"
+[2025-03-12T19:08:35.119Z] [31MERROR[39M: [GET] /api/v1/bookings/user - 500 - Cannot destructure property 'userId' of 'req.user' as it is undefined.
+[2025-03-12T19:08:35.120Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [12/Mar/2025:19:08:35 +0000] "GET /api/v1/bookings/user HTTP/1.1" 500 101 "-" "PostmanRuntime/7.43.0"
+[2025-03-12T19:08:40.057Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-12T19:08:41.731Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-12T19:08:51.147Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [12/Mar/2025:19:08:51 +0000] "GET /api/v1/bookings/user HTTP/1.1" 401 77 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-12T19:08:51.358Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [12/Mar/2025:19:08:51 +0000] "GET /api/v1/auth/refresh-token HTTP/1.1" 200 498 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-12T19:09:36.259Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [12/Mar/2025:19:09:36 +0000] "GET /api/v1/bookings/user HTTP/1.1" 401 77 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-12T19:09:36.516Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [12/Mar/2025:19:09:36 +0000] "GET /api/v1/auth/refresh-token HTTP/1.1" 200 498 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-12T19:10:01.844Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [12/Mar/2025:19:10:01 +0000] "GET /api/v1/notifications HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-12T19:10:03.851Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [12/Mar/2025:19:10:03 +0000] "GET /api/v1/auth/sign-out HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-12T19:10:09.217Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [12/Mar/2025:19:10:09 +0000] "POST /api/v1/auth/google-signin HTTP/1.1" 200 724 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-12T19:10:15.452Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [12/Mar/2025:19:10:15 +0000] "GET /api/v1/bookings/user HTTP/1.1" 401 77 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-12T19:10:15.653Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [12/Mar/2025:19:10:15 +0000] "GET /api/v1/auth/refresh-token HTTP/1.1" 200 498 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-12T19:10:36.042Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-12T19:10:37.257Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-12T19:10:54.622Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-12T19:10:55.746Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-12T19:11:12.583Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-12T19:11:13.910Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-12T19:11:33.476Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [12/Mar/2025:19:11:33 +0000] "GET /api/v1/bookings/me HTTP/1.1" 401 77 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-12T19:11:33.783Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [12/Mar/2025:19:11:33 +0000] "GET /api/v1/auth/refresh-token HTTP/1.1" 200 498 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-12T19:12:02.762Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [12/Mar/2025:19:12:02 +0000] "GET /api/v1/bookings/me HTTP/1.1" 200 1187 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-12T19:12:23.946Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [12/Mar/2025:19:12:23 +0000] "GET /api/v1/bookings/me HTTP/1.1" 401 77 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-12T19:12:24.241Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [12/Mar/2025:19:12:24 +0000] "GET /api/v1/auth/refresh-token HTTP/1.1" 200 498 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-12T19:12:32.820Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [12/Mar/2025:19:12:32 +0000] "GET /api/v1/bookings/me HTTP/1.1" 200 1186 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-13T10:21:31.101Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-13T10:21:32.789Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-13T10:21:41.219Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [13/Mar/2025:10:21:41 +0000] "GET /api/v1/notifications HTTP/1.1" 401 77 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-13T10:21:41.769Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [13/Mar/2025:10:21:41 +0000] "GET /api/v1/auth/refresh-token HTTP/1.1" 200 498 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-13T10:22:28.563Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-13T10:22:29.998Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-13T10:22:40.570Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-13T10:22:42.168Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-13T10:22:47.945Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-13T10:22:49.684Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-13T10:22:59.550Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-13T10:23:01.175Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-13T10:23:50.704Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-13T10:23:52.428Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-13T10:24:01.268Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-13T10:24:02.872Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-13T10:25:44.526Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-13T10:25:46.066Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-13T10:25:51.975Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-13T10:25:53.472Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-13T10:26:34.377Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-13T10:26:36.060Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-13T10:26:37.666Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-13T10:26:39.177Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-13T10:26:50.351Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-13T10:26:51.949Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-13T10:27:15.696Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-13T10:27:17.122Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-13T10:27:47.515Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-13T10:27:49.068Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-13T10:27:50.601Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-13T10:27:51.892Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-13T10:27:53.365Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-13T10:28:01.915Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-13T10:28:03.422Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-13T10:28:10.174Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-13T10:28:11.846Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-13T10:29:10.117Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-13T10:29:11.650Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-13T10:29:14.927Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-13T10:29:16.506Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-13T10:30:00.993Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-13T10:30:02.703Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-13T10:32:26.164Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-13T10:32:27.646Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-13T10:32:44.319Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-13T10:32:46.027Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-13T10:33:10.755Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-13T10:33:12.548Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-13T10:33:26.517Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-13T10:33:28.112Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-13T10:33:30.292Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-13T10:33:31.748Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-13T10:33:55.048Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-13T10:33:56.578Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-13T10:34:32.545Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-13T10:34:34.088Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-13T10:34:37.693Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-13T10:34:39.452Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-13T10:34:43.333Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-13T10:34:44.935Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-13T10:34:58.475Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-13T10:35:00.182Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-13T10:35:12.274Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-13T10:35:13.756Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-13T10:35:25.359Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-13T10:35:26.918Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-13T10:35:39.654Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-13T10:35:41.430Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-13T10:36:03.069Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-13T10:36:04.672Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-13T10:36:18.358Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-13T10:36:19.875Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-13T10:36:53.876Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-13T10:36:55.475Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-13T10:37:51.773Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-13T10:37:53.357Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-13T10:37:59.218Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-13T10:38:00.811Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-13T10:38:49.910Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-13T10:38:51.592Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-13T10:38:52.772Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-13T10:38:54.389Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-13T10:39:11.592Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-13T10:39:13.324Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-13T10:39:14.738Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-13T10:39:21.605Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-13T10:39:23.183Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-13T10:39:26.700Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-13T10:39:28.148Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-13T10:39:58.389Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-13T10:39:59.999Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-13T10:40:21.983Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-13T10:40:23.553Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-13T10:40:29.766Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-13T10:40:31.539Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-13T10:40:56.485Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-13T10:40:58.172Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-13T10:40:59.056Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-13T10:41:00.909Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-13T10:41:02.570Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-13T10:41:27.330Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-13T10:41:28.859Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-13T10:41:39.519Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-13T10:41:41.274Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-13T10:41:50.335Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-13T10:41:51.867Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-13T10:43:06.493Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-13T10:43:08.081Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-13T10:43:28.248Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-13T10:43:29.919Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-13T10:43:34.211Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-13T10:43:35.962Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-13T10:44:32.901Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-13T10:44:34.715Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-13T10:44:36.478Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-13T10:44:45.012Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-13T10:44:46.666Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-13T10:44:48.528Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-13T10:44:50.094Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-13T10:44:52.636Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-13T10:44:53.446Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-13T10:44:55.216Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-13T10:45:08.978Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-13T10:45:10.577Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-13T10:45:33.158Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-13T10:45:34.846Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-13T10:47:50.252Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-13T10:47:51.896Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-13T10:48:47.974Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-13T10:48:49.603Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-13T10:49:03.578Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-13T10:49:05.270Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-13T10:49:41.798Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-13T10:49:43.427Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-13T10:49:55.828Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-13T10:49:57.492Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-13T10:50:02.121Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-13T10:50:03.635Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-13T10:50:06.232Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-13T10:50:07.778Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-13T10:50:18.788Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-13T10:50:20.436Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-13T10:50:24.636Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-13T10:50:26.165Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-13T10:50:31.121Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-13T10:50:32.823Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-13T10:50:38.618Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-13T10:50:40.294Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-13T11:11:42.496Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-13T11:11:44.254Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-13T11:13:50.015Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-13T11:13:51.745Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-13T11:14:01.082Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-13T11:14:02.702Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-13T11:14:07.074Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-13T11:14:08.744Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-13T11:14:53.405Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-13T11:14:55.132Z] [32MINFO[39M: MongoDB connected successfully

@@ -99,3 +99,5 @@
 [2025-03-12T15:53:15.239Z] [31MERROR[39M: [POST] /api/v1/auth/google-signup - 400 - This email is already registered, please sign in
 [2025-03-12T15:53:28.550Z] [31MERROR[39M: [POST] /api/v1/auth/sign-in - 400 - This email is registered with Google, please sign in with Google
 [2025-03-12T15:58:07.592Z] [31MERROR[39M: [POST] /api/v1/auth/sign-up - 400 - This email is already registered, please sign in
+[2025-03-12T19:08:21.664Z] [31MERROR[39M: [POST] /api/v1/auth/sign-in - 400 - This email is registered with Google, please sign in with Google
+[2025-03-12T19:08:35.119Z] [31MERROR[39M: [GET] /api/v1/bookings/user - 500 - Cannot destructure property 'userId' of 'req.user' as it is undefined.

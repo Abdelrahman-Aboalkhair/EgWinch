@@ -4,10 +4,12 @@ const morgan = require("morgan");
 const dotenv = require("dotenv");
 const cookieParser = require("cookie-parser");
 const helmet = require("helmet");
+const compression = require("compression");
 const rateLimit = require("express-rate-limit");
 const mongoSanitize = require("express-mongo-sanitize");
 const xss = require("xss-clean");
 const hpp = require("hpp");
+const csurf = require("csurf");
 const authRoutes = require("./modules/auth/auth.routes.js");
 const userRoutes = require("./modules/users/user.routes.js");
 const driverRoutes = require("./modules/drivers/driver.routes.js");
@@ -20,17 +22,38 @@ const locationRoutes = require("./modules/locations/location.routes.js");
 const globalError = require("./middlewares/globalError.js");
 const logger = require("./config/logger.js");
 const AppError = require("./utils/AppError.js");
+const { limiter } = require("./constants/limiters.js");
 
 dotenv.config();
 
 const app = express();
 
+const allowedOrigins =
+  process.env.NODE_ENV === "production"
+    ? ["egwinch.com", "www.egwinch.com"]
+    : ["localhost", "127.0.0.1"];
+
+app.use(compression());
 app.use(
   cors({
-    origin: "http://localhost:3000",
+    origin: (origin, callback) => {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new AppError(403, "CORS policy violation"));
+      }
+    },
     credentials: true,
   })
 );
+
+app.use((req, res, next) => {
+  if (!allowedOrigins.includes(req.hostname)) {
+    return next(new AppError(403, "Forbidden"));
+  }
+  next();
+});
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(
@@ -40,14 +63,35 @@ app.use(
     },
   })
 );
+app.use(csurf({ cookie: true }));
+app.use(
+  cookieParser(process.env.COOKIE_SECRET, {
+    httpOnly: true,
+    secure: process.env.NODE_ENV === "production",
+    sameSite: "strict",
+  })
+);
+app.use(
+  helmet.contentSecurityPolicy({
+    directives: {
+      defaultSrc: ["'self'"],
+      scriptSrc: ["'self'", "https://trusted.cdn.com"],
+      objectSrc: ["'none'"],
+      upgradeInsecureRequests: [],
+    },
+  })
+);
+app.use(helmet.frameguard({ action: "deny" }));
 
-app.use(cookieParser());
-app.use(helmet());
 app.use(express.json());
-app.use(rateLimit({ windowMs: 15 * 60 * 1000, max: 100 }));
+app.use(rateLimit(limiter));
 app.use(mongoSanitize());
 app.use(xss());
-app.use(hpp());
+app.use(
+  hpp({
+    whitelist: ["sort", "filter", "fields", "page", "limit"],
+  })
+);
 
 app.use("/api/v1/auth", authRoutes);
 app.use("/api/v1/users", userRoutes);

@@ -10,9 +10,9 @@ export const bookingApi = apiSlice.injectEndpoints({
       }),
     }),
 
-    getBookings: builder.query({
+    getUserBookings: builder.query({
       query: () => ({
-        url: "/bookings",
+        url: "/bookings/me",
         method: "GET",
       }),
       providesTags: ["Booking"],
@@ -37,10 +37,10 @@ export const bookingApi = apiSlice.injectEndpoints({
     }),
 
     updateOnboardingStep: builder.mutation({
-      query: ({ bookingId, step, items }) => ({
+      query: ({ bookingId, step, ...data }) => ({
         url: `/bookings/update-step/${step}`,
         method: "PUT",
-        body: { bookingId, items },
+        body: { bookingId, ...data },
       }),
       invalidatesTags: ["Booking"],
     }),
@@ -91,7 +91,7 @@ export const bookingApi = apiSlice.injectEndpoints({
 
 export const {
   useEstimatePriceMutation,
-  useGetBookingsQuery,
+  useGetUserBookingsQuery,
   useGetBookingQuery,
   useCreateBookingMutation,
   useUpdateOnboardingStepMutation,
