@@ -32,8 +32,8 @@ const {
   resetPassword,
 } = require("./auth.controller.js");
 
-router.post("/google-signup", authLimiter, validateGoogleAuth, googleSignup);
-router.post("/google-signin", authLimiter, validateGoogleAuth, googleSignin);
+router.post("/google-signup", validateGoogleAuth, googleSignup);
+router.post("/google-signin", validateGoogleAuth, googleSignin);
 
 router.post(
   "/sign-up",
@@ -42,9 +42,9 @@ router.post(
   validateRegister,
   register
 );
-router.post("/verify-email", authLimiter, validateVerifyEmail, verifyEmail);
+router.post("/verify-email", validateVerifyEmail, verifyEmail);
 
-router.post("/sign-in", failedLoginLimiter, validateSignin, signin);
+router.post("/sign-in", validateSignin, signin);
 router.get("/sign-out", signout);
 
 router.get(
@@ -55,11 +55,6 @@ router.get(
 );
 
 router.post("/forgot-password", validateForgotPassword, forgotPassword);
-router.post(
-  "/reset-password",
-  passwordResetLimiter,
-  validateResetPassword,
-  resetPassword
-);
+router.post("/reset-password", validateResetPassword, resetPassword);
 
 module.exports = router;

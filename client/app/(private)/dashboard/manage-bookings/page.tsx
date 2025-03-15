@@ -10,7 +10,7 @@ import React, { useState } from "react";
 import { Loader2, XCircle, Search, Check, ChevronDown } from "lucide-react";
 import { motion } from "framer-motion";
 import { useAppSelector } from "@/app/store/hooks";
-import useFormatPrice from "@/app/hooks/useFormatPrice";
+import useFormatPrice from "@/app/hooks/ui/useFormatPrice";
 import Offers from "@/app/components/sections/booking/Offers";
 
 const ManageBookings = () => {

@@ -90,13 +90,9 @@ const Services = () => {
       <div className="flex items-center justify-between w-full mt-[2rem]">
         <form onSubmit={handleSubmit(addService)} className="w-[25%] space-y-4">
           <div className="flex flex-col items-start justify-start text-start w-[40rem]">
-            <h1 className="text-[34px] tracking-wide font-bold text-stone-800">
+            <h1 className="text-[32px] font-semibold text-stone-700">
               Need Extra Help?
             </h1>
-            <p className="text-gray-800 pt-1 text-[16px]">
-              Select additional services like carpentry, electrical work, or
-              special handling for delicate items.
-            </p>
           </div>
           <Controller
             name="name"
@@ -136,7 +132,7 @@ const Services = () => {
           <div className="flex justify-center items-center mt-6 gap-2">
             <Button
               onClick={handleBack}
-              className="border-2 border-primary text-black py-2 px-8 font-medium"
+              className="border-2 border-primary text-primary py-2 px-8 font-medium"
             >
               Back
             </Button>
@@ -144,7 +140,7 @@ const Services = () => {
               onClick={handleNext}
               className="bg-primary text-white py-[10px] px-8 font-medium active:scale-95 hover:opacity-90"
             >
-              Next
+              Continue
             </Button>
           </div>
         </div>

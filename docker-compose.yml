@@ -1,4 +1,4 @@
-version: "3.8" # Docker Compose version
+version: "3.8"
 
 services:
   redis:
@@ -10,33 +10,33 @@ services:
     build:
       context: ./server
     ports:
-      - "5000:5000" # Map host port 5000 to container port 5000
+      - "5000:5000"
     depends_on:
       - model_service
     volumes:
-      - ./server:/app # Sync code your local app folder to the container
+      - ./server:/app
     environment:
       - MODEL_API_URL=http://model_service:5001
-    command: npm start # Run the server in development mode
+    command: npm start
 
   client:
     build:
       context: ./client
+      dockerfile: Dockerfile
     ports:
-      - "3000:3000" # Map host port 3000 to container port 3000
+      - "3000:3000"
     volumes:
       - ./client:/app
     environment:
       - NODE_ENV=development
-    command: npm run dev # Run the client in development mode
 
   model_service:
     build:
-      context: ./model # Path to your Python model folder
+      context: ./model
       dockerfile: Dockerfile
     volumes:
       - ./model:/app
     ports:
-      - "5001:5000" # Expose port for the model API
+      - "5001:5000"
     environment:
-      - FLASK_ENV=development # Or any other necessary environment variables
+      - FLASK_ENV=development

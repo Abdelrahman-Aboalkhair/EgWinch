@@ -1,6 +1,6 @@
 "use client";
 import OtpInput from "@/app/components/molecules/Otp";
-import useToast from "@/app/hooks/useToast";
+import useToast from "@/app/hooks/ui/useToast";
 import { useVerifyEmailMutation } from "@/app/store/apis/AuthApi";
 import { useRouter } from "next/navigation";
 import { useState } from "react";

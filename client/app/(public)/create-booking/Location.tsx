@@ -12,7 +12,7 @@ import { useCreateBookingMutation } from "@/app/store/apis/BookingApi";
 import { LampFloor, Loader2, MapPinHouse, Navigation } from "lucide-react";
 import { useForm } from "react-hook-form";
 import dynamic from "next/dynamic";
-import useLocationSuggestions from "@/app/hooks/useGetLocationSuggestions";
+import useLocationSuggestions from "@/app/hooks/miscellaneous/useGetLocationSuggestions";
 import Button from "@/app/components/atoms/Button";
 import Link from "next/link";
 import { LatLng } from "@/app/types/Booking.types";
@@ -164,36 +164,37 @@ const Location = () => {
     <OnboardingLayout currentStep={step}>
       <div className="flex flex-col md:flex-row gap-6 w-full items-center justify-between">
         <div className="flex flex-col item-center justify-between w-[40%]">
-          <h1 className="text-[35px] font-bold text-stone-700">
-            Set Your Pickup & Dropoff Points
+          <h1 className="text-[32px] font-semibold text-stone-700">
+            Where Are You Moving From & To?
           </h1>
-          <p className="text-gray-800 pt-1 text-[16px]">
-            Enter your current and new address, along with floor details, to
-            ensure a smooth and accurate move.
-          </p>
+
           <form
-            className="grid grid-cols-2 gap-4 w-full rounded-md pt-4"
+            className="grid grid-cols-3 gap-4 w-full rounded-md pt-8"
             onSubmit={handleSubmit(onSubmit)}
           >
-            <Input
-              control={control}
-              name="pickupLocation"
-              placeholder="Type or choose your location"
-              setValue={setValue}
-              className="py-4 text-base truncate"
-              fetchSuggestions={fetchPickupSuggestions}
-              suggestions={pickupSuggestions}
-              onSelectSuggestion={handleSelectPickup}
-              validation={{ required: "Pickup location is required" }}
-              icon={Navigation}
-              error={errors.pickupLocation?.message}
-            />
+            <div className="col-span-2">
+              <Input
+                control={control}
+                name="pickupLocation"
+                label="Pick-up Location"
+                placeholder="Enter or select your location on the map"
+                setValue={setValue}
+                className="py-4 text-base truncate"
+                fetchSuggestions={fetchPickupSuggestions}
+                suggestions={pickupSuggestions}
+                onSelectSuggestion={handleSelectPickup}
+                validation={{ required: "Pickup location is required" }}
+                icon={Navigation}
+                error={errors.pickupLocation?.message}
+              />
+            </div>
 
             <Input
               control={control}
               name="pickupFloorNumber"
               type="number"
               setValue={setValue}
+              label="Floor Number"
               placeholder="Type a floor number"
               className="py-4 text-base truncate"
               validation={{ required: "Pickup Floor Number is required" }}
@@ -201,22 +202,27 @@ const Location = () => {
               error={errors.pickupFloorNumber?.message}
             />
 
-            <Input
-              control={control}
-              name="dropoffLocation"
-              placeholder="Type or choose your location"
-              setValue={setValue}
-              className="py-4 text-base truncate"
-              fetchSuggestions={fetchDropoffSuggestions}
-              suggestions={dropoffSuggestions}
-              onSelectSuggestion={handleSelectDropoff}
-              validation={{ required: "Dropoff location is required" }}
-              icon={MapPinHouse}
-              error={errors.dropoffLocation?.message}
-            />
+            <div className="col-span-2">
+              <Input
+                control={control}
+                name="dropoffLocation"
+                label="Drop-off Location"
+                placeholder="Enter or select your location on the map"
+                setValue={setValue}
+                className="py-4 text-base truncate"
+                fetchSuggestions={fetchDropoffSuggestions}
+                suggestions={dropoffSuggestions}
+                onSelectSuggestion={handleSelectDropoff}
+                validation={{ required: "Dropoff location is required" }}
+                icon={MapPinHouse}
+                error={errors.dropoffLocation?.message}
+              />
+            </div>
+
             <Input
               control={control}
               name="dropoffFloorNumber"
+              label="Floor Number"
               type="number"
               placeholder="Type a floor number"
               setValue={setValue}
@@ -226,10 +232,10 @@ const Location = () => {
               error={errors.dropoffFloorNumber?.message}
             />
 
-            <div className="flex w-full space-x-2">
+            <div className="flex w-full space-x-2 col-span-3">
               <Link
                 href={"/"}
-                className="border-2 border-primary text-black py-2 px-4 mt-4 font-medium"
+                className="border-2 border-primary text-primary py-2 px-4 mt-4 font-medium"
               >
                 Back to Home
               </Link>
@@ -237,7 +243,7 @@ const Location = () => {
                 type="submit"
                 className="bg-primary text-white py-2 px-6 mt-4 font-medium active:scale-95 hover:opacity-90"
               >
-                Next
+                Continue
               </Button>
             </div>
           </form>

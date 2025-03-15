@@ -105,14 +105,11 @@ const Items = () => {
   return (
     <OnboardingLayout currentStep={step}>
       <div className="flex gap-10 w-full">
-        <div className="flex flex-col items-start justify-start text-start w-1/2 mx-aut mt-[2rem]">
-          <h1 className="text-[35px] tracking-wide font-bold text-stone-700">
+        <div className="flex flex-col items-start justify-start text-start w-1/2">
+          <h1 className="text-[32px] font-semibold text-stone-700 pb-6">
             What&apos;re you moving?
           </h1>
-          <p className="text-gray-800 pt-1 pb-4 text-[16px] w-[40rem]">
-            List your furniture, appliances, and any fragile items so we can
-            match you with the right equipment and winch driver.
-          </p>
+
           <form onSubmit={handleSubmit(onSubmit)} className="w-full space-y-4 ">
             <div className="grid grid-cols-2 gap-2">
               <Input
@@ -185,7 +182,7 @@ const Items = () => {
           <div className="flex justify-center items-center mt-6 gap-2">
             <Button
               onClick={handleBack}
-              className="border-2 border-primary text-black py-2 px-8 font-medium"
+              className="border-2 border-primary text-primary py-2 px-8 font-medium"
             >
               Back
             </Button>
@@ -193,7 +190,7 @@ const Items = () => {
               onClick={handleNext}
               className="bg-primary text-white py-[10px] px-8 font-medium active:scale-95 hover:opacity-90"
             >
-              Next
+              Continue
             </Button>
           </div>
         </div>

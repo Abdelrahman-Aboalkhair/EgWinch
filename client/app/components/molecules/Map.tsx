@@ -3,7 +3,7 @@ import "leaflet/dist/leaflet.css";
 import { useState } from "react";
 import { MapContainer, TileLayer, Polyline } from "react-leaflet";
 import { LatLng } from "leaflet";
-import useRoute from "@/app/hooks/useRoute";
+import useRoute from "@/app/hooks/miscellaneous/useRoute";
 import MapInteractions from "@/app/components/sections/map/MapInteractions";
 import DraggableMarker from "@/app/components/sections/map/DragglableMarker";
 import markerIcon2x from "leaflet/dist/images/marker-icon-2x.png";

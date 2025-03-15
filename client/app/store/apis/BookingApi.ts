@@ -2,19 +2,19 @@ import { apiSlice } from "../slices/ApiSlice";
 
 export const bookingApi = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
-    estimatePrice: builder.mutation({
-      query: (data) => ({
-        url: "/bookings/estimate-price",
-        method: "POST",
-        body: data,
-      }),
-    }),
-
     getUserBookings: builder.query({
-      query: () => ({
-        url: "/bookings/me",
-        method: "GET",
-      }),
+      query: ({ category, sort, name }) => {
+        const queryParams = new URLSearchParams();
+
+        if (category) queryParams.append("category", category);
+        if (sort) queryParams.append("sort", sort);
+        if (name) queryParams.append("name", name);
+
+        return {
+          url: `/bookings/me?${queryParams.toString()}`,
+          method: "GET",
+        };
+      },
       providesTags: ["Booking"],
     }),
 
@@ -85,6 +85,14 @@ export const bookingApi = apiSlice.injectEndpoints({
         method: "DELETE",
       }),
       invalidatesTags: ["Booking"],
+    }),
+
+    estimatePrice: builder.mutation({
+      query: (data) => ({
+        url: "/bookings/estimate-price",
+        method: "POST",
+        body: data,
+      }),
     }),
   }),
 });

@@ -1,7 +1,7 @@
 export const getStatusColor = (status: string) => {
   switch (status) {
     case "pending":
-      return "text-yellow-700 bg-yellow-100";
+      return "text-yellow-700 bg-yellow-100/90";
     case "in-progress":
       return "text-blue-600 bg-blue-100";
     case "completed":

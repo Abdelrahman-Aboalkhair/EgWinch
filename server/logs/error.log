@@ -101,3 +101,12 @@
 [2025-03-12T15:58:07.592Z] [31MERROR[39M: [POST] /api/v1/auth/sign-up - 400 - This email is already registered, please sign in
 [2025-03-12T19:08:21.664Z] [31MERROR[39M: [POST] /api/v1/auth/sign-in - 400 - This email is registered with Google, please sign in with Google
 [2025-03-12T19:08:35.119Z] [31MERROR[39M: [GET] /api/v1/bookings/user - 500 - Cannot destructure property 'userId' of 'req.user' as it is undefined.
+[2025-03-14T14:19:08.824Z] [31MERROR[39M: MongoDB connection failed Could not connect to any servers in your MongoDB Atlas cluster. One common reason is that you're trying to access the database from an IP that isn't whitelisted. Make sure your current IP address is on your Atlas cluster's IP whitelist: https://www.mongodb.com/docs/atlas/security-whitelist/
+[2025-03-15T10:48:41.844Z] [31MERROR[39M: CORS policy violation
+[2025-03-15T10:48:41.854Z] [31MERROR[39M: CORS policy violation
+[2025-03-15T10:49:03.226Z] [31MERROR[39M: CORS policy violation
+[2025-03-15T10:49:52.400Z] [31MERROR[39M: CORS policy violation
+[2025-03-15T10:49:59.271Z] [31MERROR[39M: CORS policy violation
+[2025-03-15T10:51:08.029Z] [31MERROR[39M: misconfigured csrf
+[2025-03-15T10:51:13.368Z] [31MERROR[39M: misconfigured csrf
+[2025-03-15T10:53:54.214Z] [31MERROR[39M: invalid csrf token

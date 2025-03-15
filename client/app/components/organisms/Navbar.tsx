@@ -148,10 +148,8 @@ const Navbar = () => {
             </Link>
           </div>
         ) : (
-          <Button className="bg-primary text-white px-[1.5rem] font-medium py-[9px] text-[16px] rounded">
-            <Link href="/sign-in" className="font-medium capitalize">
-              Sign in
-            </Link>
+          <Button className="border-2 border-primary text-primary px-[1.5rem] font-semibold py-[9px] text-[16px] rounded-full hover:opacity-90">
+            <Link href="/sign-in">Sign in</Link>
           </Button>
         )}
       </div>

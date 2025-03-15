@@ -15,6 +15,7 @@ exports.getAllBookings = asyncHandler(async (req, res) => {
 exports.getUserBookings = asyncHandler(async (req, res) => {
   const { userId } = req.user;
   const result = await BookingService.getUserBookings(userId, req.query);
+  console.log("result: ", result);
 
   res.status(200).json({
     success: true,

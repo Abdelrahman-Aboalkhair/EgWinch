@@ -8,7 +8,7 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import useStorage from "../../hooks/useStorage";
+import useStorage from "../../hooks/state/useStorage";
 
 const sidebarLinks = [
   { name: "Dashboard", href: "/dashboard", icon: LayoutDashboard },

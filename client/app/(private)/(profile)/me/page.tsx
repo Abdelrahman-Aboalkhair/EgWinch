@@ -1,5 +1,5 @@
 "use client";
-import { useGetMeQuery } from "@/app/libs/features/apis/UserApi";
+import { useGetMeQuery } from "@/app/store/apis/UserApi";
 import {
   FaTruck,
   FaIdCard,

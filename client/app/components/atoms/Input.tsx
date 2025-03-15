@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Controller, UseFormSetValue } from "react-hook-form";
 import { LucideIcon } from "lucide-react";
-
 interface InputProps {
   label?: string;
   control: any;
@@ -20,6 +19,7 @@ interface InputProps {
     lat: string;
     lon: string;
   }) => void;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void; // ✅ Add this
 }
 
 const Input: React.FC<InputProps> = ({
@@ -36,14 +36,13 @@ const Input: React.FC<InputProps> = ({
   fetchSuggestions,
   suggestions = [],
   onSelectSuggestion,
+  onChange, // ✅ Receive it as a prop
 }) => {
   const [showSuggestions, setShowSuggestions] = useState(false);
 
   return (
     <div className="relative w-full">
-      {label && (
-        <label className="text-gray-700 pb-2 font-medium">{label}</label>
-      )}
+      {label && <label className="text-gray-700 font-medium">{label}</label>}
 
       <Controller
         name={name}
@@ -54,13 +53,12 @@ const Input: React.FC<InputProps> = ({
             {...field}
             type={type}
             placeholder={placeholder}
-            className={`p-[14px] pl-3 pr-10 w-full border border-gray-300 text-gray-800 placeholder:text-black 
+            className={`p-[14px] pl-3 pr-10 w-full border border-gray-300 text-gray-800 placeholder:text-gray-600 mt-[6px] 
               rounded focus:outline-none focus:ring-[2px] focus:ring-lime-700 ${className}`}
             onChange={(e) => {
               field.onChange(e);
-              if (fetchSuggestions) {
-                fetchSuggestions(e.target.value);
-              }
+              if (onChange) onChange(e); // ✅ Call external onChange
+              if (fetchSuggestions) fetchSuggestions(e.target.value);
             }}
             onFocus={() => setShowSuggestions(true)}
             onBlur={() => setTimeout(() => setShowSuggestions(false), 200)}
@@ -72,7 +70,7 @@ const Input: React.FC<InputProps> = ({
       />
 
       {Icon && (
-        <div className="absolute top-1/2 right-3 transform -translate-y-1/2">
+        <div className="absolute top-[63%] right-3 transform -translate-y-1/2">
           <Icon className="w-[22px] h-[22px] text-gray-800" />
         </div>
       )}
@@ -84,8 +82,8 @@ const Input: React.FC<InputProps> = ({
               key={index}
               className="p-[13px] hover:bg-gray-100 cursor-pointer"
               onMouseDown={() => {
-                setValue(name, suggestion.display_name);
-                if (onSelectSuggestion) onSelectSuggestion(suggestion);
+                setValue?.(name, suggestion.display_name);
+                onSelectSuggestion?.(suggestion);
                 setShowSuggestions(false);
               }}
             >

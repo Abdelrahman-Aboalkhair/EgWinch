@@ -36,9 +36,15 @@ const Home = () => {
             </p>
           </div>
 
-          <Button className="bg-primary text-white px-[3rem] py-[12px] text-[15px] font-medium rounded">
-            <Link href={href}>{text}</Link>
-          </Button>
+          <div className="flex gap-4">
+            <Button className="bg-primary text-white px-[3rem] py-[12px] text-[15px] font-medium rounded">
+              <Link href={href}>{text}</Link>
+            </Button>
+
+            <Button className="bg-white text-primary px-[3rem] py-[12px] text-[15px] font-medium rounded border-2 border-primary">
+              <Link href="/bookings">View Bookings</Link>
+            </Button>
+          </div>
         </div>
 
         <Image src={TruckImage} width={530} height={500} alt="Truck image" />

@@ -8,7 +8,7 @@ import { useRouter } from "next/navigation";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import { Loader2 } from "lucide-react";
 import GoogleSignup from "../(oAuth)/google/GoogleSignup";
-import useToast from "@/app/hooks/useToast";
+import useToast from "@/app/hooks/ui/useToast";
 import FacebookSignup from "../(oAuth)/facebook/FacebookSignup";
 import { useState } from "react";
 import AuthLayout from "@/app/components/templates/AuthLayout";

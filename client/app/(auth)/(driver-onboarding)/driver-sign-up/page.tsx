@@ -6,7 +6,7 @@ import DriverDocuments from "../DriverDocuments";
 import { useAppSelector } from "@/app/store/hooks";
 import StepProgressbar from "../StepProgressbar";
 import GetStarted from "../GetStarted";
-import useStorage from "@/app/hooks/useStorage";
+import useStorage from "@/app/hooks/state/useStorage";
 
 const DriverOnboarding = () => {
   const userId = useAppSelector((state) => state.auth.user?.id);
