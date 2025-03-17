@@ -1,86 +1,50 @@
 const Driver = require("./driver.model");
 const User = require("../users/user.model");
-const { uploadImage } = require("../../utils/uploadImage");
-const asyncHandler = require("../../utils/asyncHandler");
+const AppError = require("../../utils/AppError");
 
 class DriverService {
-  static startOnboarding = asyncHandler(async (userId) => {
+  static async startOnboarding(userId) {
     let driver = await Driver.findOne({ user: userId });
     if (driver) return driver;
 
-    driver = new Driver({ user: userId });
-    await driver.save();
+    driver = await Driver.create({ user: userId });
 
     await User.findByIdAndUpdate(userId, { role: "driver" });
 
     return driver;
-  });
+  }
 
-  static updateOnboardingStep = asyncHandler(
-    async (userId, step, data, files) => {
-      const validSteps = [
-        "personal_info",
-        "vehicle_info",
-        "documents",
-        "completed",
-      ];
-      if (!validSteps.includes(step)) {
-        throw new Error("Invalid onboarding step");
-      }
+  static async updateOnboardingStep(step, data) {
+    const driver = await Driver.findByIdAndUpdate(
+      data.driverId,
+      { ...data, onboardingStep: step },
+      { new: true }
+    );
 
-      let driver = await Driver.findOne({ user: userId });
-      if (!driver) throw new Error("Driver not found");
+    if (!driver) throw new AppError(404, "Driver not found");
 
-      if (step === "personal_info") {
-        driver.personalInfo = { ...driver.personalInfo, ...data };
-      }
+    return driver;
+  }
 
-      if (step === "vehicle_info") {
-        driver.vehicleInfo = { ...driver.vehicleInfo, ...data };
-      }
+  static async updateApplicationStatus(driverId, status, rejectionReason) {
+    const driver = await Driver.findById(driverId);
+    if (!driver) throw new AppError(404, "Driver not found");
 
-      if (step === "documents") {
-        if (!files || !files.length) {
-          throw new Error("No documents uploaded");
-        }
-
-        driver.documents = await Promise.all(
-          files.map((file) => uploadImage(file))
-        );
-      }
-
-      driver.onboardingStep = step;
-
-      if (step === "completed") {
-        driver.status = "inProgress";
-      }
-
-      await driver.save();
-      return driver;
+    if (!["approved", "rejected"].includes(status)) {
+      throw new AppError(400, "Invalid status update");
     }
-  );
 
-  static updateApplicationStatus = asyncHandler(
-    async (driverId, status, rejectionReason) => {
-      const driver = await Driver.findById(driverId);
-      if (!driver) throw new Error("Driver not found");
-
-      if (!["approved", "rejected"].includes(status)) {
-        throw new Error("Invalid status update");
-      }
-
-      let updateField = { status };
-      if (status === "approved") {
-        updateField.onboardingStep = "completed";
-      } else if (status === "rejected") {
-        updateField.rejectionReason = rejectionReason;
-      }
-
-      await Driver.findByIdAndUpdate(driverId, { $set: updateField });
-
-      return { success: true, message: `Driver application ${status}` };
+    const updateFields = { status };
+    if (status === "approved") {
+      updateFields.onboardingStep = "completed";
+    } else if (status === "rejected") {
+      updateFields.rejectionReason = rejectionReason;
     }
-  );
+
+    await Driver.findByIdAndUpdate(driverId, { $set: updateFields });
+
+    return { success: true, message: `Driver application ${status}` };
+  }
 }
 
 module.exports = DriverService;

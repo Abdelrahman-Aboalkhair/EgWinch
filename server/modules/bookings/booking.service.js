@@ -5,28 +5,27 @@ const redis = require("../../lib/redis");
 class BookingService {
   static async getUserBookings(userId, query) {
     const cacheKey = `bookings:${userId}`;
-    let { id, page = 1, limit = 10 } = query;
+    let { page = 1, limit = 10 } = query;
 
     page = parseInt(page);
     limit = parseInt(limit);
-
-    let filter = {};
-    if (id) {
-      filter = { $or: [{ user: userId }, { driver: userId }] };
-    }
 
     const cachedBookings = await redis.get(cacheKey);
     if (cachedBookings) {
       return { fromCache: true, ...JSON.parse(cachedBookings) };
     }
 
-    const totalBookings = await Booking.countDocuments(filter);
-    const bookings = await Booking.find(filter)
-      .populate("user driver", "name")
-      .populate("offers.driver", "name")
-      .sort({ createdAt: -1 })
-      .skip((page - 1) * limit)
-      .limit(limit);
+    const filter = { $or: [{ user: userId }, { driver: userId }] };
+
+    const [totalBookings, bookings] = await Promise.all([
+      Booking.countDocuments(filter),
+      Booking.find(filter)
+        .populate("user driver", "name")
+        .sort({ createdAt: -1 })
+        .skip((page - 1) * limit)
+        .limit(limit)
+        .lean(), // Converts Mongoose docs to plain objects for faster processing
+    ]);
 
     const totalOffers = bookings.reduce(
       (sum, booking) => sum + (booking.offers?.length || 0),
@@ -65,14 +64,6 @@ class BookingService {
 
   static async getBooking(bookingId) {
     return await Booking.findById(bookingId);
-  }
-
-  static async completeBooking(bookingId) {
-    return await Booking.findByIdAndUpdate(
-      bookingId,
-      { onboardingStep: "completed" },
-      { new: true }
-    );
   }
 
   static async createOffer(driverId, bookingId, price) {

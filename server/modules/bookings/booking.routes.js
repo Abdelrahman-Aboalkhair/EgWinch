@@ -29,12 +29,6 @@ router.put(
   authorizeRole("user"),
   updateStep
 );
-router.put(
-  "/complete",
-  isAuthenticated,
-  authorizeRole("user", "driver"),
-  completeBooking
-);
 router.post("/estimate-price", estimatePrice);
 router.put("/create-offer/:bookingId", isAuthenticated, createOffer);
 router.put("/:id", isAuthenticated, updateBooking);

@@ -7,7 +7,6 @@ import { useAppDispatch } from "@/app/store/hooks";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { GoogleOAuthProvider } from "@react-oauth/google";
-import { RedirectHandler } from "@/app/RedirectHandler";
 import GoogleSignin from "../(oAuth)/google/GoogleSignin";
 import { useState } from "react";
 import FacebookSignin from "../(oAuth)/facebook/FacebookSignin";
@@ -61,7 +60,6 @@ const SignIn = () => {
 
   return (
     <AuthLayout>
-      <RedirectHandler />
       <div className="w-full max-w-md p-6">
         <h2 className="text-3xl font-semibold text-center text-gray-700 mb-6">
           Sign in

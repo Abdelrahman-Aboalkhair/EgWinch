@@ -1,5 +1,5 @@
 "use client";
-import { useGetBookingsQuery } from "@/app/store/apis/BookingApi";
+import { useGetUserBookingsQuery } from "@/app/store/apis/BookingApi";
 import { useAppSelector } from "@/app/store/hooks";
 import { motion } from "framer-motion";
 import {
@@ -14,7 +14,7 @@ import {
 
 const Dashboard = () => {
   const { user } = useAppSelector((state) => state.auth);
-  const { data, isLoading } = useGetBookingsQuery({});
+  const { data, isLoading } = useGetUserBookingsQuery({});
 
   const userRole = user?.role;
 

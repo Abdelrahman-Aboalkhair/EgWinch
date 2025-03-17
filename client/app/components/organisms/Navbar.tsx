@@ -49,9 +49,25 @@ const Navbar = () => {
           <span className="cursor-pointer">EgWinch</span>
         </Link>
       </div>
-
+      <div className="space-x-[4rem] text-md ">
+        <Link
+          href="/driver-sign-up"
+          className={`${
+            pathname === "/driver-sign-up" ? "text-primary font-medium" : ""
+          }`}
+        >
+          Start Driving
+        </Link>
+        <Link
+          href="/bookings"
+          className={`${
+            pathname === "/bookings" ? "text-primary font-medium" : ""
+          }`}
+        >
+          Bookings
+        </Link>
+      </div>
       <div className="flex items-center gap-10">
-        {/* Notifications */}
         <div className="relative" ref={notificationRef}>
           {isLoggedIn && (
             <button
@@ -59,7 +75,7 @@ const Navbar = () => {
               onClick={(e) => {
                 e.stopPropagation();
                 setNotificationsOpen(!notificationsOpen);
-                setMenuOpen(false); // Close user menu when opening notifications
+                setMenuOpen(false);
               }}
             >
               <Bell size={23} />
@@ -109,14 +125,13 @@ const Navbar = () => {
           )}
         </div>
 
-        {/* User Menu - Click to Toggle */}
         {isLoggedIn ? (
           <div className="relative flex items-center gap-8" ref={menuRef}>
             <button
               onClick={(e) => {
                 e.stopPropagation();
                 setMenuOpen(!menuOpen);
-                setNotificationsOpen(false); // Close notifications when opening user menu
+                setNotificationsOpen(false);
               }}
             >
               {user?.profilePicture?.secure_url ? (
@@ -142,10 +157,6 @@ const Navbar = () => {
                 closeMenu={() => setMenuOpen(false)}
               />
             )}
-
-            <Link href="/driver-sign-up" className="text-[17px]">
-              Start Driving
-            </Link>
           </div>
         ) : (
           <Button className="border-2 border-primary text-primary px-[1.5rem] font-semibold py-[9px] text-[16px] rounded-full hover:opacity-90">

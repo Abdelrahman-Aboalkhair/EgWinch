@@ -13,10 +13,13 @@ services:
       - "5000:5000"
     depends_on:
       - model_service
+      - redis
     volumes:
       - ./server:/app
     environment:
       - MODEL_API_URL=http://model_service:5001
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
     command: npm start
 
   client:

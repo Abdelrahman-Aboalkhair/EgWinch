@@ -68,14 +68,14 @@ const Summary = () => {
               Create Booking
             </Button>
           </div>
-          <BookingCard
-            key={bookingId}
-            items={items}
-            services={services}
-            pickup={pickup}
-            dropoff={dropoff}
-          />
         </div>
+        <BookingCard
+          key={bookingId}
+          items={items}
+          services={services}
+          pickup={pickup}
+          dropoff={dropoff}
+        />
       </motion.div>
     </OnboardingLayout>
   );

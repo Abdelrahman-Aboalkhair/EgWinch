@@ -40,10 +40,6 @@ const Home = () => {
             <Button className="bg-primary text-white px-[3rem] py-[12px] text-[15px] font-medium rounded">
               <Link href={href}>{text}</Link>
             </Button>
-
-            <Button className="bg-white text-primary px-[3rem] py-[12px] text-[15px] font-medium rounded border-2 border-primary">
-              <Link href="/bookings">View Bookings</Link>
-            </Button>
           </div>
         </div>
 

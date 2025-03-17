@@ -5,24 +5,32 @@ const AppError = require("../../utils/AppError");
 const ApiFeatures = require("../../utils/ApiFeatures");
 
 exports.getAllUsers = asyncHandler(async (req, res, next) => {
-  const { role } = req.query;
+  const { role, limit = 10, page = 1 } = req.query;
   const filter = role ? { role } : {};
 
-  const apiFeatures = new ApiFeatures(User.find(filter), req.query).paginate();
+  const limitNum = parseInt(limit, 10);
+  const pageNum = parseInt(page, 10);
 
-  const users = await apiFeatures.query;
-  const totalUsers = await User.countDocuments(filter);
+  const usersQuery = User.find(filter).lean();
+  const totalUsersQuery = User.countDocuments(filter);
+
+  const users = await usersQuery
+    .skip((pageNum - 1) * limitNum)
+    .limit(limitNum)
+    .exec();
+
+  const totalUsers = await totalUsersQuery;
 
   res.status(200).json({
     success: true,
     users,
     totalUsers,
-    totalPages: Math.ceil(totalUsers / (req.query.limit || 10)),
+    totalPages: Math.ceil(totalUsers / limitNum),
   });
 });
 
 exports.getProfile = asyncHandler(async (req, res, next) => {
-  const user = await User.findById(req.params.id);
+  const user = await User.findById(req.params.id).lean();
   if (!user) return next(new AppError("User not found", 404));
 
   res.status(200).json({ success: true, user });

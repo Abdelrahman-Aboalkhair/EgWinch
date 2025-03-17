@@ -3353,3 +3353,711 @@
 [2025-03-15T13:09:15.245Z] [32MINFO[39M: ::ffff:172.20.0.1 - - [15/Mar/2025:13:09:15 +0000] "GET /api/v1/notifications HTTP/1.1" 401 77 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
 [2025-03-15T13:09:15.246Z] [32MINFO[39M: ::ffff:172.20.0.1 - - [15/Mar/2025:13:09:15 +0000] "GET /api/v1/bookings/me?category=Accepted HTTP/1.1" 401 77 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
 [2025-03-15T13:09:15.390Z] [32MINFO[39M: ::ffff:172.20.0.1 - - [15/Mar/2025:13:09:15 +0000] "GET /api/v1/auth/refresh-token HTTP/1.1" - - "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-16T21:10:03.975Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-16T21:10:05.436Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-16T21:11:04.250Z] [32MINFO[39M: ::ffff:172.20.0.1 - - [16/Mar/2025:21:11:04 +0000] "GET /api/v1/auth/refresh-token HTTP/1.1" 401 55 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-16T21:11:04.266Z] [32MINFO[39M: ::ffff:172.20.0.1 - - [16/Mar/2025:21:11:04 +0000] "GET /api/v1/notifications HTTP/1.1" 401 77 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-16T21:11:15.597Z] [32MINFO[39M: ::ffff:172.20.0.1 - - [16/Mar/2025:21:11:15 +0000] "POST /api/v1/auth/google-signin HTTP/1.1" 200 724 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-16T21:11:15.797Z] [32MINFO[39M: ::ffff:172.20.0.1 - - [16/Mar/2025:21:11:15 +0000] "GET /api/v1/notifications HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-16T21:14:34.916Z] [32MINFO[39M: ::ffff:172.20.0.1 - - [16/Mar/2025:21:14:34 +0000] "GET /api/v1/notifications HTTP/1.1" 401 77 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-16T21:14:35.639Z] [32MINFO[39M: ::ffff:172.20.0.1 - - [16/Mar/2025:21:14:35 +0000] "GET /api/v1/auth/refresh-token HTTP/1.1" 200 498 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-16T21:14:42.907Z] [32MINFO[39M: ::ffff:172.20.0.1 - - [16/Mar/2025:21:14:42 +0000] "GET /api/v1/notifications HTTP/1.1" 200 37 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-16T21:14:45.402Z] [32MINFO[39M: ::ffff:172.20.0.1 - - [16/Mar/2025:21:14:45 +0000] "GET /api/v1/bookings/me? HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-16T21:18:12.791Z] [32MINFO[39M: ::ffff:172.20.0.1 - - [16/Mar/2025:21:18:12 +0000] "GET /api/v1/bookings/me?name=d HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-16T21:18:13.037Z] [32MINFO[39M: ::ffff:172.20.0.1 - - [16/Mar/2025:21:18:13 +0000] "GET /api/v1/bookings/me?name=dsfsd HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-16T21:18:15.291Z] [32MINFO[39M: ::ffff:172.20.0.1 - - [16/Mar/2025:21:18:15 +0000] "GET /api/v1/bookings/me?name=s HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-16T21:18:15.365Z] [32MINFO[39M: ::ffff:172.20.0.1 - - [16/Mar/2025:21:18:15 +0000] "GET /api/v1/bookings/me?name=sd HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-16T21:18:15.432Z] [32MINFO[39M: ::ffff:172.20.0.1 - - [16/Mar/2025:21:18:15 +0000] "GET /api/v1/bookings/me?name=sdf HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-16T21:18:15.535Z] [32MINFO[39M: ::ffff:172.20.0.1 - - [16/Mar/2025:21:18:15 +0000] "GET /api/v1/bookings/me?name=sdfs HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-16T21:18:15.606Z] [32MINFO[39M: ::ffff:172.20.0.1 - - [16/Mar/2025:21:18:15 +0000] "GET /api/v1/bookings/me?name=sdfsd HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-16T21:18:15.669Z] [32MINFO[39M: ::ffff:172.20.0.1 - - [16/Mar/2025:21:18:15 +0000] "GET /api/v1/bookings/me?name=sdfsdf HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-16T21:18:21.146Z] [32MINFO[39M: ::ffff:172.20.0.1 - - [16/Mar/2025:21:18:21 +0000] "GET /api/v1/bookings/me? HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-16T21:18:27.869Z] [32MINFO[39M: ::ffff:172.20.0.1 - - [16/Mar/2025:21:18:27 +0000] "GET /api/v1/bookings/me?sort=Oldest+Bookings HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-16T21:18:38.769Z] [32MINFO[39M: ::ffff:172.20.0.1 - - [16/Mar/2025:21:18:38 +0000] "GET /api/v1/notifications HTTP/1.1" 401 77 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-16T21:18:38.771Z] [32MINFO[39M: ::ffff:172.20.0.1 - - [16/Mar/2025:21:18:38 +0000] "GET /api/v1/bookings/me? HTTP/1.1" 401 77 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-16T21:18:39.072Z] [32MINFO[39M: ::ffff:172.20.0.1 - - [16/Mar/2025:21:18:39 +0000] "GET /api/v1/auth/refresh-token HTTP/1.1" 200 498 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-16T21:19:22.805Z] [32MINFO[39M: ::ffff:172.20.0.1 - - [16/Mar/2025:21:19:22 +0000] "GET /api/v1/notifications HTTP/1.1" 200 38 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-16T21:19:24.654Z] [32MINFO[39M: ::ffff:172.20.0.1 - - [16/Mar/2025:21:19:24 +0000] "GET /api/v1/bookings/me? HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-16T21:22:31.800Z] [32MINFO[39M: ::ffff:172.20.0.1 - - [16/Mar/2025:21:22:31 +0000] "GET /api/v1/notifications HTTP/1.1" 401 77 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-16T21:22:32.255Z] [32MINFO[39M: ::ffff:172.20.0.1 - - [16/Mar/2025:21:22:32 +0000] "GET /api/v1/auth/refresh-token HTTP/1.1" 200 498 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-16T21:31:39.225Z] [32MINFO[39M: ::ffff:172.20.0.1 - - [16/Mar/2025:21:31:39 +0000] "GET /api/v1/auth/refresh-token HTTP/1.1" 200 498 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-16T21:31:39.476Z] [32MINFO[39M: ::ffff:172.20.0.1 - - [16/Mar/2025:21:31:39 +0000] "GET /api/v1/notifications HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-16T21:32:17.100Z] [32MINFO[39M: ::ffff:172.20.0.1 - - [16/Mar/2025:21:32:17 +0000] "GET /api/v1/auth/sign-out HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-16T21:32:40.606Z] [32MINFO[39M: ::ffff:172.20.0.1 - - [16/Mar/2025:21:32:40 +0000] "POST /api/v1/auth/google-signin HTTP/1.1" 200 724 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-16T21:32:40.962Z] [32MINFO[39M: ::ffff:172.20.0.1 - - [16/Mar/2025:21:32:40 +0000] "GET /api/v1/notifications HTTP/1.1" 200 37 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-16T21:33:04.873Z] [32MINFO[39M: ::ffff:172.20.0.1 - - [16/Mar/2025:21:33:04 +0000] "GET /api/v1/auth/refresh-token HTTP/1.1" 200 498 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-16T21:33:04.897Z] [32MINFO[39M: ::ffff:172.20.0.1 - - [16/Mar/2025:21:33:04 +0000] "GET /api/v1/notifications HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-16T21:33:08.867Z] [32MINFO[39M: ::ffff:172.20.0.1 - - [16/Mar/2025:21:33:08 +0000] "GET /api/v1/auth/refresh-token HTTP/1.1" 200 498 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-16T21:33:08.904Z] [32MINFO[39M: ::ffff:172.20.0.1 - - [16/Mar/2025:21:33:08 +0000] "GET /api/v1/notifications HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-16T21:33:15.729Z] [32MINFO[39M: ::ffff:172.20.0.1 - - [16/Mar/2025:21:33:15 +0000] "POST /api/v1/auth/google-signin HTTP/1.1" 200 724 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-16T21:33:18.876Z] [32MINFO[39M: ::ffff:172.20.0.1 - - [16/Mar/2025:21:33:18 +0000] "GET /api/v1/auth/refresh-token HTTP/1.1" 200 498 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-16T21:33:18.896Z] [32MINFO[39M: ::ffff:172.20.0.1 - - [16/Mar/2025:21:33:18 +0000] "GET /api/v1/notifications HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-16T21:33:24.637Z] [32MINFO[39M: ::ffff:172.20.0.1 - - [16/Mar/2025:21:33:24 +0000] "GET /api/v1/auth/refresh-token HTTP/1.1" 200 498 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-16T21:33:24.662Z] [32MINFO[39M: ::ffff:172.20.0.1 - - [16/Mar/2025:21:33:24 +0000] "GET /api/v1/notifications HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-16T21:34:33.762Z] [32MINFO[39M: ::ffff:172.20.0.1 - - [16/Mar/2025:21:34:33 +0000] "GET /api/v1/auth/refresh-token HTTP/1.1" 200 498 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-16T21:34:33.783Z] [32MINFO[39M: ::ffff:172.20.0.1 - - [16/Mar/2025:21:34:33 +0000] "GET /api/v1/notifications HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-16T21:34:47.563Z] [32MINFO[39M: ::ffff:172.20.0.1 - - [16/Mar/2025:21:34:47 +0000] "GET /api/v1/auth/refresh-token HTTP/1.1" 429 69 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-16T21:34:47.584Z] [32MINFO[39M: ::ffff:172.20.0.1 - - [16/Mar/2025:21:34:47 +0000] "GET /api/v1/notifications HTTP/1.1" 401 77 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-16T21:34:47.591Z] [32MINFO[39M: ::ffff:172.20.0.1 - - [16/Mar/2025:21:34:47 +0000] "GET /api/v1/auth/refresh-token HTTP/1.1" 429 69 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-16T21:35:00.767Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-16T21:35:01.560Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-16T21:35:03.047Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-16T21:35:05.210Z] [32MINFO[39M: ::ffff:172.20.0.1 - - [16/Mar/2025:21:35:05 +0000] "GET /api/v1/auth/refresh-token HTTP/1.1" 200 498 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-16T21:35:05.226Z] [32MINFO[39M: ::ffff:172.20.0.1 - - [16/Mar/2025:21:35:05 +0000] "GET /api/v1/notifications HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-16T21:35:22.754Z] [32MINFO[39M: ::ffff:172.20.0.1 - - [16/Mar/2025:21:35:22 +0000] "POST /api/v1/auth/google-signin HTTP/1.1" 200 724 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-16T21:35:30.283Z] [32MINFO[39M: ::ffff:172.20.0.1 - - [16/Mar/2025:21:35:30 +0000] "GET /api/v1/auth/refresh-token HTTP/1.1" 200 498 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-16T21:35:30.304Z] [32MINFO[39M: ::ffff:172.20.0.1 - - [16/Mar/2025:21:35:30 +0000] "GET /api/v1/notifications HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-16T21:39:49.861Z] [32MINFO[39M: ::ffff:172.20.0.1 - - [16/Mar/2025:21:39:49 +0000] "GET /api/v1/auth/refresh-token HTTP/1.1" 200 498 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-16T21:39:50.204Z] [32MINFO[39M: ::ffff:172.20.0.1 - - [16/Mar/2025:21:39:50 +0000] "GET /api/v1/auth/refresh-token HTTP/1.1" 200 498 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-16T21:39:50.427Z] [32MINFO[39M: ::ffff:172.20.0.1 - - [16/Mar/2025:21:39:50 +0000] "GET /api/v1/notifications HTTP/1.1" 200 38 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-16T21:39:51.244Z] [32MINFO[39M: ::ffff:172.20.0.1 - - [16/Mar/2025:21:39:51 +0000] "GET /api/v1/auth/sign-out HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-16T21:40:37.694Z] [32MINFO[39M: ::ffff:172.20.0.1 - - [16/Mar/2025:21:40:37 +0000] "GET /api/v1/auth/refresh-token HTTP/1.1" 401 55 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-16T21:40:54.275Z] [32MINFO[39M: ::ffff:172.20.0.1 - - [16/Mar/2025:21:40:54 +0000] "POST /api/v1/auth/google-signin HTTP/1.1" 200 724 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-16T21:40:54.337Z] [32MINFO[39M: ::ffff:172.20.0.1 - - [16/Mar/2025:21:40:54 +0000] "GET /api/v1/notifications HTTP/1.1" 200 37 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-16T21:40:57.498Z] [32MINFO[39M: ::ffff:172.20.0.1 - - [16/Mar/2025:21:40:57 +0000] "GET /api/v1/auth/refresh-token HTTP/1.1" 200 498 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-16T21:40:57.948Z] [32MINFO[39M: ::ffff:172.20.0.1 - - [16/Mar/2025:21:40:57 +0000] "GET /api/v1/auth/refresh-token HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-16T21:40:57.958Z] [32MINFO[39M: ::ffff:172.20.0.1 - - [16/Mar/2025:21:40:57 +0000] "GET /api/v1/notifications HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-16T22:03:12.853Z] [32MINFO[39M: ::ffff:172.20.0.1 - - [16/Mar/2025:22:03:12 +0000] "GET /api/v1/notifications HTTP/1.1" 401 77 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-16T22:03:13.253Z] [32MINFO[39M: ::ffff:172.20.0.1 - - [16/Mar/2025:22:03:13 +0000] "GET /api/v1/auth/refresh-token HTTP/1.1" 200 498 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-16T22:03:13.483Z] [32MINFO[39M: ::ffff:172.20.0.1 - - [16/Mar/2025:22:03:13 +0000] "GET /api/v1/notifications HTTP/1.1" 200 38 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-16T22:05:11.440Z] [32MINFO[39M: ::ffff:172.20.0.1 - - [16/Mar/2025:22:05:11 +0000] "GET /api/v1/auth/sign-out HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-16T22:05:59.161Z] [32MINFO[39M: ::ffff:172.20.0.1 - - [16/Mar/2025:22:05:59 +0000] "POST /api/v1/auth/google-signin HTTP/1.1" 200 724 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-16T22:06:01.835Z] [32MINFO[39M: ::ffff:172.20.0.1 - - [16/Mar/2025:22:06:01 +0000] "GET /api/v1/notifications HTTP/1.1" 401 77 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-16T22:06:02.238Z] [32MINFO[39M: ::ffff:172.20.0.1 - - [16/Mar/2025:22:06:02 +0000] "GET /api/v1/auth/refresh-token HTTP/1.1" 200 498 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-16T22:06:02.257Z] [32MINFO[39M: ::ffff:172.20.0.1 - - [16/Mar/2025:22:06:02 +0000] "GET /api/v1/notifications HTTP/1.1" 200 37 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-16T22:09:16.224Z] [32MINFO[39M: ::ffff:172.20.0.1 - - [16/Mar/2025:22:09:16 +0000] "GET /api/v1/notifications HTTP/1.1" 401 77 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-16T22:09:17.224Z] [32MINFO[39M: ::ffff:172.20.0.1 - - [16/Mar/2025:22:09:17 +0000] "GET /api/v1/auth/refresh-token HTTP/1.1" 200 498 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-16T22:09:17.931Z] [32MINFO[39M: ::ffff:172.20.0.1 - - [16/Mar/2025:22:09:17 +0000] "GET /api/v1/notifications HTTP/1.1" 200 38 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-16T22:09:26.671Z] [32MINFO[39M: ::ffff:172.20.0.1 - - [16/Mar/2025:22:09:26 +0000] "GET /api/v1/notifications HTTP/1.1" 401 77 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-16T22:09:27.756Z] [32MINFO[39M: ::ffff:172.20.0.1 - - [16/Mar/2025:22:09:27 +0000] "GET /api/v1/auth/refresh-token HTTP/1.1" 200 498 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-16T22:09:27.775Z] [32MINFO[39M: ::ffff:172.20.0.1 - - [16/Mar/2025:22:09:27 +0000] "GET /api/v1/notifications HTTP/1.1" 200 37 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-16T22:24:32.924Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-16T22:24:34.355Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-16T22:26:37.981Z] [32MINFO[39M: ::ffff:172.20.0.1 - - [16/Mar/2025:22:26:37 +0000] "GET /api/v1/notifications HTTP/1.1" 401 77 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-16T22:26:38.308Z] [32MINFO[39M: ::ffff:172.20.0.1 - - [16/Mar/2025:22:26:38 +0000] "GET /api/v1/auth/refresh-token HTTP/1.1" 200 498 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-16T22:26:38.465Z] [32MINFO[39M: ::ffff:172.20.0.1 - - [16/Mar/2025:22:26:38 +0000] "GET /api/v1/notifications HTTP/1.1" 200 38 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-16T22:26:51.761Z] [32MINFO[39M: ::ffff:172.20.0.1 - - [16/Mar/2025:22:26:51 +0000] "GET /api/v1/notifications HTTP/1.1" 401 77 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-16T22:26:52.055Z] [32MINFO[39M: ::ffff:172.20.0.1 - - [16/Mar/2025:22:26:52 +0000] "GET /api/v1/auth/refresh-token HTTP/1.1" 200 498 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-16T22:26:52.066Z] [32MINFO[39M: ::ffff:172.20.0.1 - - [16/Mar/2025:22:26:52 +0000] "GET /api/v1/notifications HTTP/1.1" 200 37 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-16T22:27:20.368Z] [32MINFO[39M: ::ffff:172.20.0.1 - - [16/Mar/2025:22:27:20 +0000] "GET /api/v1/notifications HTTP/1.1" 401 77 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-16T22:27:20.776Z] [32MINFO[39M: ::ffff:172.20.0.1 - - [16/Mar/2025:22:27:20 +0000] "GET /api/v1/auth/refresh-token HTTP/1.1" 200 498 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-16T22:27:20.789Z] [32MINFO[39M: ::ffff:172.20.0.1 - - [16/Mar/2025:22:27:20 +0000] "GET /api/v1/notifications HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-16T22:28:47.368Z] [32MINFO[39M: ::ffff:172.20.0.1 - - [16/Mar/2025:22:28:47 +0000] "GET /api/v1/notifications HTTP/1.1" 401 77 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-16T22:28:47.755Z] [32MINFO[39M: ::ffff:172.20.0.1 - - [16/Mar/2025:22:28:47 +0000] "GET /api/v1/auth/refresh-token HTTP/1.1" 200 498 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-16T22:28:47.766Z] [32MINFO[39M: ::ffff:172.20.0.1 - - [16/Mar/2025:22:28:47 +0000] "GET /api/v1/notifications HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-16T22:28:52.535Z] [32MINFO[39M: ::ffff:172.20.0.1 - - [16/Mar/2025:22:28:52 +0000] "GET /api/v1/bookings/me? HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-16T22:30:39.887Z] [32MINFO[39M: ::ffff:172.20.0.1 - - [16/Mar/2025:22:30:39 +0000] "GET /api/v1/notifications HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-16T22:30:41.872Z] [32MINFO[39M: ::ffff:172.20.0.1 - - [16/Mar/2025:22:30:41 +0000] "GET /api/v1/notifications HTTP/1.1" 401 77 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-16T22:30:42.244Z] [32MINFO[39M: ::ffff:172.20.0.1 - - [16/Mar/2025:22:30:42 +0000] "GET /api/v1/auth/refresh-token HTTP/1.1" 200 498 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-16T22:30:42.258Z] [32MINFO[39M: ::ffff:172.20.0.1 - - [16/Mar/2025:22:30:42 +0000] "GET /api/v1/notifications HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-16T22:30:58.522Z] [32MINFO[39M: ::ffff:172.20.0.1 - - [16/Mar/2025:22:30:58 +0000] "GET /api/v1/notifications HTTP/1.1" 401 77 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-16T22:30:58.907Z] [32MINFO[39M: ::ffff:172.20.0.1 - - [16/Mar/2025:22:30:58 +0000] "GET /api/v1/auth/refresh-token HTTP/1.1" 200 498 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-16T22:30:58.920Z] [32MINFO[39M: ::ffff:172.20.0.1 - - [16/Mar/2025:22:30:58 +0000] "GET /api/v1/notifications HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-16T22:31:43.801Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-16T22:31:47.721Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-16T22:32:03.485Z] [32MINFO[39M: ::ffff:172.20.0.1 - - [16/Mar/2025:22:32:03 +0000] "GET /api/v1/notifications HTTP/1.1" 401 77 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-16T22:32:05.903Z] [32MINFO[39M: ::ffff:172.20.0.1 - - [16/Mar/2025:22:32:05 +0000] "GET /api/v1/auth/refresh-token HTTP/1.1" 200 498 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-16T22:32:06.206Z] [32MINFO[39M: ::ffff:172.20.0.1 - - [16/Mar/2025:22:32:06 +0000] "GET /api/v1/notifications HTTP/1.1" 200 38 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-16T22:32:37.344Z] [32MINFO[39M: ::ffff:172.20.0.1 - - [16/Mar/2025:22:32:37 +0000] "POST /api/v1/auth/google-signin HTTP/1.1" 200 724 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-16T22:32:56.077Z] [32MINFO[39M: ::ffff:172.20.0.1 - - [16/Mar/2025:22:32:56 +0000] "POST /api/v1/auth/google-signin HTTP/1.1" 200 724 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-17T12:01:43.475Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T12:01:45.156Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-17T12:02:45.151Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T12:02:48.825Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-17T12:04:13.449Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T12:04:15.700Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T12:04:18.049Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-17T12:05:22.947Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T12:05:24.410Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-17T12:05:31.016Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T12:05:32.273Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T12:05:34.347Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-17T12:07:54.436Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T12:07:56.131Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-17T12:08:05.529Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T12:08:07.001Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-17T12:08:08.390Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T12:08:10.478Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-17T12:08:16.065Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T12:08:18.383Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-17T12:09:30.171Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T12:09:31.844Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-17T12:09:36.650Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T12:09:39.717Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T12:09:43.618Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-17T12:11:01.602Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T12:11:01.607Z] [31MERROR[39M: MongoDB connection failed querySrv ESERVFAIL _mongodb._tcp.cluster0.xoiwv.mongodb.net
+[2025-03-17T12:11:20.786Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T12:11:20.790Z] [31MERROR[39M: MongoDB connection failed querySrv ESERVFAIL _mongodb._tcp.cluster0.xoiwv.mongodb.net
+[2025-03-17T12:21:38.819Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T12:21:46.215Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T12:21:48.358Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T12:21:52.381Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T12:21:56.369Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T12:22:02.427Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T12:22:05.802Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T12:22:06.728Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T12:22:25.483Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T12:22:33.704Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T12:22:46.222Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T12:22:48.672Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T12:23:18.699Z] [31MERROR[39M: MongoDB connection failed Could not connect to any servers in your MongoDB Atlas cluster. One common reason is that you're trying to access the database from an IP that isn't whitelisted. Make sure your current IP address is on your Atlas cluster's IP whitelist: https://www.mongodb.com/docs/atlas/security-whitelist/
+[2025-03-17T12:24:04.124Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T12:24:34.198Z] [31MERROR[39M: MongoDB connection failed Could not connect to any servers in your MongoDB Atlas cluster. One common reason is that you're trying to access the database from an IP that isn't whitelisted. Make sure your current IP address is on your Atlas cluster's IP whitelist: https://www.mongodb.com/docs/atlas/security-whitelist/
+[2025-03-17T12:25:27.783Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T12:25:33.331Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T12:26:03.355Z] [31MERROR[39M: MongoDB connection failed Could not connect to any servers in your MongoDB Atlas cluster. One common reason is that you're trying to access the database from an IP that isn't whitelisted. Make sure your current IP address is on your Atlas cluster's IP whitelist: https://www.mongodb.com/docs/atlas/security-whitelist/
+[2025-03-17T12:26:46.198Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T12:26:47.445Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-17T12:28:46.879Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T12:28:48.000Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-17T12:29:11.360Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T12:29:12.571Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-17T12:29:13.842Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T12:29:15.028Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-17T12:29:51.233Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T12:29:52.638Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-17T12:29:59.569Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T12:30:00.895Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-17T12:30:21.592Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T12:30:22.709Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-17T12:31:30.665Z] [32MINFO[39M: ::ffff:172.20.0.1 - - [17/Mar/2025:12:31:30 +0000] "POST /api/v1/auth/sign-up HTTP/1.1" - - "-" "PostmanRuntime/7.43.0"
+[2025-03-17T12:31:46.606Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T12:31:48.694Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-17T12:33:00.268Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T12:33:01.646Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-17T12:33:03.548Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T12:33:04.870Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-17T12:33:53.667Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T12:33:54.888Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-17T12:33:56.909Z] [31MERROR[39M: This email is already registered, please sign in
+[2025-03-17T12:33:56.913Z] [32MINFO[39M: ::ffff:172.20.0.1 - - [17/Mar/2025:12:33:56 +0000] "POST /api/v1/auth/sign-up HTTP/1.1" 400 422 "-" "PostmanRuntime/7.43.0"
+[2025-03-17T12:34:06.692Z] [32MINFO[39M: ::ffff:172.20.0.1 - - [17/Mar/2025:12:34:06 +0000] "POST /api/v1/auth/sign-up HTTP/1.1" 201 459 "-" "PostmanRuntime/7.43.0"
+[2025-03-17T12:34:43.378Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T12:34:44.765Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-17T12:34:54.887Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T12:34:57.202Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-17T12:35:08.386Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T12:35:09.588Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-17T12:35:14.845Z] [32MINFO[39M: ::ffff:172.20.0.1 - - [17/Mar/2025:12:35:14 +0000] "POST /api/v1/auth/sign-up HTTP/1.1" 201 397 "-" "PostmanRuntime/7.43.0"
+[2025-03-17T12:36:55.958Z] [31MERROR[39M: Unexpected token } in JSON at position 64
+[2025-03-17T12:36:55.959Z] [32MINFO[39M: ::ffff:172.20.0.1 - - [17/Mar/2025:12:36:55 +0000] "POST /api/v1/auth/sign-up HTTP/1.1" 400 924 "-" "PostmanRuntime/7.43.0"
+[2025-03-17T12:37:05.877Z] [31MERROR[39M: Email is required
+[2025-03-17T12:37:05.878Z] [32MINFO[39M: ::ffff:172.20.0.1 - - [17/Mar/2025:12:37:05 +0000] "POST /api/v1/auth/sign-up HTTP/1.1" 400 816 "-" "PostmanRuntime/7.43.0"
+[2025-03-17T12:37:19.558Z] [32MINFO[39M: ::ffff:172.20.0.1 - - [17/Mar/2025:12:37:19 +0000] "POST /api/v1/auth/sign-up HTTP/1.1" 201 402 "-" "PostmanRuntime/7.43.0"
+[2025-03-17T12:38:30.131Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T12:38:32.164Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-17T12:38:42.262Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T12:38:43.637Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-17T12:38:54.998Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T12:38:56.213Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T12:38:57.708Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-17T12:38:59.266Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T12:39:00.663Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-17T12:39:06.057Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T12:39:07.495Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-17T12:39:09.818Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T12:39:11.004Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-17T12:39:13.578Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T12:39:15.021Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-17T12:39:56.457Z] [32MINFO[39M: ::ffff:172.20.0.1 - - [17/Mar/2025:12:39:56 +0000] "POST /api/v1/auth/sign-up HTTP/1.1" 201 402 "-" "PostmanRuntime/7.43.0"
+[2025-03-17T12:41:17.846Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T12:41:19.211Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-17T12:41:45.355Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T12:41:46.502Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-17T12:43:13.814Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T12:43:15.271Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-17T12:43:28.607Z] [32MINFO[39M: ::ffff:172.20.0.1 - - [17/Mar/2025:12:43:28 +0000] "POST /api/v1/auth/sign-up HTTP/1.1" 201 402 "-" "PostmanRuntime/7.43.0"
+[2025-03-17T12:44:38.650Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T12:44:40.028Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-17T12:45:32.299Z] [32MINFO[39M: ::ffff:172.20.0.1 - - [17/Mar/2025:12:45:32 +0000] "POST /api/v1/auth/sign-up HTTP/1.1" 201 402 "-" "PostmanRuntime/7.43.0"
+[2025-03-17T12:46:00.834Z] [31MERROR[39M: Please enter a valid email address
+[2025-03-17T12:46:00.835Z] [32MINFO[39M: ::ffff:172.20.0.1 - - [17/Mar/2025:12:46:00 +0000] "POST /api/v1/auth/sign-up HTTP/1.1" 400 850 "-" "PostmanRuntime/7.43.0"
+[2025-03-17T12:46:07.442Z] [31MERROR[39M: Please enter a valid email address
+[2025-03-17T12:46:07.443Z] [32MINFO[39M: ::ffff:172.20.0.1 - - [17/Mar/2025:12:46:07 +0000] "POST /api/v1/auth/sign-up HTTP/1.1" 400 850 "-" "PostmanRuntime/7.43.0"
+[2025-03-17T12:46:15.602Z] [32MINFO[39M: ::ffff:172.20.0.1 - - [17/Mar/2025:12:46:15 +0000] "POST /api/v1/auth/sign-up HTTP/1.1" 201 403 "-" "PostmanRuntime/7.43.0"
+[2025-03-17T12:48:43.695Z] [32MINFO[39M: ::ffff:172.20.0.1 - - [17/Mar/2025:12:48:43 +0000] "POST /api/v1/auth/sign-up HTTP/1.1" 201 402 "-" "PostmanRuntime/7.43.0"
+[2025-03-17T12:50:18.423Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T12:50:19.727Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-17T12:50:38.507Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T12:50:39.794Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-17T12:50:48.788Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T12:50:50.179Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-17T12:51:44.442Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T12:51:45.906Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-17T12:51:47.541Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T12:51:48.940Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-17T12:51:49.699Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T12:51:50.850Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-17T12:51:53.121Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T12:51:54.397Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-17T12:52:33.074Z] [32MINFO[39M: ::ffff:172.20.0.1 - - [17/Mar/2025:12:52:33 +0000] "POST /api/v1/auth/sign-up HTTP/1.1" 201 402 "-" "PostmanRuntime/7.43.0"
+[2025-03-17T12:54:51.605Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T12:54:53.031Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-17T12:55:01.044Z] [32MINFO[39M: ::ffff:172.20.0.1 - - [17/Mar/2025:12:55:01 +0000] "POST /api/v1/auth/sign-up HTTP/1.1" 201 402 "-" "PostmanRuntime/7.43.0"
+[2025-03-17T12:55:15.399Z] [31MERROR[39M: This email is already registered, please sign in
+[2025-03-17T12:55:15.400Z] [32MINFO[39M: ::ffff:172.20.0.1 - - [17/Mar/2025:12:55:15 +0000] "POST /api/v1/auth/sign-up HTTP/1.1" 400 422 "-" "PostmanRuntime/7.43.0"
+[2025-03-17T12:55:41.980Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T12:55:43.154Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-17T12:56:00.522Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T12:56:01.866Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-17T12:56:04.307Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T12:56:05.561Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-17T12:56:56.836Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T12:56:58.160Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-17T12:57:29.747Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T12:57:31.231Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-17T12:57:32.803Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T12:57:34.016Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-17T12:57:35.680Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T12:57:37.091Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-17T12:57:51.034Z] [32MINFO[39M: ::ffff:172.20.0.1 - - [17/Mar/2025:12:57:51 +0000] "POST /api/v1/auth/sign-up HTTP/1.1" 201 402 "-" "PostmanRuntime/7.43.0"
+[2025-03-17T13:02:27.108Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T13:02:27.113Z] [32MINFO[39M: Redis Client Connected
+[2025-03-17T13:02:27.115Z] [32MINFO[39M: Redis Client Ready
+[2025-03-17T13:02:28.593Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-17T13:03:33.963Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [17/Mar/2025:13:03:33 +0000] "POST /api/v1/auth/sign-up HTTP/1.1" 201 402 "-" "PostmanRuntime/7.43.0"
+[2025-03-17T13:04:20.429Z] [31MERROR[39M: This email is already registered, please sign in
+[2025-03-17T13:04:20.430Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [17/Mar/2025:13:04:20 +0000] "POST /api/v1/auth/sign-up HTTP/1.1" 400 422 "-" "PostmanRuntime/7.43.0"
+[2025-03-17T13:05:06.966Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [17/Mar/2025:13:05:06 +0000] "GET /api/v1/notifications HTTP/1.1" 401 77 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-17T13:05:07.085Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [17/Mar/2025:13:05:07 +0000] "GET /api/v1/auth/refresh-token HTTP/1.1" 404 44 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-17T13:06:24.765Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T13:06:24.773Z] [32MINFO[39M: Redis Client Connected
+[2025-03-17T13:06:24.779Z] [32MINFO[39M: Redis Client Ready
+[2025-03-17T13:06:26.281Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-17T13:06:27.819Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T13:06:27.849Z] [32MINFO[39M: Redis Client Connected
+[2025-03-17T13:06:27.852Z] [32MINFO[39M: Redis Client Ready
+[2025-03-17T13:06:29.173Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-17T13:06:46.431Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T13:06:46.460Z] [32MINFO[39M: Redis Client Connected
+[2025-03-17T13:06:46.462Z] [32MINFO[39M: Redis Client Ready
+[2025-03-17T13:06:47.645Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-17T13:07:03.924Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T13:07:03.952Z] [32MINFO[39M: Redis Client Connected
+[2025-03-17T13:07:03.953Z] [32MINFO[39M: Redis Client Ready
+[2025-03-17T13:07:05.200Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-17T13:07:27.237Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T13:07:27.241Z] [32MINFO[39M: Redis Client Connected
+[2025-03-17T13:07:27.243Z] [32MINFO[39M: Redis Client Ready
+[2025-03-17T13:07:28.734Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-17T13:08:34.311Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T13:08:34.316Z] [32MINFO[39M: Redis Client Connected
+[2025-03-17T13:08:34.318Z] [32MINFO[39M: Redis Client Ready
+[2025-03-17T13:08:35.964Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-17T13:09:42.482Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T13:09:42.491Z] [32MINFO[39M: Redis Client Connected
+[2025-03-17T13:09:42.495Z] [32MINFO[39M: Redis Client Ready
+[2025-03-17T13:09:44.134Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-17T13:09:54.232Z] [32MINFO[39M: Redis Client Connected
+[2025-03-17T13:10:00.939Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T13:10:00.967Z] [32MINFO[39M: Redis Client Connected
+[2025-03-17T13:10:00.971Z] [32MINFO[39M: Redis Client Ready
+[2025-03-17T13:10:02.096Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T13:10:02.139Z] [32MINFO[39M: Redis Client Connected
+[2025-03-17T13:10:02.144Z] [32MINFO[39M: Redis Client Ready
+[2025-03-17T13:10:03.822Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-17T13:11:02.231Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T13:11:02.237Z] [32MINFO[39M: Redis Client Connected
+[2025-03-17T13:11:02.238Z] [32MINFO[39M: Redis Client Ready
+[2025-03-17T13:11:03.869Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-17T13:12:08.493Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T13:12:08.499Z] [32MINFO[39M: Redis Client Connected
+[2025-03-17T13:12:08.503Z] [32MINFO[39M: Redis Client Ready
+[2025-03-17T13:12:09.557Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T13:12:09.591Z] [32MINFO[39M: Redis Client Connected
+[2025-03-17T13:12:09.593Z] [32MINFO[39M: Redis Client Ready
+[2025-03-17T13:12:10.862Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T13:12:10.890Z] [32MINFO[39M: Redis Client Connected
+[2025-03-17T13:12:10.892Z] [32MINFO[39M: Redis Client Ready
+[2025-03-17T13:12:12.303Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-17T13:12:56.139Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T13:12:56.168Z] [32MINFO[39M: Redis Client Connected
+[2025-03-17T13:12:56.171Z] [32MINFO[39M: Redis Client Ready
+[2025-03-17T13:12:57.515Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-17T13:13:27.213Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T13:13:27.219Z] [32MINFO[39M: Redis Client Connected
+[2025-03-17T13:13:27.220Z] [32MINFO[39M: Redis Client Ready
+[2025-03-17T13:13:28.870Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-17T13:13:43.978Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T13:13:44.021Z] [32MINFO[39M: Redis Client Connected
+[2025-03-17T13:13:44.027Z] [32MINFO[39M: Redis Client Ready
+[2025-03-17T13:13:45.315Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-17T13:14:13.231Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T13:14:13.271Z] [32MINFO[39M: Redis Client Connected
+[2025-03-17T13:14:13.276Z] [32MINFO[39M: Redis Client Ready
+[2025-03-17T13:14:14.685Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-17T13:14:18.516Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T13:14:18.541Z] [32MINFO[39M: Redis Client Connected
+[2025-03-17T13:14:18.543Z] [32MINFO[39M: Redis Client Ready
+[2025-03-17T13:14:19.720Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-17T13:14:36.780Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T13:14:36.785Z] [32MINFO[39M: Redis Client Connected
+[2025-03-17T13:14:36.788Z] [32MINFO[39M: Redis Client Ready
+[2025-03-17T13:14:38.074Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-17T13:14:44.494Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T13:14:44.519Z] [32MINFO[39M: Redis Client Connected
+[2025-03-17T13:14:44.522Z] [32MINFO[39M: Redis Client Ready
+[2025-03-17T13:14:45.941Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T13:14:45.967Z] [32MINFO[39M: Redis Client Connected
+[2025-03-17T13:14:45.971Z] [32MINFO[39M: Redis Client Ready
+[2025-03-17T13:14:47.050Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T13:14:47.085Z] [32MINFO[39M: Redis Client Connected
+[2025-03-17T13:14:47.087Z] [32MINFO[39M: Redis Client Ready
+[2025-03-17T13:14:48.393Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-17T13:15:20.017Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T13:15:20.046Z] [32MINFO[39M: Redis Client Connected
+[2025-03-17T13:15:20.047Z] [32MINFO[39M: Redis Client Ready
+[2025-03-17T13:15:21.326Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-17T13:15:33.802Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T13:15:33.833Z] [32MINFO[39M: Redis Client Connected
+[2025-03-17T13:15:33.836Z] [32MINFO[39M: Redis Client Ready
+[2025-03-17T13:15:35.115Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-17T13:15:53.571Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T13:15:53.577Z] [32MINFO[39M: Redis Client Connected
+[2025-03-17T13:15:53.581Z] [32MINFO[39M: Redis Client Ready
+[2025-03-17T13:15:55.020Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-17T13:16:20.249Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T13:16:20.275Z] [32MINFO[39M: Redis Client Connected
+[2025-03-17T13:16:20.278Z] [32MINFO[39M: Redis Client Ready
+[2025-03-17T13:16:21.657Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-17T13:16:26.487Z] [32MINFO[39M: Redis Client Connected
+[2025-03-17T13:17:41.270Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T13:17:41.276Z] [32MINFO[39M: Redis Client Connected
+[2025-03-17T13:17:41.282Z] [32MINFO[39M: Redis Client Ready
+[2025-03-17T13:17:43.512Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-17T13:19:00.318Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [17/Mar/2025:13:19:00 +0000] "POST /api/v1/auth/sign-up HTTP/1.1" 201 402 "-" "PostmanRuntime/7.43.0"
+[2025-03-17T13:19:15.970Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [17/Mar/2025:13:19:15 +0000] "POST /api/v1/drivers HTTP/1.1" 201 301 "-" "PostmanRuntime/7.43.0"
+[2025-03-17T13:20:16.198Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T13:20:16.204Z] [32MINFO[39M: Redis Client Connected
+[2025-03-17T13:20:16.207Z] [32MINFO[39M: Redis Client Ready
+[2025-03-17T13:20:17.638Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-17T13:21:52.829Z] [31MERROR[39M: You are not authorized to perform this action
+[2025-03-17T13:21:52.831Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [17/Mar/2025:13:21:52 +0000] "PUT /api/v1/drivers/update-step/personal HTTP/1.1" 403 940 "-" "PostmanRuntime/7.43.0"
+[2025-03-17T13:22:45.387Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T13:22:45.395Z] [32MINFO[39M: Redis Client Connected
+[2025-03-17T13:22:45.402Z] [32MINFO[39M: Redis Client Ready
+[2025-03-17T13:22:46.951Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-17T13:23:34.028Z] [31MERROR[39M: You are not authorized to perform this action
+[2025-03-17T13:23:34.032Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [17/Mar/2025:13:23:34 +0000] "PUT /api/v1/drivers/update-step/personal HTTP/1.1" 403 940 "-" "PostmanRuntime/7.43.0"
+[2025-03-17T13:24:23.586Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [17/Mar/2025:13:24:23 +0000] "POST /api/v1/auth/sign-in HTTP/1.1" 200 442 "-" "PostmanRuntime/7.43.0"
+[2025-03-17T13:24:40.104Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [17/Mar/2025:13:24:40 +0000] "PUT /api/v1/drivers/update-step/personal HTTP/1.1" 401 76 "-" "PostmanRuntime/7.43.0"
+[2025-03-17T13:24:49.908Z] [31MERROR[39M: 404
+[2025-03-17T13:24:49.910Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [17/Mar/2025:13:24:49 +0000] "PUT /api/v1/drivers/update-step/personal HTTP/1.1" 500 1044 "-" "PostmanRuntime/7.43.0"
+[2025-03-17T13:25:15.589Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T13:25:15.594Z] [32MINFO[39M: Redis Client Connected
+[2025-03-17T13:25:15.597Z] [32MINFO[39M: Redis Client Ready
+[2025-03-17T13:25:17.150Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-17T13:25:17.783Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T13:25:17.810Z] [32MINFO[39M: Redis Client Connected
+[2025-03-17T13:25:17.814Z] [32MINFO[39M: Redis Client Ready
+[2025-03-17T13:25:19.154Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-17T13:25:28.788Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T13:25:28.817Z] [32MINFO[39M: Redis Client Connected
+[2025-03-17T13:25:28.819Z] [32MINFO[39M: Redis Client Ready
+[2025-03-17T13:25:30.143Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-17T13:25:34.944Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T13:25:34.972Z] [32MINFO[39M: Redis Client Connected
+[2025-03-17T13:25:34.974Z] [32MINFO[39M: Redis Client Ready
+[2025-03-17T13:25:36.200Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-17T13:25:44.732Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T13:25:44.757Z] [32MINFO[39M: Redis Client Connected
+[2025-03-17T13:25:44.760Z] [32MINFO[39M: Redis Client Ready
+[2025-03-17T13:25:46.068Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-17T13:27:55.849Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T13:27:55.856Z] [32MINFO[39M: Redis Client Connected
+[2025-03-17T13:27:55.860Z] [32MINFO[39M: Redis Client Ready
+[2025-03-17T13:27:57.572Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T13:27:57.599Z] [32MINFO[39M: Redis Client Connected
+[2025-03-17T13:27:57.601Z] [32MINFO[39M: Redis Client Ready
+[2025-03-17T13:27:58.910Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-17T13:28:13.805Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T13:28:13.837Z] [32MINFO[39M: Redis Client Connected
+[2025-03-17T13:28:13.842Z] [32MINFO[39M: Redis Client Ready
+[2025-03-17T13:28:15.050Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-17T13:28:22.058Z] [31MERROR[39M: Driver not found
+[2025-03-17T13:28:22.062Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [17/Mar/2025:13:28:22 +0000] "PUT /api/v1/drivers/update-step/personal HTTP/1.1" 404 379 "-" "PostmanRuntime/7.43.0"
+[2025-03-17T13:29:02.124Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T13:29:02.131Z] [32MINFO[39M: Redis Client Connected
+[2025-03-17T13:29:02.134Z] [32MINFO[39M: Redis Client Ready
+[2025-03-17T13:29:03.651Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-17T13:29:18.874Z] [32MINFO[39M: Redis Client Connected
+[2025-03-17T13:29:28.859Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T13:29:28.887Z] [32MINFO[39M: Redis Client Connected
+[2025-03-17T13:29:28.889Z] [32MINFO[39M: Redis Client Ready
+[2025-03-17T13:29:30.092Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-17T13:29:32.850Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T13:29:32.878Z] [32MINFO[39M: Redis Client Connected
+[2025-03-17T13:29:32.881Z] [32MINFO[39M: Redis Client Ready
+[2025-03-17T13:29:34.164Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-17T13:29:58.105Z] [31MERROR[39M: Invalid _id: [object Object]
+[2025-03-17T13:29:58.108Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [17/Mar/2025:13:29:58 +0000] "PUT /api/v1/drivers/update-step/personal HTTP/1.1" 400 853 "-" "PostmanRuntime/7.43.0"
+[2025-03-17T13:34:34.959Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T13:34:34.965Z] [32MINFO[39M: Redis Client Connected
+[2025-03-17T13:34:34.968Z] [32MINFO[39M: Redis Client Ready
+[2025-03-17T13:34:36.343Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-17T13:34:36.919Z] [31MERROR[39M: Invalid _id: [object Object]
+[2025-03-17T13:34:36.922Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [17/Mar/2025:13:34:36 +0000] "PUT /api/v1/drivers/update-step/personal HTTP/1.1" 400 853 "-" "PostmanRuntime/7.43.0"
+[2025-03-17T13:35:13.932Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T13:35:13.969Z] [32MINFO[39M: Redis Client Connected
+[2025-03-17T13:35:13.974Z] [32MINFO[39M: Redis Client Ready
+[2025-03-17T13:35:15.214Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-17T13:35:43.495Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T13:35:43.504Z] [32MINFO[39M: Redis Client Connected
+[2025-03-17T13:35:43.507Z] [32MINFO[39M: Redis Client Ready
+[2025-03-17T13:35:44.969Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-17T13:35:51.051Z] [32MINFO[39M: Redis Client Connected
+[2025-03-17T13:35:56.320Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T13:35:56.349Z] [32MINFO[39M: Redis Client Connected
+[2025-03-17T13:35:56.353Z] [32MINFO[39M: Redis Client Ready
+[2025-03-17T13:35:57.465Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-17T13:35:58.278Z] [31MERROR[39M: Invalid _id: [object Object]
+[2025-03-17T13:35:58.281Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [17/Mar/2025:13:35:58 +0000] "PUT /api/v1/drivers/update-step/personal HTTP/1.1" 400 853 "-" "PostmanRuntime/7.43.0"
+[2025-03-17T13:36:14.963Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T13:36:15.009Z] [32MINFO[39M: Redis Client Connected
+[2025-03-17T13:36:15.016Z] [32MINFO[39M: Redis Client Ready
+[2025-03-17T13:36:16.124Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-17T13:36:22.493Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T13:36:22.531Z] [32MINFO[39M: Redis Client Connected
+[2025-03-17T13:36:22.535Z] [32MINFO[39M: Redis Client Ready
+[2025-03-17T13:36:24.013Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-17T13:36:26.654Z] [32MINFO[39M: Redis Client Connected
+[2025-03-17T13:36:29.939Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T13:36:29.967Z] [32MINFO[39M: Redis Client Connected
+[2025-03-17T13:36:29.970Z] [32MINFO[39M: Redis Client Ready
+[2025-03-17T13:36:31.236Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-17T13:36:33.746Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T13:36:33.778Z] [32MINFO[39M: Redis Client Connected
+[2025-03-17T13:36:33.783Z] [32MINFO[39M: Redis Client Ready
+[2025-03-17T13:36:35.322Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-17T13:36:36.809Z] [31MERROR[39M: Driver not found
+[2025-03-17T13:36:36.815Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [17/Mar/2025:13:36:36 +0000] "PUT /api/v1/drivers/update-step/personal HTTP/1.1" 404 379 "-" "PostmanRuntime/7.43.0"
+[2025-03-17T13:37:07.778Z] [32MINFO[39M: Redis Client Connected
+[2025-03-17T13:37:12.968Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T13:37:12.973Z] [32MINFO[39M: Redis Client Connected
+[2025-03-17T13:37:12.975Z] [32MINFO[39M: Redis Client Ready
+[2025-03-17T13:37:13.703Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T13:37:13.731Z] [32MINFO[39M: Redis Client Connected
+[2025-03-17T13:37:13.734Z] [32MINFO[39M: Redis Client Ready
+[2025-03-17T13:37:14.851Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-17T13:37:16.386Z] [31MERROR[39M: Invalid _id: [object Object]
+[2025-03-17T13:37:16.388Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [17/Mar/2025:13:37:16 +0000] "PUT /api/v1/drivers/update-step/personal HTTP/1.1" 400 853 "-" "PostmanRuntime/7.43.0"
+[2025-03-17T13:37:20.575Z] [32MINFO[39M: Redis Client Connected
+[2025-03-17T13:37:21.895Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T13:37:21.921Z] [32MINFO[39M: Redis Client Connected
+[2025-03-17T13:37:21.924Z] [32MINFO[39M: Redis Client Ready
+[2025-03-17T13:37:23.128Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-17T13:38:22.328Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T13:38:22.333Z] [32MINFO[39M: Redis Client Connected
+[2025-03-17T13:38:22.335Z] [32MINFO[39M: Redis Client Ready
+[2025-03-17T13:38:23.882Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-17T13:38:31.009Z] [31MERROR[39M: Driver not found
+[2025-03-17T13:38:31.011Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [17/Mar/2025:13:38:31 +0000] "PUT /api/v1/drivers/update-step/personal HTTP/1.1" 404 379 "-" "PostmanRuntime/7.43.0"
+[2025-03-17T13:38:50.769Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T13:38:50.800Z] [32MINFO[39M: Redis Client Connected
+[2025-03-17T13:38:50.805Z] [32MINFO[39M: Redis Client Ready
+[2025-03-17T13:38:52.007Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-17T13:38:52.577Z] [31MERROR[39M: Invalid _id: [object Object]
+[2025-03-17T13:38:52.580Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [17/Mar/2025:13:38:52 +0000] "PUT /api/v1/drivers/update-step/personal HTTP/1.1" 400 853 "-" "PostmanRuntime/7.43.0"
+[2025-03-17T13:39:19.391Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T13:39:19.420Z] [32MINFO[39M: Redis Client Connected
+[2025-03-17T13:39:19.423Z] [32MINFO[39M: Redis Client Ready
+[2025-03-17T13:39:20.648Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-17T13:39:21.741Z] [31MERROR[39M: Invalid onboardingStep: [object Object]
+[2025-03-17T13:39:21.744Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [17/Mar/2025:13:39:21 +0000] "PUT /api/v1/drivers/update-step/personal HTTP/1.1" 400 875 "-" "PostmanRuntime/7.43.0"
+[2025-03-17T13:39:49.120Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T13:39:49.125Z] [32MINFO[39M: Redis Client Connected
+[2025-03-17T13:39:49.128Z] [32MINFO[39M: Redis Client Ready
+[2025-03-17T13:39:50.420Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-17T13:39:50.654Z] [31MERROR[39M: Invalid _id: [object Object]
+[2025-03-17T13:39:50.659Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [17/Mar/2025:13:39:50 +0000] "PUT /api/v1/drivers/update-step/personal HTTP/1.1" 400 853 "-" "PostmanRuntime/7.43.0"
+[2025-03-17T13:40:41.240Z] [32MINFO[39M: Redis Client Connected
+[2025-03-17T13:40:51.878Z] [32MINFO[39M: Redis Client Connected
+[2025-03-17T13:41:07.172Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T13:41:07.180Z] [32MINFO[39M: Redis Client Connected
+[2025-03-17T13:41:07.186Z] [32MINFO[39M: Redis Client Ready
+[2025-03-17T13:41:08.869Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-17T13:41:32.686Z] [31MERROR[39M: Driver not found
+[2025-03-17T13:41:32.689Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [17/Mar/2025:13:41:32 +0000] "PUT /api/v1/drivers/update-step/personal HTTP/1.1" 404 379 "-" "PostmanRuntime/7.43.0"
+[2025-03-17T13:41:53.250Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T13:41:53.280Z] [32MINFO[39M: Redis Client Connected
+[2025-03-17T13:41:53.283Z] [32MINFO[39M: Redis Client Ready
+[2025-03-17T13:41:54.580Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-17T13:49:30.348Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T13:49:30.354Z] [32MINFO[39M: Redis Client Connected
+[2025-03-17T13:49:30.356Z] [32MINFO[39M: Redis Client Ready
+[2025-03-17T13:49:32.092Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-17T13:49:33.520Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T13:49:33.555Z] [32MINFO[39M: Redis Client Connected
+[2025-03-17T13:49:33.557Z] [32MINFO[39M: Redis Client Ready
+[2025-03-17T13:49:35.043Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-17T13:49:39.025Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T13:49:39.052Z] [32MINFO[39M: Redis Client Connected
+[2025-03-17T13:49:39.054Z] [32MINFO[39M: Redis Client Ready
+[2025-03-17T13:49:40.544Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-17T13:49:59.082Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [17/Mar/2025:13:49:59 +0000] "PUT /api/v1/drivers/update-step/personal HTTP/1.1" 200 445 "-" "PostmanRuntime/7.43.0"
+[2025-03-17T13:52:42.671Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T13:52:42.676Z] [32MINFO[39M: Redis Client Connected
+[2025-03-17T13:52:42.678Z] [32MINFO[39M: Redis Client Ready
+[2025-03-17T13:52:44.243Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-17T13:54:13.691Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T13:54:13.697Z] [32MINFO[39M: Redis Client Connected
+[2025-03-17T13:54:13.701Z] [32MINFO[39M: Redis Client Ready
+[2025-03-17T13:54:15.122Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-17T13:54:38.044Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T13:54:38.073Z] [32MINFO[39M: Redis Client Connected
+[2025-03-17T13:54:38.076Z] [32MINFO[39M: Redis Client Ready
+[2025-03-17T13:54:39.215Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-17T13:54:50.147Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T13:54:50.179Z] [32MINFO[39M: Redis Client Connected
+[2025-03-17T13:54:50.181Z] [32MINFO[39M: Redis Client Ready
+[2025-03-17T13:54:51.708Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T13:54:51.735Z] [32MINFO[39M: Redis Client Connected
+[2025-03-17T13:54:51.737Z] [32MINFO[39M: Redis Client Ready
+[2025-03-17T13:54:53.166Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-17T13:55:16.717Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T13:55:16.725Z] [32MINFO[39M: Redis Client Connected
+[2025-03-17T13:55:16.730Z] [32MINFO[39M: Redis Client Ready
+[2025-03-17T13:55:18.117Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-17T13:55:30.206Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T13:55:30.252Z] [32MINFO[39M: Redis Client Connected
+[2025-03-17T13:55:30.255Z] [32MINFO[39M: Redis Client Ready
+[2025-03-17T13:55:31.832Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-17T13:55:33.548Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T13:55:33.589Z] [32MINFO[39M: Redis Client Connected
+[2025-03-17T13:55:33.594Z] [32MINFO[39M: Redis Client Ready
+[2025-03-17T13:55:35.135Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-17T13:55:36.419Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T13:55:36.448Z] [32MINFO[39M: Redis Client Connected
+[2025-03-17T13:55:36.452Z] [32MINFO[39M: Redis Client Ready
+[2025-03-17T13:55:37.635Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-17T13:55:39.623Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T13:55:39.658Z] [32MINFO[39M: Redis Client Connected
+[2025-03-17T13:55:39.660Z] [32MINFO[39M: Redis Client Ready
+[2025-03-17T13:55:41.110Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-17T13:56:04.777Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T13:56:04.805Z] [32MINFO[39M: Redis Client Connected
+[2025-03-17T13:56:04.806Z] [32MINFO[39M: Redis Client Ready
+[2025-03-17T13:56:05.647Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T13:56:05.689Z] [32MINFO[39M: Redis Client Connected
+[2025-03-17T13:56:05.694Z] [32MINFO[39M: Redis Client Ready
+[2025-03-17T13:56:06.790Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-17T13:56:21.419Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T13:56:21.428Z] [32MINFO[39M: Redis Client Connected
+[2025-03-17T13:56:21.433Z] [32MINFO[39M: Redis Client Ready
+[2025-03-17T13:56:22.775Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-17T13:56:44.371Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T13:56:44.398Z] [32MINFO[39M: Redis Client Connected
+[2025-03-17T13:56:44.400Z] [32MINFO[39M: Redis Client Ready
+[2025-03-17T13:56:45.726Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-17T13:56:46.416Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T13:56:46.444Z] [32MINFO[39M: Redis Client Connected
+[2025-03-17T13:56:46.446Z] [32MINFO[39M: Redis Client Ready
+[2025-03-17T13:56:47.750Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-17T13:58:04.765Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T13:58:04.770Z] [32MINFO[39M: Redis Client Connected
+[2025-03-17T13:58:04.772Z] [32MINFO[39M: Redis Client Ready
+[2025-03-17T13:58:06.231Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-17T13:58:43.222Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T13:58:43.247Z] [32MINFO[39M: Redis Client Connected
+[2025-03-17T13:58:43.248Z] [32MINFO[39M: Redis Client Ready
+[2025-03-17T13:58:44.731Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-17T13:58:52.874Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T13:58:52.902Z] [32MINFO[39M: Redis Client Connected
+[2025-03-17T13:58:52.906Z] [32MINFO[39M: Redis Client Ready
+[2025-03-17T13:58:54.397Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-17T13:58:55.150Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T13:58:55.188Z] [32MINFO[39M: Redis Client Connected
+[2025-03-17T13:58:55.192Z] [32MINFO[39M: Redis Client Ready
+[2025-03-17T13:58:56.366Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-17T14:03:04.249Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T14:03:04.255Z] [32MINFO[39M: Redis Client Connected
+[2025-03-17T14:03:04.258Z] [32MINFO[39M: Redis Client Ready
+[2025-03-17T14:03:05.679Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-17T14:03:22.198Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T14:03:22.224Z] [32MINFO[39M: Redis Client Connected
+[2025-03-17T14:03:22.227Z] [32MINFO[39M: Redis Client Ready
+[2025-03-17T14:03:23.473Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-17T14:05:19.927Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T14:05:19.932Z] [32MINFO[39M: Redis Client Connected
+[2025-03-17T14:05:19.934Z] [32MINFO[39M: Redis Client Ready
+[2025-03-17T14:05:21.786Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-17T14:06:41.594Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T14:06:41.599Z] [32MINFO[39M: Redis Client Connected
+[2025-03-17T14:06:41.601Z] [32MINFO[39M: Redis Client Ready
+[2025-03-17T14:06:43.250Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-17T14:06:51.140Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T14:06:51.168Z] [32MINFO[39M: Redis Client Connected
+[2025-03-17T14:06:51.170Z] [32MINFO[39M: Redis Client Ready
+[2025-03-17T14:06:52.915Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-17T14:06:56.998Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T14:06:57.025Z] [32MINFO[39M: Redis Client Connected
+[2025-03-17T14:06:57.029Z] [32MINFO[39M: Redis Client Ready
+[2025-03-17T14:06:58.525Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-17T14:06:59.798Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T14:06:59.834Z] [32MINFO[39M: Redis Client Connected
+[2025-03-17T14:06:59.836Z] [32MINFO[39M: Redis Client Ready
+[2025-03-17T14:07:01.405Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-17T14:08:12.688Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T14:08:12.695Z] [32MINFO[39M: Redis Client Connected
+[2025-03-17T14:08:12.699Z] [32MINFO[39M: Redis Client Ready
+[2025-03-17T14:08:15.407Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-17T14:08:21.495Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T14:08:21.500Z] [32MINFO[39M: Redis Client Connected
+[2025-03-17T14:08:21.503Z] [32MINFO[39M: Redis Client Ready
+[2025-03-17T14:08:22.935Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-17T14:08:24.736Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T14:08:24.765Z] [32MINFO[39M: Redis Client Connected
+[2025-03-17T14:08:24.767Z] [32MINFO[39M: Redis Client Ready
+[2025-03-17T14:08:26.366Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-17T14:10:47.636Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [17/Mar/2025:14:10:47 +0000] "POST /api/v1/auth/sign-up HTTP/1.1" 201 402 "-" "PostmanRuntime/7.43.0"
+[2025-03-17T14:11:10.658Z] [31MERROR[39M: Path `documents.vehicleImage.secure_url` is required., Path `documents.vehicleImage.public_id` is required., Path `documents.licenseImage.secure_url` is required., Path `documents.licenseImage.public_id` is required., Path `documents.profilePicture.secure_url` is required., Path `documents.profilePicture.public_id` is required., Path `vehicleInfo.color` is required., Path `vehicleInfo.plateNumber` is required., Path `vehicleInfo.type` is required., Path `vehicleInfo.model` is required., Path `personalInfo.licenseInfo.expiry` is required., Path `personalInfo.licenseInfo.number` is required., Path `personalInfo.experienceYears` is required., Path `personalInfo.gender` is required., Path `personalInfo.address` is required., Path `personalInfo.dateOfBirth` is required., Path `personalInfo.phoneNumber` is required.
+[2025-03-17T14:11:10.668Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [17/Mar/2025:14:11:10 +0000] "POST /api/v1/drivers HTTP/1.1" 400 - "-" "PostmanRuntime/7.43.0"
+[2025-03-17T14:13:15.438Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [17/Mar/2025:14:13:15 +0000] "POST /api/v1/auth/sign-in HTTP/1.1" 200 438 "-" "PostmanRuntime/7.43.0"
+[2025-03-17T14:17:34.908Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T14:17:34.913Z] [32MINFO[39M: Redis Client Connected
+[2025-03-17T14:17:34.914Z] [32MINFO[39M: Redis Client Ready
+[2025-03-17T14:17:36.201Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-17T14:19:39.829Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T14:19:39.835Z] [32MINFO[39M: Redis Client Connected
+[2025-03-17T14:19:39.839Z] [32MINFO[39M: Redis Client Ready
+[2025-03-17T14:19:41.107Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T14:19:41.134Z] [32MINFO[39M: Redis Client Connected
+[2025-03-17T14:19:41.135Z] [32MINFO[39M: Redis Client Ready
+[2025-03-17T14:19:42.587Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-17T14:19:54.254Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T14:19:54.282Z] [32MINFO[39M: Redis Client Connected
+[2025-03-17T14:19:54.285Z] [32MINFO[39M: Redis Client Ready
+[2025-03-17T14:19:55.831Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-17T14:23:39.407Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T14:23:39.413Z] [32MINFO[39M: Redis Client Connected
+[2025-03-17T14:23:39.417Z] [32MINFO[39M: Redis Client Ready
+[2025-03-17T14:23:40.775Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-17T14:24:45.698Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T14:24:45.704Z] [32MINFO[39M: Redis Client Connected
+[2025-03-17T14:24:45.707Z] [32MINFO[39M: Redis Client Ready
+[2025-03-17T14:24:47.176Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-17T14:24:59.600Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T14:24:59.626Z] [32MINFO[39M: Redis Client Connected
+[2025-03-17T14:24:59.628Z] [32MINFO[39M: Redis Client Ready
+[2025-03-17T14:25:00.947Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-17T14:27:20.602Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T14:27:20.607Z] [32MINFO[39M: Redis Client Connected
+[2025-03-17T14:27:20.609Z] [32MINFO[39M: Redis Client Ready
+[2025-03-17T14:27:22.576Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-17T14:27:25.972Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T14:27:26.013Z] [32MINFO[39M: Redis Client Connected
+[2025-03-17T14:27:26.015Z] [32MINFO[39M: Redis Client Ready
+[2025-03-17T14:27:27.630Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-17T14:30:04.849Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T14:30:04.854Z] [32MINFO[39M: Redis Client Connected
+[2025-03-17T14:30:04.857Z] [32MINFO[39M: Redis Client Ready
+[2025-03-17T14:30:06.528Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-17T14:30:07.926Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T14:30:07.951Z] [32MINFO[39M: Redis Client Connected
+[2025-03-17T14:30:07.954Z] [32MINFO[39M: Redis Client Ready
+[2025-03-17T14:30:09.365Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-17T14:30:35.361Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-17T14:30:35.395Z] [32MINFO[39M: Redis Client Connected
+[2025-03-17T14:30:35.397Z] [32MINFO[39M: Redis Client Ready
+[2025-03-17T14:30:36.996Z] [32MINFO[39M: MongoDB connected successfully

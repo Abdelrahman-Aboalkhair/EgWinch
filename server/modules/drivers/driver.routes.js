@@ -11,7 +11,7 @@ const express = require("express");
 
 const router = express.Router();
 
-router.post("/", isAuthenticated, startOnboarding);
+router.post("/", isAuthenticated, authorizeRole("user"), startOnboarding);
 router.put(
   "/update-step/:step",
   isAuthenticated,

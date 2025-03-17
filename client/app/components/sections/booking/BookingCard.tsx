@@ -33,7 +33,7 @@ const BookingCard = ({ key, pickup, dropoff, items, services }) => {
     <>
       <div
         key={key}
-        className="flex flex-col items-start justify-between w-[60%] gap-4 shadow-md p-8 rounded-lg border-2 border-gray-200"
+        className="flex flex-col items-start justify-between w-[60%] gap-4 shadow-md p-8 rounded-lg border-2 border-gray-100"
       >
         <div className="flex items-center justify-between w-full">
           <h1 className="text-sm tracking-wide font-medium text-stone-600">
@@ -108,9 +108,7 @@ const BookingCard = ({ key, pickup, dropoff, items, services }) => {
 
       <Modal open={showDetails} onClose={() => setShowDetails(false)}>
         <div className="rounded-sm overflow-hidden w-full pb-[1rem]">
-          <h1 className="text-center pb-4 text-[17px] font-medium">
-            Items List
-          </h1>
+          <h1 className="text-center pb-4 text-[17px] font-medium">Items</h1>
           <Table
             data={items || []}
             columns={itemsCols}

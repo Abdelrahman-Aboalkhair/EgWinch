@@ -1,50 +1,48 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 
-export interface User {
-  id: string;
-  email: string;
+interface User {
   name: string;
+  email: string;
   role: string;
-  profilePicture: string;
+  profilePicture: {
+    public_id: string;
+    secure_url: string;
+  };
+  emailVerified: boolean;
 }
 
-export interface AuthState {
-  user: User | null;
+interface AuthState {
   accessToken: string | null;
-  isLoggedIn: boolean;
+  isLoading: boolean;
+  user: User | null;
 }
 
 const initialState: AuthState = {
-  user: null,
   accessToken: null,
-  isLoggedIn: false,
+  isLoading: true,
+  user: null,
 };
 
 const authSlice = createSlice({
   name: "auth",
   initialState,
   reducers: {
-    setCredentials: (
-      state,
-      action: PayloadAction<{ user: User; accessToken: string }>
-    ) => {
-      state.user = action.payload.user;
+    setCredentials: (state, action) => {
       state.accessToken = action.payload.accessToken;
-      state.isLoggedIn = true;
-
-      localStorage.setItem("user", JSON.stringify(action.payload.user));
+      state.user = action.payload.user;
+      state.isLoading = false;
     },
-
     clearAuthState: (state) => {
-      state.user = null;
       state.accessToken = null;
-      state.isLoggedIn = false;
-
-      localStorage.removeItem("bookingState");
-      localStorage.removeItem("user");
+      state.user = null;
+      state.isLoading = false;
+    },
+    setAuthLoading: (state, action) => {
+      state.isLoading = action.payload;
     },
   },
 });
 
-export const { setCredentials, clearAuthState } = authSlice.actions;
+export const { setCredentials, clearAuthState, setAuthLoading } =
+  authSlice.actions;
 export default authSlice.reducer;

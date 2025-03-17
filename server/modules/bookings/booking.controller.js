@@ -1,27 +1,17 @@
 const axios = require("axios");
 const BookingService = require("./booking.service");
 const asyncHandler = require("../../utils/asyncHandler");
+const sendResponse = require("../../utils/sendResponse");
 
 exports.getAllBookings = asyncHandler(async (req, res) => {
   const result = await BookingService.getAllBookings(req.query);
-
-  res.status(200).json({
-    success: true,
-    message: "All Bookings retrieved successfully",
-    ...result,
-  });
+  sendResponse(res, 200, result, "All bookings retrieved successfully");
 });
 
 exports.getUserBookings = asyncHandler(async (req, res) => {
   const { userId } = req.user;
   const result = await BookingService.getUserBookings(userId, req.query);
-  console.log("result: ", result);
-
-  res.status(200).json({
-    success: true,
-    message: "Bookings retrieved successfully",
-    ...result,
-  });
+  sendResponse(res, 200, result, "Bookings retrieved successfully");
 });
 
 exports.createBooking = asyncHandler(async (req, res) => {
@@ -32,62 +22,33 @@ exports.createBooking = asyncHandler(async (req, res) => {
     pickupLocation,
     dropoffLocation,
   });
-  res.status(201).json(booking);
+  sendResponse(res, 201, { booking }, "Booking created successfully");
 });
 
 exports.updateStep = asyncHandler(async (req, res) => {
-  console.log("req.body: ", req.body);
   const { step } = req.params;
   const booking = await BookingService.updateBookingStep(
     req.body.bookingId,
     step,
     req.body
   );
-  res.status(200).json(booking);
-});
-
-exports.completeBooking = asyncHandler(async (req, res) => {
-  const booking = await BookingService.completeBooking(req.body.bookingId);
-  res.status(200).json(booking);
+  sendResponse(res, 200, { booking }, "Booking step updated successfully");
 });
 
 exports.estimatePrice = asyncHandler(async (req, res) => {
-  const {
-    distance_km,
-    items_count,
-    pickup_floor,
-    dropoff_floor,
-    fragile_items,
-    additional_services,
-  } = req.body;
-
   const response = await axios.post(
     "http://model_service:5001/predict_move_price",
-    {
-      distance_km,
-      items_count,
-      pickup_floor,
-      dropoff_floor,
-      fragile_items,
-      additional_services,
-    }
+    req.body
   );
-
-  res.json(response.data);
+  sendResponse(res, 200, response.data, "Price estimated successfully");
 });
 
 exports.createOffer = asyncHandler(async (req, res) => {
   const { price } = req.body;
   const { bookingId } = req.params;
   const driverId = req.user.userId;
-
   const offer = await BookingService.createOffer(driverId, bookingId, price);
-
-  res.status(201).json({
-    success: true,
-    message: "Offer sent successfully",
-    offer,
-  });
+  sendResponse(res, 201, { offer }, "Offer sent successfully");
 });
 
 exports.updateBooking = asyncHandler(async (req, res) => {
@@ -104,18 +65,12 @@ exports.updateBooking = asyncHandler(async (req, res) => {
     action,
   });
 
-  res.status(200).json({
-    success: true,
-    message: result.message,
-    booking: result.booking,
-  });
+  sendResponse(res, 200, { booking: result.booking }, result.message);
 });
 
 exports.deleteBooking = asyncHandler(async (req, res) => {
   const { id: bookingId } = req.params;
   const { userId } = req.user;
-
   const result = await BookingService.deleteBooking(bookingId, userId);
-
-  res.status(200).json({ success: true, message: result.message });
+  sendResponse(res, 200, {}, result.message);
 });

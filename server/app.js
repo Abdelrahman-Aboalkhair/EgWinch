@@ -9,6 +9,7 @@ const rateLimit = require("express-rate-limit");
 const mongoSanitize = require("express-mongo-sanitize");
 const xss = require("xss-clean");
 const hpp = require("hpp");
+require("./queues/emailQueue");
 
 const authRoutes = require("./modules/auth/auth.routes.js");
 const userRoutes = require("./modules/users/user.routes.js");

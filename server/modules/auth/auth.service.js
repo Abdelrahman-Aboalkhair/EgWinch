@@ -4,10 +4,11 @@ const AppError = require("../../utils/AppError");
 const axios = require("axios");
 const crypto = require("crypto");
 const passwordResetTemplate = require("../../templates/passwordReset.template");
+const emailQueue = require("../../queues/emailQueue");
 
 class AuthService {
   static async registerUser({ name, email, password }) {
-    const existingUser = await User.findOne({ email });
+    const existingUser = await User.exists({ email });
 
     if (existingUser) {
       throw new AppError(
@@ -28,19 +29,32 @@ class AuthService {
       profilePicture: { public_id: "", secure_url: "" },
     });
 
-    await sendEmail({
-      to: email,
-      subject: "Verify Your Email - EgWinch",
-      text: `Your verification code is: ${emailVerificationCode}`,
-      code: emailVerificationCode,
-    });
+    await emailQueue
+      .add("sendVerificationEmail", {
+        to: email,
+        subject: "Verify Your Email - EgWinch",
+        text: `Your verification code is: ${emailVerificationCode}`,
+        html: `<p>Your verification code is: <strong>${emailVerificationCode}</strong></p>`,
+      })
+      .catch((error) => {
+        console.error("Failed to add email to queue:", error);
+      });
 
     const accessToken = await newUser.generateAccessToken();
     const refreshToken = await newUser.generateRefreshToken();
 
     await newUser.save();
 
-    return { user: newUser, accessToken, refreshToken };
+    return {
+      user: {
+        name: newUser.name,
+        email: newUser.email,
+        role: newUser.role,
+        emailVerified: newUser.emailVerified,
+      },
+      accessToken,
+      refreshToken,
+    };
   }
 
   static async verifyEmail(emailVerificationCode) {

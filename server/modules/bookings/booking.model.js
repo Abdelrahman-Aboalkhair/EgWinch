@@ -7,10 +7,12 @@ const bookingSchema = new mongoose.Schema(
       type: mongoose.Schema.Types.ObjectId,
       ref: "User",
       required: true,
+      index: true,
     },
     driver: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "User",
+      index: true,
     },
     onboardingStep: {
       type: String,

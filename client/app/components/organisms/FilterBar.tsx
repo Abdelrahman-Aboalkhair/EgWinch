@@ -23,7 +23,7 @@ const FilterBar: React.FC<FilterBarProps> = ({
   const { updateQuery } = useQueryParams();
 
   return (
-    <div className="flex items-center gap-4 bg-gray-100 p-4 rounded-md">
+    <div className="flex items-center gap-4 py-[3%] pt-[6%]">
       <Input
         name="name"
         type="text"
