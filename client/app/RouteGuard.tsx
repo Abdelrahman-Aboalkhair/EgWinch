@@ -3,10 +3,9 @@ import { useEffect } from "react";
 import { useRouter, usePathname } from "next/navigation";
 import { useAppSelector } from "@/app/store/hooks";
 import { routeConfig } from "./config/routeConfig";
-import TruckLoader from "./components/atoms/TruckLoader";
 
 export function RouteGuard({ children }: { children: React.ReactNode }) {
-  const { isLoading, accessToken } = useAppSelector((state) => state.auth);
+  const { isLoading, isLoggedIn } = useAppSelector((state) => state.auth);
   const router = useRouter();
   const pathname = usePathname();
 
@@ -20,23 +19,24 @@ export function RouteGuard({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     if (!isLoading) {
-      if (!accessToken && isProtectedRoute) {
+      if (isLoggedIn && isAuthOnlyRoute) {
+        router.push("/");
+        return;
+      }
+
+      if (!isLoggedIn && isProtectedRoute) {
         router.push("/sign-in");
         return;
       }
     }
   }, [
     isLoading,
-    accessToken,
+    isLoggedIn,
     pathname,
     router,
     isProtectedRoute,
     isAuthOnlyRoute,
   ]);
-
-  if (isLoading && (isProtectedRoute || isAuthOnlyRoute)) {
-    return <TruckLoader />;
-  }
 
   return <>{children}</>;
 }

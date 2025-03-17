@@ -137,3 +137,7 @@
 [2025-03-17T13:39:50.654Z] [31MERROR[39M: Invalid _id: [object Object]
 [2025-03-17T13:41:32.686Z] [31MERROR[39M: Driver not found
 [2025-03-17T14:11:10.658Z] [31MERROR[39M: Path `documents.vehicleImage.secure_url` is required., Path `documents.vehicleImage.public_id` is required., Path `documents.licenseImage.secure_url` is required., Path `documents.licenseImage.public_id` is required., Path `documents.profilePicture.secure_url` is required., Path `documents.profilePicture.public_id` is required., Path `vehicleInfo.color` is required., Path `vehicleInfo.plateNumber` is required., Path `vehicleInfo.type` is required., Path `vehicleInfo.model` is required., Path `personalInfo.licenseInfo.expiry` is required., Path `personalInfo.licenseInfo.number` is required., Path `personalInfo.experienceYears` is required., Path `personalInfo.gender` is required., Path `personalInfo.address` is required., Path `personalInfo.dateOfBirth` is required., Path `personalInfo.phoneNumber` is required.
+[2025-03-17T14:40:21.033Z] [31MERROR[39M: Invalid credentials
+[2025-03-17T17:14:42.382Z] [31MERROR[39M: Redis Client Error: connect ECONNREFUSED 172.18.0.4:6379
+[2025-03-17T17:14:42.485Z] [31MERROR[39M: Redis Client Error: getaddrinfo EAI_AGAIN redis
+[2025-03-17T17:14:42.637Z] [31MERROR[39M: Redis Client Error: getaddrinfo EAI_AGAIN redis

@@ -3,7 +3,7 @@ import { authApi } from "./apis/AuthApi";
 import authReducer from "./slices/AuthSlice";
 import conversationReducer from "./slices/ConversationSlice";
 import toastReducer from "./slices/ToastSlice";
-import DriverOnboardingReducer from "./slices/DriverOnboardingSlice";
+import driverReducer from "./slices/DriverSlice";
 import BookingOnboardingReducer from "./slices/BookingSlice";
 import { persistBookingStateMiddleware } from "./slices/BookingSlice";
 
@@ -12,7 +12,7 @@ export const store = configureStore({
     auth: authReducer,
     conversations: conversationReducer,
     toasts: toastReducer,
-    driverOnboarding: DriverOnboardingReducer,
+    driver: driverReducer,
     booking: BookingOnboardingReducer,
     [authApi.reducerPath]: authApi.reducer,
   },

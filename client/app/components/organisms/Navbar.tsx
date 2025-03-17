@@ -15,6 +15,8 @@ import Button from "../atoms/Button";
 
 const Navbar = () => {
   const { isLoggedIn, user } = useAppSelector((state) => state.auth);
+  console.log("isLoggedIn: ", isLoggedIn);
+  console.log("user: ", user);
   const { data, isLoading } = useGetNotificationsQuery({});
   const notifications = data?.notifications || [];
   const [markAsRead] = useMarkAsReadMutation();
@@ -25,7 +27,6 @@ const Navbar = () => {
   const notificationRef = useRef<HTMLDivElement>(null);
   const menuRef = useRef<HTMLDivElement>(null);
 
-  // Close menu when clicking outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (
@@ -49,11 +50,13 @@ const Navbar = () => {
           <span className="cursor-pointer">EgWinch</span>
         </Link>
       </div>
-      <div className="space-x-[4rem] text-md ">
+      <div className="space-x-[4rem] text-[16px] ">
         <Link
-          href="/driver-sign-up"
+          href="/driver-onboarding"
           className={`${
-            pathname === "/driver-sign-up" ? "text-primary font-medium" : ""
+            pathname === "/driver-sign-up"
+              ? "text-primary font-medium"
+              : "text-gray-500"
           }`}
         >
           Start Driving
@@ -61,7 +64,9 @@ const Navbar = () => {
         <Link
           href="/bookings"
           className={`${
-            pathname === "/bookings" ? "text-primary font-medium" : ""
+            pathname === "/bookings"
+              ? "text-primary font-medium"
+              : "text-gray-500"
           }`}
         >
           Bookings

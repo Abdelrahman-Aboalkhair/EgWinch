@@ -86,7 +86,7 @@ const Services = () => {
   ];
 
   return (
-    <OnboardingLayout currentStep={step}>
+    <>
       <div className="flex items-center justify-between w-full mt-[2rem]">
         <form onSubmit={handleSubmit(addService)} className="w-[25%] space-y-4">
           <div className="flex flex-col items-start justify-start text-start w-[40rem]">
@@ -145,7 +145,7 @@ const Services = () => {
           </div>
         </div>
       </div>
-    </OnboardingLayout>
+    </>
   );
 };
 

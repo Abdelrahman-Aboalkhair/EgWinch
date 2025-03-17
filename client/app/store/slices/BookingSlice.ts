@@ -9,7 +9,7 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 const loadState = (): BookingState => {
   if (typeof window !== "undefined") {
-    const storedState = localStorage.getItem("bookingState");
+    const storedState = sessionStorage.getItem("bookingState");
     return storedState ? JSON.parse(storedState) : null;
   }
   return null;
@@ -88,7 +88,7 @@ const bookingSlice = createSlice({
     resetBooking: (state) => {
       Object.assign(state, initialState);
       if (typeof window !== "undefined") {
-        localStorage.removeItem("bookingState");
+        sessionStorage.removeItem("bookingState");
       }
     },
   },
@@ -98,7 +98,7 @@ export const persistBookingStateMiddleware =
   (store: any) => (next: any) => (action: any) => {
     const result = next(action);
     if (typeof window !== "undefined") {
-      localStorage.setItem(
+      sessionStorage.setItem(
         "bookingState",
         JSON.stringify(store.getState().booking)
       );

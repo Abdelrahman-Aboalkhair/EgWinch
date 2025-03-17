@@ -1,18 +1,26 @@
 import Input from "@/app/components/atoms/Input";
-import { useUpdateDriverStepMutation } from "@/app/store/apis/DriverApi";
+import { useUpdateStepMutation } from "@/app/store/apis/DriverApi";
+import { useAppDispatch, useAppSelector } from "@/app/store/hooks";
+import { updateStep } from "@/app/store/slices/DriverSlice";
 import { MoveLeft } from "lucide-react";
 import { useForm } from "react-hook-form";
 
-const DriverDocuments = ({ nextStep, prevStep }) => {
+const DriverDocuments = () => {
   const {
-    register,
+    control,
     formState: { errors },
-    setValue,
     handleSubmit,
-  } = useForm();
+  } = useForm({
+    defaultValues: {
+      licenseImage: "",
+      profilePicture: "",
+      vehicleImage: "",
+    },
+  });
+  const dispatch = useAppDispatch();
+  const { step } = useAppSelector((state) => state.driver);
 
-  const [submitDocuemts, { data, error, isLoading }] =
-    useUpdateDriverStepMutation();
+  const [submitDocuemts, { data, error, isLoading }] = useUpdateStepMutation();
   console.log("data: ", data);
   if (error) {
     console.log("error: ", error);
@@ -30,10 +38,14 @@ const DriverDocuments = ({ nextStep, prevStep }) => {
     }
     try {
       await submitDocuemts(formData).unwrap();
-      nextStep();
+      dispatch(updateStep(step + 1));
     } catch (error) {
       console.error("Documents submission error:", error);
     }
+  };
+
+  const handlePrev = () => {
+    dispatch(updateStep(step - 1));
   };
   return (
     <form
@@ -44,8 +56,7 @@ const DriverDocuments = ({ nextStep, prevStep }) => {
         name="licenseImage"
         type="file"
         placeholder="License Image"
-        setValue={setValue}
-        register={register}
+        control={control}
         validation={{ required: "License Image is required" }}
         error={errors.licenseImage?.message}
         className="py-[15px]"
@@ -55,8 +66,7 @@ const DriverDocuments = ({ nextStep, prevStep }) => {
         name="profilePicture"
         type="file"
         placeholder="Profile picture"
-        register={register}
-        setValue={setValue}
+        control={control}
         validation={{
           required: "Profile picture is required",
         }}
@@ -68,8 +78,7 @@ const DriverDocuments = ({ nextStep, prevStep }) => {
         name="vehicleImage"
         type="file"
         placeholder="Vehicle Image"
-        register={register}
-        setValue={setValue}
+        control={control}
         validation={{
           required: "Vehicle Imageis required",
         }}
@@ -85,7 +94,7 @@ const DriverDocuments = ({ nextStep, prevStep }) => {
       </button>
       <button
         type="button"
-        onClick={prevStep}
+        onClick={handlePrev}
         className="flex items-center justify-center gap-2 bg-primary text-white py-2 px-6 rounded mt-4"
       >
         <MoveLeft size={18} />

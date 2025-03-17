@@ -1,8 +1,11 @@
 import { useStartOnboardingMutation } from "@/app/store/apis/DriverApi";
+import { useAppDispatch, useAppSelector } from "@/app/store/hooks";
+import { updateStep } from "@/app/store/slices/DriverSlice";
 
-const GetStarted = ({ nextStep }) => {
-  const [startOnboarding, { data, error, isLoading }] =
-    useStartOnboardingMutation();
+const GetStarted = () => {
+  const { step } = useAppSelector((state) => state.driver);
+  const [startOnboarding, { error }] = useStartOnboardingMutation();
+  const dispatch = useAppDispatch();
 
   if (error) {
     console.log("error: ", error);
@@ -11,7 +14,7 @@ const GetStarted = ({ nextStep }) => {
   const handleStartOnboarding = async () => {
     try {
       await startOnboarding({}).unwrap();
-      nextStep();
+      dispatch(updateStep(step + 1));
     } catch (error) {
       console.error("Application start error:", error);
     }

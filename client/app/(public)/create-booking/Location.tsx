@@ -161,7 +161,7 @@ const Location = () => {
   };
 
   return (
-    <OnboardingLayout currentStep={step}>
+    <>
       <div className="flex flex-col md:flex-row gap-6 w-full items-center justify-between">
         <div className="flex flex-col item-center justify-between w-[40%]">
           <h1 className="text-[32px] font-semibold text-stone-700">
@@ -260,7 +260,7 @@ const Location = () => {
           <Map {...mapProps} />
         </Suspense>
       </div>
-    </OnboardingLayout>
+    </>
   );
 };
 

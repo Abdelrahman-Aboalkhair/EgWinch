@@ -1,22 +1,36 @@
 import DatePicker from "@/app/components/molecules/DatePicker";
 import Dropdown from "@/app/components/molecules/Dropdown";
 import Input from "@/app/components/atoms/Input";
-import { useUpdateDriverStepMutation } from "@/app/store/apis/DriverApi";
 import { MoveLeft, MoveRight } from "lucide-react";
-import { useForm } from "react-hook-form";
+import { Controller, useForm } from "react-hook-form";
+import { useUpdateStepMutation } from "@/app/store/apis/DriverApi";
+import { useAppDispatch, useAppSelector } from "@/app/store/hooks";
+import { updateStep } from "@/app/store/slices/DriverSlice";
 
-const DriverVehicleInfo = ({ nextStep, prevStep }) => {
+const DriverVehicleInfo = () => {
   const {
-    register,
     control,
     formState: { errors },
-    setValue,
     handleSubmit,
-  } = useForm();
+  } = useForm({
+    defaultValues: {
+      vehicleType: "",
+      vehicleModel: "",
+      vehicleColor: "",
+      plateNumber: "",
+      licenseNumber: "",
+      licenseExpiry: "",
+    },
+  });
+  const dispatch = useAppDispatch();
+  const { step } = useAppSelector((state) => state.driver);
 
   const [submitVehicleInfo, { data, error, isLoading }] =
-    useUpdateDriverStepMutation();
+    useUpdateStepMutation();
   console.log("data: ", data);
+  if (error) {
+    console.log("error: ", error);
+  }
 
   const handleSubmitVehicleInfo = async (formData) => {
     const payload = {
@@ -35,10 +49,14 @@ const DriverVehicleInfo = ({ nextStep, prevStep }) => {
     try {
       await submitVehicleInfo(payload).unwrap();
 
-      nextStep();
+      dispatch(updateStep(step + 1));
     } catch (error) {
       console.error("Vehicle info submission error:", error);
     }
+  };
+
+  const handlePrev = () => {
+    dispatch(updateStep(step - 1));
   };
 
   return (
@@ -50,7 +68,7 @@ const DriverVehicleInfo = ({ nextStep, prevStep }) => {
         name="vehicleType"
         type="text"
         placeholder="Vehicle Type"
-        register={register}
+        control={control}
         validation={{ required: "Vehicle Type is required" }}
         error={errors.vehicleType?.message}
         className="py-[15px]"
@@ -67,7 +85,7 @@ const DriverVehicleInfo = ({ nextStep, prevStep }) => {
         name="licenseNumber"
         type="text"
         placeholder="License Number"
-        register={register}
+        control={control}
         validation={{ required: "License Number is required" }}
         error={errors.licenseNumber?.message}
         className="py-[15px]"
@@ -77,17 +95,21 @@ const DriverVehicleInfo = ({ nextStep, prevStep }) => {
         name="plateNumber"
         type="text"
         placeholder="Plate Number"
-        register={register}
+        control={control}
         validation={{ required: "Plate Number is required" }}
         error={errors.plateNumber?.message}
         className="py-[15px]"
       />
-
-      <Dropdown
-        options={["Red", "Blue", "Green", "Yellow", "Black", "White"]}
-        label="vehicle color"
-        onSelect={(value) => setValue("vehicleColor", value)}
-        onClear={() => setValue("vehicleColor", "")}
+      <Controller
+        name="vehicleColor"
+        control={control}
+        render={({ field }) => (
+          <Dropdown
+            label="Color"
+            options={["Red", "Blue", "Green", "Yellow", "Black", "White"]}
+            {...field}
+          />
+        )}
       />
 
       <button
@@ -101,7 +123,7 @@ const DriverVehicleInfo = ({ nextStep, prevStep }) => {
 
       <button
         type="button"
-        onClick={prevStep}
+        onClick={handlePrev}
         className="flex items-center justify-center gap-2 bg-primary text-white py-2 px-6 rounded mt-4"
       >
         <MoveLeft size={18} />

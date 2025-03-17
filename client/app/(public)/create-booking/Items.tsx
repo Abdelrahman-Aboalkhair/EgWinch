@@ -103,7 +103,7 @@ const Items = () => {
   ];
 
   return (
-    <OnboardingLayout currentStep={step}>
+    <>
       <div className="flex gap-10 w-full">
         <div className="flex flex-col items-start justify-start text-start w-1/2">
           <h1 className="text-[32px] font-semibold text-stone-700 pb-6">
@@ -157,7 +157,7 @@ const Items = () => {
                 cols={10}
                 placeholder="Special Instructions"
                 control={control}
-                error={errors.details?.message}
+                error={errors.specialInstructions?.message}
               />
 
               <CheckBox name="fragile" control={control} label="Fragile" />
@@ -195,7 +195,7 @@ const Items = () => {
           </div>
         </div>
       </div>
-    </OnboardingLayout>
+    </>
   );
 };
 

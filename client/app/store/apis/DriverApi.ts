@@ -8,15 +8,16 @@ export const driverApi = apiSlice.injectEndpoints({
         method: "POST",
       }),
     }),
-    updateDriverStep: builder.mutation({
+
+    updateStep: builder.mutation({
       query: ({ step, data }) => ({
-        url: `/drivers/update-onboarding`,
-        method: "PUT",
-        body: { step, data },
+        url: `/drivers/update-step/${step}`,
+        method: "PATCH",
+        body: { data },
       }),
     }),
 
-    reviewDriverApplication: builder.mutation({
+    updateApplicationStatus: builder.mutation({
       query: ({ driverId, status, rejectionReason }) => ({
         url: `/admin/drivers/review`,
         method: "PUT",
@@ -28,6 +29,6 @@ export const driverApi = apiSlice.injectEndpoints({
 
 export const {
   useStartOnboardingMutation,
-  useUpdateDriverStepMutation,
-  useReviewDriverApplicationMutation,
+  useUpdateStepMutation,
+  useUpdateApplicationStatusMutation,
 } = driverApi;
