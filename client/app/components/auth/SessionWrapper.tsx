@@ -1,14 +1,13 @@
-// app/SessionWrapper.tsx
 "use client";
 import { useEffect } from "react";
 import { usePathname } from "next/navigation";
 import dynamic from "next/dynamic";
-import { useAppDispatch, useAppSelector } from "./store/hooks";
-import { useRestoreSessionQuery } from "./store/apis/AuthApi";
-import { setAuthLoading, clearAuthState } from "./store/slices/AuthSlice";
+import { useAppDispatch, useAppSelector } from "@/app/store/hooks";
+import { useRestoreSessionQuery } from "@/app/store/apis/AuthApi";
+import { clearAuthState, setAuthLoading } from "@/app/store/slices/AuthSlice";
 import { Loader2 } from "lucide-react";
 
-const Toast = dynamic(() => import("./components/molecules/Toast"));
+const Toast = dynamic(() => import("../molecules/Toast"));
 
 export default function SessionWrapper({
   children,
@@ -33,20 +32,20 @@ export default function SessionWrapper({
     dispatch(setAuthLoading(isFetching));
     if (error && "status" in error && error.status === 401) {
       dispatch(clearAuthState());
-      if (!skipRoutes.includes(pathname)) {
+      if (!skipRoutes.includes(pathname) && !isLoggedIn && !isLoading) {
         window.location.href = "/sign-in";
       }
     }
     if (isLoggedIn && skipRoutes.includes(pathname)) {
       window.location.href = "/dashboard";
     }
-  }, [isFetching, error, isLoggedIn, dispatch, pathname]);
+  }, [isFetching, error, isLoggedIn, isLoading, dispatch, pathname]);
 
   if (isLoading) {
     return (
       <div className="flex items-center justify-center min-h-screen text-primary">
-        <Loader2 className="animate-spin mr-2 text-[20px]" />
-        <span className="text-[20px] font-medium">Loading...</span>
+        <Loader2 className="animate-spin mr-2 text-[20px] " />
+        <span className="text-[20px]">Loading...</span>
       </div>
     );
   }

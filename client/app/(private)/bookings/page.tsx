@@ -1,4 +1,5 @@
 "use client";
+import ProtectedRoute from "@/app/components/auth/ProtectedRoute";
 import FilterBar from "@/app/components/organisms/FilterBar";
 import BookingCard from "@/app/components/sections/booking/BookingCard";
 import MainLayout from "@/app/components/templates/MainLayout";
@@ -21,25 +22,27 @@ const UserBookings = () => {
   }
 
   return (
-    <MainLayout>
-      <FilterBar
-        filterBy="status"
-        sortBy="created at"
-        sortOptions={["Latest Bookings", "Oldest Bookings"]}
-        filterOptions={["Pending", "Accepted", "Completed", "Cancelled"]}
-        control={control}
-        errors={errors}
-      />
-      {data?.bookings.map((booking) => (
-        <BookingCard
-          key={booking._id}
-          pickup={booking.pickupLocation}
-          dropoff={booking.dropoffLocation}
-          items={booking.items}
-          services={booking.additionalServices}
+    <ProtectedRoute>
+      <MainLayout>
+        <FilterBar
+          filterBy="status"
+          sortBy="created at"
+          sortOptions={["Latest Bookings", "Oldest Bookings"]}
+          filterOptions={["Pending", "Accepted", "Completed", "Cancelled"]}
+          control={control}
+          errors={errors}
         />
-      ))}
-    </MainLayout>
+        {data?.bookings.map((booking) => (
+          <BookingCard
+            key={booking._id}
+            pickup={booking.pickupLocation}
+            dropoff={booking.dropoffLocation}
+            items={booking.items}
+            services={booking.additionalServices}
+          />
+        ))}
+      </MainLayout>
+    </ProtectedRoute>
   );
 };
 

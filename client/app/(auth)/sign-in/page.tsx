@@ -2,14 +2,12 @@
 import { useForm } from "react-hook-form";
 import Input from "@/app/components/atoms/Input";
 import { useSignInMutation } from "../../store/apis/AuthApi";
-import { useAppDispatch } from "@/app/store/hooks";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import GoogleSignin from "../(oAuth)/google/GoogleSignin";
 import { useState } from "react";
 import AuthLayout from "@/app/components/templates/AuthLayout";
-import { RedirectHandler } from "@/app/RedirectHandler";
 
 interface InputForm {
   name: string;
@@ -22,7 +20,6 @@ const SignIn = () => {
   const [googleError, setGoogleError] = useState<string | null>(null);
   const [signIn, { error, isLoading }] = useSignInMutation();
   console.log("error: ", error);
-  const dispatch = useAppDispatch();
   const router = useRouter();
 
   const {
@@ -49,7 +46,6 @@ const SignIn = () => {
 
   return (
     <AuthLayout>
-      <RedirectHandler />
       <div className="w-full max-w-md p-6">
         <h2 className="text-3xl font-semibold text-center text-gray-700 mb-6">
           Sign in

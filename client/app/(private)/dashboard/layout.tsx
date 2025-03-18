@@ -26,7 +26,6 @@ export default function DashboardLayout({
 
   return (
     <div className="flex h-screen">
-      {/* Sidebar */}
       <motion.aside
         initial={{ width: 80 }}
         animate={{
@@ -35,7 +34,6 @@ export default function DashboardLayout({
         }}
         className="bg-white shadow-lg text-black h-full flex flex-col p-4 border-r"
       >
-        {/* Sidebar Toggle */}
         <button
           onClick={() => setIsOpen(!isOpen)}
           className="mb-6 flex items-center"
@@ -43,7 +41,6 @@ export default function DashboardLayout({
           <PanelsRightBottom size={28} className="text-black cursor-pointer" />
         </button>
 
-        {/* Sidebar Links */}
         <nav className="flex flex-col space-y-3">
           {sidebarLinks.map(({ name, href, icon: Icon }) => {
             const isActive = pathname === href;
@@ -72,7 +69,6 @@ export default function DashboardLayout({
         </nav>
       </motion.aside>
 
-      {/* Main Content */}
       <main className="flex-1 p-6 bg-gray-50">{children}</main>
     </div>
   );

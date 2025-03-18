@@ -10,6 +10,7 @@ import {
   useGetUserReviewsQuery,
 } from "@/app/store/apis/ReviewApi";
 import { Circle } from "lucide-react";
+import ProtectedRoute from "@/app/components/auth/ProtectedRoute";
 
 interface Review {
   _id: string;
@@ -91,136 +92,138 @@ const Profile = () => {
   };
 
   return (
-    <div className="max-w-3xl mx-auto p-6 bg-white shadow-lg rounded-lg mt-10">
-      <div className="flex items-center space-x-4">
-        <Circle className="text-gray-600 text-5xl" />
-        <div>
-          <h2 className="text-2xl font-semibold">{name}</h2>
-          <p className="text-gray-500">
-            {isDriver ? "Winch Driver" : "Customer"}
-          </p>
+    <ProtectedRoute>
+      <div className="max-w-3xl mx-auto p-6 bg-white shadow-lg rounded-lg mt-10">
+        <div className="flex items-center space-x-4">
+          <Circle className="text-gray-600 text-5xl" />
+          <div>
+            <h2 className="text-2xl font-semibold">{name}</h2>
+            <p className="text-gray-500">
+              {isDriver ? "Winch Driver" : "Customer"}
+            </p>
+          </div>
         </div>
-      </div>
 
-      <div className="mt-5 border-t pt-4">
-        <h3 className="text-xl font-semibold text-gray-700">
-          Contact Information
-        </h3>
-        <div className="mt-2 space-y-2">
-          <p className="flex items-center text-gray-600">
-            <Circle className="mr-2 text-blue-500" /> {phoneNumber}
-          </p>
-          <p className="flex items-center text-gray-600">
-            <Circle className="mr-2 text-red-500" /> {email}
-          </p>
-          <p className="flex items-center text-gray-600">
-            <Circle className="mr-2 text-green-500" /> Location:{" "}
-            {location?.coordinates.join(", ")}
-          </p>
-        </div>
-      </div>
-
-      {isDriver && (
-        <div className="mt-6 border-t pt-4">
+        <div className="mt-5 border-t pt-4">
           <h3 className="text-xl font-semibold text-gray-700">
-            Driver Information
+            Contact Information
           </h3>
           <div className="mt-2 space-y-2">
             <p className="flex items-center text-gray-600">
-              <Circle className="mr-2 text-yellow-500" /> Completed Moves: 12
-            </p>
-            <p className="text-gray-600">Rating: ⭐⭐⭐⭐☆ (4.5)</p>
-            <p className="flex items-center text-gray-600">
-              <Circle className="mr-2 text-purple-500" /> License Number:{" "}
-              {driverLicenseNumber}
+              <Circle className="mr-2 text-blue-500" /> {phoneNumber}
             </p>
             <p className="flex items-center text-gray-600">
-              <Circle className="mr-2 text-gray-500" /> License Expiry:{" "}
-              {new Date(driverLicenseExpiry).toLocaleDateString()}
+              <Circle className="mr-2 text-red-500" /> {email}
             </p>
             <p className="flex items-center text-gray-600">
-              <Circle className="mr-2 text-blue-400" /> Registration Number:{" "}
-              {registrationNumber}
-            </p>
-            <p className="flex items-center text-gray-600">
-              <Circle className="mr-2 text-gray-500" /> Registration Expiry:{" "}
-              {new Date(registrationExpiry).toLocaleDateString()}
-            </p>
-            <p className="flex items-center text-gray-600">
-              <Circle className="mr-2 text-orange-500" /> Vehicle Capacity:{" "}
-              {capacity}
-            </p>
-            <p className="text-gray-600">
-              <strong>Availability:</strong> {availabilityStatus}
+              <Circle className="mr-2 text-green-500" /> Location:{" "}
+              {location?.coordinates.join(", ")}
             </p>
           </div>
-
-          <Link href={`/chat/${userData.user._id}`}>
-            <button className="bg-primary px-4 text-white rounded-md py-2 text-[15px] font-medium mt-3">
-              Contact
-            </button>
-          </Link>
         </div>
-      )}
 
-      <div className="mt-6 border-t pt-4">
-        <h3 className="text-xl font-semibold text-gray-700">
-          Customer Reviews
-        </h3>
+        {isDriver && (
+          <div className="mt-6 border-t pt-4">
+            <h3 className="text-xl font-semibold text-gray-700">
+              Driver Information
+            </h3>
+            <div className="mt-2 space-y-2">
+              <p className="flex items-center text-gray-600">
+                <Circle className="mr-2 text-yellow-500" /> Completed Moves: 12
+              </p>
+              <p className="text-gray-600">Rating: ⭐⭐⭐⭐☆ (4.5)</p>
+              <p className="flex items-center text-gray-600">
+                <Circle className="mr-2 text-purple-500" /> License Number:{" "}
+                {driverLicenseNumber}
+              </p>
+              <p className="flex items-center text-gray-600">
+                <Circle className="mr-2 text-gray-500" /> License Expiry:{" "}
+                {new Date(driverLicenseExpiry).toLocaleDateString()}
+              </p>
+              <p className="flex items-center text-gray-600">
+                <Circle className="mr-2 text-blue-400" /> Registration Number:{" "}
+                {registrationNumber}
+              </p>
+              <p className="flex items-center text-gray-600">
+                <Circle className="mr-2 text-gray-500" /> Registration Expiry:{" "}
+                {new Date(registrationExpiry).toLocaleDateString()}
+              </p>
+              <p className="flex items-center text-gray-600">
+                <Circle className="mr-2 text-orange-500" /> Vehicle Capacity:{" "}
+                {capacity}
+              </p>
+              <p className="text-gray-600">
+                <strong>Availability:</strong> {availabilityStatus}
+              </p>
+            </div>
 
-        {/* Reviews List */}
-        <div className="mt-2 space-y-3">
-          {reviewsLoading ? (
-            <p className="text-gray-400">Loading reviews...</p>
-          ) : reviews?.length > 0 ? (
-            reviews.map((review: Review) => (
-              <div
-                key={review._id}
-                className="flex justify-between items-center text-gray-600"
-              >
-                <div>
-                  <strong>{review.reviewer}:</strong> {review.text}{" "}
-                  <span className="text-yellow-500">
-                    {"⭐".repeat(review.rating)}
-                  </span>
-                </div>
-                <button
-                  className="text-red-500 text-sm"
-                  onClick={() => handleDeleteReview(review._id)}
-                  disabled={deleteReviewLoading}
+            <Link href={`/chat/${userData.user._id}`}>
+              <button className="bg-primary px-4 text-white rounded-md py-2 text-[15px] font-medium mt-3">
+                Contact
+              </button>
+            </Link>
+          </div>
+        )}
+
+        <div className="mt-6 border-t pt-4">
+          <h3 className="text-xl font-semibold text-gray-700">
+            Customer Reviews
+          </h3>
+
+          {/* Reviews List */}
+          <div className="mt-2 space-y-3">
+            {reviewsLoading ? (
+              <p className="text-gray-400">Loading reviews...</p>
+            ) : reviews?.length > 0 ? (
+              reviews.map((review: Review) => (
+                <div
+                  key={review._id}
+                  className="flex justify-between items-center text-gray-600"
                 >
-                  Delete
-                </button>
-              </div>
-            ))
-          ) : (
-            <p className="text-gray-400">No reviews yet.</p>
-          )}
-        </div>
+                  <div>
+                    <strong>{review.reviewer}:</strong> {review.text}{" "}
+                    <span className="text-yellow-500">
+                      {"⭐".repeat(review.rating)}
+                    </span>
+                  </div>
+                  <button
+                    className="text-red-500 text-sm"
+                    onClick={() => handleDeleteReview(review._id)}
+                    disabled={deleteReviewLoading}
+                  >
+                    Delete
+                  </button>
+                </div>
+              ))
+            ) : (
+              <p className="text-gray-400">No reviews yet.</p>
+            )}
+          </div>
 
-        <form onSubmit={handleSubmit(onSubmitReview)} className="mt-4">
-          <textarea
-            className="w-full p-2 border rounded-md"
-            rows={2}
-            placeholder="Write a review..."
-            {...register("text", { required: true })}
-          />
-          <input
-            type="number"
-            className="w-full p-2 border rounded-md mt-2"
-            placeholder="Rating (1-5)"
-            {...register("rating", { required: true, min: 1, max: 5 })}
-          />
-          <button
-            type="submit"
-            className="bg-secondary text-black px-4 py-2 rounded-md mt-2"
-            disabled={createReviewLoading}
-          >
-            {createReviewLoading ? "Submitting..." : "Submit Review"}
-          </button>
-        </form>
+          <form onSubmit={handleSubmit(onSubmitReview)} className="mt-4">
+            <textarea
+              className="w-full p-2 border rounded-md"
+              rows={2}
+              placeholder="Write a review..."
+              {...register("text", { required: true })}
+            />
+            <input
+              type="number"
+              className="w-full p-2 border rounded-md mt-2"
+              placeholder="Rating (1-5)"
+              {...register("rating", { required: true, min: 1, max: 5 })}
+            />
+            <button
+              type="submit"
+              className="bg-secondary text-black px-4 py-2 rounded-md mt-2"
+              disabled={createReviewLoading}
+            >
+              {createReviewLoading ? "Submitting..." : "Submit Review"}
+            </button>
+          </form>
+        </div>
       </div>
-    </div>
+    </ProtectedRoute>
   );
 };
 

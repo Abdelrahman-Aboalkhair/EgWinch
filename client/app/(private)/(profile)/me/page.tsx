@@ -1,4 +1,5 @@
 "use client";
+import ProtectedRoute from "@/app/components/auth/ProtectedRoute";
 import { useGetMeQuery } from "@/app/store/apis/UserApi";
 import { CalendarDaysIcon, CalendarRange, Truck } from "lucide-react";
 import Image from "next/image";
@@ -15,7 +16,7 @@ const Me = () => {
   const isDriver = user.role === "driver";
 
   return (
-    <>
+    <ProtectedRoute>
       <div className="flex flex-col items-center p-6 bg-gray-100 min-h-screen">
         <div className="bg-white shadow-lg rounded-2xl p-6 w-96 flex flex-col items-center">
           <Image
@@ -81,7 +82,7 @@ const Me = () => {
           )}
         </div>
       </div>
-    </>
+    </ProtectedRoute>
   );
 };
 

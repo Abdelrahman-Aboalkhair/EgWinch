@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Lato, Poppins } from "next/font/google";
 import "./globals.css";
 import StoreProvider from "./StoreProvider";
-import SessionWrapper from "./SessionWrapper";
+import SessionWrapper from "./components/auth/SessionWrapper";
 
 const lato = Lato({
   variable: "--font-lato",
