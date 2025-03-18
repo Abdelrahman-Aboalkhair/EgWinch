@@ -5,7 +5,6 @@ import Input from "@/app/components/atoms/Input";
 import Dropdown from "@/app/components/molecules/Dropdown";
 import { PlusCircle, Trash2 } from "lucide-react";
 import { Controller, useForm } from "react-hook-form";
-import OnboardingLayout from "@/app/components/templates/OnboardingLayout";
 import CheckBox from "@/app/components/atoms/CheckBox";
 import categoryOptions from "@/app/constants/categoryOptions";
 import additionalServicesOptions from "@/app/constants/additionalServicesOptions";

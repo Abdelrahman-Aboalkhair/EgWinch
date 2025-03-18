@@ -7,11 +7,10 @@ import { useForm } from "react-hook-form";
 import {
   useCreateConversationMutation,
   useGetConversationsQuery,
-} from "@/app/libs/features/apis/ConversationApi";
-import { Send } from "lucide-react"; // Import Send icon
+} from "@/app/store/apis/ConversationApi";
+import { Send } from "lucide-react";
 import Link from "next/link";
 
-// Create socket instance outside component to prevent recreation
 const socket = io("http://localhost:5000");
 
 const ChatPage = () => {

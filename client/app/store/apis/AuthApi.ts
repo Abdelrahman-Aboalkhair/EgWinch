@@ -13,6 +13,11 @@ export const authApi = apiSlice.injectEndpoints({
         method: "POST",
         body: credentials,
       }),
+      async onQueryStarted(_, { dispatch, queryFulfilled }) {
+        const { data } = await queryFulfilled;
+        console.log("data ");
+        dispatch(setCredentials({ accessToken: data.accessToken }));
+      },
     }),
     signup: builder.mutation<{ user: User; accessToken: string }, FormData>({
       query: (data) => ({
@@ -20,6 +25,11 @@ export const authApi = apiSlice.injectEndpoints({
         method: "POST",
         body: data,
       }),
+      async onQueryStarted(_, { dispatch, queryFulfilled }) {
+        const { data } = await queryFulfilled;
+        console.log("data ");
+        dispatch(setCredentials({ accessToken: data.accessToken }));
+      },
     }),
     registerDriver: builder.mutation<
       { user: User; accessToken: string },
@@ -48,23 +58,6 @@ export const authApi = apiSlice.injectEndpoints({
         url: "/auth/sign-out",
         method: "GET",
       }),
-    }),
-
-    validateSession: builder.query<{ user: User; accessToken: string }, void>({
-      query: () => ({
-        url: "/auth/refresh-token",
-        method: "GET",
-      }),
-      async onQueryStarted(arg, { dispatch, queryFulfilled }) {
-        try {
-          const { data } = await queryFulfilled;
-          console.log("data from validateSession: ", data);
-          dispatch(setCredentials(data));
-        } catch (error) {
-          console.log("error: ", error);
-          dispatch(clearAuthState());
-        }
-      },
     }),
 
     verifyEmail: builder.mutation<void, { emailVerificationCode: string }>({
@@ -102,6 +95,23 @@ export const authApi = apiSlice.injectEndpoints({
         };
       },
     }),
+    restoreSession: builder.query<{ accessToken: string; user: User }, void>({
+      query: () => ({
+        url: "/auth/refresh-token",
+        method: "GET",
+      }),
+      async onQueryStarted(_, { dispatch, queryFulfilled }) {
+        try {
+          const { data } = await queryFulfilled;
+          dispatch(
+            setCredentials({ accessToken: data.accessToken, user: data.user })
+          );
+        } catch (error) {
+          console.log("Session restoration failed:", error);
+          dispatch(clearAuthState());
+        }
+      },
+    }),
   }),
 });
 
@@ -111,7 +121,7 @@ export const {
   useRegisterDriverMutation,
   useSignOutMutation,
   useVerifyEmailMutation,
-  useValidateSessionQuery,
   useForgotPasswordMutation,
   useResetPasswordMutation,
+  useRestoreSessionQuery,
 } = authApi;

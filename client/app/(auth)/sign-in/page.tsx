@@ -2,14 +2,12 @@
 import { useForm } from "react-hook-form";
 import Input from "@/app/components/atoms/Input";
 import { useSignInMutation } from "../../store/apis/AuthApi";
-import { setCredentials } from "../../store/slices/AuthSlice";
 import { useAppDispatch } from "@/app/store/hooks";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import GoogleSignin from "../(oAuth)/google/GoogleSignin";
 import { useState } from "react";
-import FacebookSignin from "../(oAuth)/facebook/FacebookSignin";
 import AuthLayout from "@/app/components/templates/AuthLayout";
 import { RedirectHandler } from "@/app/RedirectHandler";
 
@@ -22,7 +20,6 @@ interface InputForm {
 
 const SignIn = () => {
   const [googleError, setGoogleError] = useState<string | null>(null);
-  const [facebookError, setFacebookError] = useState<string | null>(null);
   const [signIn, { error, isLoading }] = useSignInMutation();
   console.log("error: ", error);
   const dispatch = useAppDispatch();
@@ -42,16 +39,7 @@ const SignIn = () => {
   const onSubmit = async (formData: InputForm) => {
     try {
       const result = await signIn(formData).unwrap();
-      console.log("result: ", result);
-      dispatch(
-        setCredentials({
-          accessToken: result.accessToken,
-          user: result.user,
-        })
-      );
-      if (result.success && result.user.role === ("super-admin" || "admin")) {
-        router.push("/dashboard");
-      } else {
+      if (result.success) {
         router.push("/");
       }
     } catch (error) {
@@ -143,8 +131,6 @@ const SignIn = () => {
           <GoogleOAuthProvider clientId="948178712281-5755ujm8o5sv36nvsqnj2uce7lc933cb.apps.googleusercontent.com">
             <GoogleSignin onError={setGoogleError} />
           </GoogleOAuthProvider>
-
-          <FacebookSignin onError={setFacebookError} />
         </div>
       </div>
     </AuthLayout>

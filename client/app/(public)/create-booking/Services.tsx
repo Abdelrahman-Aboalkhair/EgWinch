@@ -1,12 +1,10 @@
 "use client";
 import { updateServices, updateStep } from "@/app/store/slices/BookingSlice";
-import OnboardingLayout from "@/app/components/templates/OnboardingLayout";
 import { useAppDispatch, useAppSelector } from "@/app/store/hooks";
 import { Controller, useForm } from "react-hook-form";
 import additionalServicesOptions from "@/app/constants/additionalServicesOptions";
 import { useUpdateOnboardingStepMutation } from "@/app/store/apis/BookingApi";
 import Dropdown from "@/app/components/molecules/Dropdown";
-import Input from "@/app/components/atoms/Input";
 import Button from "@/app/components/atoms/Button";
 import { Trash2 } from "lucide-react";
 import Table from "@/app/components/organisms/Table";

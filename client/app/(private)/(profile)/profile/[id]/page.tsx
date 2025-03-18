@@ -1,25 +1,15 @@
 "use client";
-import { useGetProfileQuery } from "@/app/libs/features/apis/UserApi";
+import { useGetProfileQuery } from "@/app/store/apis/UserApi";
 import { useParams } from "next/navigation";
 import Link from "next/link";
 import React from "react";
 import { useForm } from "react-hook-form";
 import {
-  FaUserCircle,
-  FaPhoneAlt,
-  FaEnvelope,
-  FaMapMarkerAlt,
-  FaTruck,
-  FaIdCard,
-  FaClipboardList,
-  FaRegCalendarAlt,
-  FaStar,
-} from "react-icons/fa";
-import {
   useCreateReviewMutation,
   useDeleteReviewMutation,
   useGetUserReviewsQuery,
-} from "@/app/libs/features/apis/ReviewApi";
+} from "@/app/store/apis/ReviewApi";
+import { Circle } from "lucide-react";
 
 interface Review {
   _id: string;
@@ -103,7 +93,7 @@ const Profile = () => {
   return (
     <div className="max-w-3xl mx-auto p-6 bg-white shadow-lg rounded-lg mt-10">
       <div className="flex items-center space-x-4">
-        <FaUserCircle className="text-gray-600 text-5xl" />
+        <Circle className="text-gray-600 text-5xl" />
         <div>
           <h2 className="text-2xl font-semibold">{name}</h2>
           <p className="text-gray-500">
@@ -118,13 +108,13 @@ const Profile = () => {
         </h3>
         <div className="mt-2 space-y-2">
           <p className="flex items-center text-gray-600">
-            <FaPhoneAlt className="mr-2 text-blue-500" /> {phoneNumber}
+            <Circle className="mr-2 text-blue-500" /> {phoneNumber}
           </p>
           <p className="flex items-center text-gray-600">
-            <FaEnvelope className="mr-2 text-red-500" /> {email}
+            <Circle className="mr-2 text-red-500" /> {email}
           </p>
           <p className="flex items-center text-gray-600">
-            <FaMapMarkerAlt className="mr-2 text-green-500" /> Location:{" "}
+            <Circle className="mr-2 text-green-500" /> Location:{" "}
             {location?.coordinates.join(", ")}
           </p>
         </div>
@@ -137,27 +127,27 @@ const Profile = () => {
           </h3>
           <div className="mt-2 space-y-2">
             <p className="flex items-center text-gray-600">
-              <FaTruck className="mr-2 text-yellow-500" /> Completed Moves: 12
+              <Circle className="mr-2 text-yellow-500" /> Completed Moves: 12
             </p>
             <p className="text-gray-600">Rating: ⭐⭐⭐⭐☆ (4.5)</p>
             <p className="flex items-center text-gray-600">
-              <FaIdCard className="mr-2 text-purple-500" /> License Number:{" "}
+              <Circle className="mr-2 text-purple-500" /> License Number:{" "}
               {driverLicenseNumber}
             </p>
             <p className="flex items-center text-gray-600">
-              <FaRegCalendarAlt className="mr-2 text-gray-500" /> License
-              Expiry: {new Date(driverLicenseExpiry).toLocaleDateString()}
+              <Circle className="mr-2 text-gray-500" /> License Expiry:{" "}
+              {new Date(driverLicenseExpiry).toLocaleDateString()}
             </p>
             <p className="flex items-center text-gray-600">
-              <FaClipboardList className="mr-2 text-blue-400" /> Registration
-              Number: {registrationNumber}
+              <Circle className="mr-2 text-blue-400" /> Registration Number:{" "}
+              {registrationNumber}
             </p>
             <p className="flex items-center text-gray-600">
-              <FaRegCalendarAlt className="mr-2 text-gray-500" /> Registration
-              Expiry: {new Date(registrationExpiry).toLocaleDateString()}
+              <Circle className="mr-2 text-gray-500" /> Registration Expiry:{" "}
+              {new Date(registrationExpiry).toLocaleDateString()}
             </p>
             <p className="flex items-center text-gray-600">
-              <FaTruck className="mr-2 text-orange-500" /> Vehicle Capacity:{" "}
+              <Circle className="mr-2 text-orange-500" /> Vehicle Capacity:{" "}
               {capacity}
             </p>
             <p className="text-gray-600">

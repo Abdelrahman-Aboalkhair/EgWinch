@@ -4,14 +4,8 @@ import { useForm } from "react-hook-form";
 import Input from "@/app/components/atoms/Input";
 import Button from "@/app/components/atoms/Button";
 import { useResetPasswordMutation } from "@/app/store/apis/AuthApi";
-import { useParams, useRouter } from "next/navigation";
+import { useParams } from "next/navigation";
 import Link from "next/link";
-
-interface Props {
-  params: {
-    token: string;
-  };
-}
 
 const PasswordResetWithToken = () => {
   const { handleSubmit, control } = useForm({
@@ -22,10 +16,9 @@ const PasswordResetWithToken = () => {
   });
 
   const { token } = useParams();
-  const [resetPassword, { data, error, isLoading }] =
-    useResetPasswordMutation();
+  const [resetPassword, { isLoading }] = useResetPasswordMutation();
   const [message, setMessage] = useState("");
-  const [isError, setIsError] = useState(false); // New state to track error status
+  const [isError, setIsError] = useState(false);
 
   const onSubmit = async (formData: {
     password: string;
@@ -38,7 +31,7 @@ const PasswordResetWithToken = () => {
     }
 
     try {
-      const res = await resetPassword({
+      await resetPassword({
         token,
         newPassword: formData.password,
       }).unwrap();

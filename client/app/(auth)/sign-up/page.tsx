@@ -1,15 +1,12 @@
 "use client";
 import { useForm } from "react-hook-form";
 import Input from "@/app/components/atoms/Input";
-import { setCredentials } from "@/app/store/slices/AuthSlice";
-import { useAppDispatch } from "@/app/store/hooks";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import { Loader2 } from "lucide-react";
 import GoogleSignup from "../(oAuth)/google/GoogleSignup";
 import useToast from "@/app/hooks/ui/useToast";
-import FacebookSignup from "../(oAuth)/facebook/FacebookSignup";
 import { useState } from "react";
 import AuthLayout from "@/app/components/templates/AuthLayout";
 import PasswordField from "@/app/components/molecules/PasswordField";
@@ -40,7 +37,6 @@ const Signup = () => {
   const [signup, { error, isLoading }] = useSignupMutation();
   const [resultError, setResultError] = useState<string | null>(null);
   const [googleError, setGoogleError] = useState<string | null>(null);
-  const dispatch = useAppDispatch();
   const router = useRouter();
 
   const {
@@ -61,10 +57,9 @@ const Signup = () => {
     setResultError(null);
     try {
       const result = await signup(data).unwrap();
-      dispatch(setCredentials(result));
       if (result.success) {
         showToast(result.message, "success");
-        router.push("/verify-email");
+        router.push("/");
       }
     } catch (error) {
       console.log("signup error:", error);
@@ -147,8 +142,6 @@ const Signup = () => {
           <GoogleOAuthProvider clientId="948178712281-5755ujm8o5sv36nvsqnj2uce7lc933cb.apps.googleusercontent.com">
             <GoogleSignup onError={setGoogleError} />
           </GoogleOAuthProvider>
-
-          <FacebookSignup />
         </div>
       </div>
     </AuthLayout>

@@ -15,7 +15,6 @@ export const notificationApi = apiSlice.injectEndpoints({
       invalidatesTags: ["Notification"],
     }),
 
-    // Clear all notifications
     clearNotifications: builder.mutation({
       query: () => ({
         url: `/notifications`,
@@ -24,7 +23,6 @@ export const notificationApi = apiSlice.injectEndpoints({
       invalidatesTags: ["Notification"],
     }),
 
-    // Delete a single notification
     deleteNotification: builder.mutation({
       query: (id) => ({
         url: `/notifications/${id}`,

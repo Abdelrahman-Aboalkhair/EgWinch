@@ -5,7 +5,6 @@ import {
   updateLocations,
   updateStep,
 } from "@/app/store/slices/BookingSlice";
-import OnboardingLayout from "@/app/components/templates/OnboardingLayout";
 import { useAppDispatch, useAppSelector } from "@/app/store/hooks";
 import Input from "@/app/components/atoms/Input";
 import { useCreateBookingMutation } from "@/app/store/apis/BookingApi";

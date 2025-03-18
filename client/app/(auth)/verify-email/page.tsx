@@ -7,7 +7,7 @@ import { useState } from "react";
 
 const VerifyEmail = () => {
   const { showToast } = useToast();
-  const [verifyEmail, { error, isLoading }] = useVerifyEmailMutation();
+  const [verifyEmail, { isLoading }] = useVerifyEmailMutation();
   const [otp, setOtp] = useState();
   const router = useRouter();
 

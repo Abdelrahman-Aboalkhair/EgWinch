@@ -3,7 +3,7 @@
 import { getStatusColor } from "@/app/utils/getStatusColor";
 import {
   useCreateOfferMutation,
-  useGetBookingsQuery,
+  useGetUserBookingsQuery,
   useUpdateBookingMutation,
 } from "@/app/store/apis/BookingApi";
 import React, { useState } from "react";
@@ -11,10 +11,9 @@ import { Loader2, XCircle, Search, Check, ChevronDown } from "lucide-react";
 import { motion } from "framer-motion";
 import { useAppSelector } from "@/app/store/hooks";
 import useFormatPrice from "@/app/hooks/ui/useFormatPrice";
-import Offers from "@/app/components/sections/booking/Offers";
 
 const ManageBookings = () => {
-  const { data, isLoading, error, refetch } = useGetBookingsQuery({});
+  const { data, isLoading, error, refetch } = useGetUserBookingsQuery({});
   const [createOffer, { isLoading: createOfferLoading }] =
     useCreateOfferMutation();
   const [updateBooking, { isLoading: updateBookingLoading }] =
@@ -200,13 +199,6 @@ const ManageBookings = () => {
                           </button>
                         </td>
                       </tr>
-
-                      <Offers
-                        handleUpdateBooking={handleUpdateBooking}
-                        updatingOfferId={updatingOfferId}
-                        booking={booking}
-                        expandedBookingId={expandedBookingId}
-                      />
                     </React.Fragment>
                   ))
                 ) : (

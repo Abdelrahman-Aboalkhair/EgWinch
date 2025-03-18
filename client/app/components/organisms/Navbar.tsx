@@ -9,21 +9,29 @@ import { Bell, User } from "lucide-react";
 import {
   useClearNotificationsMutation,
   useGetNotificationsQuery,
-  useMarkAsReadMutation,
 } from "../../store/apis/NotificationApi";
-import Button from "../atoms/Button";
+
+interface Notification {
+  id: string;
+  message: string;
+  type: "success" | "error" | "warning";
+  isRead: boolean;
+}
 
 const Navbar = () => {
   const { isLoggedIn, user } = useAppSelector((state) => state.auth);
-  const { data, isLoading } = useGetNotificationsQuery({});
-  const notifications = data?.notifications || [];
-  const [markAsRead] = useMarkAsReadMutation();
-  const [clearAll] = useClearNotificationsMutation();
-  const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
   const [notificationsOpen, setNotificationsOpen] = useState(false);
   const notificationRef = useRef<HTMLDivElement>(null);
   const menuRef = useRef<HTMLDivElement>(null);
+  const pathname = usePathname();
+
+  const { data, isLoading, refetch } = useGetNotificationsQuery(
+    {},
+    { skip: !notificationsOpen || !isLoggedIn }
+  );
+  const notifications = data?.notifications || [];
+  const [clearAll] = useClearNotificationsMutation();
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -81,12 +89,13 @@ const Navbar = () => {
               className="relative mt-2"
               onClick={(e) => {
                 e.stopPropagation();
-                setNotificationsOpen(!notificationsOpen);
+                setNotificationsOpen((prev) => !prev);
                 setMenuOpen(false);
+                if (!notificationsOpen) refetch();
               }}
             >
               <Bell size={23} />
-              {notifications.some((n: any) => !n.isRead) && (
+              {notifications.some((n: Notification) => !n.isRead) && (
                 <div className="absolute top-0 right-0 w-[10px] h-[10px] bg-red-600 rounded-full" />
               )}
             </button>
@@ -100,7 +109,7 @@ const Navbar = () => {
                   <button
                     onClick={async () => {
                       try {
-                        await clearAll();
+                        await clearAll({});
                       } catch (error) {
                         console.error("Failed to clear notifications", error);
                       }
@@ -116,7 +125,7 @@ const Navbar = () => {
                 <p className="text-gray-500 text-xs">Loading...</p>
               ) : notifications.length > 0 ? (
                 <ul className="space-y-2">
-                  {notifications.map((notification: any) => (
+                  {notifications.map((notification: Notification) => (
                     <li
                       key={notification.id}
                       className="text-sm text-gray-700 border-b pb-2"

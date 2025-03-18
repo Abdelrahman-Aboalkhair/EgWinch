@@ -213,3 +213,8 @@
 [2025-03-18T15:52:23.644Z] [31MERROR[39M: Path `personalInfo.phoneNumber` is invalid (+21-234-232).
 [2025-03-18T15:52:37.260Z] [31MERROR[39M: Path `personalInfo.phoneNumber` is invalid (+12-234-232).
 [2025-03-18T15:52:56.982Z] [31MERROR[39M: Driver not found
+[2025-03-18T18:27:46.954Z] [31MERROR[39M: This email is already registered, please sign in
+[2025-03-18T18:28:04.377Z] [31MERROR[39M: This email is registered with Google, please sign in with Google
+[2025-03-18T19:28:20.021Z] [31MERROR[39M: License must not be expired, Path `personalInfo.phoneNumber` is invalid (+234-234-234).
+[2025-03-18T19:28:27.131Z] [31MERROR[39M: License must not be expired, Path `personalInfo.phoneNumber` is invalid (+123-234-234).
+[2025-03-18T19:28:39.529Z] [31MERROR[39M: Path `personalInfo.phoneNumber` is invalid (+123-234-234).

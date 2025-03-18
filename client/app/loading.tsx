@@ -1,11 +1,12 @@
 "use client";
-import TruckLoader from "./components/atoms/TruckLoader";
+import { Loader2 } from "lucide-react";
 
 const GlobalLoading = () => {
   return (
-    <main className="min-h-screen flex items-center justify-center gap-3">
-      <TruckLoader />
-    </main>
+    <div className="flex items-center justify-center min-h-screen text-primary">
+      <Loader2 className="animate-spin mr-2 " />
+      <span>Loading...</span>
+    </div>
   );
 };
 

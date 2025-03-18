@@ -1,7 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
-import { AiOutlineClose } from "react-icons/ai";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, X } from "lucide-react";
 
 interface DropdownProps {
   label?: string;
@@ -57,7 +56,7 @@ const Dropdown: React.FC<DropdownProps> = ({
 
         <div className="flex items-center">
           {value ? (
-            <AiOutlineClose
+            <X
               className="text-gray-600 cursor-pointer"
               onClick={(e) => {
                 e.stopPropagation();

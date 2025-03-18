@@ -51,7 +51,7 @@ const PasswordField: React.FC<PasswordFieldProps> = ({
             return result.success || result.error.errors[0].message;
           },
         })}
-        className="p-[17px] pl-3 pr-10 w-full border border-gray-300 text-gray-800 placeholder:text-black 
+        className="p-[17px] pl-3 pr-10 w-full border border-gray-300 text-gray-800 placeholder:text-gray-600 
               rounded focus:outline-none focus:ring-[2px] focus:ring-lime-700"
       />
       {errors[name] && (
