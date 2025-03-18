@@ -15,8 +15,6 @@ import Button from "../atoms/Button";
 
 const Navbar = () => {
   const { isLoggedIn, user } = useAppSelector((state) => state.auth);
-  console.log("isLoggedIn: ", isLoggedIn);
-  console.log("user: ", user);
   const { data, isLoading } = useGetNotificationsQuery({});
   const notifications = data?.notifications || [];
   const [markAsRead] = useMarkAsReadMutation();
@@ -51,26 +49,30 @@ const Navbar = () => {
         </Link>
       </div>
       <div className="space-x-[4rem] text-[16px] ">
-        <Link
-          href="/driver-onboarding"
-          className={`${
-            pathname === "/driver-sign-up"
-              ? "text-primary font-medium"
-              : "text-gray-500"
-          }`}
-        >
-          Start Driving
-        </Link>
-        <Link
-          href="/bookings"
-          className={`${
-            pathname === "/bookings"
-              ? "text-primary font-medium"
-              : "text-gray-500"
-          }`}
-        >
-          Bookings
-        </Link>
+        {isLoggedIn && (
+          <>
+            <Link
+              href="/driver-onboarding"
+              className={`${
+                pathname === "/driver-onboarding"
+                  ? "text-primary font-medium"
+                  : "text-gray-500"
+              }`}
+            >
+              Start Driving
+            </Link>
+            <Link
+              href="/bookings"
+              className={`${
+                pathname === "/bookings"
+                  ? "text-primary font-medium"
+                  : "text-gray-500"
+              }`}
+            >
+              Bookings
+            </Link>
+          </>
+        )}
       </div>
       <div className="flex items-center gap-10">
         <div className="relative" ref={notificationRef}>
@@ -164,9 +166,12 @@ const Navbar = () => {
             )}
           </div>
         ) : (
-          <Button className="border-2 border-primary text-primary px-[1.5rem] font-semibold py-[9px] text-[16px] rounded-full hover:opacity-90">
-            <Link href="/sign-in">Sign in</Link>
-          </Button>
+          <Link
+            className="border-2 border-primary text-primary px-[1.5rem] font-semibold py-[9px] text-[16px] rounded-full hover:opacity-90"
+            href="/sign-in"
+          >
+            Sign in
+          </Link>
         )}
       </div>
     </nav>

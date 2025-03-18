@@ -11,12 +11,12 @@ const express = require("express");
 
 const router = express.Router();
 
-router.post("/", isAuthenticated, authorizeRole("user"), startOnboarding);
+router.post("/", isAuthenticated, startOnboarding);
 router.patch(
   "/update-step/:step",
   isAuthenticated,
   authorizeRole("driver"),
-  upload.array("documents"),
+  upload.array("documents", 5),
   updateStep
 );
 router.patch(

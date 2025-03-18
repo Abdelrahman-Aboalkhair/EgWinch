@@ -24,6 +24,8 @@ export interface Documents {
 }
 
 export interface DriverState {
+  id: string;
+  onboardingStep: "personal" | "vehicle" | "documents" | "completed";
   step: number;
   status: "pending" | "inProgress" | "approved" | "rejected";
   rejectionReason?: string;

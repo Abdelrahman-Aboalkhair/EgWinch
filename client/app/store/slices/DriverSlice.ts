@@ -15,6 +15,8 @@ const loadState = (): DriverState | null => {
 };
 
 const initialState: DriverState = loadState() || {
+  id: "",
+  onboardingStep: "personal",
   step: 1,
   status: "pending",
   location: { coordinates: [0, 0] },
@@ -27,6 +29,10 @@ const driverSlice = createSlice({
   reducers: {
     updateStep: (state, action: PayloadAction<DriverState["step"]>) => {
       state.step = action.payload;
+    },
+    setDriverId: (state, action: PayloadAction<string>) => {
+      console.log("action.payload: ", action.payload);
+      state.id = action.payload;
     },
     updateStatus: (state, action: PayloadAction<DriverState["status"]>) => {
       state.status = action.payload;
@@ -75,6 +81,7 @@ export const persistDriverStateMiddleware =
 
 export const {
   updateStep,
+  setDriverId,
   updateStatus,
   setRejectionReason,
   updatePersonalInfo,

@@ -11,6 +11,7 @@ import GoogleSignin from "../(oAuth)/google/GoogleSignin";
 import { useState } from "react";
 import FacebookSignin from "../(oAuth)/facebook/FacebookSignin";
 import AuthLayout from "@/app/components/templates/AuthLayout";
+import { RedirectHandler } from "@/app/RedirectHandler";
 
 interface InputForm {
   name: string;
@@ -60,6 +61,7 @@ const SignIn = () => {
 
   return (
     <AuthLayout>
+      <RedirectHandler />
       <div className="w-full max-w-md p-6">
         <h2 className="text-3xl font-semibold text-center text-gray-700 mb-6">
           Sign in
@@ -118,18 +120,20 @@ const SignIn = () => {
           </button>
         </form>
 
-        <p className="text-center text-gray-500 pt-4">
-          Don&apos;t have an account?{" "}
+        <div className="flex gap-2 items-center justify-center py-4">
+          {" "}
+          <p className="text-center text-gray-500">
+            Don&apos;t have an account?{" "}
+          </p>
           <Link
             href="/sign-up"
             className="text-primary font-medium hover:underline"
           >
             Sign up
           </Link>
-        </p>
-
+        </div>
         <p
-          className="relative text-center text-gray-500 py-2 before:content-[''] 
+          className="relative text-center text-gray-500 before:content-[''] 
           before:absolute before:left-0 before:top-1/2 before:w-[45%] before:h-[1px] before:bg-gray-300 after:content-[''] 
           after:absolute after:right-0 after:top-1/2 after:w-[45%] after:h-[1px] after:bg-gray-300"
         >

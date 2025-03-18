@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { setCredentials, clearAuthState, setAuthLoading } from "./AuthSlice";
+import { setCredentials, clearAuthState } from "./AuthSlice";
 import type { RootState } from "@/app/store/store";
 import type {
   BaseQueryFn,
@@ -7,14 +7,17 @@ import type {
   FetchBaseQueryError,
 } from "@reduxjs/toolkit/query/react";
 
-// Constants
-const API_BASE_URL =
-  process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api/v1";
+const PUBLIC_ROUTES = [
+  "/sign-in",
+  "/sign-up",
+  "/password-reset",
+  "/",
+  "/verify-email",
+];
 
-// Base query configuration
 const baseQuery = fetchBaseQuery({
-  baseUrl: API_BASE_URL,
-  credentials: "include", // Required for cookies
+  baseUrl: "http://localhost:5000/api/v1",
+  credentials: "include",
   prepareHeaders: (headers, { getState }) => {
     const token = (getState() as RootState).auth.accessToken;
     if (token) {
@@ -24,75 +27,60 @@ const baseQuery = fetchBaseQuery({
   },
 });
 
-// Initialize auth function with proper error handling
-const initializeAuth = async (api: {
-  dispatch: Function;
-  getState: Function;
-}) => {
-  try {
-    api.dispatch(setAuthLoading(true));
+let isRedirecting = false;
 
-    const refreshResult = await baseQuery(
-      {
-        url: "/auth/refresh-token",
-        method: "GET",
-      },
-      api,
-      {}
-    );
-
-    if (refreshResult.data) {
-      api.dispatch(setCredentials(refreshResult.data));
-      return true;
-    }
-
-    api.dispatch(clearAuthState());
-    return false;
-  } catch (err) {
-    console.error("Failed to initialize auth:", err);
-    api.dispatch(clearAuthState());
-    return false;
-  } finally {
-    api.dispatch(setAuthLoading(false));
-  }
-};
-
-// Enhanced base query with reauth logic
 const baseQueryWithReauth: BaseQueryFn<
   string | FetchArgs,
   unknown,
   FetchBaseQueryError
 > = async (args, api, extraOptions) => {
-  // Try the initial query
   let result = await baseQuery(args, api, extraOptions);
 
-  // Handle 401 errors by attempting to refresh the token
+  if (typeof window !== "undefined") {
+    const currentPath = window.location.pathname;
+
+    // If we're already redirecting, or on a public route, don't do anything
+    if (
+      PUBLIC_ROUTES.some((route) => currentPath.startsWith(route)) ||
+      isRedirecting
+    ) {
+      return result;
+    }
+  }
+
   if (result.error && result.error.status === 401) {
     const refreshResult = await baseQuery(
-      {
-        url: "/auth/refresh-token",
-        method: "GET",
-      },
+      { url: "/auth/refresh-token", method: "GET" },
       api,
       extraOptions
     );
 
     if (refreshResult.data) {
-      // Token refresh successful, update credentials
       api.dispatch(setCredentials(refreshResult.data));
-
-      // Retry the original request
       result = await baseQuery(args, api, extraOptions);
     } else {
-      // Token refresh failed, clear auth state
       api.dispatch(clearAuthState());
+
+      if (typeof window !== "undefined" && !isRedirecting) {
+        isRedirecting = true;
+        const currentPath = window.location.pathname;
+
+        // Redirect only if the current page is not public
+        if (!PUBLIC_ROUTES.some((route) => currentPath.startsWith(route))) {
+          localStorage.setItem("redirectAfterLogin", currentPath);
+          window.location.href = "/sign-in";
+        }
+
+        setTimeout(() => {
+          isRedirecting = false;
+        }, 1000);
+      }
     }
   }
 
   return result;
 };
 
-// API slice configuration
 export const apiSlice = createApi({
   reducerPath: "api",
   baseQuery: baseQueryWithReauth,
@@ -106,6 +94,3 @@ export const apiSlice = createApi({
   ],
   endpoints: () => ({}),
 });
-
-// Export initialization function for use in SessionProvider
-export { initializeAuth };

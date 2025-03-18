@@ -141,3 +141,39 @@
 [2025-03-17T17:14:42.382Z] [31MERROR[39M: Redis Client Error: connect ECONNREFUSED 172.18.0.4:6379
 [2025-03-17T17:14:42.485Z] [31MERROR[39M: Redis Client Error: getaddrinfo EAI_AGAIN redis
 [2025-03-17T17:14:42.637Z] [31MERROR[39M: Redis Client Error: getaddrinfo EAI_AGAIN redis
+[2025-03-17T18:52:52.698Z] [31MERROR[39M: AppError: statusCode must be a number
+[2025-03-17T18:54:50.760Z] [31MERROR[39M: 404
+[2025-03-17T18:57:31.733Z] [31MERROR[39M: Cannot read properties of undefined (reading 'expiry')
+[2025-03-17T18:59:25.892Z] [31MERROR[39M: You are not authorized to perform this action
+[2025-03-17T18:59:51.043Z] [31MERROR[39M: You are not authorized to perform this action
+[2025-03-17T19:01:17.899Z] [31MERROR[39M: You are not authorized to perform this action
+[2025-03-17T19:02:34.693Z] [31MERROR[39M: No user found with this email, please sign up first
+[2025-03-17T19:03:40.018Z] [31MERROR[39M: Duplicate field value entered
+[2025-03-17T19:05:43.206Z] [31MERROR[39M: Duplicate field value entered
+[2025-03-17T19:16:04.951Z] [31MERROR[39M: You are not authorized to perform this action
+[2025-03-17T19:17:06.268Z] [31MERROR[39M: You are not authorized to perform this action
+[2025-03-17T19:17:39.900Z] [31MERROR[39M: You are not authorized to perform this action
+[2025-03-17T21:39:09.711Z] [31MERROR[39M: You are not authorized to perform this action
+[2025-03-17T21:47:54.321Z] [31MERROR[39M: You are not authorized to perform this action
+[2025-03-17T21:48:22.463Z] [31MERROR[39M: You are not authorized to perform this action
+[2025-03-17T21:56:49.294Z] [31MERROR[39M: This email is not registered, please sign up
+[2025-03-17T22:00:02.745Z] [31MERROR[39M: You are not authorized to perform this action
+[2025-03-17T22:01:17.499Z] [31MERROR[39M: You are not authorized to perform this action
+[2025-03-17T22:01:29.956Z] [31MERROR[39M: You are not authorized to perform this action
+[2025-03-17T22:02:23.523Z] [31MERROR[39M: You are not authorized to perform this action
+[2025-03-17T22:05:03.807Z] [31MERROR[39M: You are not authorized to perform this action
+[2025-03-18T11:57:35.683Z] [31MERROR[39M: You are not authorized to perform this action
+[2025-03-18T12:09:10.624Z] [31MERROR[39M: Path `personalInfo.phoneNumber` is invalid (32532532)., `Male` is not a valid enum value for path `personalInfo.gender`.
+[2025-03-18T12:10:00.023Z] [31MERROR[39M: Path `personalInfo.phoneNumber` is invalid (32532532)., `Male` is not a valid enum value for path `personalInfo.gender`.
+[2025-03-18T12:10:26.632Z] [31MERROR[39M: Path `personalInfo.phoneNumber` is invalid (3223523).
+[2025-03-18T12:22:56.106Z] [31MERROR[39M: Driver not found
+[2025-03-18T12:27:20.492Z] [31MERROR[39M: Driver not found
+[2025-03-18T12:28:03.840Z] [31MERROR[39M: Driver not found
+[2025-03-18T12:29:09.579Z] [31MERROR[39M: Driver not found
+[2025-03-18T12:30:21.201Z] [31MERROR[39M: Driver not found
+[2025-03-18T12:30:40.809Z] [31MERROR[39M: Driver not found
+[2025-03-18T12:34:53.562Z] [31MERROR[39M: License must not be expired
+[2025-03-18T12:35:04.075Z] [31MERROR[39M: License must not be expired, Invalid date of birth
+[2025-03-18T12:35:39.011Z] [31MERROR[39M: Invalid date of birth
+[2025-03-18T12:36:05.650Z] [31MERROR[39M: Invalid date of birth
+[2025-03-18T12:36:25.405Z] [31MERROR[39M: Invalid date of birth

@@ -3,6 +3,7 @@ const User = require("../users/user.model");
 const jwt = require("jsonwebtoken");
 const AuthService = require("./auth.service");
 const asyncHandler = require("../../utils/asyncHandler");
+const sendResponse = require("../../utils/sendResponse");
 
 exports.register = asyncHandler(async (req, res) => {
   const { name, email, password } = req.body;
@@ -13,26 +14,30 @@ exports.register = asyncHandler(async (req, res) => {
   });
 
   res.cookie("refreshToken", refreshToken, cookieOptions);
-  res.status(201).json({
-    success: true,
-    message: "Signed up successfully. Please verify your email.",
-    user: {
-      id: user._id,
-      name: user.name,
-      email: user.email,
-      role: user.role,
-      emailVerified: user.emailVerified,
-      profilePicture: user.profilePicture || "",
+
+  sendResponse(
+    res,
+    201,
+    {
+      user: {
+        id: user._id,
+        name: user.name,
+        email: user.email,
+        role: user.role,
+        emailVerified: user.emailVerified,
+        profilePicture: user.profilePicture || "",
+      },
+      accessToken,
     },
-    accessToken,
-  });
+    "Signed up successfully. Please verify your email."
+  );
 });
 
 exports.verifyEmail = asyncHandler(async (req, res) => {
   const { emailVerificationCode } = req.body;
   const result = await AuthService.verifyEmail(emailVerificationCode);
 
-  res.status(200).json({ success: true, message: result.message });
+  sendResponse(res, 200, {}, result.message);
 });
 
 exports.signin = asyncHandler(async (req, res) => {
@@ -43,100 +48,110 @@ exports.signin = asyncHandler(async (req, res) => {
   });
 
   res.cookie("refreshToken", refreshToken, cookieOptions);
-  res.status(200).json({
-    success: true,
-    message: "Signed in successfully",
-    user: {
-      _id: user._id,
-      name: user.name,
-      email: user.email,
-      phoneNumber: user.phoneNumber,
-      role: user.role,
-      emailVerified: user.emailVerified,
-      profilePicture: {
-        public_id: user.profilePicture.public_id,
-        secure_url: user.profilePicture.secure_url,
+
+  sendResponse(
+    res,
+    200,
+    {
+      user: {
+        _id: user._id,
+        name: user.name,
+        email: user.email,
+        phoneNumber: user.phoneNumber,
+        role: user.role,
+        emailVerified: user.emailVerified,
+        profilePicture: user.profilePicture
+          ? {
+              public_id: user.profilePicture.public_id,
+              secure_url: user.profilePicture.secure_url,
+            }
+          : null,
       },
+      accessToken,
     },
-    accessToken,
-  });
+    "Signed in successfully"
+  );
 });
 
 exports.signout = asyncHandler(async (req, res) => {
   const result = await AuthService.signout();
   res.clearCookie("refreshToken");
-  res.status(200).json({ success: true, message: result.message });
+
+  sendResponse(res, 200, {}, result.message);
 });
 
 exports.googleSignup = asyncHandler(async (req, res) => {
   const { access_token } = req.body;
-
   const { user, accessToken, refreshToken } = await AuthService.googleSignup(
     access_token
   );
 
   res.cookie("refreshToken", refreshToken, cookieOptions);
 
-  res.status(201).json({
-    message: "Sign-up successful",
-    accessToken,
-    refreshToken,
-    user: {
-      id: user._id,
-      name: user.name,
-      email: user.email,
-      role: user.role,
-      profilePicture: user.profilePicture || "",
+  sendResponse(
+    res,
+    201,
+    {
+      user: {
+        id: user._id,
+        name: user.name,
+        email: user.email,
+        role: user.role,
+        profilePicture: user.profilePicture || "",
+      },
+      accessToken,
+      refreshToken,
     },
-  });
+    "Sign-up successful"
+  );
 });
 
 exports.googleSignin = asyncHandler(async (req, res) => {
   const { access_token } = req.body;
-
   const { user, accessToken, refreshToken } = await AuthService.googleSignin(
     access_token
   );
 
   res.cookie("refreshToken", refreshToken, cookieOptions);
 
-  res.json({
-    message: "Login successful",
-    accessToken,
-    refreshToken,
-    user: {
-      id: user._id,
-      name: user.name,
-      email: user.email,
-      role: user.role,
-      emailVerified: user.emailVerified,
-      profilePicture: user.profilePicture || "",
+  sendResponse(
+    res,
+    200,
+    {
+      user: {
+        id: user._id,
+        name: user.name,
+        email: user.email,
+        role: user.role,
+        emailVerified: user.emailVerified,
+        profilePicture: user.profilePicture || "",
+      },
+      accessToken,
+      refreshToken,
     },
-  });
+    "Login successful"
+  );
 });
 
 exports.forgotPassword = asyncHandler(async (req, res) => {
   const { email } = req.body;
-  console.log("email: ", email);
   const response = await AuthService.forgotPassword(email);
-  res.json(response);
+
+  sendResponse(res, 200, response);
 });
 
 exports.resetPassword = asyncHandler(async (req, res) => {
   const { token, newPassword } = req.body;
-  console.log("req.body: ", req.body);
   const response = await AuthService.resetPassword(token, newPassword);
-  res.json(response);
+
+  sendResponse(res, 200, response);
 });
 
 exports.refreshToken = asyncHandler(async (req, res) => {
   const refreshToken = req?.cookies?.refreshToken;
 
   if (!refreshToken) {
-    return res.status(401).json({
-      success: false,
-      message: "Refresh token is required",
-    });
+    return sendResponse(res, 401, {}, "Refresh token is required");
   }
 
   jwt.verify(
@@ -144,18 +159,12 @@ exports.refreshToken = asyncHandler(async (req, res) => {
     process.env.REFRESH_TOKEN_SECRET,
     async (err, decoded) => {
       if (err) {
-        return res.status(403).json({
-          success: false,
-          message: "Invalid or expired refresh token",
-        });
+        return sendResponse(res, 403, {}, "Invalid or expired refresh token");
       }
 
       const user = await User.findById(decoded.userId);
       if (!user) {
-        return res.status(404).json({
-          success: false,
-          message: "User not found",
-        });
+        return sendResponse(res, 404, {}, "User not found");
       }
 
       const newRefreshToken = await user.generateRefreshToken();
@@ -164,8 +173,7 @@ exports.refreshToken = asyncHandler(async (req, res) => {
       res.cookie("refreshToken", newRefreshToken, cookieOptions);
       await user.save();
 
-      res.status(200).json({
-        success: true,
+      sendResponse(res, 200, {
         accessToken: newAccessToken,
         user: {
           _id: user._id,

@@ -1,11 +1,10 @@
 const DriverService = require("./driver.service");
 const asyncHandler = require("../../utils/asyncHandler");
-const AppError = require("../../utils/AppError");
 const sendResponse = require("../../utils/sendResponse");
 
 exports.startOnboarding = asyncHandler(async (req, res) => {
   const { userId } = req.user;
-  const response = await DriverService.startOnboarding(userId);
+  const response = await DriverService.startOnboarding(userId, req.body);
   sendResponse(
     res,
     201,
@@ -16,8 +15,17 @@ exports.startOnboarding = asyncHandler(async (req, res) => {
 
 exports.updateStep = asyncHandler(async (req, res) => {
   const { step } = req.params;
+  console.log("req.body: ", req.body);
+  console.log("req.files: ", req.files); // Log uploaded files
 
-  const response = await DriverService.updateOnboardingStep(step, req.body);
+  const documentUrls = req.files.map((file) => file.path);
+
+  const updateData = {
+    ...req.body,
+    documents: documentUrls,
+  };
+
+  const response = await DriverService.updateOnboardingStep(step, updateData);
 
   sendResponse(res, 200, { response }, "Onboarding step updated successfully");
 });
