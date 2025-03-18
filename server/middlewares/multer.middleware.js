@@ -1,28 +1,48 @@
 const path = require("path");
 const multer = require("multer");
+const AppError = require("../utils/AppError");
 
-const uploadDir = path.resolve(__dirname, "../uploads");
+const ALLOWED_MIME_TYPES = {
+  "image/jpeg": ".jpg",
+  "image/svg+xml": ".svg",
+  "image/png": ".png",
+  "image/webp": ".webp",
+  "application/pdf": ".pdf",
+};
+
+const MAX_FILE_SIZE = 5 * 1024 * 1024;
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, uploadDir); // Use absolute path
+    cb(null, path.resolve(__dirname, "../uploads"));
   },
-  filename: (_req, file, cb) => {
-    const uniqueSuffix = Date.now() + "-" + Math.round(Math.random() * 1e9);
-    cb(null, uniqueSuffix + path.extname(file.originalname));
+  filename: (req, file, cb) => {
+    const ext = ALLOWED_MIME_TYPES[file.mimetype];
+    if (!ext) {
+      return cb(
+        new AppError(400, `Invalid file type: ${file.mimetype}`),
+        false
+      );
+    }
+    const uniqueSuffix = `${Date.now()}-${Math.round(Math.random() * 1e9)}`;
+    cb(null, `${uniqueSuffix}${ext}`);
   },
 });
 
+const fileFilter = (req, file, cb) => {
+  if (!ALLOWED_MIME_TYPES[file.mimetype]) {
+    return cb(
+      new AppError(400, `Unsupported file type: ${file.mimetype}`),
+      false
+    );
+  }
+  cb(null, true);
+};
+
 const upload = multer({
   storage,
-  limits: { fileSize: 500 * 1024 * 1024 },
-  fileFilter: (_req, file, cb) => {
-    let ext = path.extname(file.originalname).toLowerCase();
-    if (![".jpg", ".jpeg", ".webp", ".png", ".mp4"].includes(ext)) {
-      return cb(new Error(`Unsupported file type: ${ext}`), false);
-    }
-    cb(null, true);
-  },
+  limits: { fileSize: MAX_FILE_SIZE },
+  fileFilter,
 });
 
 module.exports = upload;

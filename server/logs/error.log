@@ -177,3 +177,39 @@
 [2025-03-18T12:35:39.011Z] [31MERROR[39M: Invalid date of birth
 [2025-03-18T12:36:05.650Z] [31MERROR[39M: Invalid date of birth
 [2025-03-18T12:36:25.405Z] [31MERROR[39M: Invalid date of birth
+[2025-03-18T14:28:48.762Z] [31MERROR[39M: Cannot read properties of undefined (reading 'map')
+[2025-03-18T14:29:59.093Z] [31MERROR[39M: (driver.documents || []) is not iterable
+[2025-03-18T14:36:23.712Z] [31MERROR[39M: Driver not found
+[2025-03-18T14:37:02.519Z] [31MERROR[39M: Driver not found
+[2025-03-18T14:45:18.247Z] [31MERROR[39M: Driver not found
+[2025-03-18T14:47:04.637Z] [31MERROR[39M: Driver not found
+[2025-03-18T14:47:32.492Z] [31MERROR[39M: Driver not found
+[2025-03-18T14:51:06.340Z] [31MERROR[39M: AppError: statusCode must be a number
+[2025-03-18T14:51:24.170Z] [31MERROR[39M: AppError: statusCode must be a number
+[2025-03-18T14:52:41.312Z] [31MERROR[39M: AppError: statusCode must be a number
+[2025-03-18T14:52:53.169Z] [31MERROR[39M: AppError: statusCode must be a number
+[2025-03-18T14:53:22.232Z] [31MERROR[39M: AppError: statusCode must be a number
+[2025-03-18T14:53:42.669Z] [31MERROR[39M: AppError: statusCode must be a number
+[2025-03-18T14:56:00.323Z] [31MERROR[39M: AppError: statusCode must be a number
+[2025-03-18T14:57:46.339Z] [31MERROR[39M: No files uploaded
+[2025-03-18T14:58:46.181Z] [31MERROR[39M: Driver not found
+[2025-03-18T14:59:19.757Z] [31MERROR[39M: This email is already registered, please sign in
+[2025-03-18T15:08:18.419Z] [31MERROR[39M: Path `personalInfo.phoneNumber` is invalid (+1-123-456-7890).
+[2025-03-18T15:08:53.235Z] [31MERROR[39M: Path `personalInfo.phoneNumber` is invalid (+1-123-456-7890).
+[2025-03-18T15:09:03.654Z] [31MERROR[39M: Path `personalInfo.phoneNumber` is invalid (+12-123-456-7890).
+[2025-03-18T15:10:44.071Z] [31MERROR[39M: You are not authorized to perform this action
+[2025-03-18T15:13:17.532Z] [31MERROR[39M: req.files.map is not a function
+[2025-03-18T15:20:06.537Z] [31MERROR[39M: uploadImage is not a function
+[2025-03-18T15:20:25.797Z] [31MERROR[39M: Cannot read properties of undefined (reading 'secure_url')
+[2025-03-18T15:20:38.251Z] [31MERROR[39M: Cannot read properties of undefined (reading 'secure_url')
+[2025-03-18T15:21:01.987Z] [31MERROR[39M: Cannot read properties of undefined (reading 'secure_url')
+[2025-03-18T15:21:47.731Z] [31MERROR[39M: Cannot read properties of undefined (reading 'secure_url')
+[2025-03-18T15:27:43.014Z] [31MERROR[39M: Driver not found
+[2025-03-18T15:29:09.554Z] [31MERROR[39M: Driver not found
+[2025-03-18T15:30:00.210Z] [31MERROR[39M: Driver not found
+[2025-03-18T15:30:55.845Z] [31MERROR[39M: Driver not found
+[2025-03-18T15:32:08.647Z] [31MERROR[39M: Driver not found
+[2025-03-18T15:33:25.347Z] [31MERROR[39M: Driver not found
+[2025-03-18T15:52:23.644Z] [31MERROR[39M: Path `personalInfo.phoneNumber` is invalid (+21-234-232).
+[2025-03-18T15:52:37.260Z] [31MERROR[39M: Path `personalInfo.phoneNumber` is invalid (+12-234-232).
+[2025-03-18T15:52:56.982Z] [31MERROR[39M: Driver not found

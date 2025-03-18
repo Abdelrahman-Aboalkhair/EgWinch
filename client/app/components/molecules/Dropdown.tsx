@@ -8,6 +8,7 @@ interface DropdownProps {
   options: string[];
   value: string | null;
   onChange: (value: string | null) => void;
+  className?: string;
 }
 
 const Dropdown: React.FC<DropdownProps> = ({
@@ -15,6 +16,7 @@ const Dropdown: React.FC<DropdownProps> = ({
   options,
   value,
   onChange,
+  className,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
@@ -26,7 +28,7 @@ const Dropdown: React.FC<DropdownProps> = ({
   );
 
   const handleSelect = (selectedValue: string) => {
-    onChange(selectedValue); // Updates form state
+    onChange(selectedValue);
     setIsOpen(false);
   };
 
@@ -47,7 +49,8 @@ const Dropdown: React.FC<DropdownProps> = ({
   return (
     <div className="relative w-full" ref={dropdownRef}>
       <div
-        className="flex items-center justify-between w-full p-[14px] border border-gray-300 rounded-md cursor-pointer hover:border-primary"
+        className={`flex items-center justify-between w-full p-[14px] border border-gray-300
+           rounded-md cursor-pointer hover:border-primary ${className}`}
         onClick={() => setIsOpen((prev) => !prev)}
       >
         <span className="text-base">{value || label}</span>

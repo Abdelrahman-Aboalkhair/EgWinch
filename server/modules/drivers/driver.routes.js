@@ -12,11 +12,23 @@ const express = require("express");
 const router = express.Router();
 
 router.post("/", isAuthenticated, startOnboarding);
-router.patch(
+router.put(
   "/update-step/:step",
   isAuthenticated,
-  authorizeRole("driver"),
-  upload.array("documents", 5),
+  upload.fields([
+    {
+      name: "licenseImage",
+      maxCount: 1,
+    },
+    {
+      name: "profilePicture",
+      maxCount: 1,
+    },
+    {
+      name: "vehicleImage",
+      maxCount: 1,
+    },
+  ]),
   updateStep
 );
 router.patch(

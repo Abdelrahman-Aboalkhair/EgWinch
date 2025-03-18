@@ -6,12 +6,12 @@ import {
   getDaysInMonth,
   startOfMonth,
   getDay,
-  isToday,
   isSameDay,
 } from "date-fns";
 import { motion, AnimatePresence } from "framer-motion";
 import { CalendarMinus2, ChevronLeft, ChevronRight } from "lucide-react";
-import { useController } from "react-hook-form";
+import { Controller, useController } from "react-hook-form";
+import Dropdown from "./Dropdown";
 
 const DatePicker = ({
   label,
@@ -29,6 +29,15 @@ const DatePicker = ({
   const pickerRef = useRef<HTMLDivElement>(null);
 
   const daysOfWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+  const years = Array.from(
+    { length: new Date().getFullYear() - 1899 },
+    (_, i) => (1900 + i).toString()
+  );
+
+  const months = Array.from({ length: 12 }, (_, i) =>
+    format(new Date(2000, i, 1), "MMMM")
+  );
 
   const generateCalendarDays = () => {
     const daysInMonth = getDaysInMonth(currentMonth);
@@ -59,6 +68,19 @@ const DatePicker = ({
     );
   };
 
+  const handleYearChange = (selectedYear: string | null) => {
+    if (selectedYear !== null) {
+      setCurrentMonth(
+        new Date(parseInt(selectedYear), currentMonth.getMonth(), 1)
+      );
+    }
+  };
+
+  const handleMonthSelect = (selectedMonth: string | null) => {
+    const monthIndex = months.indexOf(selectedMonth);
+    setCurrentMonth(new Date(currentMonth.getFullYear(), monthIndex, 1));
+  };
+
   const calendarDays = generateCalendarDays();
 
   useEffect(() => {
@@ -85,7 +107,6 @@ const DatePicker = ({
         </span>
         <CalendarMinus2 className="text-xl" />
       </div>
-      {/* Date Picker Popup */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -104,9 +125,36 @@ const DatePicker = ({
                 >
                   <ChevronLeft />
                 </button>
-                <span className="text-lg font-medium">
-                  {format(currentMonth, "MMMM yyyy")}
-                </span>
+
+                <div className="flex space-x-2 w-full">
+                  <Controller
+                    name="years"
+                    control={control}
+                    render={({ field }) => (
+                      <Dropdown
+                        label="Year"
+                        options={years}
+                        value={currentMonth.getFullYear().toString()}
+                        onChange={handleYearChange}
+                        // className="py-[4px] text-[12px]"
+                      />
+                    )}
+                  />
+
+                  <Controller
+                    name="months"
+                    control={control}
+                    render={({ field }) => (
+                      <Dropdown
+                        label="Month"
+                        options={months}
+                        value={months[currentMonth.getMonth()]}
+                        onChange={handleMonthSelect}
+                      />
+                    )}
+                  />
+                </div>
+
                 <button
                   type="button"
                   onClick={() => handleMonthChange(true)}
@@ -129,6 +177,7 @@ const DatePicker = ({
                       {day}
                     </div>
                   ))}
+
                   {calendarDays.map((date, index) => (
                     <div
                       key={index}

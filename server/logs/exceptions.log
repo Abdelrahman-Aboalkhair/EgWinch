@@ -37290,3 +37290,41 @@ SyntaxError: Unexpected token '.'
     at require (node:internal/modules/helpers:177:18)
     at Object.<anonymous> (/app/modules/drivers/driver.controller.js:1:23)
     at Module._compile (node:internal/modules/cjs/loader:1364:14)
+[2025-03-18T14:46:25.985Z] [31MERROR[39M: uncaughtException: missing ) after argument list
+/app/modules/drivers/driver.routes.js:28
+  ])
+   ^
+
+SyntaxError: missing ) after argument list
+    at internalCompileFunction (node:internal/vm:76:18)
+    at wrapSafe (node:internal/modules/cjs/loader:1283:20)
+    at Module._compile (node:internal/modules/cjs/loader:1328:27)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/app.js:16:22)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+[2025-03-18T15:14:46.890Z] [31MERROR[39M: uncaughtException: Cannot find module '../../utils/upo'
+Require stack:
+- /app/modules/drivers/driver.controller.js
+- /app/modules/drivers/driver.routes.js
+- /app/app.js
+- /app/server.js
+Error: Cannot find module '../../utils/upo'
+Require stack:
+- /app/modules/drivers/driver.controller.js
+- /app/modules/drivers/driver.routes.js
+- /app/app.js
+- /app/server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/app/modules/drivers/driver.controller.js:4:21)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)

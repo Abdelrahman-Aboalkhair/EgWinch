@@ -4559,3 +4559,439 @@
 [2025-03-18T12:56:35.851Z] [32MINFO[39M: Redis Client Ready
 [2025-03-18T12:56:37.337Z] [32MINFO[39M: MongoDB connected successfully
 [2025-03-18T12:59:06.229Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [18/Mar/2025:12:59:06 +0000] "GET /api/v1/notifications HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-18T14:25:58.819Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-18T14:25:58.824Z] [32MINFO[39M: Redis Client Connected
+[2025-03-18T14:25:58.828Z] [32MINFO[39M: Redis Client Ready
+[2025-03-18T14:26:00.458Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-18T14:26:46.468Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [18/Mar/2025:14:26:46 +0000] "GET /api/v1/auth/refresh-token HTTP/1.1" 200 522 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-18T14:26:57.012Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [18/Mar/2025:14:26:57 +0000] "POST /api/v1/auth/google-signin HTTP/1.1" 200 745 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-18T14:26:57.530Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [18/Mar/2025:14:26:57 +0000] "GET /api/v1/notifications HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-18T14:28:41.778Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [18/Mar/2025:14:28:41 +0000] "POST /api/v1/drivers HTTP/1.1" 201 627 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-18T14:28:48.762Z] [31MERROR[39M: Cannot read properties of undefined (reading 'map')
+[2025-03-18T14:28:48.763Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [18/Mar/2025:14:28:48 +0000] "PATCH /api/v1/drivers/update-step/vehicle HTTP/1.1" 500 876 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-18T14:29:18.529Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-18T14:29:18.534Z] [32MINFO[39M: Redis Client Connected
+[2025-03-18T14:29:18.537Z] [32MINFO[39M: Redis Client Ready
+[2025-03-18T14:29:20.113Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-18T14:29:53.556Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-18T14:29:53.583Z] [32MINFO[39M: Redis Client Connected
+[2025-03-18T14:29:53.587Z] [32MINFO[39M: Redis Client Ready
+[2025-03-18T14:29:54.993Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-18T14:29:59.093Z] [31MERROR[39M: (driver.documents || []) is not iterable
+[2025-03-18T14:29:59.096Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [18/Mar/2025:14:29:59 +0000] "PATCH /api/v1/drivers/update-step/vehicle HTTP/1.1" 500 379 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-18T14:30:24.885Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-18T14:30:24.894Z] [32MINFO[39M: Redis Client Connected
+[2025-03-18T14:30:24.897Z] [32MINFO[39M: Redis Client Ready
+[2025-03-18T14:30:26.481Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-18T14:30:27.909Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [18/Mar/2025:14:30:27 +0000] "PATCH /api/v1/drivers/update-step/vehicle HTTP/1.1" 200 727 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-18T14:36:23.712Z] [31MERROR[39M: Driver not found
+[2025-03-18T14:36:23.714Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [18/Mar/2025:14:36:23 +0000] "PATCH /api/v1/drivers/update-step/undefined HTTP/1.1" 404 379 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-18T14:37:02.519Z] [31MERROR[39M: Driver not found
+[2025-03-18T14:37:02.519Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [18/Mar/2025:14:37:02 +0000] "PATCH /api/v1/drivers/update-step/undefined HTTP/1.1" 404 379 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-18T14:37:37.900Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-18T14:37:37.905Z] [32MINFO[39M: Redis Client Connected
+[2025-03-18T14:37:37.908Z] [32MINFO[39M: Redis Client Ready
+[2025-03-18T14:37:39.550Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-18T14:37:48.935Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-18T14:37:48.966Z] [32MINFO[39M: Redis Client Connected
+[2025-03-18T14:37:48.968Z] [32MINFO[39M: Redis Client Ready
+[2025-03-18T14:37:50.389Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-18T14:39:02.670Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-18T14:39:02.676Z] [32MINFO[39M: Redis Client Connected
+[2025-03-18T14:39:02.680Z] [32MINFO[39M: Redis Client Ready
+[2025-03-18T14:39:04.697Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-18T14:39:05.691Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-18T14:39:05.721Z] [32MINFO[39M: Redis Client Connected
+[2025-03-18T14:39:05.723Z] [32MINFO[39M: Redis Client Ready
+[2025-03-18T14:39:07.330Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-18T14:39:15.081Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-18T14:39:15.109Z] [32MINFO[39M: Redis Client Connected
+[2025-03-18T14:39:15.111Z] [32MINFO[39M: Redis Client Ready
+[2025-03-18T14:39:16.491Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-18T14:39:26.252Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-18T14:39:26.278Z] [32MINFO[39M: Redis Client Connected
+[2025-03-18T14:39:26.279Z] [32MINFO[39M: Redis Client Ready
+[2025-03-18T14:39:27.753Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-18T14:39:28.692Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-18T14:39:28.719Z] [32MINFO[39M: Redis Client Connected
+[2025-03-18T14:39:28.721Z] [32MINFO[39M: Redis Client Ready
+[2025-03-18T14:39:30.163Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-18T14:39:33.980Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-18T14:39:34.007Z] [32MINFO[39M: Redis Client Connected
+[2025-03-18T14:39:34.009Z] [32MINFO[39M: Redis Client Ready
+[2025-03-18T14:39:36.494Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-18T14:39:40.283Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-18T14:39:40.289Z] [32MINFO[39M: Redis Client Connected
+[2025-03-18T14:39:40.290Z] [32MINFO[39M: Redis Client Ready
+[2025-03-18T14:39:41.623Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-18T14:39:44.701Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-18T14:39:44.729Z] [32MINFO[39M: Redis Client Connected
+[2025-03-18T14:39:44.732Z] [32MINFO[39M: Redis Client Ready
+[2025-03-18T14:39:46.366Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-18T14:39:46.394Z] [32MINFO[39M: Redis Client Connected
+[2025-03-18T14:39:46.395Z] [32MINFO[39M: Redis Client Ready
+[2025-03-18T14:39:48.485Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-18T14:39:48.514Z] [32MINFO[39M: Redis Client Connected
+[2025-03-18T14:39:48.516Z] [32MINFO[39M: Redis Client Ready
+[2025-03-18T14:39:50.080Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-18T14:40:12.598Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-18T14:40:12.608Z] [32MINFO[39M: Redis Client Connected
+[2025-03-18T14:40:12.614Z] [32MINFO[39M: Redis Client Ready
+[2025-03-18T14:40:14.349Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-18T14:42:11.940Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-18T14:42:11.945Z] [32MINFO[39M: Redis Client Connected
+[2025-03-18T14:42:11.948Z] [32MINFO[39M: Redis Client Ready
+[2025-03-18T14:42:13.472Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-18T14:42:26.790Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-18T14:42:26.817Z] [32MINFO[39M: Redis Client Connected
+[2025-03-18T14:42:26.819Z] [32MINFO[39M: Redis Client Ready
+[2025-03-18T14:42:28.262Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-18T14:42:33.420Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-18T14:42:33.449Z] [32MINFO[39M: Redis Client Connected
+[2025-03-18T14:42:33.452Z] [32MINFO[39M: Redis Client Ready
+[2025-03-18T14:42:34.804Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-18T14:43:01.408Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-18T14:43:01.450Z] [32MINFO[39M: Redis Client Connected
+[2025-03-18T14:43:01.453Z] [32MINFO[39M: Redis Client Ready
+[2025-03-18T14:43:02.931Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-18T14:43:26.302Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-18T14:43:26.308Z] [32MINFO[39M: Redis Client Connected
+[2025-03-18T14:43:26.310Z] [32MINFO[39M: Redis Client Ready
+[2025-03-18T14:43:27.487Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-18T14:43:27.516Z] [32MINFO[39M: Redis Client Connected
+[2025-03-18T14:43:27.517Z] [32MINFO[39M: Redis Client Ready
+[2025-03-18T14:43:28.909Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-18T14:43:36.817Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-18T14:43:36.862Z] [32MINFO[39M: Redis Client Connected
+[2025-03-18T14:43:36.864Z] [32MINFO[39M: Redis Client Ready
+[2025-03-18T14:43:38.171Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-18T14:43:53.249Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-18T14:43:53.289Z] [32MINFO[39M: Redis Client Connected
+[2025-03-18T14:43:53.292Z] [32MINFO[39M: Redis Client Ready
+[2025-03-18T14:43:54.760Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-18T14:44:01.865Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-18T14:44:01.893Z] [32MINFO[39M: Redis Client Connected
+[2025-03-18T14:44:01.896Z] [32MINFO[39M: Redis Client Ready
+[2025-03-18T14:44:03.296Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-18T14:44:05.272Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-18T14:44:05.318Z] [32MINFO[39M: Redis Client Connected
+[2025-03-18T14:44:05.325Z] [32MINFO[39M: Redis Client Ready
+[2025-03-18T14:44:06.090Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-18T14:44:06.119Z] [32MINFO[39M: Redis Client Connected
+[2025-03-18T14:44:06.120Z] [32MINFO[39M: Redis Client Ready
+[2025-03-18T14:44:07.644Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-18T14:45:18.247Z] [31MERROR[39M: Driver not found
+[2025-03-18T14:45:18.250Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [18/Mar/2025:14:45:18 +0000] "PATCH /api/v1/drivers/update-step/undefined HTTP/1.1" 404 379 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-18T14:46:25.993Z] [32MINFO[39M: Redis Client Connected
+[2025-03-18T14:46:29.200Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-18T14:46:29.209Z] [32MINFO[39M: Redis Client Connected
+[2025-03-18T14:46:29.215Z] [32MINFO[39M: Redis Client Ready
+[2025-03-18T14:46:30.809Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-18T14:46:36.572Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-18T14:46:36.600Z] [32MINFO[39M: Redis Client Connected
+[2025-03-18T14:46:36.602Z] [32MINFO[39M: Redis Client Ready
+[2025-03-18T14:46:38.218Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-18T14:46:44.356Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-18T14:46:44.400Z] [32MINFO[39M: Redis Client Connected
+[2025-03-18T14:46:44.406Z] [32MINFO[39M: Redis Client Ready
+[2025-03-18T14:46:45.844Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-18T14:46:50.715Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-18T14:46:50.721Z] [32MINFO[39M: Redis Client Connected
+[2025-03-18T14:46:50.724Z] [32MINFO[39M: Redis Client Ready
+[2025-03-18T14:46:52.006Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-18T14:47:04.637Z] [31MERROR[39M: Driver not found
+[2025-03-18T14:47:04.639Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [18/Mar/2025:14:47:04 +0000] "PATCH /api/v1/drivers/update-step/undefined HTTP/1.1" 404 379 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-18T14:47:30.459Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-18T14:47:30.465Z] [32MINFO[39M: Redis Client Connected
+[2025-03-18T14:47:30.468Z] [32MINFO[39M: Redis Client Ready
+[2025-03-18T14:47:32.285Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-18T14:47:32.492Z] [31MERROR[39M: Driver not found
+[2025-03-18T14:47:32.493Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [18/Mar/2025:14:47:32 +0000] "PATCH /api/v1/drivers/update-step/undefined HTTP/1.1" 404 379 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-18T14:48:52.461Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-18T14:48:52.466Z] [32MINFO[39M: Redis Client Connected
+[2025-03-18T14:48:52.469Z] [32MINFO[39M: Redis Client Ready
+[2025-03-18T14:48:54.019Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-18T14:49:18.994Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-18T14:49:19.022Z] [32MINFO[39M: Redis Client Connected
+[2025-03-18T14:49:19.025Z] [32MINFO[39M: Redis Client Ready
+[2025-03-18T14:49:20.412Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-18T14:49:21.924Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-18T14:49:21.950Z] [32MINFO[39M: Redis Client Connected
+[2025-03-18T14:49:21.952Z] [32MINFO[39M: Redis Client Ready
+[2025-03-18T14:49:23.304Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-18T14:50:58.542Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-18T14:50:58.548Z] [32MINFO[39M: Redis Client Connected
+[2025-03-18T14:50:58.551Z] [32MINFO[39M: Redis Client Ready
+[2025-03-18T14:51:00.109Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-18T14:51:03.676Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-18T14:51:03.702Z] [32MINFO[39M: Redis Client Connected
+[2025-03-18T14:51:03.705Z] [32MINFO[39M: Redis Client Ready
+[2025-03-18T14:51:05.493Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-18T14:51:06.340Z] [31MERROR[39M: AppError: statusCode must be a number
+[2025-03-18T14:51:06.345Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [18/Mar/2025:14:51:06 +0000] "PATCH /api/v1/drivers/update-step/undefined HTTP/1.1" 500 775 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-18T14:51:22.186Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-18T14:51:22.212Z] [32MINFO[39M: Redis Client Connected
+[2025-03-18T14:51:22.215Z] [32MINFO[39M: Redis Client Ready
+[2025-03-18T14:51:23.675Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-18T14:51:24.170Z] [31MERROR[39M: AppError: statusCode must be a number
+[2025-03-18T14:51:24.173Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [18/Mar/2025:14:51:24 +0000] "PATCH /api/v1/drivers/update-step/undefined HTTP/1.1" 500 775 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-18T14:51:37.194Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-18T14:51:37.219Z] [32MINFO[39M: Redis Client Connected
+[2025-03-18T14:51:37.222Z] [32MINFO[39M: Redis Client Ready
+[2025-03-18T14:51:38.868Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-18T14:51:42.287Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-18T14:51:42.315Z] [32MINFO[39M: Redis Client Connected
+[2025-03-18T14:51:42.318Z] [32MINFO[39M: Redis Client Ready
+[2025-03-18T14:51:43.807Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-18T14:52:41.312Z] [31MERROR[39M: AppError: statusCode must be a number
+[2025-03-18T14:52:41.318Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [18/Mar/2025:14:52:41 +0000] "PATCH /api/v1/drivers/update-step/undefined HTTP/1.1" 500 775 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-18T14:52:50.803Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-18T14:52:50.809Z] [32MINFO[39M: Redis Client Connected
+[2025-03-18T14:52:50.811Z] [32MINFO[39M: Redis Client Ready
+[2025-03-18T14:52:52.041Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-18T14:52:52.074Z] [32MINFO[39M: Redis Client Connected
+[2025-03-18T14:52:52.076Z] [32MINFO[39M: Redis Client Ready
+[2025-03-18T14:52:53.169Z] [31MERROR[39M: AppError: statusCode must be a number
+[2025-03-18T14:52:53.173Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [18/Mar/2025:14:52:53 +0000] "PATCH /api/v1/drivers/update-step/undefined HTTP/1.1" 500 775 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-18T14:52:53.555Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-18T14:52:57.379Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-18T14:52:57.406Z] [32MINFO[39M: Redis Client Connected
+[2025-03-18T14:52:57.408Z] [32MINFO[39M: Redis Client Ready
+[2025-03-18T14:52:59.257Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-18T14:53:06.913Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-18T14:53:06.940Z] [32MINFO[39M: Redis Client Connected
+[2025-03-18T14:53:06.942Z] [32MINFO[39M: Redis Client Ready
+[2025-03-18T14:53:08.731Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-18T14:53:10.185Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-18T14:53:10.213Z] [32MINFO[39M: Redis Client Connected
+[2025-03-18T14:53:10.216Z] [32MINFO[39M: Redis Client Ready
+[2025-03-18T14:53:11.541Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-18T14:53:17.613Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-18T14:53:17.645Z] [32MINFO[39M: Redis Client Connected
+[2025-03-18T14:53:17.647Z] [32MINFO[39M: Redis Client Ready
+[2025-03-18T14:53:18.995Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-18T14:53:22.232Z] [31MERROR[39M: AppError: statusCode must be a number
+[2025-03-18T14:53:22.236Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [18/Mar/2025:14:53:22 +0000] "PATCH /api/v1/drivers/update-step/undefined HTTP/1.1" 500 775 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-18T14:53:34.672Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-18T14:53:34.697Z] [32MINFO[39M: Redis Client Connected
+[2025-03-18T14:53:34.700Z] [32MINFO[39M: Redis Client Ready
+[2025-03-18T14:53:36.021Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-18T14:53:39.682Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-18T14:53:39.709Z] [32MINFO[39M: Redis Client Connected
+[2025-03-18T14:53:39.713Z] [32MINFO[39M: Redis Client Ready
+[2025-03-18T14:53:41.429Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-18T14:53:41.458Z] [32MINFO[39M: Redis Client Connected
+[2025-03-18T14:53:41.460Z] [32MINFO[39M: Redis Client Ready
+[2025-03-18T14:53:42.669Z] [31MERROR[39M: AppError: statusCode must be a number
+[2025-03-18T14:53:42.673Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [18/Mar/2025:14:53:42 +0000] "PATCH /api/v1/drivers/update-step/undefined HTTP/1.1" 500 775 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-18T14:53:43.185Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-18T14:55:18.683Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-18T14:55:18.689Z] [32MINFO[39M: Redis Client Connected
+[2025-03-18T14:55:18.693Z] [32MINFO[39M: Redis Client Ready
+[2025-03-18T14:55:20.657Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-18T14:56:00.323Z] [31MERROR[39M: AppError: statusCode must be a number
+[2025-03-18T14:56:00.325Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [18/Mar/2025:14:56:00 +0000] "PATCH /api/v1/drivers/update-step/undefined HTTP/1.1" 500 775 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-18T14:56:17.292Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [18/Mar/2025:14:56:17 +0000] "GET /api/v1/auth/refresh-token HTTP/1.1" 200 522 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-18T14:56:23.140Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [18/Mar/2025:14:56:23 +0000] "POST /api/v1/auth/google-signin HTTP/1.1" 200 745 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-18T14:56:23.647Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [18/Mar/2025:14:56:23 +0000] "GET /api/v1/notifications HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-18T14:57:37.785Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [18/Mar/2025:14:57:37 +0000] "POST /api/v1/drivers HTTP/1.1" 201 729 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-18T14:57:46.339Z] [31MERROR[39M: No files uploaded
+[2025-03-18T14:57:46.340Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [18/Mar/2025:14:57:46 +0000] "PUT /api/v1/drivers/update-step/vehicle HTTP/1.1" 400 856 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-18T14:57:57.446Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-18T14:57:57.454Z] [32MINFO[39M: Redis Client Connected
+[2025-03-18T14:57:57.460Z] [32MINFO[39M: Redis Client Ready
+[2025-03-18T14:57:58.903Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-18T14:57:58.937Z] [32MINFO[39M: Redis Client Connected
+[2025-03-18T14:57:58.938Z] [32MINFO[39M: Redis Client Ready
+[2025-03-18T14:58:00.196Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-18T14:58:01.616Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [18/Mar/2025:14:58:01 +0000] "PUT /api/v1/drivers/update-step/vehicle HTTP/1.1" 200 727 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-18T14:58:46.181Z] [31MERROR[39M: Driver not found
+[2025-03-18T14:58:46.183Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [18/Mar/2025:14:58:46 +0000] "PUT /api/v1/drivers/update-step/undefined HTTP/1.1" 404 379 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-18T14:59:19.757Z] [31MERROR[39M: This email is already registered, please sign in
+[2025-03-18T14:59:19.757Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [18/Mar/2025:14:59:19 +0000] "POST /api/v1/auth/sign-up HTTP/1.1" 400 423 "-" "PostmanRuntime/7.43.0"
+[2025-03-18T14:59:37.393Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [18/Mar/2025:14:59:37 +0000] "POST /api/v1/auth/sign-up HTTP/1.1" 201 402 "-" "PostmanRuntime/7.43.0"
+[2025-03-18T15:04:47.671Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [18/Mar/2025:15:04:47 +0000] "POST /api/v1/auth/sign-in HTTP/1.1" 200 438 "-" "PostmanRuntime/7.43.0"
+[2025-03-18T15:07:06.290Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [18/Mar/2025:15:07:06 +0000] "POST /api/v1/auth/sign-up HTTP/1.1" 201 402 "-" "PostmanRuntime/7.43.0"
+[2025-03-18T15:08:18.419Z] [31MERROR[39M: Path `personalInfo.phoneNumber` is invalid (+1-123-456-7890).
+[2025-03-18T15:08:18.420Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [18/Mar/2025:15:08:18 +0000] "POST /api/v1/drivers HTTP/1.1" 400 923 "-" "PostmanRuntime/7.43.0"
+[2025-03-18T15:08:50.110Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-18T15:08:50.116Z] [32MINFO[39M: Redis Client Connected
+[2025-03-18T15:08:50.118Z] [32MINFO[39M: Redis Client Ready
+[2025-03-18T15:08:51.473Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-18T15:08:53.235Z] [31MERROR[39M: Path `personalInfo.phoneNumber` is invalid (+1-123-456-7890).
+[2025-03-18T15:08:53.238Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [18/Mar/2025:15:08:53 +0000] "POST /api/v1/drivers HTTP/1.1" 400 923 "-" "PostmanRuntime/7.43.0"
+[2025-03-18T15:09:03.654Z] [31MERROR[39M: Path `personalInfo.phoneNumber` is invalid (+12-123-456-7890).
+[2025-03-18T15:09:03.656Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [18/Mar/2025:15:09:03 +0000] "POST /api/v1/drivers HTTP/1.1" 400 925 "-" "PostmanRuntime/7.43.0"
+[2025-03-18T15:09:32.344Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [18/Mar/2025:15:09:32 +0000] "POST /api/v1/drivers HTTP/1.1" 201 652 "-" "PostmanRuntime/7.43.0"
+[2025-03-18T15:10:44.071Z] [31MERROR[39M: You are not authorized to perform this action
+[2025-03-18T15:10:44.072Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [18/Mar/2025:15:10:44 +0000] "PUT /api/v1/drivers/update-step/vehicle HTTP/1.1" 403 940 "-" "PostmanRuntime/7.43.0"
+[2025-03-18T15:11:21.810Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-18T15:11:21.819Z] [32MINFO[39M: Redis Client Connected
+[2025-03-18T15:11:21.824Z] [32MINFO[39M: Redis Client Ready
+[2025-03-18T15:11:22.451Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-18T15:11:22.479Z] [32MINFO[39M: Redis Client Connected
+[2025-03-18T15:11:22.481Z] [32MINFO[39M: Redis Client Ready
+[2025-03-18T15:11:23.627Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-18T15:11:25.658Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [18/Mar/2025:15:11:25 +0000] "PUT /api/v1/drivers/update-step/vehicle HTTP/1.1" 200 754 "-" "PostmanRuntime/7.43.0"
+[2025-03-18T15:13:17.532Z] [31MERROR[39M: req.files.map is not a function
+[2025-03-18T15:13:17.533Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [18/Mar/2025:15:13:17 +0000] "PUT /api/v1/drivers/update-step/documents HTTP/1.1" 500 773 "-" "PostmanRuntime/7.43.0"
+[2025-03-18T15:13:29.439Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-18T15:13:29.446Z] [32MINFO[39M: Redis Client Connected
+[2025-03-18T15:13:29.448Z] [32MINFO[39M: Redis Client Ready
+[2025-03-18T15:13:30.677Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-18T15:13:52.214Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-18T15:13:52.245Z] [32MINFO[39M: Redis Client Connected
+[2025-03-18T15:13:52.249Z] [32MINFO[39M: Redis Client Ready
+[2025-03-18T15:13:52.994Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-18T15:13:53.023Z] [32MINFO[39M: Redis Client Connected
+[2025-03-18T15:13:53.025Z] [32MINFO[39M: Redis Client Ready
+[2025-03-18T15:13:54.116Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-18T15:13:58.470Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-18T15:13:58.496Z] [32MINFO[39M: Redis Client Connected
+[2025-03-18T15:13:58.500Z] [32MINFO[39M: Redis Client Ready
+[2025-03-18T15:14:00.266Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-18T15:14:46.897Z] [32MINFO[39M: Redis Client Connected
+[2025-03-18T15:14:50.011Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-18T15:14:50.020Z] [32MINFO[39M: Redis Client Connected
+[2025-03-18T15:14:50.025Z] [32MINFO[39M: Redis Client Ready
+[2025-03-18T15:14:51.575Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-18T15:19:24.934Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-18T15:19:24.939Z] [32MINFO[39M: Redis Client Connected
+[2025-03-18T15:19:24.941Z] [32MINFO[39M: Redis Client Ready
+[2025-03-18T15:19:26.676Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-18T15:19:28.435Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-18T15:19:28.463Z] [32MINFO[39M: Redis Client Connected
+[2025-03-18T15:19:28.466Z] [32MINFO[39M: Redis Client Ready
+[2025-03-18T15:19:29.809Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-18T15:19:43.046Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-18T15:19:43.053Z] [32MINFO[39M: Redis Client Connected
+[2025-03-18T15:19:43.054Z] [32MINFO[39M: Redis Client Ready
+[2025-03-18T15:19:44.299Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-18T15:20:06.537Z] [31MERROR[39M: uploadImage is not a function
+[2025-03-18T15:20:06.540Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [18/Mar/2025:15:20:06 +0000] "PUT /api/v1/drivers/update-step/documents HTTP/1.1" 500 769 "-" "PostmanRuntime/7.43.0"
+[2025-03-18T15:20:15.969Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-18T15:20:15.980Z] [32MINFO[39M: Redis Client Connected
+[2025-03-18T15:20:15.983Z] [32MINFO[39M: Redis Client Ready
+[2025-03-18T15:20:17.250Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-18T15:20:23.400Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-18T15:20:23.428Z] [32MINFO[39M: Redis Client Connected
+[2025-03-18T15:20:23.430Z] [32MINFO[39M: Redis Client Ready
+[2025-03-18T15:20:24.980Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-18T15:20:24.989Z] [32MINFO[39M: Redis Client Connected
+[2025-03-18T15:20:24.992Z] [32MINFO[39M: Redis Client Ready
+[2025-03-18T15:20:25.797Z] [31MERROR[39M: Cannot read properties of undefined (reading 'secure_url')
+[2025-03-18T15:20:25.800Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [18/Mar/2025:15:20:25 +0000] "PUT /api/v1/drivers/update-step/documents HTTP/1.1" 500 319 "-" "PostmanRuntime/7.43.0"
+[2025-03-18T15:20:26.503Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-18T15:20:37.716Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-18T15:20:37.722Z] [32MINFO[39M: Redis Client Connected
+[2025-03-18T15:20:37.725Z] [32MINFO[39M: Redis Client Ready
+[2025-03-18T15:20:38.251Z] [31MERROR[39M: Cannot read properties of undefined (reading 'secure_url')
+[2025-03-18T15:20:38.253Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [18/Mar/2025:15:20:38 +0000] "PUT /api/v1/drivers/update-step/documents HTTP/1.1" 500 319 "-" "PostmanRuntime/7.43.0"
+[2025-03-18T15:20:38.964Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-18T15:21:00.510Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-18T15:21:00.537Z] [32MINFO[39M: Redis Client Connected
+[2025-03-18T15:21:00.539Z] [32MINFO[39M: Redis Client Ready
+[2025-03-18T15:21:01.848Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-18T15:21:01.987Z] [31MERROR[39M: Cannot read properties of undefined (reading 'secure_url')
+[2025-03-18T15:21:01.990Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [18/Mar/2025:15:21:01 +0000] "PUT /api/v1/drivers/update-step/documents HTTP/1.1" 500 319 "-" "PostmanRuntime/7.43.0"
+[2025-03-18T15:21:29.811Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-18T15:21:29.817Z] [32MINFO[39M: Redis Client Connected
+[2025-03-18T15:21:29.819Z] [32MINFO[39M: Redis Client Ready
+[2025-03-18T15:21:31.290Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-18T15:21:38.749Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-18T15:21:38.755Z] [32MINFO[39M: Redis Client Connected
+[2025-03-18T15:21:38.758Z] [32MINFO[39M: Redis Client Ready
+[2025-03-18T15:21:39.677Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-18T15:21:39.720Z] [32MINFO[39M: Redis Client Connected
+[2025-03-18T15:21:39.727Z] [32MINFO[39M: Redis Client Ready
+[2025-03-18T15:21:41.018Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-18T15:21:45.355Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-18T15:21:45.385Z] [32MINFO[39M: Redis Client Connected
+[2025-03-18T15:21:45.388Z] [32MINFO[39M: Redis Client Ready
+[2025-03-18T15:21:46.754Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-18T15:21:47.731Z] [31MERROR[39M: Cannot read properties of undefined (reading 'secure_url')
+[2025-03-18T15:21:47.734Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [18/Mar/2025:15:21:47 +0000] "PUT /api/v1/drivers/update-step/documents HTTP/1.1" 500 319 "-" "PostmanRuntime/7.43.0"
+[2025-03-18T15:23:50.007Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-18T15:23:50.012Z] [32MINFO[39M: Redis Client Connected
+[2025-03-18T15:23:50.015Z] [32MINFO[39M: Redis Client Ready
+[2025-03-18T15:23:51.794Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-18T15:24:01.239Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-18T15:24:01.267Z] [32MINFO[39M: Redis Client Connected
+[2025-03-18T15:24:01.269Z] [32MINFO[39M: Redis Client Ready
+[2025-03-18T15:24:02.466Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-18T15:24:17.450Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-18T15:24:17.492Z] [32MINFO[39M: Redis Client Connected
+[2025-03-18T15:24:17.498Z] [32MINFO[39M: Redis Client Ready
+[2025-03-18T15:24:18.919Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-18T15:24:28.160Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-18T15:24:28.189Z] [32MINFO[39M: Redis Client Connected
+[2025-03-18T15:24:28.193Z] [32MINFO[39M: Redis Client Ready
+[2025-03-18T15:24:29.343Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-18T15:24:30.762Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-18T15:24:30.791Z] [32MINFO[39M: Redis Client Connected
+[2025-03-18T15:24:30.794Z] [32MINFO[39M: Redis Client Ready
+[2025-03-18T15:24:32.010Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-18T15:24:35.646Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-18T15:24:35.675Z] [32MINFO[39M: Redis Client Connected
+[2025-03-18T15:24:35.679Z] [32MINFO[39M: Redis Client Ready
+[2025-03-18T15:24:36.841Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-18T15:24:42.653Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-18T15:24:42.680Z] [32MINFO[39M: Redis Client Connected
+[2025-03-18T15:24:42.684Z] [32MINFO[39M: Redis Client Ready
+[2025-03-18T15:24:44.019Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-18T15:25:03.996Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [18/Mar/2025:15:25:03 +0000] "PUT /api/v1/drivers/update-step/documents HTTP/1.1" 200 - "-" "PostmanRuntime/7.43.0"
+[2025-03-18T15:25:43.662Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-18T15:25:43.667Z] [32MINFO[39M: Redis Client Connected
+[2025-03-18T15:25:43.668Z] [32MINFO[39M: Redis Client Ready
+[2025-03-18T15:25:44.863Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-18T15:26:54.541Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [18/Mar/2025:15:26:54 +0000] "GET /api/v1/notifications HTTP/1.1" 401 77 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-18T15:26:54.647Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [18/Mar/2025:15:26:54 +0000] "GET /api/v1/auth/refresh-token HTTP/1.1" 404 44 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-18T15:27:02.104Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [18/Mar/2025:15:27:02 +0000] "POST /api/v1/auth/google-signin HTTP/1.1" 200 650 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-18T15:27:02.361Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [18/Mar/2025:15:27:02 +0000] "GET /api/v1/notifications HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-18T15:27:25.711Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [18/Mar/2025:15:27:25 +0000] "POST /api/v1/drivers HTTP/1.1" 201 - "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-18T15:27:31.884Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [18/Mar/2025:15:27:31 +0000] "PUT /api/v1/drivers/update-step/vehicle HTTP/1.1" 200 752 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-18T15:27:43.014Z] [31MERROR[39M: Driver not found
+[2025-03-18T15:27:43.015Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [18/Mar/2025:15:27:43 +0000] "PUT /api/v1/drivers/update-step/undefined HTTP/1.1" 404 379 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-18T15:29:09.554Z] [31MERROR[39M: Driver not found
+[2025-03-18T15:29:09.555Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [18/Mar/2025:15:29:09 +0000] "PUT /api/v1/drivers/update-step/undefined HTTP/1.1" 404 379 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-18T15:30:00.210Z] [31MERROR[39M: Driver not found
+[2025-03-18T15:30:00.211Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [18/Mar/2025:15:30:00 +0000] "PUT /api/v1/drivers/update-step/undefined HTTP/1.1" 404 379 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-18T15:30:39.095Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-18T15:30:39.103Z] [32MINFO[39M: Redis Client Connected
+[2025-03-18T15:30:39.106Z] [32MINFO[39M: Redis Client Ready
+[2025-03-18T15:30:40.427Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-18T15:30:54.122Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-18T15:30:54.164Z] [32MINFO[39M: Redis Client Connected
+[2025-03-18T15:30:54.167Z] [32MINFO[39M: Redis Client Ready
+[2025-03-18T15:30:55.668Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-18T15:30:55.845Z] [31MERROR[39M: Driver not found
+[2025-03-18T15:30:55.848Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [18/Mar/2025:15:30:55 +0000] "PUT /api/v1/drivers/update-step/undefined HTTP/1.1" 404 379 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-18T15:32:08.647Z] [31MERROR[39M: Driver not found
+[2025-03-18T15:32:08.648Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [18/Mar/2025:15:32:08 +0000] "PUT /api/v1/drivers/update-step/undefined HTTP/1.1" 404 379 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-18T15:33:22.320Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-18T15:33:22.325Z] [32MINFO[39M: Redis Client Connected
+[2025-03-18T15:33:22.327Z] [32MINFO[39M: Redis Client Ready
+[2025-03-18T15:33:23.651Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-18T15:33:25.347Z] [31MERROR[39M: Driver not found
+[2025-03-18T15:33:25.350Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [18/Mar/2025:15:33:25 +0000] "PUT /api/v1/drivers/update-step/undefined HTTP/1.1" 404 379 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-18T15:35:38.717Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [18/Mar/2025:15:35:38 +0000] "PUT /api/v1/drivers/update-step/documents HTTP/1.1" 200 651 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-18T15:37:26.617Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-18T15:37:26.623Z] [32MINFO[39M: Redis Client Connected
+[2025-03-18T15:37:26.625Z] [32MINFO[39M: Redis Client Ready
+[2025-03-18T15:37:28.128Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-18T15:37:37.667Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [18/Mar/2025:15:37:37 +0000] "GET /api/v1/notifications HTTP/1.1" 401 77 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-18T15:37:37.906Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [18/Mar/2025:15:37:37 +0000] "GET /api/v1/auth/refresh-token HTTP/1.1" 200 427 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-18T15:37:56.399Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [18/Mar/2025:15:37:56 +0000] "GET /api/v1/auth/sign-out HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-18T15:38:09.096Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [18/Mar/2025:15:38:09 +0000] "POST /api/v1/auth/google-signup HTTP/1.1" 201 720 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-18T15:38:09.276Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [18/Mar/2025:15:38:09 +0000] "GET /api/v1/notifications HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-18T15:43:43.154Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-18T15:43:43.160Z] [32MINFO[39M: Redis Client Connected
+[2025-03-18T15:43:43.162Z] [32MINFO[39M: Redis Client Ready
+[2025-03-18T15:43:44.594Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-18T15:52:23.644Z] [31MERROR[39M: Path `personalInfo.phoneNumber` is invalid (+21-234-232).
+[2025-03-18T15:52:23.647Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [18/Mar/2025:15:52:23 +0000] "POST /api/v1/drivers HTTP/1.1" 400 915 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-18T15:52:37.260Z] [31MERROR[39M: Path `personalInfo.phoneNumber` is invalid (+12-234-232).
+[2025-03-18T15:52:37.261Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [18/Mar/2025:15:52:37 +0000] "POST /api/v1/drivers HTTP/1.1" 400 915 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-18T15:52:50.370Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [18/Mar/2025:15:52:50 +0000] "POST /api/v1/drivers HTTP/1.1" 201 621 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-18T15:52:56.982Z] [31MERROR[39M: Driver not found
+[2025-03-18T15:52:56.983Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [18/Mar/2025:15:52:56 +0000] "PUT /api/v1/drivers/update-step/vehicle HTTP/1.1" 404 379 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"

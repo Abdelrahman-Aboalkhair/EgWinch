@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import OnboardingLayout from "@/app/components/templates/OnboardingLayout";
 import { useAppDispatch, useAppSelector } from "@/app/store/hooks";
 import Button from "@/app/components/atoms/Button";
 import { updateStep } from "@/app/store/slices/BookingSlice";

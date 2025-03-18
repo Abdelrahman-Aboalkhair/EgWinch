@@ -15,15 +15,11 @@ class DriverService {
   }
 
   static async updateOnboardingStep(step, data) {
-    console.log("data: ", data);
-
     const driver = await Driver.findById(data.driverId);
     if (!driver) throw new AppError(404, "Driver not found");
 
-    const updatedDocuments = [...(driver.documents || []), ...data.documents];
-
     driver.vehicleInfo = data.vehicleInfo;
-    driver.documents = updatedDocuments;
+    driver.documents = data.documents;
     driver.onboardingStep = step;
 
     await driver.save();

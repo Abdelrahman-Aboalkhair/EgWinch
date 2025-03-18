@@ -19,29 +19,39 @@ const DriverDocuments = () => {
   });
 
   const dispatch = useAppDispatch();
-  const { step } = useAppSelector((state) => state.driver);
-  const [submitDocuments, { data, error, isLoading }] = useUpdateStepMutation();
+  const { step, id } = useAppSelector((state) => state.driver);
+  const [submitDocuments, { error, isLoading }] = useUpdateStepMutation();
 
-  const handleSubmitDocuments = async (data) => {
+  if (error) {
+    console.log("error: ", error);
+  }
+
+  const handleSubmitDocuments = async (formDataValues) => {
     const formData = new FormData();
     formData.append("step", "documents");
-    formData.append("driverId", driverId);
+    formData.append("driverId", id);
 
-    // Append multiple files
-    data.documents.forEach((file) => {
-      formData.append("documents", file);
-    });
+    if (formDataValues.licenseImage?.[0])
+      formData.append("licenseImage", formDataValues.licenseImage[0]);
+    if (formDataValues.profilePicture?.[0])
+      formData.append("profilePicture", formDataValues.profilePicture[0]);
+    if (formDataValues.vehicleImage?.[0])
+      formData.append("vehicleImage", formDataValues.vehicleImage[0]);
+
+    console.log("FormData before sending:");
+    for (const [key, value] of formData.entries()) {
+      console.log(`${key}:`, value);
+    }
 
     try {
-      const response = await fetch("/api/update-step/documents", {
-        method: "PATCH",
-        body: formData,
-      });
-
-      const result = await response.json();
-      console.log("Success:", result);
+      await submitDocuments({
+        step: "documents",
+        driverId: id,
+        data: formData,
+      }).unwrap();
+      dispatch(updateStep(step + 1));
     } catch (error) {
-      console.error("Error:", error);
+      console.error("Documents submission error:", error);
     }
   };
 

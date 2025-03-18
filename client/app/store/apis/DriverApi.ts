@@ -11,11 +11,15 @@ export const driverApi = apiSlice.injectEndpoints({
     }),
 
     updateStep: builder.mutation({
-      query: ({ step, driverId, data }) => ({
-        url: `/drivers/update-step/${step}`,
-        method: "PATCH",
-        body: { driverId, ...data },
-      }),
+      query: ({ step, driverId, data }) => {
+        console.log("Submitting updateStep with:", { step, driverId, data });
+
+        return {
+          url: `/drivers/update-step/${step}`,
+          method: "PUT",
+          body: data,
+        };
+      },
     }),
 
     updateApplicationStatus: builder.mutation({

@@ -100,6 +100,8 @@ const FileInput: React.FC<FileInputProps> = ({
                           <Image
                             src={URL.createObjectURL(file)}
                             alt={file.name}
+                            width={48}
+                            height={48}
                             className="w-12 h-12 object-cover rounded-lg border"
                           />
                         )}

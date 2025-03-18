@@ -1,6 +1,7 @@
 const DriverService = require("./driver.service");
 const asyncHandler = require("../../utils/asyncHandler");
 const sendResponse = require("../../utils/sendResponse");
+const uploadImage = require("../../utils/uploadImage");
 
 exports.startOnboarding = asyncHandler(async (req, res) => {
   const { userId } = req.user;
@@ -14,11 +15,26 @@ exports.startOnboarding = asyncHandler(async (req, res) => {
 });
 
 exports.updateStep = asyncHandler(async (req, res) => {
-  const { step } = req.params;
+  console.log("req.files: ", req.files);
   console.log("req.body: ", req.body);
-  console.log("req.files: ", req.files); // Log uploaded files
+  const { step } = req.params;
+  let documentUrls = {};
 
-  const documentUrls = req.files.map((file) => file.path);
+  if (req.files) {
+    const fileFields = ["profilePicture", "licenseImage", "vehicleImage"];
+
+    for (const field of fileFields) {
+      if (req.files[field]) {
+        const filePath = req.files[field][0].path;
+        const uploadResult = await uploadImage(filePath);
+        console.log("uploadResult: ", uploadResult);
+        documentUrls[field] = {
+          secure_url: uploadResult.secure_url,
+          public_id: uploadResult.public_id,
+        };
+      }
+    }
+  }
 
   const updateData = {
     ...req.body,
