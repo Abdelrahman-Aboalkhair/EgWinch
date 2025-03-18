@@ -7,6 +7,7 @@ export interface User {
     secure_url: string;
   };
   emailVerified: boolean;
+  permissions: string[];
 }
 
 export interface AuthState {

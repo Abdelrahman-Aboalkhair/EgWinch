@@ -1,7 +1,7 @@
 import FileInput from "@/app/components/atoms/FileInput";
 import { useUpdateStepMutation } from "@/app/store/apis/DriverApi";
 import { useAppDispatch, useAppSelector } from "@/app/store/hooks";
-import { updateStep } from "@/app/store/slices/DriverSlice";
+import { updateDocuments, updateStep } from "@/app/store/slices/DriverSlice";
 import { MoveLeft, MoveRight } from "lucide-react";
 import { useForm } from "react-hook-form";
 
@@ -44,11 +44,13 @@ const DriverDocuments = () => {
     }
 
     try {
-      await submitDocuments({
+      const result = await submitDocuments({
         step: "documents",
         driverId: id,
         data: formData,
       }).unwrap();
+      console.log("result documents: ", result);
+      dispatch(updateDocuments(result.resoponse.documents));
       dispatch(updateStep(step + 1));
     } catch (error) {
       console.error("Documents submission error:", error);

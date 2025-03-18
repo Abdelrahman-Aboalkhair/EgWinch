@@ -17,7 +17,7 @@ export const driverApi = apiSlice.injectEndpoints({
         return {
           url: `/drivers/update-step/${step}`,
           method: "PUT",
-          body: data,
+          body: { ...data },
         };
       },
     }),

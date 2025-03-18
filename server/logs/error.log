@@ -218,3 +218,16 @@
 [2025-03-18T19:28:20.021Z] [31MERROR[39M: License must not be expired, Path `personalInfo.phoneNumber` is invalid (+234-234-234).
 [2025-03-18T19:28:27.131Z] [31MERROR[39M: License must not be expired, Path `personalInfo.phoneNumber` is invalid (+123-234-234).
 [2025-03-18T19:28:39.529Z] [31MERROR[39M: Path `personalInfo.phoneNumber` is invalid (+123-234-234).
+[2025-03-18T22:21:40.537Z] [31MERROR[39M: Driver not found
+[2025-03-18T22:22:43.091Z] [31MERROR[39M: Driver not found
+[2025-03-18T22:23:28.046Z] [31MERROR[39M: Driver not found
+[2025-03-18T22:46:49.936Z] [31MERROR[39M: License must not be expired
+[2025-03-18T22:47:11.458Z] [31MERROR[39M: Driver not found
+[2025-03-18T22:48:01.938Z] [31MERROR[39M: Driver not found
+[2025-03-18T22:52:25.774Z] [31MERROR[39M: Driver not found
+[2025-03-18T22:55:45.298Z] [31MERROR[39M: Driver not found
+[2025-03-18T22:56:12.127Z] [31MERROR[39M: Driver not found
+[2025-03-18T23:00:27.557Z] [31MERROR[39M: License must not be expired
+[2025-03-18T23:00:50.511Z] [31MERROR[39M: Driver not found
+[2025-03-18T23:01:40.687Z] [31MERROR[39M: Driver not found
+[2025-03-18T23:05:25.756Z] [31MERROR[39M: Driver not found

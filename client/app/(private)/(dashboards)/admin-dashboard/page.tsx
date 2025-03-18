@@ -12,9 +12,9 @@ import {
   Clock,
   DollarSign,
 } from "lucide-react";
-import StatsCard from "./StatsCard";
+import StatsCard from "../StatsCard";
 
-const Dashboard = () => {
+const AdminDashboard = () => {
   const { user } = useAppSelector((state) => state.auth);
   const { data, isLoading } = useGetUserBookingsQuery({});
 
@@ -29,7 +29,7 @@ const Dashboard = () => {
     userRole === "driver" ? data?.totalEarnings || 1200 : null;
 
   return (
-    <ProtectedRoute>
+    <ProtectedRoute requiredRoles={["admin", "super-admin"]}>
       <motion.div
         className="p-6 bg-gray-50 min-h-[30vh] flex flex-col items-center justify-center"
         initial={{ opacity: 0, y: -20 }}
@@ -42,7 +42,7 @@ const Dashboard = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.4 }}
         >
-          Dashboard Overview
+          AdminDashboard Overview
         </motion.h1>
 
         {isLoading ? (
@@ -68,7 +68,6 @@ const Dashboard = () => {
               },
             }}
           >
-            {/* Completed Bookings */}
             <StatsCard
               title="Completed Bookings"
               value={completedBookings}
@@ -76,7 +75,6 @@ const Dashboard = () => {
               bgColor="bg-green-600"
             />
 
-            {/* Canceled Bookings */}
             <StatsCard
               title="Canceled Bookings"
               value={canceledBookings}
@@ -84,7 +82,6 @@ const Dashboard = () => {
               bgColor="bg-red-600"
             />
 
-            {/* Pending Bookings */}
             <StatsCard
               title="Pending Bookings"
               value={pendingBookings}
@@ -92,7 +89,6 @@ const Dashboard = () => {
               bgColor="bg-yellow-600"
             />
 
-            {/* Total Offers */}
             <StatsCard
               title={
                 userRole === "driver"
@@ -104,7 +100,6 @@ const Dashboard = () => {
               bgColor="bg-primary"
             />
 
-            {/* Total Bookings (Only for Drivers) */}
             {userRole === "driver" && (
               <StatsCard
                 title="Total Bookings"
@@ -114,7 +109,6 @@ const Dashboard = () => {
               />
             )}
 
-            {/* Total Earnings (Only for Drivers) */}
             {userRole === "driver" && (
               <StatsCard
                 title="Total Earnings"
@@ -130,4 +124,4 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard;
+export default AdminDashboard;

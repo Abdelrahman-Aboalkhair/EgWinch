@@ -34,12 +34,6 @@ const driverSlice = createSlice({
       console.log("action.payload: ", action.payload);
       state.id = action.payload;
     },
-    updateStatus: (state, action: PayloadAction<DriverState["status"]>) => {
-      state.status = action.payload;
-    },
-    setRejectionReason: (state, action: PayloadAction<string>) => {
-      state.rejectionReason = action.payload;
-    },
     updatePersonalInfo: (state, action: PayloadAction<PersonalInfo>) => {
       state.personalInfo = action.payload;
     },
@@ -48,21 +42,6 @@ const driverSlice = createSlice({
     },
     updateDocuments: (state, action: PayloadAction<Documents>) => {
       state.documents = action.payload;
-    },
-    updateLocation: (
-      state,
-      action: PayloadAction<{ coordinates: [number, number] }>
-    ) => {
-      state.location = action.payload;
-    },
-    toggleAvailability: (state, action: PayloadAction<boolean>) => {
-      state.isAvailable = action.payload;
-    },
-    resetDriverState: (state) => {
-      Object.assign(state, initialState);
-      if (typeof window !== "undefined") {
-        sessionStorage.removeItem("driverState");
-      }
     },
   },
 });
@@ -82,14 +61,9 @@ export const persistDriverStateMiddleware =
 export const {
   updateStep,
   setDriverId,
-  updateStatus,
-  setRejectionReason,
   updatePersonalInfo,
   updateVehicleInfo,
   updateDocuments,
-  updateLocation,
-  toggleAvailability,
-  resetDriverState,
 } = driverSlice.actions;
 
 export default driverSlice.reducer;

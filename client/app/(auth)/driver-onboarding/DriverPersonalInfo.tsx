@@ -3,8 +3,13 @@ import Dropdown from "@/app/components/molecules/Dropdown";
 import Input from "@/app/components/atoms/Input";
 import { Controller, useForm } from "react-hook-form";
 import { useStartOnboardingMutation } from "@/app/store/apis/DriverApi";
-import { setDriverId, updateStep } from "@/app/store/slices/DriverSlice";
+import {
+  setDriverId,
+  updatePersonalInfo,
+  updateStep,
+} from "@/app/store/slices/DriverSlice";
 import { useAppDispatch, useAppSelector } from "@/app/store/hooks";
+import { PersonalInfo } from "@/app/types/Driver.types";
 
 const DriverPersonalInfo = () => {
   const {
@@ -33,8 +38,7 @@ const DriverPersonalInfo = () => {
     console.error("Application start error:", error);
   }
 
-  const handleSubmitPersonalInfo = async (data) => {
-    console.log("data.dateOfBirth: ", data.dateOfBirth);
+  const handleSubmitPersonalInfo = async (data: PersonalInfo) => {
     const payload = {
       personalInfo: {
         phoneNumber: data.phoneNumber,
@@ -43,17 +47,18 @@ const DriverPersonalInfo = () => {
         gender: data.gender,
         experienceYears: Number(data.experienceYears),
         licenseInfo: {
-          number: data.licenseInfo.number,
-          expiry: data.licenseInfo.expiry,
+          number: data.licenseInfo?.number ?? "",
+          expiry: data.licenseInfo?.expiry ?? "",
         },
       },
     };
 
     try {
-      const res = await startOnboarding(payload).unwrap();
-      console.log("res: ", res);
-      dispatch(setDriverId(res.response._id));
+      const result = await startOnboarding(payload).unwrap();
+      console.log("result: ", result);
+      dispatch(setDriverId(result.response._id));
       dispatch(updateStep(2));
+      dispatch(updatePersonalInfo(result.response.personalInfo));
     } catch (error) {
       console.error("Personal Info submission error:", error);
     }

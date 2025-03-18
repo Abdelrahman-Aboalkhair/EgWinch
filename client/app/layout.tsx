@@ -18,7 +18,6 @@ const poppins = Poppins({
 
 export const metadata: Metadata = {
   title: "Egwinch",
-  viewport: "width=device-width, initial-scale=1",
   description:
     "Egwinch is a platform that connects you with trusted winch drivers, providing easy, stress-free moving solutions. Book your move or become a driver today!",
 };

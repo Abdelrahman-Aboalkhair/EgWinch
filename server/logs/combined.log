@@ -5037,3 +5037,70 @@
 [2025-03-18T19:28:27.131Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [18/Mar/2025:19:28:27 +0000] "POST /api/v1/drivers HTTP/1.1" 400 975 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
 [2025-03-18T19:28:39.529Z] [31MERROR[39M: Path `personalInfo.phoneNumber` is invalid (+123-234-234).
 [2025-03-18T19:28:39.530Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [18/Mar/2025:19:28:39 +0000] "POST /api/v1/drivers HTTP/1.1" 400 917 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-18T19:40:13.599Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [18/Mar/2025:19:40:13 +0000] "GET /api/v1/auth/refresh-token HTTP/1.1" 200 518 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-18T22:18:14.071Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-18T22:18:14.076Z] [32MINFO[39M: Redis Client Connected
+[2025-03-18T22:18:14.078Z] [32MINFO[39M: Redis Client Ready
+[2025-03-18T22:18:15.479Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-18T22:18:26.335Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [18/Mar/2025:22:18:26 +0000] "GET /api/v1/auth/refresh-token HTTP/1.1" 200 518 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-18T22:21:32.242Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [18/Mar/2025:22:21:32 +0000] "POST /api/v1/drivers HTTP/1.1" 201 627 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-18T22:21:40.537Z] [31MERROR[39M: Driver not found
+[2025-03-18T22:21:40.538Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [18/Mar/2025:22:21:40 +0000] "PUT /api/v1/drivers/update-step/vehicle HTTP/1.1" 404 379 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-18T22:22:43.091Z] [31MERROR[39M: Driver not found
+[2025-03-18T22:22:43.092Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [18/Mar/2025:22:22:43 +0000] "PUT /api/v1/drivers/update-step/vehicle HTTP/1.1" 404 379 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-18T22:23:28.046Z] [31MERROR[39M: Driver not found
+[2025-03-18T22:23:28.048Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [18/Mar/2025:22:23:28 +0000] "PUT /api/v1/drivers/update-step/vehicle HTTP/1.1" 404 379 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-18T22:23:58.337Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [18/Mar/2025:22:23:58 +0000] "PUT /api/v1/drivers/update-step/vehicle HTTP/1.1" 200 728 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-18T22:25:16.329Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [18/Mar/2025:22:25:16 +0000] "PUT /api/v1/drivers/update-step/documents HTTP/1.1" 200 - "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-18T22:32:23.554Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [18/Mar/2025:22:32:23 +0000] "GET /api/v1/auth/refresh-token HTTP/1.1" 200 522 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-18T22:40:41.544Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [18/Mar/2025:22:40:41 +0000] "GET /api/v1/auth/refresh-token HTTP/1.1" 200 522 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-18T22:40:58.440Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [18/Mar/2025:22:40:58 +0000] "GET /api/v1/auth/refresh-token HTTP/1.1" 200 522 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-18T22:46:17.019Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [18/Mar/2025:22:46:17 +0000] "GET /api/v1/auth/refresh-token HTTP/1.1" 200 522 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-18T22:46:49.936Z] [31MERROR[39M: License must not be expired
+[2025-03-18T22:46:49.938Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [18/Mar/2025:22:46:49 +0000] "POST /api/v1/drivers HTTP/1.1" 400 855 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-18T22:47:04.322Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [18/Mar/2025:22:47:04 +0000] "POST /api/v1/drivers HTTP/1.1" 201 628 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-18T22:47:11.458Z] [31MERROR[39M: Driver not found
+[2025-03-18T22:47:11.458Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [18/Mar/2025:22:47:11 +0000] "PUT /api/v1/drivers/update-step/vehicle HTTP/1.1" 404 379 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-18T22:48:01.938Z] [31MERROR[39M: Driver not found
+[2025-03-18T22:48:01.938Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [18/Mar/2025:22:48:01 +0000] "PUT /api/v1/drivers/update-step/vehicle HTTP/1.1" 404 379 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-18T22:48:19.652Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [18/Mar/2025:22:48:19 +0000] "GET /api/v1/auth/sign-out HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-18T22:49:06.458Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [18/Mar/2025:22:49:06 +0000] "POST /api/v1/auth/google-signup HTTP/1.1" 201 720 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-18T22:49:06.965Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [18/Mar/2025:22:49:06 +0000] "GET /api/v1/auth/refresh-token HTTP/1.1" 200 518 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-18T22:49:08.191Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [18/Mar/2025:22:49:08 +0000] "GET /api/v1/auth/refresh-token HTTP/1.1" 200 518 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-18T22:49:46.899Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [18/Mar/2025:22:49:46 +0000] "GET /api/v1/auth/refresh-token HTTP/1.1" 200 518 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-18T22:50:21.239Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [18/Mar/2025:22:50:21 +0000] "POST /api/v1/drivers HTTP/1.1" 201 629 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-18T22:51:43.894Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [18/Mar/2025:22:51:43 +0000] "GET /api/v1/auth/refresh-token HTTP/1.1" 200 522 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-18T22:52:17.727Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [18/Mar/2025:22:52:17 +0000] "POST /api/v1/drivers HTTP/1.1" 201 629 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-18T22:52:25.774Z] [31MERROR[39M: Driver not found
+[2025-03-18T22:52:25.775Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [18/Mar/2025:22:52:25 +0000] "PUT /api/v1/drivers/update-step/vehicle HTTP/1.1" 404 379 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-18T22:55:45.298Z] [31MERROR[39M: Driver not found
+[2025-03-18T22:55:45.298Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [18/Mar/2025:22:55:45 +0000] "PUT /api/v1/drivers/update-step/vehicle HTTP/1.1" 404 379 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-18T22:56:12.127Z] [31MERROR[39M: Driver not found
+[2025-03-18T22:56:12.127Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [18/Mar/2025:22:56:12 +0000] "PUT /api/v1/drivers/update-step/vehicle HTTP/1.1" 404 379 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-18T22:57:19.105Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [18/Mar/2025:22:57:19 +0000] "PUT /api/v1/drivers/update-step/vehicle HTTP/1.1" 200 732 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-18T22:57:30.467Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [18/Mar/2025:22:57:30 +0000] "PUT /api/v1/drivers/update-step/documents HTTP/1.1" 200 628 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-18T22:58:53.263Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [18/Mar/2025:22:58:53 +0000] "GET /api/v1/auth/refresh-token HTTP/1.1" 200 522 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-18T22:59:00.225Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [18/Mar/2025:22:59:00 +0000] "GET /api/v1/auth/sign-out HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-18T22:59:15.075Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [18/Mar/2025:22:59:15 +0000] "POST /api/v1/auth/google-signup HTTP/1.1" 201 720 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-18T22:59:16.815Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [18/Mar/2025:22:59:16 +0000] "GET /api/v1/auth/refresh-token HTTP/1.1" 200 518 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-18T22:59:21.873Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [18/Mar/2025:22:59:21 +0000] "GET /api/v1/auth/refresh-token HTTP/1.1" 200 518 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-18T23:00:27.557Z] [31MERROR[39M: License must not be expired
+[2025-03-18T23:00:27.557Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [18/Mar/2025:23:00:27 +0000] "POST /api/v1/drivers HTTP/1.1" 400 855 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-18T23:00:43.446Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [18/Mar/2025:23:00:43 +0000] "POST /api/v1/drivers HTTP/1.1" 201 637 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-18T23:00:50.511Z] [31MERROR[39M: Driver not found
+[2025-03-18T23:00:50.512Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [18/Mar/2025:23:00:50 +0000] "PUT /api/v1/drivers/update-step/vehicle HTTP/1.1" 404 379 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-18T23:01:40.687Z] [31MERROR[39M: Driver not found
+[2025-03-18T23:01:40.688Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [18/Mar/2025:23:01:40 +0000] "PUT /api/v1/drivers/update-step/vehicle HTTP/1.1" 404 379 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+[2025-03-18T23:05:18.284Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-18T23:05:18.291Z] [32MINFO[39M: Redis Client Connected
+[2025-03-18T23:05:18.294Z] [32MINFO[39M: Redis Client Ready
+[2025-03-18T23:05:19.849Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-18T23:05:22.197Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-18T23:05:22.238Z] [32MINFO[39M: Redis Client Connected
+[2025-03-18T23:05:22.241Z] [32MINFO[39M: Redis Client Ready
+[2025-03-18T23:05:23.476Z] [32MINFO[39M: Server is running on http://localhost:5000
+[2025-03-18T23:05:23.515Z] [32MINFO[39M: Redis Client Connected
+[2025-03-18T23:05:23.518Z] [32MINFO[39M: Redis Client Ready
+[2025-03-18T23:05:24.943Z] [32MINFO[39M: MongoDB connected successfully
+[2025-03-18T23:05:25.756Z] [31MERROR[39M: Driver not found
+[2025-03-18T23:05:25.758Z] [32MINFO[39M: ::ffff:172.18.0.1 - - [18/Mar/2025:23:05:25 +0000] "PUT /api/v1/drivers/update-step/vehicle HTTP/1.1" 404 379 "http://localhost:3000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"

@@ -56,32 +56,7 @@ const Navbar = () => {
           <span className="cursor-pointer">EgWinch</span>
         </Link>
       </div>
-      <div className="space-x-[4rem] text-[16px] ">
-        {isLoggedIn && (
-          <>
-            <Link
-              href="/driver-onboarding"
-              className={`${
-                pathname === "/driver-onboarding"
-                  ? "text-primary font-medium"
-                  : "text-gray-500"
-              }`}
-            >
-              Start Driving
-            </Link>
-            <Link
-              href="/bookings"
-              className={`${
-                pathname === "/bookings"
-                  ? "text-primary font-medium"
-                  : "text-gray-500"
-              }`}
-            >
-              Bookings
-            </Link>
-          </>
-        )}
-      </div>
+      <div className="space-x-[4rem] text-[16px] ">{isLoggedIn && <></>}</div>
       <div className="flex items-center gap-10">
         <div className="relative" ref={notificationRef}>
           {isLoggedIn && (
@@ -166,6 +141,10 @@ const Navbar = () => {
                 />
               )}
             </button>
+
+            <Link href="/driver-onboarding" className="font-medium">
+              Start Driving
+            </Link>
 
             {menuOpen && (
               <UserMenu

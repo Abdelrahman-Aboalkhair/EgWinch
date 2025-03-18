@@ -11,10 +11,10 @@ export interface PersonalInfo {
 }
 
 export interface VehicleInfo {
-  model?: string;
-  type?: "winch" | "tow truck" | "flatbed";
-  plateNumber?: string;
-  color?: string;
+  model: string;
+  type: "winch" | "tow truck" | "flatbed";
+  plateNumber: string;
+  color: string;
 }
 
 export interface Documents {

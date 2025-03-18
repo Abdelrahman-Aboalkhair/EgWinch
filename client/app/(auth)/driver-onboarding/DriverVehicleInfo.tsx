@@ -5,7 +5,8 @@ import { MoveLeft, MoveRight } from "lucide-react";
 import { Controller, useForm } from "react-hook-form";
 import { useUpdateStepMutation } from "@/app/store/apis/DriverApi";
 import { useAppDispatch, useAppSelector } from "@/app/store/hooks";
-import { updateStep } from "@/app/store/slices/DriverSlice";
+import { updateStep, updateVehicleInfo } from "@/app/store/slices/DriverSlice";
+import { VehicleInfo } from "@/app/types/Driver.types";
 
 const DriverVehicleInfo = () => {
   const {
@@ -14,9 +15,9 @@ const DriverVehicleInfo = () => {
     handleSubmit,
   } = useForm({
     defaultValues: {
-      vehicleType: "",
-      vehicleModel: "",
-      vehicleColor: "",
+      type: "",
+      model: "",
+      color: "",
       plateNumber: "",
     },
   });
@@ -27,15 +28,15 @@ const DriverVehicleInfo = () => {
   const [submitVehicleInfo, { error, isLoading }] = useUpdateStepMutation();
   if (error) console.log("error: ", error);
 
-  const handleSubmitVehicleInfo = async (data) => {
+  const handleSubmitVehicleInfo = async (data: VehicleInfo) => {
     const payload = {
       step: "vehicle",
       driverId: id,
       data: {
         vehicleInfo: {
-          type: data.vehicleType,
-          model: new Date(data.vehicleModel),
-          color: data.vehicleColor,
+          type: data.type,
+          model: new Date(data.model),
+          color: data.color,
           plateNumber: data.plateNumber,
         },
       },
@@ -43,8 +44,10 @@ const DriverVehicleInfo = () => {
     // +123-456-7890
 
     try {
-      await submitVehicleInfo(payload).unwrap();
+      const result = await submitVehicleInfo(payload).unwrap();
+      console.log("result: ", result);
       dispatch(updateStep(3));
+      dispatch(updateVehicleInfo(result.resoponse.vehicleInfo));
     } catch (error) {
       console.error("Vehicle info submission error:", error);
     }
@@ -69,7 +72,7 @@ const DriverVehicleInfo = () => {
       >
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <Controller
-            name="vehicleType"
+            name="type"
             control={control}
             render={({ field }) => (
               <Dropdown
@@ -80,11 +83,7 @@ const DriverVehicleInfo = () => {
             )}
           />
 
-          <DatePicker
-            name="vehicleModel"
-            control={control}
-            label="Vehicle Model"
-          />
+          <DatePicker name="model" control={control} label="Vehicle Model" />
 
           <Input
             name="plateNumber"
@@ -96,7 +95,7 @@ const DriverVehicleInfo = () => {
           />
 
           <Controller
-            name="vehicleColor"
+            name="color"
             control={control}
             render={({ field }) => (
               <Dropdown

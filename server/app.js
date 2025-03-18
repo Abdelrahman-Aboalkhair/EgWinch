@@ -30,6 +30,11 @@ const cookieOptions = require("./constants/cookieOptions.js");
 dotenv.config();
 const app = express();
 
+// Body Parsing & Cookies
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(cookieParser(process.env.COOKIE_SECRET, cookieOptions));
+
 // Security Middlewares
 app.use(helmet());
 app.use(
@@ -92,11 +97,6 @@ app.use(
   })
 );
 app.use(compression());
-
-// Body Parsing & Cookies
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-app.use(cookieParser(process.env.COOKIE_SECRET, cookieOptions));
 
 // Routes
 app.use("/api/v1/auth", authRoutes);
