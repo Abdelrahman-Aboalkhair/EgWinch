@@ -23,7 +23,7 @@ const Summary = () => {
         bookingId,
         step: "completed",
       });
-      router.push("/bookings");
+      router.push("/");
       showToast("Booking created successfully", "success");
     } catch (error) {
       console.error("Error updating step:", error);

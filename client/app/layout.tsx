@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import { Lato, Poppins } from "next/font/google";
+import { Cairo, Poppins } from "next/font/google";
 import "./globals.css";
 import StoreProvider from "./StoreProvider";
 import SessionWrapper from "./components/auth/SessionWrapper";
 
-const lato = Lato({
-  variable: "--font-lato",
+const cairo = Cairo({
+  variable: "--font-cairo",
   subsets: ["latin"],
   weight: ["400", "700"],
 });
@@ -29,7 +29,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${poppins.variable} ${lato.variable} antialiased`}>
+      <body className={`${poppins.variable} ${cairo.variable} antialiased`}>
         <StoreProvider>
           <SessionWrapper>{children}</SessionWrapper>
         </StoreProvider>

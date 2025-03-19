@@ -93,23 +93,23 @@ const Location = () => {
   );
 
   useEffect(() => {
-    if (savedPickup) {
-      setPickupAddress(savedPickup.address);
+    if (savedPickup && savedPickup.coordinates?.length >= 2) {
+      setPickupAddress(savedPickup.address || "");
       setPickup({
         lat: savedPickup.coordinates[1],
         lng: savedPickup.coordinates[0],
       });
       setValue("pickupFloorNumber", savedPickup.floorNumber || 1);
     }
-    if (savedDropoff) {
-      setDropoffAddress(savedDropoff.address);
+    if (savedDropoff && savedDropoff.coordinates?.length >= 2) {
+      setDropoffAddress(savedDropoff.address || "");
       setDropoff({
         lat: savedDropoff.coordinates[1],
         lng: savedDropoff.coordinates[0],
       });
+      setValue("dropoffFloorNumber", savedDropoff.floorNumber || 1);
     }
-    setValue("dropoffFloorNumber", savedDropoff.floorNumber || 1);
-  }, []);
+  }, [savedPickup, savedDropoff, setValue]);
 
   useEffect(() => {
     if (pickupAddress) {
@@ -150,8 +150,8 @@ const Location = () => {
       dispatch(updateStep(step + 1));
       dispatch(
         updateLocations({
-          pickup: res.data.pickupLocation,
-          dropoff: res.data.dropoffLocation,
+          pickup: res.data.booking.pickupLocation,
+          dropoff: res.data.booking.dropoffLocation,
         })
       );
     } catch (error) {

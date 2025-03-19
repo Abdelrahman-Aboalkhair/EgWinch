@@ -37,7 +37,7 @@ export default function SessionWrapper({
       }
     }
     if (isLoggedIn && skipRoutes.includes(pathname)) {
-      window.location.href = "/dashboard";
+      window.location.href = "/";
     }
   }, [isFetching, error, isLoggedIn, isLoading, dispatch, pathname]);
 

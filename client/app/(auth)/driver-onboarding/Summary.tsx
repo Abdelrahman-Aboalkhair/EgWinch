@@ -7,8 +7,9 @@ import { useUpdateStepMutation } from "@/app/store/apis/DriverApi";
 import { updateStep } from "@/app/store/slices/DriverSlice";
 
 const Summary = () => {
-  const { step, id, location, personalInfo, vehicleInfo, documents } =
-    useAppSelector((state) => state.driver);
+  const { step, id, personalInfo, vehicleInfo, documents } = useAppSelector(
+    (state) => state.driver
+  );
   const dispatch = useAppDispatch();
   const { showToast } = useToast();
   const router = useRouter();
@@ -18,8 +19,9 @@ const Summary = () => {
   const submitApplication = async () => {
     try {
       await updateDriverStep({
-        id,
         step: "completed",
+        driverId: id,
+        data: {},
       }).unwrap();
       router.push("/");
       showToast("You've successfully completed your application", "success");
@@ -175,20 +177,6 @@ const Summary = () => {
                 )}
               </p>
             </div>
-          </motion.div>
-
-          <motion.div
-            variants={itemVariants}
-            initial="hidden"
-            animate="visible"
-            className="bg-white p-5 rounded-lg shadow-sm border border-gray-200"
-          >
-            <h2 className="text-xl font-medium text-stone-700 mb-3">
-              Driver ID
-            </h2>
-            <p className="text-gray-600">
-              <strong>ID:</strong> {id || "N/A"}
-            </p>
           </motion.div>
         </div>
 

@@ -19,7 +19,7 @@ interface InputProps {
     lat: string;
     lon: string;
   }) => void;
-  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void; // ✅ Add this
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 const Input: React.FC<InputProps> = ({
@@ -36,7 +36,7 @@ const Input: React.FC<InputProps> = ({
   fetchSuggestions,
   suggestions = [],
   onSelectSuggestion,
-  onChange, // ✅ Receive it as a prop
+  onChange,
 }) => {
   const [showSuggestions, setShowSuggestions] = useState(false);
 
@@ -57,7 +57,7 @@ const Input: React.FC<InputProps> = ({
               rounded focus:outline-none focus:ring-[2px] focus:ring-lime-700 ${className}`}
             onChange={(e) => {
               field.onChange(e);
-              if (onChange) onChange(e); // ✅ Call external onChange
+              if (onChange) onChange(e);
               if (fetchSuggestions) fetchSuggestions(e.target.value);
             }}
             onFocus={() => setShowSuggestions(true)}

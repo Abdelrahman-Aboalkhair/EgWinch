@@ -8,6 +8,7 @@ import Table from "../../organisms/Table";
 import { useState } from "react";
 
 const BookingCard = ({ key, pickup, dropoff, items, services }) => {
+  console.log("pickup: ", pickup);
   const [showDetails, setShowDetails] = useState(false);
 
   const format = useFormatPrice();
@@ -64,10 +65,10 @@ const BookingCard = ({ key, pickup, dropoff, items, services }) => {
         <div className="flex items-center justify-between w-full gap-8 py-4">
           <div className="w-56 text-left">
             <h1
-              className="font-cairo font-semibold text-[16px] text-gray-700 leading-relaxed text-center
+              className="font-cairo font-medium text-[16px] text-gray-700 leading-relaxed text-center
        break-words "
             >
-              {pickup.address}
+              {pickup?.address}
             </h1>
           </div>
 
@@ -81,10 +82,10 @@ const BookingCard = ({ key, pickup, dropoff, items, services }) => {
 
           <div className="w-56 text-left">
             <h1
-              className="font-cairo font-semibold text-[16px] text-gray-700 leading-relaxed break-words text-center
+              className="font-cairo font-medium text-[16px] text-gray-700 leading-relaxed break-words text-center
        border-dashed "
             >
-              {dropoff.address}
+              {dropoff?.address}
             </h1>
           </div>
         </div>

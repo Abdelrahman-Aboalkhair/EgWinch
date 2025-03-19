@@ -50,7 +50,7 @@ const DriverDocuments = () => {
         data: formData,
       }).unwrap();
       console.log("result documents: ", result);
-      dispatch(updateDocuments(result.resoponse.documents));
+      dispatch(updateDocuments(result.response.documents));
       dispatch(updateStep(step + 1));
     } catch (error) {
       console.error("Documents submission error:", error);
